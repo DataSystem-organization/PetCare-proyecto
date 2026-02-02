@@ -369,6 +369,20 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 
 ## 3.2 Atributos
 
+- **Mascota:**
+
+| Llave | Atributo | Tipo de dato | Descripción |
+| --- | --- | --- | --- |
+| PK | id_mascota | int | Identificador único de la mascota |
+| | nombre | varchar | Registro del nombre de la mascota |
+| | especie | varchar | Tipo de animal (perro, gato, ave, etc.) |
+| | raza | varchar | Raza de la mascota |
+| | sexo | varchar | Identifica el género de la mascota |
+| | fecha_nacimiento | datetime | Fecha de nacimiento de la mascota |
+| | peso | decimal | Peso de la mascota en kilogramos |
+| | fecha_registro | datetime | Fecha y hora en que la mascota fue registrada en el sistema |
+| FK | id_dueño | int | Identificador del dueño asociado |
+
 ## 3.3 Enfoque relacional
 
 ### 3.3.1 Diagrama entidad-relación lógico
@@ -397,3 +411,4 @@ Ballarin, C. (2019). Casi la mitad de hogares peruanos tienen una mascota. *Kant
 
 
 Enlace del repositorio en GitHub: [https://github.com/DataSystem-organization/PetCare-proyecto/tree/main](https://github.com/DataSystem-organization/PetCare-proyecto/tree/main)
+
