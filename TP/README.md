@@ -103,7 +103,7 @@ Febrero, 2026
 | Criterio específico | Acciones realizadas | Conclusiones |
 | :--- | :--- | :--- |
 | Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de ingeniería de software. | *Mitma Ayala, Cielo Anahí*<br> TB1:<br>Redaccion del Startup.<br>Realización de una entrevista.<br>Elaboración de 3 User Stories.<br> TP:<br> TB2:<br> TF:<br> <br>*Quispe Flores, Judith Xiomara*<br> TB1:<br>Desarrollo de la herramienta de gestión 5W y 2H.<br>Realización de una entrevista.<br>Elaboración de 3 User Stories.<br> TP:<br> TB2:<br> TF:<br> <br>*Riveros Vera, Jennifer Yamilet*<br> TB1:<br>Desarrollo de Lean UX Canvas para evidenciar la propuesta de valor.<br>Realización de una entrevista.<br>Elaboración de 3 User Stories<br> TP:<br> TB2:<br> TF:<br> <br>*Tintayo Pujaico, Adriano Martín*<br> TB1:<br>Descripción de los segmentos objetivos.<br>Realización de una entrevista.<br>Elaboración de 3 User Stories.<br>TP:<br> TB2:<br> TF:<br> <br>*Vergaray Calderon, Rose Almendra*<br> TB1:<br>Elaboración del diseño de entrevistas.<br>Redacción del análisis de entrevistas.<br> TP:<br> TB2:<br> TF:<br> | TB1:<br> - Se identificó el problema mediante entrevistas sobre la desactualización de inventario por ventas y la necesidad de seguimiento preventivo.<br> - Se evidenciaron problemas sobre el manejo de la información en algunas veterinarias, como la gestión eficiente de múltiples mascotas.<br> - Se reconocieron problemas acerca de la eficiencia y precisión en los registros historiales, lo cual perjudica la atención de la clínica. |
-| Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de soluciones de ingeniería de software. | *Mitma Ayala, Cielo Anahí*<br> TB1:<br><br> TP:<br> TB2:<br> TF:<br> <br>*Quispe Flores, Judith Xiomara*<br> TB1:<br>.<br> TP:<br> TB2:<br> TF:<br> <br>*Riveros Vera, Jennifer Yamilet*<br> TB1:<br><br> TP:<br> TB2:<br> TF:<br> <br>*Tintayo Pujaico, Adriano Martín*<br> TB1:<br><br>TP:<br> TB2:<br> TF:<br> <br>*Vergaray Calderon, Rose Almendra*<br> TB1:<br><br> TP:<br> TB2:<br> TF:<br> | TB1:<br>  |
+| Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de soluciones de ingeniería de software. | *Mitma Ayala, Cielo Anahí*<br> TB1:<br>Apliqué lo aprendido en otro curso para el desarrollo de los user stories y en que se basa la descripción de la startup<br> TP:<br> TB2:<br> TF:<br> <br>*Quispe Flores, Judith Xiomara*<br> TB1:<br>Conocimiento adquirido de otros cursos, como el uso de User Stories y la herramienta 5W y 2H.<br> TP:<br> TB2:<br> TF:<br> <br>*Riveros Vera, Jennifer Yamilet*<br> TB1:<br>Se hizo revision a la redaccion de las User Stories y saber sus necesidades mediante entrevista.<br>Aplicar feedback y ciclo de mejora mediante los requisitos.<br> TP:<br> TB2:<br> TF:<br> <br>*Tintayo Pujaico, Adriano Martín*<br> TB1:<br>Definición de los tipos de segmentos objetivos para la realización del proyecto.<br>TP:<br> TB2:<br> TF:<br> <br>*Vergaray Calderon, Rose Almendra*<br> TB1:<br>Integración de los hallazgos de entrevistas en análisis.<br> TP:<br> TB2:<br> TF:<br> | TB1:<br>  |
 
 <div style="page-break-after: always"></div>
 
@@ -363,6 +363,10 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 
 ## 3.1 Entidades
 
+- **Mascota:**
+
+- 
+
 ## 3.2 Atributos
 
 ## 3.3 Enfoque relacional
@@ -390,5 +394,6 @@ Gadgerss. (2025). Las tres principales brechas tecnológicas que frenan a las My
 Ballarin, C. (2019). Casi la mitad de hogares peruanos tienen una mascota. *Kantar.* [https://www.kantar.com/latin-america/inspiracion/consumo-masivo/hogares-con-mascotas](https://www.kantar.com/latin-america/inspiracion/consumo-masivo/hogares-con-mascotas)
 
 # ANEXOS
+
 
 Enlace del repositorio en GitHub: [https://github.com/DataSystem-organization/PetCare-proyecto/tree/main](https://github.com/DataSystem-organization/PetCare-proyecto/tree/main)
