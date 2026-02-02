@@ -369,7 +369,8 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 
 ## 3.2 Atributos
 
-- **Mascota:**
+| Mascota |
+| --- |
 
 | Llave | Atributo | Tipo de dato | Descripción |
 | --- | --- | --- | --- |
@@ -382,6 +383,275 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 | | peso | decimal | Peso de la mascota en kilogramos |
 | | fecha_registro | datetime | Fecha y hora en que la mascota fue registrada en el sistema |
 | FK | id_dueño | int | Identificador del dueño asociado |
+
+| Dueño |
+| --- |
+
+| Llave | Atributo | Tipo de dato | Descripción |
+| --- | --- | --- | --- |
+| PK | id_dueño | int | Identificador único del dueño |
+| | nombres | varchar | Registro de los nombres completos del dueño |
+| | apellidos | varchar | Registro de los apellidos completos del dueño |
+| | tipo_documento | varchar | Tipo de documento de identidad (DNI, CE, Pasaporte) |
+| | numero_documento | varchar | Número del documento de identidad |
+| | telefono | varchar | Número telefónico del dueño |
+| | email | varchar | Correo electrónico del dueño |
+| | direccion | varchar | Ubicación del domicilio del dueño |
+
+| Contacto_emergencia |
+| --- |
+
+| Llave | Atributo | Tipo de dato | Descripción |
+| --- | --- | --- | --- |
+| PK | id_contacto | int | Identificador único del contacto de emergencia |
+| | nombres | varchar | Registro de los nombres completos del contacto de emergencia |
+| | apellidos | varchar | Registro de los apellidos completos del contacto de emergencia |
+| | telefono | varchar | Número telefónico del contacto de emergencia |
+| | relacion | varchar | Relación con el dueño de la mascota |
+| FK | id_mascota | int | Identificador de la mascota asociada |
+
+| Veterinario |
+| --- |
+
+| Llave | Atributo | Tipo de dato | Descripción |
+| --- | --- | --- | --- |
+| PK | id_veterinario | int | Identificador único del veterinario |
+| | nombres | varchar | Registro de los nombres completos del veterinario |
+| | apellidos | varchar | Registro de los apellidos completos del veterinario |
+| | colegiatura | varchar | Número de colegiatura del Colegio Médico Veterinario del Perú |
+| | telefono | varchar | Número telefónico del veterinario |
+| | email | varchar | Correo electrónico profesional del veterinario |
+| | estado | varchar | Indica si el veterinario está activo o inactivo en la veterinaria |
+| | fecha_registro | datetime | Fecha de registro del veterinario en el sistema |
+| FK | id_sede | int | Sede donde trabaja el veterinario |
+
+| Personal_no_veterinario |
+| --- |
+
+| Llave | Atributo | Tipo de dato | Descripción |
+| --- | --- | --- | --- |
+| PK | id_personal | int | Identificador único del trabajador |
+| | nombres | varchar | Registro de los nombres completos del trabajador |
+| | apellidos | varchar | Registro de los apellidos completos del trabajador |
+| | rol | varchar | Función que desempeña en la veterinaria |
+| | telefono | varchar | Número telefónico del trabajador |
+| | email | varchar | Correo electrónico del trabajador |
+| | estado | varchar | Indica si el trabajador se encuentra activo |
+| | fecha_registro | datetime | Fecha de registro del trabajador en el sistema |
+| FK | id_sede | int | Sede donde trabaja |
+
+| Veterinaria |
+| --- |
+
+| Llave | Atributo | Tipo de dato | Descripción |
+| --- | --- | --- | --- |
+| PK | id_veterinaria | int | Identificador único del trabajador |
+| | nombre | varchar | Nombre oficial de la veterinaria |
+| | ruc | varchar | Número de RUC de la empresa |
+| | direccion_fiscal | varchar | Dirección fiscal de la veterinaria |
+| | telefono | varchar | Número telefónico principal de la veterinaria |
+| | email | varchar | Correo electrónico de la clínica veterinaria |
+| | estado | varchar | Indica si el estado actual de la empresa |
+| | fecha_registro | datetime | Fecha de registro de la empresa en el sistema |
+
+| Sede |
+| --- |
+
+| Llave | Atributo | Tipo de dato | Descripción |
+| --- | --- | --- | --- |
+| PK | id_sede | int | Identificador único de la sede |
+| | direccion | varchar | Ubicación física de la sede |
+| | telefono | varchar | Número telefónico de la sede |
+| | horario_atencion | varchar | Horario de atención de la sede |
+| | estado | varchar | Indica si la sede se encuentra activa |
+| | fecha_registro | datetime | Fecha de registro de la sede en el sistema |
+| FK | id_veterinaria | int | Veterinaria a la que pertenece la sede |
+
+| Área_clínica |
+| --- |
+
+| Llave | Atributo | Tipo de dato | Descripción |
+| --- | --- | --- | --- |
+| PK | id_area | int | Identificador único del área clínica |
+| | nombre | varchar | Nombre del área |
+| | descripcion | varchar | Detalle de uso o función del área |
+| | capacidad | int | Capacidad máxima de mascotas que puede atender simultáneamente |
+| FK | id_sede | int | Sede a la que pertenece el área clínica |
+
+| Especialidad |
+| --- |
+
+| Llave | Atributo | Tipo de dato | Descripción |
+| --- | --- | --- | --- |
+| PK | id_especialidad | int | Identificador único de la especialidad médica veterinaria |
+| | nombre | varchar | Nombre de la especialidad |
+| | descripcion | varchar | Descripción detallada de la especialidad |
+
+| Veterinario_especialidad |
+| --- |
+
+| Llave | Atributo | Tipo de dato | Descripción |
+| --- | --- | --- | --- |
+| PK<br>FK1 | id_veterinario | int | Identificador único de la mascota |
+| PK<br>FK2 | id_especialidad | varchar | Identificador único de la especialidad médica veterinaria |
+| | fecha_certificacion | datetime | Fecha en que obtuvo la especialidad |
+
+| Servicio |
+| --- |
+
+| Llave | Atributo | Tipo de dato | Descripción |
+| --- | --- | --- | --- |
+| PK | id_servicio | int | Identificador único del servicio ofrecido |
+| | nombre | varchar | Nombre del servicio |
+| | descripcion | varchar | Detalle de lo que incluye el servicio |
+| | costo | decimal | Precio del servicio |
+| FK | id_sede | int | Identificador de la sede donde se ofrece |
+
+| Cita |
+| --- |
+
+| Llave | Atributo | Tipo de dato | Descripción |
+| --- | --- | --- | --- |
+| PK | id_cita | int | Identificador único de la cita |
+| | fecha_hora | datetime | Fecha y hora programada para la cita |
+| | motivo | varchar | Razón de la cita |
+| | estado | varchar | Estado actual de la cita (programada, cancelada, atendida, no asistió) |
+| FK1 | id_mascota | int | Mascota que tendrá la cita |
+| FK2 | id_personal | int | Personal que agenda la cita (recepción) |
+
+| Consulta |
+| --- |
+
+| Llave | Atributo | Tipo de dato | Descripción |
+| --- | --- | --- | --- |
+| PK | id_consulta | int | Identificador único de la consulta |
+| | fecha_hora | datetime | Momento de la atención |
+| | observaciones | varchar | Detalles clínicos |
+| FK1 | id_cita | int | Cita que originó la consulta |
+| FK2 | id_veterinario | int | Médico veterinario que atendió |
+
+| Diagnostico |
+| --- |
+
+| Llave | Atributo | Tipo de dato | Descripción |
+| --- | --- | --- | --- |
+| PK | id_diagnostico | int | Identificador único del diagnostico |
+| | descripcion | varchar | Detalle de la condición médica identificada |
+| | fecha | datetime | Fecha en que se emitió el diagnóstico |
+| | gravedad | varchar | Nivel de gravedad |
+| FK | id_consulta | int | Consulta en la que se emitió el diagnóstico |
+
+| Examen |
+| --- |
+
+| Llave | Atributo | Tipo de dato | Descripción |
+| --- | --- | --- | --- |
+| PK | id_examen | int | Identificador único del examen |
+| | tipo | varchar | Tipo de examen (sangre, orina, rayos X, ecografía, etc.) |
+| | resultado | text | Fecha en que se emitió el diagnóstico |
+| | fecha_hora | datetime | Fecha y hora de la realización del examen |
+| FK | id_consulta | int | Consulta en la que se solicitó el examen |
+
+| Vacuna |
+| --- |
+
+| Llave | Atributo | Tipo de dato | Descripción |
+| --- | --- | --- | --- |
+| PK | id_vacuna | int | Identificador único de la vacuna |
+| | nombre | varchar | Nombre de la vacuna |
+| | descripcion | varchar | Enfermedad que previene |
+| | frecuencia | varchar | Cada cuanto tiempo se debe aplicar |
+
+| Mascota_vacuna |
+| --- |
+
+| Llave | Atributo | Tipo de dato | Descripción |
+| --- | --- | --- | --- |
+| PK<br>FK1 | id_mascota | int | Identificador único de la mascota |
+| PK<br>FK2 | id_vacuna | int | Identificador único de la vacuna |
+| | fecha_aplicacion | datetime | Fecha de la aplicación |
+| | proxima_dosis | datetime | Fecha estimada de la siguiente aplicación |
+| FK | id_consulta | int |Consulta donde se aplicó la vacuna |
+
+| Medicamento |
+| --- |
+
+| Llave | Atributo | Tipo de dato | Descripción |
+| --- | --- | --- | --- |
+| PK | id_medicamento | int | Identificador único del medicamento |
+| | nombre | varchar | Nombre del medicamento |
+| | descripcion | varchar | Función del medicamento |
+| | stock | int | Cantidad disponible |
+
+| Receta |
+| --- |
+
+| Llave | Atributo | Tipo de dato | Descripción |
+| --- | --- | --- | --- |
+| PK | id_receta | int | Identificador único de la receta |
+| | fecha | datetime | Fecha de emisión de la receta |
+| FK1 | id_consulta | int | Consulta en la que se generó la receta |
+| FK2 | id_veterinario | int | Veterinario que prescribió la receta |
+
+| Receta_medicamento |
+| --- |
+
+| Llave | Atributo | Tipo de dato | Descripción |
+| --- | --- | --- | --- |
+| PK<br>FK1 | id_receta | int | Identificador único de la receta |
+| PK<br>FK2 | id_medicamento | int | Identificador único del medicamento preescrito |
+| | dosis | varchar | Cantidad indicada por toma |
+| | frecuencia | varchar | Cada cuánto debe administrarse |
+| | duracion | varchar | Tiempo que debe durar el tratamiento |
+
+| Cirugía |
+| --- |
+
+| Llave | Atributo | Tipo de dato | Descripción |
+| --- | --- | --- | --- |
+| PK | id_cirugia | int | Identificador único de la cirugía |
+| | tipo | varchar | Tipo de procedimiento quirúrgico |
+| | fecha_hora | datetime | Fecha y hora de la cirugía |
+| | estado | varchar | Programada, realizada, cancelada |
+| FK1 | id_mascota | int | Identificador único de la mascota intervenida |
+| FK2 | id_veterinario | int | Identificador único del veterinario cirujano |
+| FK3 | id_area | int |Identificador único del área clínica (quirófano) |
+
+| Hospitalización |
+| --- |
+
+| Llave | Atributo | Tipo de dato | Descripción |
+| --- | --- | --- | --- |
+| PK | id_hospitalizacion | int | Identificador único  del registro de hospitalización |
+| | fecha_ingreso | datetime | Fecha y hora de ingreso |
+| | fecha_salida | datetime | Fecha y hora de alta |
+| | motivo | datetime | Razón de hospitalización |
+| FK1 | id_mascota | int | Identificador único de la mascota hospitalizada |
+| FK2 | id_area | int | Identificador único del área clínica (hospitalización) |
+
+| Movimiento_inventario |
+| --- |
+
+| Llave | Atributo | Tipo de dato | Descripción |
+| --- | --- | --- | --- |
+| PK | id_movimiento | int | Identificador único  del registro de movimiento de inventario |
+| | tipo_movimiento | varchar | Entrada o salida de inventario |
+| | cantidad | int | Cantidad de unidades movidas |
+| | fecha | datetime | Fecha del movimiento |
+| | motivo | varchar | Razón del movimiento |
+| FK1 | id_medicamento | int | Identificador único del medicamento afectado |
+| FK2 | id_veterianrio | int | Identificador único del veterinario que realizó o autorizó el uso |
+
+| Historial_clínico |
+| --- |
+
+| Llave | Atributo | Tipo de dato | Descripción |
+| --- | --- | --- | --- |
+| PK | id_historial | int | Identificador único  del historial clínico |
+| | fecha_registro | datetime | Fecha del registro clínico |
+| FK1 | id_mascota | int | Identificador único de la mascota a la que pertenece el historial |
+
+
 
 ## 3.3 Enfoque relacional
 
@@ -409,6 +679,6 @@ Ballarin, C. (2019). Casi la mitad de hogares peruanos tienen una mascota. *Kant
 
 # ANEXOS
 
-
 Enlace del repositorio en GitHub: [https://github.com/DataSystem-organization/PetCare-proyecto/tree/main](https://github.com/DataSystem-organization/PetCare-proyecto/tree/main)
+
 
