@@ -364,9 +364,30 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 ## 3.1 Entidades
 
 - **Mascota:**
-
-- 
-
+- **Dueño**
+- **Contacto_emergencia**
+- **Veterinario**
+- **Personal_no_veterinario**
+- **Veterinaria**
+- **Sede**
+- **Área_clínica**
+- **Especialidad**
+- **Veterinario_especialidad**
+- **Servicio**
+- **Cita**
+- **Consulta**
+- **Diagnostico**
+- **Examen**
+- **Vacuna**
+- **Mascota_vacuna**
+- **Medicamento**
+- **Receta**
+- **Receta_medicamento**
+- **Cirugía**
+- **Especialización**
+- **Movimiento_inventario**
+- **Historial_clinico**
+  
 ## 3.2 Atributos
 
 | Mascota |
@@ -684,3 +705,4 @@ Enlace del repositorio en GitHub: [https://github.com/DataSystem-organization/Pe
 
 
 <!-- cambio commit requisitos -->
+
