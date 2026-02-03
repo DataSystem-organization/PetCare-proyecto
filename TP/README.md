@@ -72,6 +72,10 @@ Febrero, 2026
 
 - [2.2 Requisitos](#22-requisitos)
 
+  - [2.2.1 Funcionales](#221-funcionales)
+ 
+  - [2.2.2 No funcionales](#222-no-funcionales)
+
 [CAPÍTULO III: DISEÑO DE BASE DE DATOS](#capítulo-iii-diseño-de-base-de-datos)
 
 - [3.1 Entidades](#31-entidades)
@@ -342,20 +346,24 @@ Desde la experiencia del usuario:
 
 A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinarias, se redactó las user stories principales.
 
-| User Story ID | Título | Descripción | Criterios de aceptación |
+### 2.2.1 Funcionales
+
+| User Story ID | Descripción | Criterios de aceptación | Prioridad |
 | --- | --- | --- | --- |
-| US01 | | Como dueño de mascota, quiero poder compartir temporalmente el historial clínico de mi mascota con otra persona de confianza, para que pueda atenderla en caso de emergencia cuando yo no esté disponible. |
-| US02 | | Como dueño de mascotas, quiero poder descargar o visualizar un resumen digital del estado de salud de mi mascota en la veterinaria atendida, para un control adecuado de información. | |
-| US03 | | Como dueño de mascota, quiero poder recibir recomendaciones preventivas personalizadas según la edad y el historial de mi mascota, para anticiparse a posibles problemas de salud. | |
-| US04 | | Como dueño de mascota, quiero poder registrar y acceder al historial clínico completo de mis mascotas, para evitar tener que repetir la información en cada consulta y asegurar que el veterinario tenga todos los antecedentes. | |
-| US05 | | Como dueño de mascota, quiero recibir notificaciones automáticas como recordatorios para próximas citas, vacunas o controles, para no olvidar los cuidados preventivos y mantener la salud de mi mascota al día. | |
-| US06 | | Como dueño de mascota, quiero poder gestionar y visualizar los perfiles e historiales médicos de cada uno de mis mascotas de manera clara y separada en un mismo sistema, para evitar confusiones y garantizar que cada una reciba el tratamiento y seguimiento correcto durante las visitas al veterinario. | |
-| US07 | | Como dueño de veterinaria, quiero registrar ventas y consumos de medicamentos por unidades y no solo cajas, para mantener un inventario exacto y evitar desactualizaciones. | |
-| US08 | | Como dueño de veterinaria, quiero ver el historial de movimientos de inventario (entradas, salidas, ajustes), para auditar el stock y corregir discrepancias. | |
-| US09 | | Como dueño de veterinaria, quiero consultar el historial preventivo de una mascota incluyendo las ultimas y próximas fechas recomendadas, para dar seguimiento sanitario. | |
-| US10 | | Como dueño de veterinaria, quiero contar con alertas o recordatorios automáticos sobre las consultas pendientes, para tener un seguimiento efectivo y evitar que la información se pierda. | |
-| US11 | | Como dueño de veterinaria, quiero llevar un seguimiento de los tratamientos, controles y vacunas de una manera ordenada, para evitar depender de las revisiones manuales. | |
-| US12 | | Como dueño de veterinaria quiero tener organizada la información de los clientes y la frecuencia de las visitas a la clínica, para mejorar la organización de los servicios veterinarios. | |
+| US01 | Como dueño de mascota, quiero poder compartir temporalmente el historial clínico de mi mascota con otra persona de confianza, para que pueda atenderla en caso de emergencia cuando yo no esté disponible. | | |
+| US02 | Como dueño de mascotas, quiero poder descargar o visualizar un resumen digital del estado de salud de mi mascota en la veterinaria atendida, para un control adecuado de información. | | |
+| US03 | Como dueño de mascota, quiero poder recibir recomendaciones preventivas personalizadas según la edad y el historial de mi mascota, para anticiparse a posibles problemas de salud. | | |
+| US04 | Como dueño de mascota, quiero poder registrar y acceder al historial clínico completo de mis mascotas, para evitar tener que repetir la información en cada consulta y asegurar que el veterinario tenga todos los antecedentes. | | |
+| US05 | Como dueño de mascota, quiero recibir notificaciones automáticas como recordatorios para próximas citas, vacunas o controles, para no olvidar los cuidados preventivos y mantener la salud de mi mascota al día. | | |
+| US06 | Como dueño de mascota, quiero poder gestionar y visualizar los perfiles e historiales médicos de cada uno de mis mascotas de manera clara y separada en un mismo sistema, para evitar confusiones y garantizar que cada una reciba el tratamiento y seguimiento correcto durante las visitas al veterinario. | | |
+| US07 | Como dueño de veterinaria, quiero registrar ventas y consumos de medicamentos por unidades y no solo cajas, para mantener un inventario exacto y evitar desactualizaciones. | | |
+| US08 | Como dueño de veterinaria, quiero ver el historial de movimientos de inventario (entradas, salidas, ajustes), para auditar el stock y corregir discrepancias. | | |
+| US09 | Como dueño de veterinaria, quiero consultar el historial preventivo de una mascota incluyendo las ultimas y próximas fechas recomendadas, para dar seguimiento sanitario. | | |
+| US10 | Como dueño de veterinaria, quiero contar con alertas o recordatorios automáticos sobre las consultas pendientes, para tener un seguimiento efectivo y evitar que la información se pierda. | | |
+| US11 | Como dueño de veterinaria, quiero llevar un seguimiento de los tratamientos, controles y vacunas de una manera ordenada, para evitar depender de las revisiones manuales. | | |
+| US12 | Como dueño de veterinaria quiero tener organizada la información de los clientes y la frecuencia de las visitas a la clínica, para mejorar la organización de los servicios veterinarios. | | |
+
+### 2.2.2 No funcionales
 
 <div style="page-break-after: always"></div>
 
@@ -705,4 +713,5 @@ Enlace del repositorio en GitHub: [https://github.com/DataSystem-organization/Pe
 
 
 <!-- cambio commit requisitos -->
+
 
