@@ -29,6 +29,10 @@ Febrero, 2026
 
 ## REGISTRO DE VERSIONES DEL INFORME
 
+**Tabla 1**
+
+*Registro de versiones del informe*
+
 | Versión | Fecha | Autor | Descripción de modificación |
 | :---: | :---: | :---: | :---: |
 | TB1 | 26/01/26 | - Mitma Ayala, Cielo Anahí<br>- Quispe Flores, Judith Xiomara<br>- Riveros Vera, Jennifer Yamilet<br>- Tintayo Pujaico, Adriano Martín<br>- Vergaray Calderon, Rose Almendra | CAPÍTULO I: Introducción<br>1.1 Startup Profile<br>1.1.1 Descripción del startup<br>1.1.2 Perfiles de integrantes del equipo<br>1.2 Solution Profile<br>1.2.1 Antecedentes y Problemática<br>1.2.2 Propuesta de Valor<br>1.3 Segmento Objetivo<br><br>CAPÍTULO II: Requeriments<br>2.1 Entrevistas<br>2.1.1 Diseño de entrevistas<br>2.1.2 Registro de entrevistas<br>2.1.3 Análisis de entrevistas<br>2.2 Requisitos |
@@ -104,6 +108,10 @@ Febrero, 2026
 
 ## STUDENT OUTCOME
 
+**Tabla 2**
+
+*Student outcome del equipo*
+
 | Criterio específico | Acciones realizadas | Conclusiones |
 | :--- | :--- | :--- |
 | Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de ingeniería de software. | *Mitma Ayala, Cielo Anahí*<br> TB1:<br>Redaccion del Startup.<br>Realización de una entrevista.<br>Elaboración de 3 User Stories.<br> TP:<br> TB2:<br> TF:<br> <br>*Quispe Flores, Judith Xiomara*<br> TB1:<br>Desarrollo de la herramienta de gestión 5W y 2H.<br>Realización de una entrevista.<br>Elaboración de 3 User Stories.<br> TP:<br> TB2:<br> TF:<br> <br>*Riveros Vera, Jennifer Yamilet*<br> TB1:<br>Desarrollo de Lean UX Canvas para evidenciar la propuesta de valor.<br>Realización de una entrevista.<br>Elaboración de 3 User Stories<br> TP:<br> TB2:<br> TF:<br> <br>*Tintayo Pujaico, Adriano Martín*<br> TB1:<br>Descripción de los segmentos objetivos.<br>Realización de una entrevista.<br>Elaboración de 3 User Stories.<br>TP:<br> TB2:<br> TF:<br> <br>*Vergaray Calderon, Rose Almendra*<br> TB1:<br>Elaboración del diseño de entrevistas.<br>Redacción del análisis de entrevistas.<br> TP:<br> TB2:<br> TF:<br> | TB1:<br> - Se identificó el problema mediante entrevistas sobre la desactualización de inventario por ventas y la necesidad de seguimiento preventivo.<br> - Se evidenciaron problemas sobre el manejo de la información en algunas veterinarias, como la gestión eficiente de múltiples mascotas.<br> - Se reconocieron problemas acerca de la eficiencia y precisión en los registros historiales, lo cual perjudica la atención de la clínica. |
@@ -120,6 +128,10 @@ Febrero, 2026
 Somos DataSystem, un equipo conformado por estudiantes de la Universidad Peruana de Ciencias Aplicadas (UPC) de la rama de Informática, apasionados por la tecnología y comprometidos con el dominio y la gestión eficiente de grandes volúmenes de datos, con el objetivo de resolver problemas computacionales reales mediante soluciones bien estructuradas. Nuestra misión es desarrollar bases de datos relacionales y no relacionales sólidas, coherentes y confiables, que permitan a las empresas organizar su información de manera clara y segura, mientras que nuestra visión es consolidarnos como una empresa líder en la creación de bases de datos escalables para compañías de gran tamaño y alta demanda en el mercado. Nuestro proyecto principal está enfocado en la veterinaria Pet Care, una empresa de preferencia del público por su organización y calidad de atención, para la cual diseñamos una base de datos que gestiona de forma eficiente el historial clínico de las mascotas, la cartera de clientes, la frecuencia de visitas y consultas, permitiendo identificar clientes frecuentes y aplicar descuentos por fidelización. Gracias a esta solución, veterinarios y asistentes pueden acceder a la información médica de los pacientes de manera ordenada y confiable, evitando datos duplicados, inconsistencias o información sin contexto, lo que reduce el estrés operativo y mejora significativamente la atención médica.
 
 ### 1.1.2 Perfiles de integrantes del equipo
+
+**Tabla 3**
+
+*Perfiles de integrantes del equipo*
 
 | Integrantes | Descripción |
 | :--- | :--- |
@@ -210,6 +222,10 @@ Según un estudio de Kantar, casi el 50% de hogares peruanos cuenta con al menos
 
 ### 2.1.2 Registro de entrevistas
 
+**Tabla 4**
+
+*Registro de la entrevista 1 - Segmento objetivo 1*
+
 | Segmento #1 | Entrevista #1 |
 | --- | --- |
 | Nombre completo | Marisol Sequeiros |
@@ -220,6 +236,10 @@ Según un estudio de Kantar, casi el 50% de hogares peruanos cuenta con al menos
 | Enlace | [Entrevista#1](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c201_upc_edu_pe/IQC6IzB_vTO6SrUgnXXmLQ4HAeTPB1Yi0RFPsskqM_6gEDM?e=EAjD1d) |
 | Resumen | Dra. Marisol nos comenta que principalmente utiliza registros físicos y algunos archivos Excel, los seguimientos de los historiales se hacen manualmente lo cual no es preciso ni eficiente, además contando con problemas tales como: duplicidad de registros de una misma mascota, datos incompletos e información desactualizada. |
 | Foto | ![Entrevista1](images/entrevista1.png) |
+
+**Tabla 5**
+
+*Registro de la entrevista 2 - Segmento objetivo 1*
 
 | Segmento #1 | Entrevista #2 |
 | --- | --- |
@@ -232,6 +252,10 @@ Según un estudio de Kantar, casi el 50% de hogares peruanos cuenta con al menos
 | Resumen | Dr. Irwin utiliza un sistema Vetpraxis, menciona que tiene un problema de inventario por que a veces llevar la cuenta exacta porque a veces se desactualiza en el sistema, porque a veces lo venden por varias cantidades de pastillas. |
 | Foto | ![Entrevista2](images/entrevista2.png)  |
 
+**Tabla 6**
+
+*Registro de la entrevista 3 - Segmento objetivo 2*
+
 | Segmento #2 | Entrevista #3 |
 | --- | --- |
 | Nombre completo | Diego Alhuay Espino |
@@ -242,6 +266,10 @@ Según un estudio de Kantar, casi el 50% de hogares peruanos cuenta con al menos
 | Enlace | [Entrevista#3](https://youtu.be/IFqXw6di1-M?si=rLDN6Omv5FypVZ13) |
 | Resumen | Diego es estudiante universitario y dueño de un perro de 3 años. Lleva a su mascota al veterinario cada dos meses para baños y control de vacunas y salud. No ha cambiado de veterinaria con su mascota actual, aunque sí lo hizo antes por motivos de distancia. Señala que, en general, el historial clínico de su mascota está registrado, pero en una ocasión le repitieron una pregunta sobre una vacuna ya aplicada, lo que le generó incomodidad y fastidio. Considera muy importante contar con un registro ordenado y completo del historial clínico. Le gustaría poder consultar los chequeos y vacunas pendientes mediante una página web o recibir recordatorios por parte de la veterinaria. |
 | Foto | ![Entrevista3](images/entrevista3.png)  |
+
+**Tabla 7**
+
+*Registro de la entrevista 4 - Segmento objetivo 2*
 
 | Segmento #2 | Entrevista #4 |
 | --- | --- |
@@ -348,22 +376,70 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 
 ### 2.2.1 Funcionales
 
+**Tabla 8**
+
+*Historias de usuario del módulo de historial clínico y perfiles de mascota*
+
+**| Grupo Funcional: Historial clínico y perfiles de mascota |**
 | User Story ID | Descripción | Criterios de aceptación | Prioridad |
 | --- | --- | --- | --- |
-| US01 | Como dueño de mascota, quiero poder compartir temporalmente el historial clínico de mi mascota con otra persona de confianza, para que pueda atenderla en caso de emergencia cuando yo no esté disponible. | | |
-| US02 | Como dueño de mascotas, quiero poder descargar o visualizar un resumen digital del estado de salud de mi mascota en la veterinaria atendida, para un control adecuado de información. | | |
-| US03 | Como dueño de mascota, quiero poder recibir recomendaciones preventivas personalizadas según la edad y el historial de mi mascota, para anticiparse a posibles problemas de salud. | | |
-| US04 | Como dueño de mascota, quiero poder registrar y acceder al historial clínico completo de mis mascotas, para evitar tener que repetir la información en cada consulta y asegurar que el veterinario tenga todos los antecedentes. | | |
-| US05 | Como dueño de mascota, quiero recibir notificaciones automáticas como recordatorios para próximas citas, vacunas o controles, para no olvidar los cuidados preventivos y mantener la salud de mi mascota al día. | | |
-| US06 | Como dueño de mascota, quiero poder gestionar y visualizar los perfiles e historiales médicos de cada uno de mis mascotas de manera clara y separada en un mismo sistema, para evitar confusiones y garantizar que cada una reciba el tratamiento y seguimiento correcto durante las visitas al veterinario. | | |
-| US07 | Como dueño de veterinaria, quiero registrar ventas y consumos de medicamentos por unidades y no solo cajas, para mantener un inventario exacto y evitar desactualizaciones. | | |
-| US08 | Como dueño de veterinaria, quiero ver el historial de movimientos de inventario (entradas, salidas, ajustes), para auditar el stock y corregir discrepancias. | | |
-| US09 | Como dueño de veterinaria, quiero consultar el historial preventivo de una mascota incluyendo las ultimas y próximas fechas recomendadas, para dar seguimiento sanitario. | | |
-| US10 | Como dueño de veterinaria, quiero contar con alertas o recordatorios automáticos sobre las consultas pendientes, para tener un seguimiento efectivo y evitar que la información se pierda. | | |
-| US11 | Como dueño de veterinaria, quiero llevar un seguimiento de los tratamientos, controles y vacunas de una manera ordenada, para evitar depender de las revisiones manuales. | | |
-| US12 | Como dueño de veterinaria quiero tener organizada la información de los clientes y la frecuencia de las visitas a la clínica, para mejorar la organización de los servicios veterinarios. | | |
+| US01 |  |  |  |
+| US02 |  |  |  |
+| US03 |  |  |  |
+| US04 |  |  |  |
+| US05 |  |  |  |
+| US06 |  |  |  |
+| US07 |  |  |  |
+| US08 |  |  |  |
+
+**Tabla 9**
+
+*Historias de usuario del módulo de notificaciones y alertas*
+
+**| Grupo Funcional: Notificaciones y Alertas |**
+| User Story ID | Descripción | Criterios de aceptación | Prioridad |
+| --- | --- | --- | --- |
+| US09 |  |  |  |
+| US10 |  |  |  |
+| US11 |  |  |  |
+
+**Tabla 10**
+
+*Historias de usuario del módulo de organización de clientes y servicio*
+
+**| Grupo Funcional: Organización de Clientes y Servicio |**
+| User Story ID | Descripción | Criterios de aceptación | Prioridad |
+| --- | --- | --- | --- |
+| US12 |  |  |  |
 
 ### 2.2.2 No funcionales
+
+**Tabla 11**
+
+*Requisitos no funcionales del módulo de organización de clientes y servicio*
+
+**| Grupo No Funcional: Seguridad y Privacidad |**
+| ID | Descripción | Criterios de aceptación | Prioridad |
+| --- | --- | --- | --- |
+| RNF-01 |  |  |  |
+
+**Tabla 12**
+
+*Requisitos no funcionales del módulo de rendimiento*
+
+**| Grupo No Funcional: Rendimiento |**
+| ID | Descripción | Criterios de aceptación | Prioridad |
+| --- | --- | --- | --- |
+| RNF-02 |  |  |  |
+
+**Tabla 13**
+
+*Requisitos no funcionales del módulo de disponibilidad y respaldo*
+
+**| Grupo No Funcional: Disponibilidad y Respaldo |**
+| ID | Descripción | Criterios de aceptación | Prioridad |
+| --- | --- | --- | --- |
+| RNF-03 |  |  |  |
 
 <div style="page-break-after: always"></div>
 
@@ -398,9 +474,11 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
   
 ## 3.2 Atributos
 
-| Mascota |
-| --- |
+**Tabla 14**
 
+*Atributos de la entidad Mascota*
+
+**| Mascota |**
 | Llave | Atributo | Tipo de dato | Descripción |
 | --- | --- | --- | --- |
 | PK | id_mascota | int | Identificador único de la mascota |
@@ -411,11 +489,13 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 | | fecha_nacimiento | datetime | Fecha de nacimiento de la mascota |
 | | peso | decimal | Peso de la mascota en kilogramos |
 | | fecha_registro | datetime | Fecha y hora en que la mascota fue registrada en el sistema |
-| FK | id_dueño | int | Identificador del dueño asociado |
+| FK | id_duenio | int | Identificador del dueño asociado |
 
-| Dueño |
-| --- |
+**Tabla 15**
 
+*Atributos de la entidad Dueño*
+
+**| Dueño |**
 | Llave | Atributo | Tipo de dato | Descripción |
 | --- | --- | --- | --- |
 | PK | id_dueño | int | Identificador único del dueño |
@@ -427,9 +507,11 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 | | email | varchar | Correo electrónico del dueño |
 | | direccion | varchar | Ubicación del domicilio del dueño |
 
-| Contacto_emergencia |
-| --- |
+**Tabla 16**
 
+*Atributos de la entidad Contacto_emergencia*
+
+**| Contacto_emergencia |**
 | Llave | Atributo | Tipo de dato | Descripción |
 | --- | --- | --- | --- |
 | PK | id_contacto | int | Identificador único del contacto de emergencia |
@@ -439,9 +521,11 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 | | relacion | varchar | Relación con el dueño de la mascota |
 | FK | id_mascota | int | Identificador de la mascota asociada |
 
-| Veterinario |
-| --- |
+**Tabla 17**
 
+*Atributos de la entidad Veterinario*
+
+**| Veterinario |**
 | Llave | Atributo | Tipo de dato | Descripción |
 | --- | --- | --- | --- |
 | PK | id_veterinario | int | Identificador único del veterinario |
@@ -454,9 +538,11 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 | | fecha_registro | datetime | Fecha de registro del veterinario en el sistema |
 | FK | id_sede | int | Sede donde trabaja el veterinario |
 
-| Personal_no_veterinario |
-| --- |
+**Tabla 18**
 
+*Atributos de la entidad Personal_no_veterinario*
+
+**| Personal_no_veterinario |**
 | Llave | Atributo | Tipo de dato | Descripción |
 | --- | --- | --- | --- |
 | PK | id_personal | int | Identificador único del trabajador |
@@ -469,9 +555,11 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 | | fecha_registro | datetime | Fecha de registro del trabajador en el sistema |
 | FK | id_sede | int | Sede donde trabaja |
 
-| Veterinaria |
-| --- |
+**Tabla 19**
 
+*Atributos de la entidad Veterinaria*
+
+**| Veterinaria |**
 | Llave | Atributo | Tipo de dato | Descripción |
 | --- | --- | --- | --- |
 | PK | id_veterinaria | int | Identificador único del trabajador |
@@ -483,9 +571,11 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 | | estado | varchar | Indica si el estado actual de la empresa |
 | | fecha_registro | datetime | Fecha de registro de la empresa en el sistema |
 
-| Sede |
-| --- |
+**Tabla 20**
 
+*Atributos de la entidad Sede*
+
+**| Sede |**
 | Llave | Atributo | Tipo de dato | Descripción |
 | --- | --- | --- | --- |
 | PK | id_sede | int | Identificador único de la sede |
@@ -496,9 +586,11 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 | | fecha_registro | datetime | Fecha de registro de la sede en el sistema |
 | FK | id_veterinaria | int | Veterinaria a la que pertenece la sede |
 
-| Área_clínica |
-| --- |
+**Tabla 21**
 
+*Atributos de la entidad Área_clínica*
+
+**| Área_clínica |**
 | Llave | Atributo | Tipo de dato | Descripción |
 | --- | --- | --- | --- |
 | PK | id_area | int | Identificador único del área clínica |
@@ -507,27 +599,33 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 | | capacidad | int | Capacidad máxima de mascotas que puede atender simultáneamente |
 | FK | id_sede | int | Sede a la que pertenece el área clínica |
 
-| Especialidad |
-| --- |
+**Tabla 22**
 
+*Atributos de la entidad Especialidad*
+
+**| Especialidad |**
 | Llave | Atributo | Tipo de dato | Descripción |
 | --- | --- | --- | --- |
 | PK | id_especialidad | int | Identificador único de la especialidad médica veterinaria |
 | | nombre | varchar | Nombre de la especialidad |
 | | descripcion | varchar | Descripción detallada de la especialidad |
 
-| Veterinario_especialidad |
-| --- |
+**Tabla 23**
 
+*Atributos de la entidad Veterinario_especialidad*
+
+**| Veterinario_especialidad |**
 | Llave | Atributo | Tipo de dato | Descripción |
 | --- | --- | --- | --- |
 | PK<br>FK1 | id_veterinario | int | Identificador único de la mascota |
 | PK<br>FK2 | id_especialidad | varchar | Identificador único de la especialidad médica veterinaria |
 | | fecha_certificacion | datetime | Fecha en que obtuvo la especialidad |
 
-| Servicio |
-| --- |
+**Tabla 24**
 
+*Atributos de la entidad Servicio*
+
+**| Servicio |**
 | Llave | Atributo | Tipo de dato | Descripción |
 | --- | --- | --- | --- |
 | PK | id_servicio | int | Identificador único del servicio ofrecido |
@@ -536,9 +634,11 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 | | costo | decimal | Precio del servicio |
 | FK | id_sede | int | Identificador de la sede donde se ofrece |
 
-| Cita |
-| --- |
+**Tabla 25**
 
+*Atributos de la entidad Cita*
+
+**| Cita |**
 | Llave | Atributo | Tipo de dato | Descripción |
 | --- | --- | --- | --- |
 | PK | id_cita | int | Identificador único de la cita |
@@ -548,9 +648,11 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 | FK1 | id_mascota | int | Mascota que tendrá la cita |
 | FK2 | id_personal | int | Personal que agenda la cita (recepción) |
 
-| Consulta |
-| --- |
+**Tabla 26**
 
+*Atributos de la entidad Consulta*
+
+**| Consulta |**
 | Llave | Atributo | Tipo de dato | Descripción |
 | --- | --- | --- | --- |
 | PK | id_consulta | int | Identificador único de la consulta |
@@ -559,9 +661,11 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 | FK1 | id_cita | int | Cita que originó la consulta |
 | FK2 | id_veterinario | int | Médico veterinario que atendió |
 
-| Diagnostico |
-| --- |
+**Tabla 27**
 
+*Atributos de la entidad Diagnóstico*
+
+**| Diagnostico |**
 | Llave | Atributo | Tipo de dato | Descripción |
 | --- | --- | --- | --- |
 | PK | id_diagnostico | int | Identificador único del diagnostico |
@@ -570,9 +674,11 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 | | gravedad | varchar | Nivel de gravedad |
 | FK | id_consulta | int | Consulta en la que se emitió el diagnóstico |
 
-| Examen |
-| --- |
+**Tabla 28**
 
+*Atributos de la entidad Examen*
+
+**| Examen |**
 | Llave | Atributo | Tipo de dato | Descripción |
 | --- | --- | --- | --- |
 | PK | id_examen | int | Identificador único del examen |
@@ -581,9 +687,11 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 | | fecha_hora | datetime | Fecha y hora de la realización del examen |
 | FK | id_consulta | int | Consulta en la que se solicitó el examen |
 
-| Vacuna |
-| --- |
+**Tabla 29**
 
+*Atributos de la entidad Vacuna*
+
+**| Vacuna |**
 | Llave | Atributo | Tipo de dato | Descripción |
 | --- | --- | --- | --- |
 | PK | id_vacuna | int | Identificador único de la vacuna |
@@ -591,9 +699,11 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 | | descripcion | varchar | Enfermedad que previene |
 | | frecuencia | varchar | Cada cuanto tiempo se debe aplicar |
 
-| Mascota_vacuna |
-| --- |
+**Tabla 30**
 
+*Atributos de la entidad Mascota_vacuna*
+
+**| Mascota_vacuna |**
 | Llave | Atributo | Tipo de dato | Descripción |
 | --- | --- | --- | --- |
 | PK<br>FK1 | id_mascota | int | Identificador único de la mascota |
@@ -602,9 +712,11 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 | | proxima_dosis | datetime | Fecha estimada de la siguiente aplicación |
 | FK | id_consulta | int |Consulta donde se aplicó la vacuna |
 
-| Medicamento |
-| --- |
+**Tabla 31**
 
+*Atributos de la entidad Medicamento*
+
+**| Medicamento |**
 | Llave | Atributo | Tipo de dato | Descripción |
 | --- | --- | --- | --- |
 | PK | id_medicamento | int | Identificador único del medicamento |
@@ -612,9 +724,11 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 | | descripcion | varchar | Función del medicamento |
 | | stock | int | Cantidad disponible |
 
-| Receta |
-| --- |
+**Tabla 32**
 
+*Atributos de la entidad receta*
+
+**| Receta |**
 | Llave | Atributo | Tipo de dato | Descripción |
 | --- | --- | --- | --- |
 | PK | id_receta | int | Identificador único de la receta |
@@ -622,9 +736,11 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 | FK1 | id_consulta | int | Consulta en la que se generó la receta |
 | FK2 | id_veterinario | int | Veterinario que prescribió la receta |
 
-| Receta_medicamento |
-| --- |
+**Tabla 33**
 
+*Atributos de la entidad Receta_medicamento*
+
+**| Receta_medicamento |**
 | Llave | Atributo | Tipo de dato | Descripción |
 | --- | --- | --- | --- |
 | PK<br>FK1 | id_receta | int | Identificador único de la receta |
@@ -633,9 +749,11 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 | | frecuencia | varchar | Cada cuánto debe administrarse |
 | | duracion | varchar | Tiempo que debe durar el tratamiento |
 
-| Cirugía |
-| --- |
+**Tabla 34**
 
+*Atributos de la entidad Cirugía*
+
+**| Cirugía |**
 | Llave | Atributo | Tipo de dato | Descripción |
 | --- | --- | --- | --- |
 | PK | id_cirugia | int | Identificador único de la cirugía |
@@ -646,9 +764,11 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 | FK2 | id_veterinario | int | Identificador único del veterinario cirujano |
 | FK3 | id_area | int |Identificador único del área clínica (quirófano) |
 
-| Hospitalización |
-| --- |
+**Tabla 35**
 
+*Atributos de la entidad Hospitalización*
+
+**| Hospitalización |**
 | Llave | Atributo | Tipo de dato | Descripción |
 | --- | --- | --- | --- |
 | PK | id_hospitalizacion | int | Identificador único  del registro de hospitalización |
@@ -658,9 +778,11 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 | FK1 | id_mascota | int | Identificador único de la mascota hospitalizada |
 | FK2 | id_area | int | Identificador único del área clínica (hospitalización) |
 
-| Movimiento_inventario |
-| --- |
+**Tabla 36**
 
+*Atributos de la entidad Movimiento_inventario*
+
+**| Movimiento_inventario |**
 | Llave | Atributo | Tipo de dato | Descripción |
 | --- | --- | --- | --- |
 | PK | id_movimiento | int | Identificador único  del registro de movimiento de inventario |
@@ -671,16 +793,18 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 | FK1 | id_medicamento | int | Identificador único del medicamento afectado |
 | FK2 | id_veterianrio | int | Identificador único del veterinario que realizó o autorizó el uso |
 
-| Historial_clínico |
-| --- |
+**Tabla 37**
 
+*Atributos de la entidad Historial_clínico*
+
+**| Historial_clínico |**
 | Llave | Atributo | Tipo de dato | Descripción |
 | --- | --- | --- | --- |
 | PK | id_historial | int | Identificador único  del historial clínico |
 | | fecha_registro | datetime | Fecha del registro clínico |
 | FK1 | id_mascota | int | Identificador único de la mascota a la que pertenece el historial |
 
-
+<div style="page-break-after: always"></div>
 
 ## 3.3 Enfoque relacional
 
@@ -713,5 +837,6 @@ Enlace del repositorio en GitHub: [https://github.com/DataSystem-organization/Pe
 
 
 <!-- cambio commit requisitos -->
+
 
 
