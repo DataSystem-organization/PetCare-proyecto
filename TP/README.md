@@ -64,7 +64,7 @@ Febrero, 2026
 
 - [1.3 Segmentos objetivo](#13-segmentos-objetivo)
 
-[CAPÍTULO II: INTRODUCCIÓN](#capítulo-ii-recopilación-y-análisis-de-requisitos)
+[CAPÍTULO II: RECOPILACIÓN Y ANÁLISIS DE REQUISITOS](#capítulo-ii-recopilación-y-análisis-de-requisitos)
 
 - [2.1 Entrevistas](#21-entrevistas)
 
@@ -375,71 +375,63 @@ Desde la experiencia del usuario:
 A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinarias, se redactó las user stories principales.
 
 ### 2.2.1 Funcionales
-
-**Tabla 8**
-
+**Tabla 8**  
 *Historias de usuario del módulo de historial clínico y perfiles de mascota*
 
-**| Grupo Funcional: Historial clínico y perfiles de mascota |**
+**Grupo Funcional: Historial clínico y perfiles de mascota**
 | User Story ID | Descripción | Criterios de aceptación | Prioridad |
 | --- | --- | --- | --- |
-| US01 |  |  |  |
-| US02 |  |  |  |
-| US03 |  |  |  |
-| US04 |  |  |  |
-| US05 |  |  |  |
-| US06 |  |  |  |
-| US07 |  |  |  |
-| US08 |  |  |  |
-
-**Tabla 9**
-
+| US01 | Como dueño de mascota, **quiero** poder registrar y acceder al historial clínico completo de mis mascotas, **para** evitar tener que repetir la información en cada consulta y asegurar que el veterinario tenga todos los antecedentes. | Dado que soy el dueño de una mascota y tengo un perfil con historial creado en el sistema,<br><br>Cuando un veterinario nuevo busque el id de mi mascota durante la consulta,<br><br>Entonces el sistema debe mostrar en su pantalla todo el historial clinico completo en orden, sin que yo tenga que repetir información verbalmente. | Prioridad: Must |
+| US02 | Como dueño de mascota, **quiero** poder gestionar y visualizar los perfiles e historiales médicos de cada uno de mis mascotas de manera clara y separada en un mismo sistema, **para** evitar confusiones y garantizar que cada una reciba el tratamiento y seguimiento correcto durante las visitas al veterinario. | Dado que tengo dos perros registrados en mi cuenta y estoy en la clínica veterinaria,<br><br>Cuando el veterinario accede a mi cuenta y selecciona primero el perfil del “Perro A” para registrar una consulta,<br><br>Y luego cambia al perfil del “Perro B”<br><br>Entonces el sistema muestra únicamente la información e historial del “Perro B”, sin mezclar datos con la consulta recién ingresada del “Perro A”. | Prioridad: Must |
+| US03 | Como dueño de veterinaria, **quiero** llevar un seguimiento de los tratamientos, controles y vacunas de una manera ordenada, **para** evitar depender de las revisiones manuales. | Dado que el usuario abre el expediente de una mascota<br><br>Cuando visualiza la selección del historial médico<br><br>Entonces el sistema debe mostrar los tratamientos y vacunas en orden cronológico, del más reciente al más antiguo | Prioridad: Must |
+| US04 | Como dueño de veterinaria, **quiero** consultar el historial preventivo de una mascota incluyendo las últimas y próximas fechas recomendadas, **para** dar seguimiento sanitario. | Dado que la mascota tiene registros preventivos (vacunas/controles),<br><br>Cuando consulto el historial preventivo,<br><br>Entonces el sistema muestra las últimas fechas registradas. | Prioridad: Should |
+| US05 | Como dueño de mascotas, **quiero** poder descargar o visualizar un resumen digital del estado de salud de mi mascota en la veterinaria atendida, **para** un control adecuado de información. | Dado que la mascota puede tener citas médicas y observaciones en distintos centros veterinarios,<br><br>Cuando el dueño necesite movilizarse a un nuevo centro por una emergencia,<br><br>Entonces el sistema generará un resumen de las citas ejecutadas, diagnósticos, vacunas y tratamientos registradon de citas ejecutadas | Prioridad: Should |
+| US06 | Como dueño de mascota, **quiero** poder recibir recomendaciones preventivas personalizadas según la edad y el historial de mi mascota, **para** anticiparse a posibles problemas de salud. | Dado que el dueño dispone de poco tiempo para investigar sobre los cuidados necesarios de su mascota,<br><br>Cuando consulte el perfil médico de su mascota,<br><br>Entonces el sistema mostrará una lista de alimentación recomendada, rutinas de cuidado y controles preventivos sugeridos. | Prioridad: Could |
+| US07 | Como dueño de mascota, **quiero** poder compartir temporalmente el historial clínico de mi mascota con otra persona de confianza, **para** que pueda atenderla en caso de emergencia cuando yo no esté disponible. | Dado que el dueño no siempre podrá llevar personalmente a su mascota a consulta médica,<br><br>Cuando seleccione la opción “cambio temporal de tutor”,<br><br>Entonces el sistema permitirá compartir el historial clínico y generará una constancia digital del tutor autorizado. | Prioridad: Could |
+**Tabla 9**  
 *Historias de usuario del módulo de notificaciones y alertas*
 
-**| Grupo Funcional: Notificaciones y Alertas |**
+**Grupo Funcional: Notificaciones y Alertas**
+
 | User Story ID | Descripción | Criterios de aceptación | Prioridad |
 | --- | --- | --- | --- |
-| US09 |  |  |  |
-| US10 |  |  |  |
-| US11 |  |  |  |
-
-**Tabla 10**
-
+| US08 | Como dueño de mascota, **quiero** recibir notificaciones automáticas como recordatorios para próximas citas, vacunas o controles, **para** no olvidar los cuidados preventivos y mantener la salud de mi mascota al día. | Dado que la fecha de la próxima vacuna de mi mascota está registrada en el sistema,<br><br>Cuando faltan 7 días para la fecha,<br><br>Entonces el sistema me envía automáticamente una notificación push y un correo electrónico, detallando el tipo de vacuna y la fecha. | Prioridad: Should |
+| US09 | Como dueño de veterinaria, **quiero** contar con alertas o recordatorios automáticos sobre las consultas pendientes, **para** tener un seguimiento efectivo y evitar que la información se pierda. | Dado que existe una consulta programada para el paciente “A” en las próximas 24 horas.<br><br>Cuando el sistema ejecute el proceso automático de notificaciones.<br><br>Entonces el sistema debe enviar un mensaje recordatorio al dueño del sistema | Prioridad: Should |
+| US10 | Como dueño de veterinaria, **quiero** registrar ventas y consumos de medicamentos por unidades y no solo cajas, **para** mantener un inventario exacto y evitar desactualizaciones. | Dado que existen consultas pendientes registradas,<br><br>Cuando reviso el módulo de pendientes,<br><br>Entonces el sistema lista las pendientes con fecha y mascota asociada. | Prioridad: Must |
+| US11 | Como dueño de veterinaria, **quiero** ver el historial de movimientos de inventario (entradas, salidas, ajustes), **para** auditar el stock y corregir discrepancias. | Dado que existen movimientos de inventario,<br><br>Cuando consulto el historial,<br><br>Entonces el sistema lista entradas/salidas/ajustes con fecha y cantidad. | Prioridad: Should |
+**Tabla 10**  
 *Historias de usuario del módulo de organización de clientes y servicio*
 
-**| Grupo Funcional: Organización de Clientes y Servicio |**
+**Grupo Funcional: Organización de Clientes y Servicio**
+
 | User Story ID | Descripción | Criterios de aceptación | Prioridad |
 | --- | --- | --- | --- |
-| US12 |  |  |  |
+| US12 | Como dueño de veterinaria, **quiero** tener organizada la información de los clientes y la frecuencia de las visitas a la clínica, **para** mejorar la organización de los servicios veterinarios. | Dado que se está registrando a un cliente nuevo.<br><br>Cuando el usuario intenta guardar el perfil sin un número telefónico válido.<br><br>Entonces el sistema debe mostrar un mensaje de error y no permitir el guardado hasta que la información sea correcta. | Prioridad: Should |
 
-### 2.2.2 No funcionales
+### 2.2.2 No Funcionales
 
-**Tabla 11**
-
-*Requisitos no funcionales del módulo de organización de clientes y servicio*
-
-**| Grupo No Funcional: Seguridad y Privacidad |**
+**Tabla 11**  
+*Requisitos no funcionales del módulo de seguridad y privacidad*
+**Grupo No Funcional: Seguridad y Privacidad**
 | ID | Descripción | Criterios de aceptación | Prioridad |
 | --- | --- | --- | --- |
-| RNF-01 |  |  |  |
-
-**Tabla 12**
-
+| RNF-01 | El sistema debe proteger el acceso a información clínica, inventario y clientes mediante autenticación y permisos de rol. | Dado que no inicie sesion con un rol sin permisos,<br><br>Cuando intento ver información restringida,<br><br>Entonces el sistema niega el acceso | Prioridad: Should |
+**Tabla 12**  
 *Requisitos no funcionales del módulo de rendimiento*
 
-**| Grupo No Funcional: Rendimiento |**
+**Grupo No Funcional: Rendimiento**
+
 | ID | Descripción | Criterios de aceptación | Prioridad |
 | --- | --- | --- | --- |
-| RNF-02 |  |  |  |
+| RNF-02 | El sistema debe cargar vistas clave en tiempos aceptables en condiciones normales. | Dado que consulto el historial de una mascota,<br>Cuando abro vista,<br>entonces carga en menos de 2 segundos en condiciones normales. | Prioridad: Could |
 
-**Tabla 13**
-
+**Tabla 13**  
 *Requisitos no funcionales del módulo de disponibilidad y respaldo*
 
-**| Grupo No Funcional: Disponibilidad y Respaldo |**
+**Grupo No Funcional: Disponibilidad y Respaldo**
 | ID | Descripción | Criterios de aceptación | Prioridad |
 | --- | --- | --- | --- |
-| RNF-03 |  |  |  |
+| RNF-03 | El sistema debe contar con respaldo periodico y posibilidad de recuperación ante fallas. | Dado que el sistema esta operativo,<br><br>Cuando llega el horario programado,<br><br>Entonces se ejecuta un respaldo automático. | Prioridad: Should |
 
 <div style="page-break-after: always"></div>
 
@@ -820,23 +812,293 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 
 ## 4.2 Diagrama de datos
 
-### 4.2.1 Diagrama entidad-relación físico
+### 4.2.1 Diagrama entidad–relación físico
+
+![Diagrama entidad-relación físico](images/Diagramaentidadfisico.png)
+
+**Script SQL (SQL Server) – Esquema físico (DDL):**
+
+```sql
+-- PETCARE - ESQUEMA (SQL Server)
+
+CREATE TABLE VETERINARIA (
+  id_veterinaria INT IDENTITY(1,1) PRIMARY KEY,
+  nombre   VARCHAR(120) NOT NULL,
+  ruc      VARCHAR(20)  NOT NULL UNIQUE,
+  direccion VARCHAR(200) NULL,
+  telefono  VARCHAR(20)  NULL,
+  email     VARCHAR(120) NULL UNIQUE
+);
+
+CREATE TABLE SEDE (
+  id_sede INT IDENTITY(1,1) PRIMARY KEY,
+  nombre    VARCHAR(120) NOT NULL,
+  direccion VARCHAR(200) NULL,
+  telefono  VARCHAR(20)  NULL,
+  email     VARCHAR(120) NULL,
+  id_veterinaria INT NOT NULL,
+  CONSTRAINT FK_SEDE_VETERINARIA
+    FOREIGN KEY (id_veterinaria) REFERENCES VETERINARIA(id_veterinaria)
+);
+
+CREATE TABLE DUENO (
+  id_dueno INT IDENTITY(1,1) PRIMARY KEY,
+  nombres  VARCHAR(80)  NOT NULL,
+  apellidos VARCHAR(80) NOT NULL,
+  tipo_documento   VARCHAR(20) NULL,
+  numero_documento VARCHAR(30) NULL UNIQUE,
+  telefono VARCHAR(20) NULL,
+  email    VARCHAR(120) NULL UNIQUE,
+  direccion VARCHAR(200) NULL
+);
+
+CREATE TABLE MASCOTA (
+  id_mascota INT IDENTITY(1,1) PRIMARY KEY,
+  nombre  VARCHAR(60) NOT NULL,
+  especie VARCHAR(30) NOT NULL,
+  raza    VARCHAR(50) NULL,
+  sexo    VARCHAR(10) NULL,
+  fecha_nacimiento DATE NULL,
+  peso DECIMAL(6,2) NULL,
+  fecha_registro DATETIME NULL,
+  id_dueno INT NOT NULL,
+  CONSTRAINT FK_MASCOTA_DUENO
+    FOREIGN KEY (id_dueno) REFERENCES DUENO(id_dueno)
+);
+
+CREATE TABLE CONTACTO_EMERGENCIA (
+  id_contacto INT IDENTITY(1,1) PRIMARY KEY,
+  nombre    VARCHAR(80) NOT NULL,
+  apellidos VARCHAR(80) NULL,
+  telefono  VARCHAR(20) NULL,
+  parentesco VARCHAR(40) NULL,
+  id_mascota INT NOT NULL,
+  CONSTRAINT FK_CONTACTO_MASCOTA
+    FOREIGN KEY (id_mascota) REFERENCES MASCOTA(id_mascota)
+);
+
+CREATE TABLE AREA_CLINICA (
+  id_area_clinica INT IDENTITY(1,1) PRIMARY KEY,
+  nombre VARCHAR(120) NOT NULL,
+  descripcion VARCHAR(200) NULL,
+  capacidad INT NULL,
+  id_sede INT NOT NULL,
+  CONSTRAINT FK_AREA_SEDE
+    FOREIGN KEY (id_sede) REFERENCES SEDE(id_sede)
+);
+
+CREATE TABLE SERVICIO (
+  id_servicio INT IDENTITY(1,1) PRIMARY KEY,
+  nombre VARCHAR(120) NOT NULL,
+  descripcion VARCHAR(200) NULL,
+  costo DECIMAL(10,2) NOT NULL,
+  id_sede INT NOT NULL,
+  CONSTRAINT FK_SERVICIO_SEDE
+    FOREIGN KEY (id_sede) REFERENCES SEDE(id_sede)
+);
+
+CREATE TABLE PERSONAL_NO_VETERINARIO (
+  id_personal INT IDENTITY(1,1) PRIMARY KEY,
+  nombre VARCHAR(80) NOT NULL,
+  apellidos VARCHAR(80) NOT NULL,
+  rol VARCHAR(50) NOT NULL,
+  telefono VARCHAR(20) NULL,
+  email VARCHAR(120) NULL UNIQUE,
+  fecha_registro DATETIME NULL,
+  id_sede INT NOT NULL,
+  CONSTRAINT FK_PERSONAL_SEDE
+    FOREIGN KEY (id_sede) REFERENCES SEDE(id_sede)
+);
+
+CREATE TABLE VETERINARIO (
+  id_veterinario INT IDENTITY(1,1) PRIMARY KEY,
+  nombres  VARCHAR(80) NOT NULL,
+  apellidos VARCHAR(80) NOT NULL,
+  cmp VARCHAR(20) NULL UNIQUE,
+  telefono VARCHAR(20) NULL,
+  email VARCHAR(120) NULL UNIQUE,
+  estado VARCHAR(20) NULL,
+  fecha_registro DATETIME NULL,
+  id_sede INT NOT NULL,
+  CONSTRAINT FK_VETERINARIO_SEDE
+    FOREIGN KEY (id_sede) REFERENCES SEDE(id_sede)
+);
+
+CREATE TABLE ESPECIALIDAD (
+  id_especialidad INT IDENTITY(1,1) PRIMARY KEY,
+  nombre VARCHAR(120) NOT NULL UNIQUE,
+  descripcion VARCHAR(200) NULL
+);
+
+CREATE TABLE VETERINARIO_ESPECIALIDAD (
+  id_veterinario INT NOT NULL,
+  id_especialidad INT NOT NULL,
+  fecha_certificacion DATETIME NULL,
+  CONSTRAINT PK_VET_ESPEC PRIMARY KEY (id_veterinario, id_especialidad),
+  CONSTRAINT FK_VE_VETERINARIO
+    FOREIGN KEY (id_veterinario) REFERENCES VETERINARIO(id_veterinario),
+  CONSTRAINT FK_VE_ESPECIALIDAD
+    FOREIGN KEY (id_especialidad) REFERENCES ESPECIALIDAD(id_especialidad)
+);
+
+CREATE TABLE CITA (
+  id_cita INT IDENTITY(1,1) PRIMARY KEY,
+  fecha_hora DATETIME NOT NULL,
+  motivo VARCHAR(200) NULL,
+  estado VARCHAR(30) NULL,
+  id_mascota INT NOT NULL,
+  id_personal INT NULL,
+  CONSTRAINT FK_CITA_MASCOTA
+    FOREIGN KEY (id_mascota) REFERENCES MASCOTA(id_mascota),
+  CONSTRAINT FK_CITA_PERSONAL
+    FOREIGN KEY (id_personal) REFERENCES PERSONAL_NO_VETERINARIO(id_personal)
+);
+
+CREATE TABLE CONSULTA (
+  id_consulta INT IDENTITY(1,1) PRIMARY KEY,
+  fecha_hora DATETIME NOT NULL,
+  observaciones VARCHAR(500) NULL,
+  id_veterinario INT NOT NULL,
+  id_mascota INT NOT NULL,
+  CONSTRAINT FK_CONSULTA_VETERINARIO
+    FOREIGN KEY (id_veterinario) REFERENCES VETERINARIO(id_veterinario),
+  CONSTRAINT FK_CONSULTA_MASCOTA
+    FOREIGN KEY (id_mascota) REFERENCES MASCOTA(id_mascota)
+);
+
+CREATE TABLE DIAGNOSTICO (
+  id_diagnostico INT IDENTITY(1,1) PRIMARY KEY,
+  descripcion VARCHAR(500) NOT NULL,
+  fecha DATETIME NULL,
+  gravedad VARCHAR(30) NULL,
+  id_consulta INT NOT NULL,
+  CONSTRAINT FK_DIAG_CONSULTA
+    FOREIGN KEY (id_consulta) REFERENCES CONSULTA(id_consulta)
+);
+
+CREATE TABLE EXAMEN (
+  id_examen INT IDENTITY(1,1) PRIMARY KEY,
+  tipo VARCHAR(80) NOT NULL,
+  resultado VARCHAR(200) NULL,
+  fecha_hora DATETIME NULL,
+  id_consulta INT NOT NULL,
+  CONSTRAINT FK_EXAMEN_CONSULTA
+    FOREIGN KEY (id_consulta) REFERENCES CONSULTA(id_consulta)
+);
+
+CREATE TABLE VACUNA (
+  id_vacuna INT IDENTITY(1,1) PRIMARY KEY,
+  nombre VARCHAR(120) NOT NULL UNIQUE,
+  descripcion VARCHAR(200) NULL,
+  frecuencia VARCHAR(60) NULL
+);
+
+CREATE TABLE MASCOTA_VACUNA (
+  id_mascota INT NOT NULL,
+  id_vacuna INT NOT NULL,
+  fecha_aplicacion DATETIME NULL,
+  proxima_dosis DATETIME NULL,
+  id_consulta INT NOT NULL,
+  CONSTRAINT PK_MASCOTA_VACUNA PRIMARY KEY (id_mascota, id_vacuna),
+  CONSTRAINT FK_MV_MASCOTA
+    FOREIGN KEY (id_mascota) REFERENCES MASCOTA(id_mascota),
+  CONSTRAINT FK_MV_VACUNA
+    FOREIGN KEY (id_vacuna) REFERENCES VACUNA(id_vacuna),
+  CONSTRAINT FK_MV_CONSULTA
+    FOREIGN KEY (id_consulta) REFERENCES CONSULTA(id_consulta)
+);
+
+CREATE TABLE HISTORIAL_CLINICO (
+  id_historial INT IDENTITY(1,1) PRIMARY KEY,
+  fecha_registro DATETIME NOT NULL,
+  id_mascota INT NOT NULL,
+  CONSTRAINT FK_HC_MASCOTA
+    FOREIGN KEY (id_mascota) REFERENCES MASCOTA(id_mascota)
+);
+
+CREATE TABLE HOSPITALIZACION (
+  id_hospitalizacion INT IDENTITY(1,1) PRIMARY KEY,
+  fecha_ingreso DATETIME NOT NULL,
+  fecha_salida DATETIME NULL,
+  motivo VARCHAR(200) NULL,
+  id_mascota INT NOT NULL,
+  id_area_clinica INT NOT NULL,
+  CONSTRAINT FK_HOSP_MASCOTA
+    FOREIGN KEY (id_mascota) REFERENCES MASCOTA(id_mascota),
+  CONSTRAINT FK_HOSP_AREA
+    FOREIGN KEY (id_area_clinica) REFERENCES AREA_CLINICA(id_area_clinica)
+);
+
+CREATE TABLE CIRUGIA (
+  id_cirugia INT IDENTITY(1,1) PRIMARY KEY,
+  tipo VARCHAR(80) NOT NULL,
+  fecha_hora DATETIME NOT NULL,
+  estado VARCHAR(30) NULL,
+  id_area_clinica INT NOT NULL,
+  id_mascota INT NOT NULL,
+  id_veterinario INT NOT NULL,
+  CONSTRAINT FK_CIR_AREA
+    FOREIGN KEY (id_area_clinica) REFERENCES AREA_CLINICA(id_area_clinica),
+  CONSTRAINT FK_CIR_MASCOTA
+    FOREIGN KEY (id_mascota) REFERENCES MASCOTA(id_mascota),
+  CONSTRAINT FK_CIR_VETERINARIO
+    FOREIGN KEY (id_veterinario) REFERENCES VETERINARIO(id_veterinario)
+);
+
+CREATE TABLE MEDICAMENTO (
+  id_medicamento INT IDENTITY(1,1) PRIMARY KEY,
+  nombre VARCHAR(120) NOT NULL UNIQUE,
+  descripcion VARCHAR(200) NULL,
+  stock INT NOT NULL
+);
+
+CREATE TABLE MOVIMIENTO_INVENTARIO (
+  id_movimiento INT IDENTITY(1,1) PRIMARY KEY,
+  tipo_movimiento VARCHAR(30) NOT NULL,
+  cantidad INT NOT NULL,
+  fecha DATETIME NOT NULL,
+  motivo VARCHAR(200) NULL,
+  id_veterinario INT NOT NULL,
+  id_medicamento INT NOT NULL,
+  CONSTRAINT FK_MI_VETERINARIO
+    FOREIGN KEY (id_veterinario) REFERENCES VETERINARIO(id_veterinario),
+  CONSTRAINT FK_MI_MEDICAMENTO
+    FOREIGN KEY (id_medicamento) REFERENCES MEDICAMENTO(id_medicamento)
+);
+
+CREATE TABLE RECETA (
+  id_receta INT IDENTITY(1,1) PRIMARY KEY,
+  fecha DATETIME NOT NULL,
+  id_veterinario INT NOT NULL,
+  CONSTRAINT FK_RECETA_VETERINARIO
+    FOREIGN KEY (id_veterinario) REFERENCES VETERINARIO(id_veterinario)
+);
+
+CREATE TABLE RECETA_MEDICAMENTO (
+  id_receta INT NOT NULL,
+  id_medicamento INT NOT NULL,
+  dosis VARCHAR(60) NULL,
+  frecuencia VARCHAR(60) NULL,
+  duracion VARCHAR(60) NULL,
+  CONSTRAINT PK_RECETA_MED PRIMARY KEY (id_receta, id_medicamento),
+  CONSTRAINT FK_RM_RECETA
+    FOREIGN KEY (id_receta) REFERENCES RECETA(id_receta),
+  CONSTRAINT FK_RM_MEDICAMENTO
+    FOREIGN KEY (id_medicamento) REFERENCES MEDICAMENTO(id_medicamento)
+);
+```
 
 <div style="page-break-after: always"></div>
 
 # BIBLIOGRAFÍA
 
-Gadgerss. (2025). Las tres principales brechas tecnológicas que frenan a las MyPEs peruanas. *Gadgerss.* [https://gadgerss.com/2025/05/15/las-tres-principales-brechas-tecnologicas-que-frenan-a-las-mypes-peruanas/](https://gadgerss.com/2025/05/15/las-tres-principales-brechas-tecnologicas-que-frenan-a-las-mypes-peruanas/)
+Gadgerss. (2025, 15 de mayo). *Las tres principales brechas tecnológicas que frenan a las MyPEs peruanas*. Gadgerss. https://gadgerss.com/2025/05/15/las-tres-principales-brechas-tecnologicas-que-frenan-a-las-mypes-peruanas/
 
-Ballarin, C. (2019). Casi la mitad de hogares peruanos tienen una mascota. *Kantar.* [https://www.kantar.com/latin-america/inspiracion/consumo-masivo/hogares-con-mascotas](https://www.kantar.com/latin-america/inspiracion/consumo-masivo/hogares-con-mascotas)
+Ballarin, C. (2019). *Casi la mitad de hogares peruanos tienen una mascota*. Kantar. https://www.kantar.com/latin-america/inspiracion/consumo-masivo/hogares-con-mascotas
 
 # ANEXOS
 
-Enlace del repositorio en GitHub: [https://github.com/DataSystem-organization/PetCare-proyecto.git](https://github.com/DataSystem-organization/PetCare-proyecto.git)
-
-<!-- prueba push -->
-
-<!-- cambio commit requisitos -->
-
+**Repositorio en GitHub:** [PetCare-proyecto](https://github.com/DataSystem-organization/PetCare-proyecto/tree/main)  
+**Carpeta de archivos:** [Google Drive](https://drive.google.com/drive/folders/1ysx7GtMfmhUFN9xITfBEGoUvXDckLpa5?usp=sharing)
 
 
