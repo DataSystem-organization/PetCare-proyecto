@@ -832,7 +832,7 @@ Ballarin, C. (2019). Casi la mitad de hogares peruanos tienen una mascota. *Kant
 
 # ANEXOS
 
-Enlace del repositorio en GitHub: [https://github.com/DataSystem-organization/PetCare-proyecto/tree/main](https://github.com/DataSystem-organization/PetCare-proyecto/tree/main)
+Enlace del repositorio en GitHub: [https://github.com/DataSystem-organization/PetCare-proyecto.git](https://github.com/DataSystem-organization/PetCare-proyecto.git)
 
 <!-- prueba push -->
 
