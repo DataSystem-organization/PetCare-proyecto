@@ -439,30 +439,55 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 
 ## 3.1 Entidades
 
-- **Mascota:**
-- **Dueño**
-- **Contacto_emergencia**
-- **Veterinario**
-- **Personal_no_veterinario**
-- **Veterinaria**
-- **Sede**
-- **Área_clínica**
-- **Especialidad**
-- **Veterinario_especialidad**
-- **Servicio**
-- **Cita**
-- **Consulta**
-- **Diagnostico**
-- **Examen**
-- **Vacuna**
-- **Mascota_vacuna**
-- **Medicamento**
-- **Receta**
-- **Receta_medicamento**
-- **Cirugía**
-- **Especialización**
-- **Movimiento_inventario**
-- **Historial_clinico**
+## 3.1. Entidades
+
+- **Mascota:** Representa al paciente animal que recibe atención médica en la veterinaria. Esta entidad almacena información general y biológica necesaria para su identificación y seguimiento clínico.
+
+- **Dueño:** Representa a la persona responsable legal y administrativa de una o más mascotas registradas en la veterinaria. Esta entidad almacena información personal y de contacto necesaria para la identificación del propietario.
+
+- **Contacto_emergencia:** Contiene los datos de las personas asignadas como contactos en caso de emergencia cuando no sea posible contactar al dueño. Contiene información de identificación y contacto que permite a la veterinaria actuar de manera rápida ante emergencias médicas.
+
+- **Veterinario:** Representa al profesional médico responsable de la atención clínica de las mascotas dentro de la veterinaria. Esta entidad almacena información personal, profesional y de contacto del médico veterinario.
+
+- **Personal_no_veterinario:** Representa al personal que trabaja en la veterinaria y que realiza actividades no médicas, como recepción, estética animal o administración.
+
+- **Veterinaria:** Representa a las instituciones que brindan servicios de atención médica para las mascotas. Esta entidad almacena información general de la clínica veterinaria.
+
+- **Sede:** Establecimiento donde la veterinaria brinda sus servicios. Almacena información de ubicación y contacto de cada local.
+
+- **Área clínica:** Representa a las distintas zonas de una sede de la veterinaria donde se realizan actividades médicas y no médicas.
+
+- **Especialidad:** Representa a las áreas de especialización veterinarias que puede tener un médico veterinario.
+
+- **Veterinario_especialidad:** Asocia a los veterinarios con sus especialidades. Permite registrar si un veterinario posee más de una especialidad.
+
+- **Servicio:** Representa los servicios ofrecidos por la veterinaria, no necesariamente médicos, sino a atenciones complementarias brindadas a las mascotas.
+
+- **Cita:** Programación previa de una atención para una mascota en la veterinaria. Esta entidad almacena la información relacionada con la fecha, motivo y estado de la reserva.
+
+- **Consulta:** Atención médica efectivamente realizada a una mascota por un médico veterinario. Esta entidad registra la información clínica generada durante la evaluación, como observaciones, diagnósticos y tratamientos.
+
+- **Diagnóstico:** Representa la información sobre la condición de salud identificada por el veterinario luego de evaluar a la mascota durante una consulta.
+
+- **Examen:** Representa las pruebas clínicas realizadas a una mascota como apoyo al diagnóstico veterinario.
+
+- **Vacuna:** Representa las vacunas disponibles en la veterinaria para la prevención de enfermedades en las mascotas.
+
+- **Mascota_vacuna:** Representa el registro de las vacunas aplicadas a cada mascota, permitiendo llevar el control de su calendario de inmunización.
+
+- **Medicamento:** Representa los fármacos utilizados en tratamientos veterinarios.
+
+- **Receta:** Prescripción médica emitida por el veterinario durante una consulta, donde se indican medicamentos y tratamientos que debe seguir la mascota.
+
+- **Receta_medicamento:** Representa el detalle de los medicamentos prescritos dentro de una receta médica. Permite registrar qué fármacos debe consumir la mascota, así como las indicaciones específicas dadas por el veterinario.
+
+- **Cirugía:** Representa a los procedimientos quirúrgicos realizados a una mascota dentro de la veterinaria.
+
+- **Hospitalización:** Representa el periodo en que una mascota permanece internada en la veterinaria para recibir cuidados médicos, monitoreo o tratamiento continuo.
+
+- **Movimiento_inventario:** Registros de entradas y salidas de medicamentos u otros insumos del inventario de la veterinaria.
+
+- **Historial_clínico:** Contiene el registro histórico de la información médica de una mascota. Permite llevar el seguimiento del estado de salud, incluyendo antecedentes, enfermedades, tratamientos y observaciones médicas.
   
 ## 3.2 Atributos
 
@@ -803,7 +828,248 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 ### 3.3.1 Diagrama entidad-relación lógico
 ![Diagrama entidad-relacion logico 1](images/diagrama1.png)
 
+```sql
+erDiagram
+	MASCOTA {
+		integer id_mascota PK
+		string nombre
+		string especie
+		string raza
+		string sexo
+		date fecha_nacimiento
+	}
 
+	DUENO {
+		integer id_dueno PK
+		string nombres
+		string apellidos
+		string tipo_documento
+		string numero_documento
+		string telefono
+		string email
+		string direccion
+	}
+
+	CONTACTO_EMERGENCIA {
+		integer id_contacto PK
+		string nombres
+		string apellidos
+		string telefono
+		string relacion
+	}
+
+	VETERINARIO {
+		integer id_veterinario PK
+		string nombres
+		string apellidos
+		string colegiatura
+		string telefono
+		string email
+		string estado
+		date fecha_registro
+	}
+
+	PERSONAL_NO_VETERINARIO {
+		integer id_personal PK
+		string nombres
+		string apellidos
+		string rol
+		string telefono
+		string email
+		string estado
+		date fecha_registro
+	}
+
+	VETERINARIA {
+		integer id_veterinaria PK
+		string nombre
+		string ruc
+		string direccion_fiscal
+		string telefono
+		string email
+		string estado
+		date fecha_registro
+	}
+
+	SEDE {
+		integer id_sede PK
+		string direccion
+		string telefono
+		string horario_atencion
+		string estado
+		date fecha_registro
+	}
+
+	AREA_CLINICA {
+		integer id_area PK
+		string nombre
+		string descripcion
+		integer capacidad
+	}
+
+	ESPECIALIDAD {
+		integer id_especialidad PK
+		string nombre
+		string descripcion
+	}
+
+	VETERINARIO_ESPECIALIDAD {
+		integer id_veterinario PK
+		integer id_especialidad PK
+		date fecha_certificacion
+	}
+
+	SERVICIO {
+		integer id_servicio PK
+		string nombre
+		string descripcion
+		decimal costo
+	}
+
+	CITA {
+		integer id_cita PK
+		date fecha_hora
+		string motivo
+		string estado
+	}
+
+	CONSULTA {
+		integer id_consulta PK
+		date fecha_hora
+		string observaciones
+	}
+
+	DIAGNOSTICO {
+		integer id_diagnostico PK
+		string descripcion
+		date fecha
+		string gravedad
+	}
+
+	EXAMEN {
+		integer id_examen PK
+		string tipo
+		text resultado
+		date fecha_hora
+	}
+
+	VACUNA {
+		integer id_vacuna PK
+		string nombre
+		string descripcion
+		string frecuencia
+	}
+
+	MASCOTA_VACUNA {
+		integer id_mascota PK
+		integer id_vacuna PK
+		date fecha_aplicacion
+		date proxima_dosis
+	}
+
+	MEDICAMENTO {
+		integer id_medicamento PK
+		string nombre
+		string descripcion
+		integer stock
+	}
+
+	RECETA {
+		integer id_receta PK
+		date fecha
+	}
+
+	RECETA_MEDICAMENTO {
+		integer id_receta PK
+		integer id_medicamento PK
+		string dosis
+		string frecuencia
+		string duracion
+	}
+	
+	CIRUGIA {
+		integer id_cirugia PK
+		string tipo
+		date fecha_hora
+		string estado
+	}
+
+	HOSPITALIZACION {
+		integer id_hospitalizacion PK
+		date fecha_ingreso
+		date fecha_salida
+		string motivo
+	}
+
+	MOVIMIENTO_INVENTARIO {
+		integer id_movimiento PK
+		string tipo_movimiento
+		integer cantidad
+		date fecha
+		string motivo
+	}
+
+	HISTORIAL_CLINICO {
+		integer id_historial PK
+		date fecha_registro
+	}
+
+	DUENO ||--o{ MASCOTA : es_dueno_de 
+	MASCOTA }||--|| DUENO : pertenece_a
+	MASCOTA ||--o{CONTACTO_EMERGENCIA : tiene
+	CONTACTO_EMERGENCIA }||--|| MASCOTA : asociado_a
+	MASCOTA ||--o{ CITA : programa
+	CITA }||--|| MASCOTA : para
+	MASCOTA ||--o{ CONSULTA : recibe
+	CONSULTA }||--|| MASCOTA : de
+	MASCOTA ||--|| HISTORIAL_CLINICO : posee
+	HISTORIAL_CLINICO }||--|| MASCOTA : de
+	MASCOTA ||--o{ CIRUGIA : se_somete_a
+	CIRUGIA }||--|| MASCOTA : en
+	MASCOTA ||--o{ HOSPITALIZACION : es_hospetalizada_en
+	HOSPITALIZACION }||--|| MASCOTA : de
+	MASCOTA }o--o{ VACUNA : recibe
+	VETERINARIA ||--o{ SEDE : opera
+	SEDE }||--|| VETERINARIA : pertenece_a
+	SEDE ||--o{ AREA_CLINICA : contiene
+	AREA_CLINICA }||--|| SEDE : en 
+	SEDE ||--o{ SERVICIO : ofrece
+	SERVICIO }||--|| SEDE : disponible_en
+	SEDE ||--o{ VETERINARIO : emplea
+	VETERINARIO }||--|| SEDE : trabaja_en
+	SEDE ||--o{ PERSONAL_NO_VETERINARIO : contrata
+	PERSONAL_NO_VETERINARIO }||--|| SEDE : empleado_en
+	VETERINARIO }o--o{ ESPECIALIDAD : tiene
+	ESPECIALIDAD }o--o{ VETERINARIO : de
+	VETERINARIO ||--o{ CONSULTA : atiende
+	CONSULTA }||--|| VETERINARIO : por
+	VETERINARIO ||--o{ CIRUGIA : realiza
+	CIRUGIA }||--|| VETERINARIO : operada_por
+	VETERINARIO ||--o{ RECETA : prescribe
+	RECETA }||--|| VETERINARIO : prescrita_por
+	VETERINARIO ||--o{ MOVIMIENTO_INVENTARIO : autoriza
+	MOVIMIENTO_INVENTARIO }||--|| VETERINARIO : autorizado_por
+	PERSONAL_NO_VETERINARIO ||--o{ CITA : agenda
+	CITA }||--|| PERSONAL_NO_VETERINARIO : registrada_por
+	CITA ||--|| CONSULTA : deriva_en
+	CONSULTA }||--|| CITA : proveniente_de
+	CONSULTA ||--o{ DIAGNOSTICO : genera
+	DIAGNOSTICO }||--|| CONSULTA : de
+	CONSULTA ||--o{ EXAMEN : incluye
+	EXAMEN }||--|| CONSULTA : solicitado_en
+	CONSULTA ||--|| RECETA : produce
+	RECETA }||--|| CONSULTA : generada_en
+	CONSULTA ||--o{ MASCOTA_VACUNA : registra_vacuna_en
+	MASCOTA_VACUNA }||--|| CONSULTA : aplicada_en
+	AREA_CLINICA ||--o{ CIRUGIA : se_realiza_en
+	CIRUGIA }||--|| AREA_CLINICA : en_area
+	AREA_CLINICA ||--o{ HOSPITALIZACION : ocupa
+	HOSPITALIZACION }||--|| AREA_CLINICA : en_area
+	RECETA }o--o{ MEDICAMENTO : contiene
+	MEDICAMENTO }o--o{ RECETA : en
+	MEDICAMENTO ||--o{ MOVIMIENTO_INVENTARIO : tiene_movimiento_de
+	MOVIMIENTO_INVENTARIO }||--|| MEDICAMENTO : de
+```
 <div style="page-break-after: always"></div>
 
 # CAPÍTULO IV: IMPLEMENTACIÓN DE LA BASE DE DATOS
@@ -811,6 +1077,23 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 ## 4.1 Sistema de gestión de base de datos
 
 ### 4.1.1 Evaluación y elección del sistema de gestión de base de datos relacional
+
+Para la selección del **Sistema de Gestión de Base de Datos (SGBD)** para **Pet Care**, se han evaluado las tres opciones más destacadas bajo los criterios de **compatibilidad**, **rendimiento** y **escalabilidad**.
+
+| Criterio | MySQL | PostgreSQL | SQL Server |
+|---|---|---|---|
+| **Compatibilidad** | Alta con tecnologías web, pero con limitaciones en la integración con ecosistemas empresariales cerrados. | Excelente con sistemas Linux y herramientas de análisis de datos complejas. | Integración nativa con el ecosistema Microsoft (.NET). Ideal para reportes administrativos y gestión de Windows. |
+| **Rendimiento** | Optimizado para operaciones de lectura de datos simples. Su rendimiento decae con exigencias complejas. | Alto rendimiento en procesos de escritura y lectura concurrentes de gran complejidad. | Gestiona eficientemente cargas de trabajo transaccionales pesadas y reportes en tiempo real. |
+| **Escalabilidad** | Escalabilidad horizontal aceptable, pero compleja de gestionar en entornos de misión crítica. | Alta escalabilidad vertical y horizontal mediante particionamiento avanzado. | Permite un crecimiento fluido desde versiones Express, soportando terabytes de datos sin pérdida de eficiencia. |
+
+Luego del análisis se determinó que **SQL Server** es la solución óptima para el proyecto por las siguientes razones:
+
+En primer lugar, la **compatibilidad** es un factor crítico, ya que muchas herramientas administrativas y de oficina utilizadas por las pequeñas y medianas empresas se integran con SQL Server, lo que facilita la exportación y generación de informes de gestión.
+
+En términos de **rendimiento**, SQL Server garantiza que las búsquedas y el procesamiento de facturas se realicen con una latencia mínima.
+
+Finalmente, su **escalabilidad** asegura que a medida que Pet Care tenga nuevas oficinas, la base de datos podrá migrar a versiones más potentes o a la nube sin reescribir la estructura lógica, protegiendo la inversión en tecnología de la startup.
+
 
 ## 4.2 Diagrama de datos
 
