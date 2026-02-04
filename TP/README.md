@@ -801,6 +801,7 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 ## 3.3 Enfoque relacional
 
 ### 3.3.1 Diagrama entidad-relación lógico
+(images/diagrama1.png)
 
 <div style="page-break-after: always"></div>
 
