@@ -1,0 +1,269 @@
+-- =========================
+-- PETCARE - ESQUEMA V1 (SQL Server)
+-- =========================
+
+CREATE TABLE VETERINARIA (
+  id_veterinaria INT IDENTITY(1,1) PRIMARY KEY,
+  nombre   VARCHAR(120) NOT NULL,
+  ruc      VARCHAR(20)  NOT NULL UNIQUE,
+  direccion VARCHAR(200) NULL,
+  telefono  VARCHAR(20)  NULL,
+  email     VARCHAR(120) NULL UNIQUE
+);
+
+CREATE TABLE SEDE (
+  id_sede INT IDENTITY(1,1) PRIMARY KEY,
+  nombre    VARCHAR(120) NOT NULL,
+  direccion VARCHAR(200) NULL,
+  telefono  VARCHAR(20)  NULL,
+  email     VARCHAR(120) NULL,
+  id_veterinaria INT NOT NULL,
+  CONSTRAINT FK_SEDE_VETERINARIA
+    FOREIGN KEY (id_veterinaria) REFERENCES VETERINARIA(id_veterinaria)
+);
+
+CREATE TABLE DUENO (
+  id_dueno INT IDENTITY(1,1) PRIMARY KEY,
+  nombres  VARCHAR(80)  NOT NULL,
+  apellidos VARCHAR(80) NOT NULL,
+  tipo_documento   VARCHAR(20) NULL,
+  numero_documento VARCHAR(30) NULL UNIQUE,
+  telefono VARCHAR(20) NULL,
+  email    VARCHAR(120) NULL UNIQUE,
+  direccion VARCHAR(200) NULL
+);
+
+CREATE TABLE MASCOTA (
+  id_mascota INT IDENTITY(1,1) PRIMARY KEY,
+  nombre  VARCHAR(60) NOT NULL,
+  especie VARCHAR(30) NOT NULL,
+  raza    VARCHAR(50) NULL,
+  sexo    VARCHAR(10) NULL,
+  fecha_nacimiento DATE NULL,
+  peso DECIMAL(6,2) NULL,
+  fecha_registro DATETIME NULL,
+  id_dueno INT NOT NULL,
+  CONSTRAINT FK_MASCOTA_DUENO
+    FOREIGN KEY (id_dueno) REFERENCES DUENO(id_dueno)
+);
+
+CREATE TABLE CONTACTO_EMERGENCIA (
+  id_contacto INT IDENTITY(1,1) PRIMARY KEY,
+  nombre    VARCHAR(80) NOT NULL,
+  apellidos VARCHAR(80) NULL,
+  telefono  VARCHAR(20) NULL,
+  parentesco VARCHAR(40) NULL,
+  id_mascota INT NOT NULL,
+  CONSTRAINT FK_CONTACTO_MASCOTA
+    FOREIGN KEY (id_mascota) REFERENCES MASCOTA(id_mascota)
+);
+
+CREATE TABLE AREA_CLINICA (
+  id_area_clinica INT IDENTITY(1,1) PRIMARY KEY,
+  nombre VARCHAR(120) NOT NULL,
+  descripcion VARCHAR(200) NULL,
+  capacidad INT NULL,
+  id_sede INT NOT NULL,
+  CONSTRAINT FK_AREA_SEDE
+    FOREIGN KEY (id_sede) REFERENCES SEDE(id_sede)
+);
+
+CREATE TABLE SERVICIO (
+  id_servicio INT IDENTITY(1,1) PRIMARY KEY,
+  nombre VARCHAR(120) NOT NULL,
+  descripcion VARCHAR(200) NULL,
+  costo DECIMAL(10,2) NOT NULL,
+  id_sede INT NOT NULL,
+  CONSTRAINT FK_SERVICIO_SEDE
+    FOREIGN KEY (id_sede) REFERENCES SEDE(id_sede)
+);
+
+CREATE TABLE PERSONAL_NO_VETERINARIO (
+  id_personal INT IDENTITY(1,1) PRIMARY KEY,
+  nombre VARCHAR(80) NOT NULL,
+  apellidos VARCHAR(80) NOT NULL,
+  rol VARCHAR(50) NOT NULL,
+  telefono VARCHAR(20) NULL,
+  email VARCHAR(120) NULL UNIQUE,
+  fecha_registro DATETIME NULL,
+  id_sede INT NOT NULL,
+  CONSTRAINT FK_PERSONAL_SEDE
+    FOREIGN KEY (id_sede) REFERENCES SEDE(id_sede)
+);
+
+CREATE TABLE VETERINARIO (
+  id_veterinario INT IDENTITY(1,1) PRIMARY KEY,
+  nombres  VARCHAR(80) NOT NULL,
+  apellidos VARCHAR(80) NOT NULL,
+  cmp VARCHAR(20) NULL UNIQUE,
+  telefono VARCHAR(20) NULL,
+  email VARCHAR(120) NULL UNIQUE,
+  estado VARCHAR(20) NULL,
+  fecha_registro DATETIME NULL,
+  id_sede INT NOT NULL,
+  CONSTRAINT FK_VETERINARIO_SEDE
+    FOREIGN KEY (id_sede) REFERENCES SEDE(id_sede)
+);
+
+CREATE TABLE ESPECIALIDAD (
+  id_especialidad INT IDENTITY(1,1) PRIMARY KEY,
+  nombre VARCHAR(120) NOT NULL UNIQUE,
+  descripcion VARCHAR(200) NULL
+);
+
+CREATE TABLE VETERINARIO_ESPECIALIDAD (
+  id_veterinario INT NOT NULL,
+  id_especialidad INT NOT NULL,
+  fecha_certificacion DATETIME NULL,
+  CONSTRAINT PK_VET_ESPEC PRIMARY KEY (id_veterinario, id_especialidad),
+  CONSTRAINT FK_VE_VETERINARIO
+    FOREIGN KEY (id_veterinario) REFERENCES VETERINARIO(id_veterinario),
+  CONSTRAINT FK_VE_ESPECIALIDAD
+    FOREIGN KEY (id_especialidad) REFERENCES ESPECIALIDAD(id_especialidad)
+);
+
+CREATE TABLE CITA (
+  id_cita INT IDENTITY(1,1) PRIMARY KEY,
+  fecha_hora DATETIME NOT NULL,
+  motivo VARCHAR(200) NULL,
+  estado VARCHAR(30) NULL,
+  id_mascota INT NOT NULL,
+  id_personal INT NULL,
+  CONSTRAINT FK_CITA_MASCOTA
+    FOREIGN KEY (id_mascota) REFERENCES MASCOTA(id_mascota),
+  CONSTRAINT FK_CITA_PERSONAL
+    FOREIGN KEY (id_personal) REFERENCES PERSONAL_NO_VETERINARIO(id_personal)
+);
+
+CREATE TABLE CONSULTA (
+  id_consulta INT IDENTITY(1,1) PRIMARY KEY,
+  fecha_hora DATETIME NOT NULL,
+  observaciones VARCHAR(500) NULL,
+  id_veterinario INT NOT NULL,
+  id_mascota INT NOT NULL,
+  CONSTRAINT FK_CONSULTA_VETERINARIO
+    FOREIGN KEY (id_veterinario) REFERENCES VETERINARIO(id_veterinario),
+  CONSTRAINT FK_CONSULTA_MASCOTA
+    FOREIGN KEY (id_mascota) REFERENCES MASCOTA(id_mascota)
+);
+
+CREATE TABLE DIAGNOSTICO (
+  id_diagnostico INT IDENTITY(1,1) PRIMARY KEY,
+  descripcion VARCHAR(500) NOT NULL,
+  fecha DATETIME NULL,
+  gravedad VARCHAR(30) NULL,
+  id_consulta INT NOT NULL,
+  CONSTRAINT FK_DIAG_CONSULTA
+    FOREIGN KEY (id_consulta) REFERENCES CONSULTA(id_consulta)
+);
+
+CREATE TABLE EXAMEN (
+  id_examen INT IDENTITY(1,1) PRIMARY KEY,
+  tipo VARCHAR(80) NOT NULL,
+  resultado VARCHAR(200) NULL,
+  fecha_hora DATETIME NULL,
+  id_consulta INT NOT NULL,
+  CONSTRAINT FK_EXAMEN_CONSULTA
+    FOREIGN KEY (id_consulta) REFERENCES CONSULTA(id_consulta)
+);
+
+CREATE TABLE VACUNA (
+  id_vacuna INT IDENTITY(1,1) PRIMARY KEY,
+  nombre VARCHAR(120) NOT NULL UNIQUE,
+  descripcion VARCHAR(200) NULL,
+  frecuencia VARCHAR(60) NULL
+);
+
+CREATE TABLE MASCOTA_VACUNA (
+  id_mascota INT NOT NULL,
+  id_vacuna INT NOT NULL,
+  fecha_aplicacion DATETIME NULL,
+  proxima_dosis DATETIME NULL,
+  id_consulta INT NOT NULL,
+  CONSTRAINT PK_MASCOTA_VACUNA PRIMARY KEY (id_mascota, id_vacuna),
+  CONSTRAINT FK_MV_MASCOTA
+    FOREIGN KEY (id_mascota) REFERENCES MASCOTA(id_mascota),
+  CONSTRAINT FK_MV_VACUNA
+    FOREIGN KEY (id_vacuna) REFERENCES VACUNA(id_vacuna),
+  CONSTRAINT FK_MV_CONSULTA
+    FOREIGN KEY (id_consulta) REFERENCES CONSULTA(id_consulta)
+);
+
+CREATE TABLE HISTORIAL_CLINICO (
+  id_historial INT IDENTITY(1,1) PRIMARY KEY,
+  fecha_registro DATETIME NOT NULL,
+  id_mascota INT NOT NULL,
+  CONSTRAINT FK_HC_MASCOTA
+    FOREIGN KEY (id_mascota) REFERENCES MASCOTA(id_mascota)
+);
+
+CREATE TABLE HOSPITALIZACION (
+  id_hospitalizacion INT IDENTITY(1,1) PRIMARY KEY,
+  fecha_ingreso DATETIME NOT NULL,
+  fecha_salida DATETIME NULL,
+  motivo VARCHAR(200) NULL,
+  id_mascota INT NOT NULL,
+  id_area_clinica INT NOT NULL,
+  CONSTRAINT FK_HOSP_MASCOTA
+    FOREIGN KEY (id_mascota) REFERENCES MASCOTA(id_mascota),
+  CONSTRAINT FK_HOSP_AREA
+    FOREIGN KEY (id_area_clinica) REFERENCES AREA_CLINICA(id_area_clinica)
+);
+
+CREATE TABLE CIRUGIA (
+  id_cirugia INT IDENTITY(1,1) PRIMARY KEY,
+  tipo VARCHAR(80) NOT NULL,
+  fecha_hora DATETIME NOT NULL,
+  estado VARCHAR(30) NULL,
+  id_area_clinica INT NOT NULL,
+  id_mascota INT NOT NULL,
+  id_veterinario INT NOT NULL,
+  CONSTRAINT FK_CIR_AREA
+    FOREIGN KEY (id_area_clinica) REFERENCES AREA_CLINICA(id_area_clinica),
+  CONSTRAINT FK_CIR_MASCOTA
+    FOREIGN KEY (id_mascota) REFERENCES MASCOTA(id_mascota),
+  CONSTRAINT FK_CIR_VETERINARIO
+    FOREIGN KEY (id_veterinario) REFERENCES VETERINARIO(id_veterinario)
+);
+
+CREATE TABLE MEDICAMENTO (
+  id_medicamento INT IDENTITY(1,1) PRIMARY KEY,
+  nombre VARCHAR(120) NOT NULL UNIQUE,
+  descripcion VARCHAR(200) NULL,
+  stock INT NOT NULL
+);
+
+CREATE TABLE MOVIMIENTO_INVENTARIO (
+  id_movimiento INT IDENTITY(1,1) PRIMARY KEY,
+  tipo_movimiento VARCHAR(30) NOT NULL,
+  cantidad INT NOT NULL,
+  fecha DATETIME NOT NULL,
+  motivo VARCHAR(200) NULL,
+  id_veterinario INT NOT NULL,
+  id_medicamento INT NOT NULL,
+  CONSTRAINT FK_MI_VETERINARIO
+    FOREIGN KEY (id_veterinario) REFERENCES VETERINARIO(id_veterinario),
+  CONSTRAINT FK_MI_MEDICAMENTO
+    FOREIGN KEY (id_medicamento) REFERENCES MEDICAMENTO(id_medicamento)
+);
+
+CREATE TABLE RECETA (
+  id_receta INT IDENTITY(1,1) PRIMARY KEY,
+  fecha DATETIME NOT NULL,
+  id_veterinario INT NOT NULL,
+  CONSTRAINT FK_RECETA_VETERINARIO
+    FOREIGN KEY (id_veterinario) REFERENCES VETERINARIO(id_veterinario)
+);
+
+CREATE TABLE RECETA_MEDICAMENTO (
+  id_receta INT NOT NULL,
+  id_medicamento INT NOT NULL,
+  dosis VARCHAR(60) NULL,
+  frecuencia VARCHAR(60) NULL,
+  duracion VARCHAR(60) NULL,
+  CONSTRAINT PK_RECETA_MED PRIMARY KEY (id_receta, id_medicamento),
+  CONSTRAINT FK_RM_RECETA
+    FOREIGN KEY (id_receta) REFERENCES RECETA(id_receta),
+  CONSTRAINT FK_RM_MEDICAMENTO
+    FOREIGN KEY (id_medicamento) REFERENCES MEDICAMENTO(id_medicamento)
+);
