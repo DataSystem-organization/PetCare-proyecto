@@ -439,30 +439,30 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 
 ## 3.1 Entidades
 
-- **Mascota:**
-- **Dueño**
-- **Contacto_emergencia**
-- **Veterinario**
-- **Personal_no_veterinario**
-- **Veterinaria**
-- **Sede**
-- **Área_clínica**
-- **Especialidad**
-- **Veterinario_especialidad**
-- **Servicio**
-- **Cita**
-- **Consulta**
-- **Diagnostico**
-- **Examen**
-- **Vacuna**
-- **Mascota_vacuna**
-- **Medicamento**
-- **Receta**
-- **Receta_medicamento**
-- **Cirugía**
-- **Especialización**
-- **Movimiento_inventario**
-- **Historial_clinico**
+- **Mascota:** Representa al paciente animal que recibe atención médica en la veterinaria. Esta entidad almacena información general y biológica necesaria para su identificación y seguimiento clínico.
+- **Dueño:** Representa a la persona responsable legal y administrativa de una o más mascotas registradas en la veterinaria. Esta entidad almacena información personal y de contacto necesaria para la identificación del propietario.
+- **Contacto_emergencia:** Contiene los datos de las personas asignadas como contactos en caso de emergencia cuando no sea posible contactar al dueño. Contiene información de identificación y contacto que permite a la veterinaria actuar de manera rápida ante emergencias médicas.
+- **Veterinario:** Representa al profesional médico responsable de la atención clínica de las mascotas dentro de la veterinaria. Esta entidad almacena información personal, profesional y de contacto del médico veterinario.
+- **Personal_no_veterinario:** Representa al personal que trabaja en la veterinaria y que realiza actividades no médicas, como recepción, estética animal o administración.
+- **Veterinaria:** Representa a las instituciones que brindan servicios de atención médica para las mascotas. Esta entidad almacena información general de la clínica veterinaria.
+- **Sede:** Establecimiento donde la veterinaria brinda sus servicios. Almacena información de ubicación y contacto de cada local.
+- **Área_clínica:** Representa a las distintas zonas de una sede de la veterinaria donde se realizan actividades médicas y no médicas.
+- **Especialidad:** Representa a las áreas de especialización veterinarias que puede tener un médico veterinario.
+- **Veterinario_especialidad:** Asocia a los veterinarios con sus especialidades. Permite registrar si un veterinario posee más de una especialidad.
+- **Servicio:** Representa los servicios ofrecidos por la veterinaria, no necesariamente médicos, sino a atenciones complementarias brindadas a las mascotas.
+- **Cita:** Programación previa de una atención para una mascota en la veterinaria. Esta entidad almacena la información relacionada con la fecha, motivo y estado de la reserva.
+- **Consulta:** Atención médica efectivamente realizada a una mascota por un médico veterinario. Esta entidad registra la información clínica generada durante la evaluación, como observaciones, diagnósticos y tratamientos.
+- **Diagnostico:** Representa la información sobre la condición de salud identificada por el veterinario luego de evaluar a la mascota durante una consulta.
+- **Examen:** Representa las pruebas clínicas realizadas a una mascota como apoyo al diagnóstico veterinario.
+- **Vacuna:** Representa las vacunas disponibles en la veterinaria para la prevención de enfermedades en las mascotas.
+- **Mascota_vacuna:** Representa el registro de las vacunas aplicadas a cada mascota, permitiendo llevar el control de su calendario de inmunización.
+- **Medicamento:** Representa los fármacos utilizados en tratamientos veterinarios.
+- **Receta:** Prescripción médica emitida por el veterinario durante una consulta, donde se indican medicamentos y tratamientos que debe seguir la mascota.
+- **Receta_medicamento:** Representa el detalle de los medicamentos prescritos dentro de una receta médica. Permite registrar qué fármacos debe consumir la mascota, así como las indicaciones específicas dadas por el veterinario.
+- **Cirugía:** Representa a los procedimientos quirúrgicos realizados a una mascota dentro de la veterinaria.
+- **Hospitalización:** Representa el periodo en que una mascota permanece internada en la veterinaria para recibir cuidados médicos, monitoreo o tratamiento continuo.
+- **Movimiento_inventario:** Registros de entradas y salidas de medicamentos u otros insumos del inventario de la veterinaria.
+- **Historial_clinico:** Contiene el registro histórico de la información médica de una mascota. Permite llevar el seguimiento del estado de salud, incluyendo antecedentes, enfermedades, tratamientos y observaciones médicas.
   
 ## 3.2 Atributos
 
@@ -1100,5 +1100,6 @@ Ballarin, C. (2019). *Casi la mitad de hogares peruanos tienen una mascota*. Kan
 
 **Repositorio en GitHub:** [PetCare-proyecto](https://github.com/DataSystem-organization/PetCare-proyecto/tree/main)  
 **Carpeta de archivos:** [Google Drive](https://drive.google.com/drive/folders/1ysx7GtMfmhUFN9xITfBEGoUvXDckLpa5?usp=sharing)
+
 
 
