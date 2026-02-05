@@ -112,10 +112,111 @@ Febrero, 2026
 
 *Student outcome del equipo*
 
-| Criterio específico | Acciones realizadas | Conclusiones |
-| :--- | :--- | :--- |
-| Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de ingeniería de software. | *Mitma Ayala, Cielo Anahí*<br> TB1:<br>Redaccion del Startup.<br>Realización de una entrevista.<br>Elaboración de 3 User Stories.<br> TP:<br> TB2:<br> TF:<br> <br>*Quispe Flores, Judith Xiomara*<br> TB1:<br>Desarrollo de la herramienta de gestión 5W y 2H.<br>Realización de una entrevista.<br>Elaboración de 3 User Stories.<br> TP:<br> TB2:<br> TF:<br> <br>*Riveros Vera, Jennifer Yamilet*<br> TB1:<br>Desarrollo de Lean UX Canvas para evidenciar la propuesta de valor.<br>Realización de una entrevista.<br>Elaboración de 3 User Stories<br> TP:<br> TB2:<br> TF:<br> <br>*Tintayo Pujaico, Adriano Martín*<br> TB1:<br>Descripción de los segmentos objetivos.<br>Realización de una entrevista.<br>Elaboración de 3 User Stories.<br>TP:<br> TB2:<br> TF:<br> <br>*Vergaray Calderon, Rose Almendra*<br> TB1:<br>Elaboración del diseño de entrevistas.<br>Redacción del análisis de entrevistas.<br> TP:<br> TB2:<br> TF:<br> | TB1:<br> - Se identificó el problema mediante entrevistas sobre la desactualización de inventario por ventas y la necesidad de seguimiento preventivo.<br> - Se evidenciaron problemas sobre el manejo de la información en algunas veterinarias, como la gestión eficiente de múltiples mascotas.<br> - Se reconocieron problemas acerca de la eficiencia y precisión en los registros historiales, lo cual perjudica la atención de la clínica. |
-| Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de soluciones de ingeniería de software. | *Mitma Ayala, Cielo Anahí*<br> TB1:<br>Apliqué lo aprendido en otro curso para el desarrollo de los user stories y en que se basa la descripción de la startup<br> TP:<br> TB2:<br> TF:<br> <br>*Quispe Flores, Judith Xiomara*<br> TB1:<br>Conocimiento adquirido de otros cursos, como el uso de User Stories y la herramienta 5W y 2H.<br> TP:<br> TB2:<br> TF:<br> <br>*Riveros Vera, Jennifer Yamilet*<br> TB1:<br>Se hizo revision a la redaccion de las User Stories y saber sus necesidades mediante entrevista.<br>Aplicar feedback y ciclo de mejora mediante los requisitos.<br> TP:<br> TB2:<br> TF:<br> <br>*Tintayo Pujaico, Adriano Martín*<br> TB1:<br>Definición de los tipos de segmentos objetivos para la realización del proyecto.<br>TP:<br> TB2:<br> TF:<br> <br>*Vergaray Calderon, Rose Almendra*<br> TB1:<br>Integración de los hallazgos de entrevistas en análisis.<br> TP:<br> TB2:<br> TF:<br> | TB1:<br>  |
+---
+
+## Criterio específico
+**Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de ingeniería de software.**
+
+### Acciones realizadas
+
+- **Mitma Ayala, Cielo Anahí**
+  - **TB1:**
+    - Proyección del equipo frente al proyecto de dominio de datos a gran escala.
+  - **TP1:**
+    - Colaboró en la identificación y descripción de entidades.
+    - Participó en la definición de atributos asociados a cada entidad.
+
+- **Quispe Flores, Judith Xiomara**
+  - **TB1:**
+    - Desarrollo de la herramienta de gestión 5W y 2H.
+    - Realice una entrevista al dueño de una mascota.
+    - Realice 3 User Stories.
+  - **TP1:**
+    - Realizó el diagrama entidad-relación lógico y su código SQL.
+
+- **Riveros Vera, Jennifer Yamilet**
+  - **TB1:**
+    - Desarrollo de Lean UX Canvas para evidenciar la propuesta de valor centrada al usuario.
+    - Realización de una entrevista sobre el registro historial veterinario.
+    - Realización de 3 User Stories.
+  - **TP1:**
+    - Realización de corrección de errores en requisitos y creación de no funcionales.
+    - Creación de diagrama .erd de entidad-relación lógica y código sql.
+
+- **Tintayo Pujaico, Adriano Martín**
+  - **TB1:**
+    - Delimitación y descripción de los segmentos objetivos.
+    - Realización de una entrevista a dueño de clínica veterinaria.
+    - Elaboración de 3 User Stories.
+  - **TP1:**
+    - Realización de la evaluación y elección del sistema de gestión de base de datos relacional sobre el proyecto.
+
+- **Vergaray Calderon, Rose Almendra**
+  - **TB1:**
+    - Elaboración del diseño de entrevistas.
+    - Redacción del análisis de entrevistas.
+  - **TP1:**
+    - Participó en la identificación y definición de entidades del dominio del problema.
+    - Definió los atributos de cada entidad.
+
+### Conclusiones
+
+- **TB1:**
+  - Se identificó el problema mediante entrevistas sobre la desactualización de inventario por ventas y la necesidad de seguimiento preventivo.
+  - Se evidenciaron problemas sobre el manejo de la información en algunas veterinarias, como la gestión eficiente de múltiples mascotas.
+  - Se reconocieron problemas acerca de eficiencia y precisión en los registros historiales, lo cual perjudica la atención de la clínica.
+- **TP1:**
+  - En esta etapa el equipo aplicó fundamentos de modelado de datos al identificar entidades y atributos. Asimismo, se utilizaron principios del enfoque relacional para construir el diagrama entidad-relación lógico y posteriormente el modelo físico, vinculando el diseño conceptual con la implementación.
+
+---
+
+## Criterio específico
+**Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de ingeniería de software.**
+
+### Acciones realizadas
+
+- **Mitma Ayala, Cielo Anahí**
+  - **TB1:**
+    - Apliqué lo aprendido en otro curso para el desarrollo de los user stories y en que se basa la descripción de la startup.
+  - **TP1:**
+    - Reconoció la importancia de profundizar en el modelado conceptual de bases de datos.
+
+- **Quispe Flores, Judith Xiomara**
+  - **TB1:**
+    - Conocimiento adquirido de otros cursos, como el uso de User Stories y la herramienta 5W y 2H.
+  - **TP1:**
+    - A través del diseño e implementación del diagrama entidad-relación para el sistema, reconocí necesidad de aprender nuevas técnicas de modelación de datos y herramientas con ERD Editor.
+
+- **Riveros Vera, Jennifer Yamilet**
+  - **TB1:**
+    - Se hizo revisión a la redacción de las User Stories y saber sus necesidades mediante entrevista.
+    - Aplicar feedback y ciclo de mejora mediante los requisitos.
+  - **TP1:**
+    - Superé desafíos técnicos de organización en Visual Studio liderando en la clarificación de esos problemas, además de que desarrollé un diagrama DER.
+
+- **Tintayo Pujaico, Adriano Martín**
+  - **TB1:**
+    - Definición de los tipos de segmentos objetivos para la realización del proyecto.
+  - **TP1:**
+    - Evaluación y elección del sistema de gestión de base de datos relacional sobre el proyecto.
+
+- **Vergaray Calderon, Rose Almendra**
+  - **TB1:**
+    - Integración de los hallazgos de entrevistas en análisis.
+  - **TP1:**
+    - Reconoció la necesidad de fortalecer sus conocimientos en modelado de datos, especialmente en la correcta definición de entidades y atributos.
+    - Identificó el diseño de bases de datos como área de crecimiento profesional.
+
+### Conclusiones
+
+- **TB1:**
+  - En la entrevista se demostró que validar con los usuarios reduce trabajo y que el trabajo requiere aprendizaje continuo por casos reales que no se resuelven fácilmente con supuestos, como en la entrevista con el Dr. Irwin con el problema del inventario por unidades y el control preventivo.
+  - La entrevista evidencia dificultades en el manejo de la información veterinaria. Esto refuerza la importancia del aprendizaje continuo en ingeniería de software, ya que solo a través de la evolución continua de los requisitos y el dominio del usuario podremos crear una solución completa que resuelva estos problemas de forma eficaz y confiable.
+  - La entrevista demostró la importancia de buscar casos reales de los cuales recopilar información y conseguir puntos más precisos para nuestro proyecto, como en la entrevista con la Dra. Marisol demuestra los problemas al momento de manejar historiales y guardar información.
+- **TP1:**
+  - Se fortaleció mi capacidad para modelar datos de manera lógica y colaborativa, aplicando conocimientos previos y aprendiendo nuevas herramientas que, junto al compromiso constante del equipo, nos permitieron estructurar una base de datos alineada con los requisitos del proyecto.
+  - Mi participación en el proyecto afirmó mi aprendizaje en el modelado de diagrama lógico, adaptar mis conocimientos y una solución de organización que permitió al grupo poder hacerlo bien con el apoyo de todos al querer aportar con algo en el trabajo. Esto concluye por exitoso que no solo preside código sino que la disposición constante del grupo a aprender cosas nuevas.
+
 
 <div style="page-break-after: always"></div>
 
@@ -1382,8 +1483,7 @@ Gadgerss. (2025, 15 de mayo). *Las tres principales brechas tecnológicas que fr
 Ballarin, C. (2019). *Casi la mitad de hogares peruanos tienen una mascota*. Kantar. https://www.kantar.com/latin-america/inspiracion/consumo-masivo/hogares-con-mascotas
 
 # ANEXOS
-
-Repositorio en GitHub: [PetCare-proyecto](https://github.com/DataSystem-organization/PetCare-proyecto/tree/main)  
-Carpeta de archivos: [Google Drive](https://drive.google.com/drive/folders/1ysx7GtMfmhUFN9xITfBEGoUvXDckLpa5?usp=sharing)
-
-
+- Repositorio en GitHub: [PetCare-proyecto](https://github.com/DataSystem-organization/PetCare-proyecto/tree/main)
+- Carpeta de archivos: [Google Drive](https://drive.google.com/drive/folders/1ysx7GtMfmhUFN9xITfBEGoUvXDckLpa5?usp=sharing)
+- Link de video del TP1: [Microsoft Stream](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241d159_upc_edu_pe/IQAxszfRY13hTYbBz2s3MiheATb0fIbwlpVDa8kWcb60vAI?e=RQgzfJ&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
+[Youtube](https://youtu.be/G5ZFKfJF7Us)
