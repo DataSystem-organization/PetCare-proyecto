@@ -1202,7 +1202,9 @@ Finalmente, su **escalabilidad** asegura que a medida que Pet Care tenga nuevas 
 
 ![Diagrama entidad-relación físico](images/Diagramaentidadfisica.png)
 
-**Script SQL (SQL Server) – Esquema físico (DDL):**
+## 4.3 Scripts de la base de datos
+
+### 4.3.1 Scripts de creación y carga de datos de la base de datos relacional
 
 ```sql
 -- PETCARE - ESQUEMA (SQL Server)
