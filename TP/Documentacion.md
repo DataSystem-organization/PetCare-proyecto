@@ -2104,53 +2104,7 @@ GO
 
 **Historial clínico de una mascota por parámetro**
 
-*Funciones:*
-
-**Atenciones por veterinario**
-
-**Responsable:** Rose Vergaray
-
-Esta función con retorno de tabla tiene como finalidad mostrar las atenciones realizadas por un veterinario específico, incluyendo su nombre, la sede donde labora, la mascota atendida y la fecha de cada consulta registrada. Su objetivo es facilitar el seguimiento de las actividades médicas realizadas por el personal veterinario, contribuyendo al control operativo y a la gestión interna dentro del sistema de la clínica.
-
-```sql
-
-USE PETCARE_DB;
-GO
-
-CREATE OR ALTER FUNCTION fn_detalle_atenciones_veterinario
-(
-    @id_veterinario INT
-)
-RETURNS TABLE
-AS
-RETURN
-(
-    SELECT 
-        v.id_veterinario,
-        v.nombres + ' ' + v.apellidos AS veterinario,
-        s.nombre AS sede,
-        m.nombre AS mascota,
-        c.fecha_hora
-    FROM CONSULTA c
-    INNER JOIN VETERINARIO v
-        ON v.id_veterinario = c.id_veterinario
-    INNER JOIN SEDE s
-        ON s.id_sede = v.id_sede
-    INNER JOIN MASCOTA m
-        ON m.id_mascota = c.id_mascota
-    WHERE v.id_veterinario = @id_veterinario
-);
-GO
---- Ejemplo de uso:
-SELECT * 
-FROM dbo.fn_detalle_atenciones_veterinario(12);
-
-```
-![Funcion atencion por veterinario](images/atencionporveterinario.png)
-
-
-
-*Procedimientos:*
+**Responsable:**
 
 **Generar recordatorios de vacunas próximas**
 
@@ -2203,6 +2157,51 @@ GO
 
 ```
 ![Generar recordatorios de vacunas próximas](images/Generarrecordatoriosdevacunaspróximas.jpeg)
+
+*Funciones:*
+
+**Atenciones por veterinario**
+
+**Responsable:** Rose Vergaray
+
+Esta función con retorno de tabla tiene como finalidad mostrar las atenciones realizadas por un veterinario específico, incluyendo su nombre, la sede donde labora, la mascota atendida y la fecha de cada consulta registrada. Su objetivo es facilitar el seguimiento de las actividades médicas realizadas por el personal veterinario, contribuyendo al control operativo y a la gestión interna dentro del sistema de la clínica.
+
+```sql
+
+USE PETCARE_DB;
+GO
+
+CREATE OR ALTER FUNCTION fn_detalle_atenciones_veterinario
+(
+    @id_veterinario INT
+)
+RETURNS TABLE
+AS
+RETURN
+(
+    SELECT 
+        v.id_veterinario,
+        v.nombres + ' ' + v.apellidos AS veterinario,
+        s.nombre AS sede,
+        m.nombre AS mascota,
+        c.fecha_hora
+    FROM CONSULTA c
+    INNER JOIN VETERINARIO v
+        ON v.id_veterinario = c.id_veterinario
+    INNER JOIN SEDE s
+        ON s.id_sede = v.id_sede
+    INNER JOIN MASCOTA m
+        ON m.id_mascota = c.id_mascota
+    WHERE v.id_veterinario = @id_veterinario
+);
+GO
+--- Ejemplo de uso:
+SELECT * 
+FROM dbo.fn_detalle_atenciones_veterinario(12);
+
+```
+![Funcion atencion por veterinario](images/atencionporveterinario.png)
+
 
 <div style="page-break-after: always"></div>
 
