@@ -36,8 +36,8 @@ Febrero, 2026
 | Versión | Fecha | Autor | Descripción de modificación |
 | :---: | :---: | :---: | :---: |
 | TB1 | 26/01/26 | - Mitma Ayala, Cielo Anahí<br>- Quispe Flores, Judith Xiomara<br>- Riveros Vera, Jennifer Yamilet<br>- Tintayo Pujaico, Adriano Martín<br>- Vergaray Calderon, Rose Almendra | CAPÍTULO I: Introducción<br>1.1 Startup Profile<br>1.1.1 Descripción del startup<br>1.1.2 Perfiles de integrantes del equipo<br>1.2 Solution Profile<br>1.2.1 Antecedentes y Problemática<br>1.2.2 Propuesta de Valor<br>1.3 Segmento Objetivo<br><br>CAPÍTULO II: Requeriments<br>2.1 Entrevistas<br>2.1.1 Diseño de entrevistas<br>2.1.2 Registro de entrevistas<br>2.1.3 Análisis de entrevistas<br>2.2 Requisitos |
-| TP | |  Mitma Ayala, Cielo Anahí<br>- Quispe Flores, Judith Xiomara<br>- Riveros Vera, Jennifer Yamilet<br>- Tintayo Pujaico, Adriano Martín<br>- Vergaray Calderon, Rose Almendra | CAPÍTULO III: Diseño de base de datos<br>3.1 Entidades<br>3.2 Atributos<br>3.3 Enfoque relacional<br>3.3.1 Diagrama entidad-relación lógico<br>CAPÍTULO IV: Implementación de base de datos<br>4.1 Sistema de gestión de base de datos<br>4.1.1 Evaluación y elección del sistema de gestión de base de datos relacional<br>4.2 Diagramas de datos<br>4.2.1 Diagrama entidad-relación físico |
-| TB2 | | | |
+| TP | 04/02/26 |  Mitma Ayala, Cielo Anahí<br>- Quispe Flores, Judith Xiomara<br>- Riveros Vera, Jennifer Yamilet<br>- Tintayo Pujaico, Adriano Martín<br>- Vergaray Calderon, Rose Almendra | CAPÍTULO III: Diseño de base de datos<br>3.1 Entidades<br>3.2 Atributos<br>3.3 Enfoque relacional<br>3.3.1 Diagrama entidad-relación lógico<br><br>CAPÍTULO IV: Implementación de base de datos<br>4.1 Sistema de gestión de base de datos<br>4.1.1 Evaluación y elección del sistema de gestión de base de datos relacional<br>4.2 Diagramas de datos<br>4.2.1 Diagrama entidad-relación físico |
+| TB2 | 17/02/26 | Mitma Ayala, Cielo Anahí<br>- Quispe Flores, Judith Xiomara<br>- Riveros Vera, Jennifer Yamilet<br>- Tintayo Pujaico, Adriano Martín<br>- Vergaray Calderon, Rose Almendra | CAPÍTULO IV: Implementación de base de datos<br>4.3 Scripts de la base de datos<br>4.3.1 Scripts de creación y carga de datos de la base de datos relacional<br>4.4 Consultas<br>4.4.1 Consultas para la datos de la base de datos relacional |
 | TF | | | |
 
 <div style="page-break-after: always"></div>
@@ -99,6 +99,14 @@ Febrero, 2026
 - [4.2 Diagrama de datos](#42-diagrama-de-datos)
 
   - [4.2.1 Diagrama entidad-relación físico](#421-diagrama-entidad-relación-físico)
+
+- [4.3 Scripts de la base de datos](#43-scripts-de-la-base-de-datos)
+
+  - [4.3.1 Scripts de creación y carga de datos de la base de datos relacional](#431-scripts-de-creación-y-carga-de-datos-de-la-base-de-datos-relacional)
+
+- [4.4 Consultas](#44-consultas)
+
+  - [4.4.1 Consultas para la datos de la base de datos relacional](#441-consultas-para-la-base-de-datos-relacional)
 
 [BIBLIOGRAFÍA](#bibliografía)
 
@@ -1207,7 +1215,16 @@ Finalmente, su **escalabilidad** asegura que a medida que Pet Care tenga nuevas 
 ### 4.3.1 Scripts de creación y carga de datos de la base de datos relacional
 
 ```sql
--- PETCARE - ESQUEMA (SQL Server)
+-- ============================================
+-- Script de creación y carga de datos
+-- Motor: SQL Server
+-- ============================================
+
+CREATE DATABASE PETCARE_DB;
+GO
+
+USE PETCARE_DB;
+GO
 
 CREATE TABLE VETERINARIA (
   id_veterinaria INT IDENTITY(1,1) PRIMARY KEY,
@@ -1259,7 +1276,7 @@ CREATE TABLE CONTACTO_EMERGENCIA (
   nombre    VARCHAR(80) NOT NULL,
   apellidos VARCHAR(80) NULL,
   telefono  VARCHAR(20) NULL,
-  parentesco VARCHAR(40) NULL,
+  relacion VARCHAR(40) NULL,
   id_mascota INT NOT NULL,
   CONSTRAINT FK_CONTACTO_MASCOTA
     FOREIGN KEY (id_mascota) REFERENCES MASCOTA(id_mascota)
@@ -1302,7 +1319,7 @@ CREATE TABLE VETERINARIO (
   id_veterinario INT IDENTITY(1,1) PRIMARY KEY,
   nombres  VARCHAR(80) NOT NULL,
   apellidos VARCHAR(80) NOT NULL,
-  cmp VARCHAR(20) NULL UNIQUE,
+  colegiatura VARCHAR(20) NULL UNIQUE,
   telefono VARCHAR(20) NULL,
   email VARCHAR(120) NULL UNIQUE,
   estado VARCHAR(20) NULL,
@@ -1474,7 +1491,586 @@ CREATE TABLE RECETA_MEDICAMENTO (
   CONSTRAINT FK_RM_MEDICAMENTO
     FOREIGN KEY (id_medicamento) REFERENCES MEDICAMENTO(id_medicamento)
 );
+
+-- =========================
+-- DATOS DE PRUEBA
+-- =========================
+
+-- 1. VETERINARIA (Matriz)
+INSERT INTO VETERINARIA (nombre, ruc, direccion, telefono, email) VALUES 
+('PetCare Corporación S.A.C', '20601234567', 'Av. Javier Prado 1500, San Isidro', '014223344', 'corporativo@petcare.com');
+
+-- 2. SEDE 
+INSERT INTO SEDE (nombre, direccion, telefono, email, id_veterinaria) VALUES 
+('PetCare Jesús María', 'Av. Salaverry 1400', '955111010', 'jesusmaria@petcare.com', 1),
+('PetCare Rimac', 'Jr. Los Molinos 897', '955111002', 'rimac@petcare.com', 1),
+('PetCare La Molina', 'Av. Raul Ferrero 1205', '955111005', 'lamolina@petcare.com', 1),
+('PetCare Miraflores', 'Calle Schell 320', '955111008', 'miraflores@petcare.com', 1),
+('PetCare Surco', 'Av. Caminos del Inca 450', '955111003', 'surco@petcare.com', 1),
+('PetCare San Borja', 'Av. San Borja Sur 700', '955111011', 'sanborja@petcare.com', 1),
+('PetCare Barranco', 'Av. San Martin 400', '955111020', 'barranco@petcare.com', 1),
+('PetCare Los Olivos', 'Av. Carlos Izaguirre 150', '955111021', 'losolivos@petcare.com', 1),
+('PetCare San Isidro', 'Av. Dos de Mayo 800', '955111022', 'sanisidro@petcare.com', 1),
+('PetCare Ate', 'Av. Metropolitana 250', '955111023', 'ate@petcare.com', 1),
+('PetCare Chorrillos', 'Av. Defensores del Morro 500', '955111024', 'chorrillos@petcare.com', 1);
+
+-- 3. DUENO 
+INSERT INTO DUENO (nombres, apellidos, tipo_documento, numero_documento, telefono, email, direccion) VALUES 
+('Olenka', 'Espinoza Gomez', 'DNI', '75781234', '988100201', 'olenk@gmail.com', 'Av. Brasil 1971, Jesús María'),
+('Luis', 'Calderon Ramírez', 'DNI', '10457896', '988100202', 'lcald@hotmail.com', 'Av. Guardia Republicana 984, Rimac'),
+('Ricardo', 'Salas Torres', 'DNI', '42568912', '988100203', 'rsalas@gmail.com', 'Calle Los Jazmines 220, La Molina'),
+('Andrea', 'Paredes Lozano', 'DNI', '51236789', '988100204', 'aparedes@yahoo.com', 'Calle Porta 180, Miraflores'),
+('Fernando', 'Castro Rojas', 'DNI', '87654321', '988100205', 'ferojas@hotmail.com', 'Av. Primavera 1225, Surco'),
+('Maria', 'Mendoza Flores', 'DNI', '99874561', '988100206', 'maflores@gmail.com', 'Jr. Fray Luis de Leon 476, San Borja'),
+('Carlos', 'Mendoza Prado', 'DNI', '12345678', '988100207', 'cmendoza@gmail.com', 'Av. Las Palmeras 123, Villa El Salvador'),
+('Lucia', 'Fernandez Rio', 'DNI', '23456789', '988100208', 'lfernandez@gmail.com', 'Jr. Ucayali 456, Lima'),
+('Roberto', 'Gomez Siccha', 'DNI', '34567890', '988100209', 'rgomez@gmail.com', 'Calle Los Pinos 789, San Isidro'),
+('Paola', 'Rios Medina', 'DNI', '45612378', '988100210', 'prios@gmail.com', 'Av. Angamos 450, Surquillo'),
+('Jorge', 'Quispe Ramos', 'DNI', '56781234', '988100211', 'jquispe@gmail.com', 'Av. Canada 1000, La Victoria'),
+('Diana', 'Salazar Cruz', 'DNI', '67891234', '988100212', 'dsalazar@gmail.com', 'Av. Brasil 900, Magdalena');
+
+-- 4. MASCOTA 
+INSERT INTO MASCOTA (nombre, especie, raza, sexo, fecha_nacimiento, peso, fecha_registro, id_dueno) VALUES 
+('Michi', 'Gato', 'Persa', 'F', '2024-05-20', 4.2, '2025-07-13', 1),
+('Fortin', 'Perro', 'Pastor Aleman', 'M', '2023-06-15', 25.5, '2025-02-10', 2),
+('Toby', 'Perro', 'Poodle', 'M', '2022-08-05', 6.5, '2025-04-10', 3),
+('Simba', 'Gato', 'Siames', 'M', '2024-08-05', 3.8, '2025-03-20', 4),
+('Rocky', 'Perro', 'Bulldog Frances', 'M', '2023-09-12', 12.5, '2025-11-10', 5),
+('Nala', 'Perro', 'Golden Retriever', 'F', '2022-03-18', 30.2, '2024-05-20', 6),
+('Rex', 'Perro', 'Pastor Aleman', 'M', '2021-05-10', 28.0, '2025-01-15', 7),
+('Luna', 'Gato', 'Angora', 'F', '2022-11-20', 3.5, '2025-01-20', 8),
+('Coco', 'Perro', 'Beagle', 'M', '2023-03-12', 15.2, '2025-02-01', 9),
+('Max', 'Perro', 'Labrador', 'M', '2021-07-01', 27.0, '2025-03-01', 10),
+('Kiara', 'Gato', 'Maine Coon', 'F', '2023-01-10', 5.1, '2025-04-01', 11),
+('Bruno', 'Perro', 'Boxer', 'M', '2020-09-09', 29.0, '2025-05-01', 12),
+('Loki','Perro','Husky','M','2022-02-02',22.4,'2025-06-01',1),
+('Mila','Gato','Siames','F','2023-03-03',3.9,'2025-06-02',1),
+('Thor','Perro','Doberman','M','2021-01-15',32.0,'2025-06-03',2),
+('Kira','Perro','Pitbull','F','2022-05-10',18.5,'2025-06-04',3),
+('Zeus','Perro','Rottweiler','M','2020-09-09',40.0,'2025-06-05',4),
+('Cleo','Gato','Bengala','F','2023-04-18',4.5,'2025-06-06',5),
+('Bobby','Perro','Cocker','M','2022-12-12',14.0,'2025-06-07',6),
+('Mora','Gato','Criollo','F','2024-01-01',3.2,'2025-06-08',7),
+('Dante','Perro','Labrador','M','2021-11-11',29.0,'2025-06-09',8),
+('Nina','Perro','Shih Tzu','F','2023-07-07',7.2,'2025-06-10',9),
+('Rocco','Perro','Boxer','M','2022-10-10',26.0,'2025-06-11',10),
+('Luna II','Gato','Angora','F','2023-08-08',3.7,'2025-06-12',11);
+
+-- 5. CONTACTO_EMERGENCIA
+INSERT INTO CONTACTO_EMERGENCIA (nombre, apellidos, telefono, relacion, id_mascota) VALUES 
+('Nataly', 'Aguilar Gomez', '911222331', 'Prima', 1),
+('Diana', 'Calderon Quispe', '911222332', 'Hija', 2),
+('Felipe', 'Salas Mendoza', '911222333', 'Hermano', 3),
+('Rosa', 'Paredes Linares', '911222334', 'Madre', 4),
+('Carlos', 'Castro Vega', '911222335', 'Padre', 5),
+('Luciana', 'Gutierrez Flores', '911222336', 'Hermana', 6),
+('Alberto', 'Mendoza Garcia', '999888777', 'Padre', 7),
+('Elena', 'Rio Martinez', '999888778', 'Madre', 8),
+('Pedro', 'Gomez Peralta', '999888779', 'Hermano', 9),
+('Andrea', 'Rios Torres', '911333440', 'Tía', 10),
+('Luis', 'Quispe Salas', '911333441', 'Primo', 11),
+('Marcos', 'Salazar Diaz', '911333442', 'Padre', 12);
+
+-- 6. AREA_CLINICA
+INSERT INTO AREA_CLINICA (nombre, descripcion, capacidad, id_sede) VALUES 
+('Rayos X', 'Sala de diagnóstico por imágenes', 1, 1),
+('Laboratorio', 'Análisis de sangre y muestras', 3, 1),
+('Consultorio 1', 'Atención general', 2, 3),
+('Quirófano', 'Cirugías menores y mayores', 1, 4),
+('Hospitalización', 'Internamiento de mascotas', 6, 5),
+('Ecografía', 'Diagnóstico por ultrasonido', 1, 6),
+('UCI', 'Unidad de cuidados intensivos', 2, 7),
+('Rehabilitacion', 'Area de terapias fisicas', 4, 8),
+('Triaje', 'Evaluacion rapida inicial', 3, 9),
+('Consultorio 2', 'Atención general avanzada', 2, 10),
+('Sala Postoperatoria', 'Recuperación post cirugía', 4, 11);
+
+-- 7. SERVICIO 
+INSERT INTO SERVICIO (nombre, descripcion, costo, id_sede) VALUES 
+('Consulta General', 'Revisión básica', 30.00, 2),
+('Vacunación', 'Aplicación de vacunas anuales', 80.00, 1),
+('Perfil Bioquímico', 'Análisis de sangre completo', 120.00, 3),
+('Ecografía', 'Diagnóstico por ultrasonido', 150.00, 6),
+('Cirugía', 'Procedimientos quirúrgicos', 400.00, 4),
+('Hospitalización', 'Internamiento diario', 180.00, 5),
+('Limpieza Ocular', 'Lavado especializado de ojos', 45.00, 7),
+('Corte de uñas', 'Servicio estetico basico', 20.00, 8),
+('Consulta Especialista', 'Atencion por cardiologo/oncologo', 120.00, 9),
+('Desparasitación', 'Control antiparasitario', 50.00, 10),
+('Control Nutricional', 'Plan alimenticio personalizado', 90.00, 11);
+
+-- 8. PERSONAL_NO_VETERINARIO
+INSERT INTO PERSONAL_NO_VETERINARIO (nombre, apellidos, rol, telefono, email, fecha_registro, id_sede) VALUES 
+('María', 'García Pérez', 'Recepcionista', '922000101', 'mgarcia@petcare.com', '2025-01-28', 1),
+('Pedro', 'Ramírez López', 'Administrador', '922000102', 'pramirez@petcare.com', '2025-01-17', 2),
+('César', 'Ramos Acosta', 'Recepcionista', '922000103', 'rgil@petcare.com', '2025-03-01', 3),
+('Jorge', 'Mendoza Ríos', 'Cajero', '922000105', 'jmrios@petcare.com', '2025-03-15', 4),
+('Carmen', 'Vega Castillo', 'Esteticista', '922000106', 'ccvega@petcare.com', '2025-01-05', 5),
+('Diego', 'Salas Paredes', 'Recepcionista', '922000107', 'dsalas@petcare.com', '2025-10-20', 6),
+('Raul', 'Zevallos Arbeloa', 'Seguridad', '922000108', 'rzevallos@petcare.com', '2025-02-01', 7),
+('Marta', 'Soto Diaz', 'Limpieza', '922000109', 'msoto@petcare.com', '2025-02-05', 8),
+('Sofia', 'Vaca Perez', 'Contadora', '922000110', 'svaca@petcare.com', '2025-02-10', 9),
+('Luis', 'Torres Vega', 'Recepcionista', '922000111', 'ltorres@petcare.com', '2025-03-10', 10),
+('Ana', 'Flores Ruiz', 'Cajera', '922000112', 'aflores@petcare.com', '2025-03-12', 11);
+
+-- 9. VETERINARIO
+INSERT INTO VETERINARIO (nombres, apellidos, colegiatura, telefono, email, estado, fecha_registro, id_sede) VALUES 
+('Rosa', 'Mendoza Castillo', 'CMVP1001', '933000201', 'rmendoza@petcare.com', 'Activo', '2025-01-27', 1),
+('Silvia', 'Vargas Díaz', 'CMVP1002', '933000202', 'svargas@petcare.com', 'Activo', '2025-01-16', 2),
+('Daniel', 'Sánchez Castro', 'CMVP1003', '933000203', 'dsosa@petcare.com', 'Activo', '2025-03-05', 3),
+('Fernanda', 'Lopez Morales', 'CMVP1004', '933000204', 'flopez@petcare.com', 'Activo', '2025-01-20', 4),
+('Javier', 'Torres Pineda', 'CMVP1005', '933000205', 'jtorres@petcare.com', 'Activo', '2025-03-12', 5),
+('Karla', 'Rojas Sánchez', 'CMVP1006', '933000206', 'krojas@petcare.com', 'Activo', '2025-02-25', 6),
+('Alberto', 'Ruiz Huaman', 'CMVP2001', '933000207', 'aruiz@petcare.com', 'Activo', '2025-02-01', 7),
+('Elena', 'Sanz Lopez', 'CMVP2002', '933000208', 'esanz@petcare.com', 'Activo', '2025-02-05', 8),
+('Pedro', 'Vaca Vazquez', 'CMVP2003', '933000209', 'pvaca@petcare.com', 'Activo', '2025-02-10', 9),
+('Andrea', 'Salazar Ruiz', 'CMVP2004', '933000210', 'asalazar@petcare.com', 'Activo', '2025-03-01', 10),
+('Luis', 'Quispe Romero', 'CMVP2005', '933000211', 'lquispe@petcare.com', 'Activo', '2025-03-02', 11),
+('Marcos','Diaz Lopez','CMVP3001','933000212','mdiaz@petcare.com','Activo','2025-03-10',1),
+('Claudia','Ramos Perez','CMVP3002','933000213','cramos@petcare.com','Activo','2025-03-11',2),
+('Ivan','Gutierrez Silva','CMVP3003','933000214','igutierrez@petcare.com','Activo','2025-03-12',3),
+('Natalia','Vega Torres','CMVP3004','933000215','nvega@petcare.com','Activo','2025-03-13',4),
+('Raul','Morales Castro','CMVP3005','933000216','rmorales@petcare.com','Activo','2025-03-14',5),
+('Patricia','Lozano Ruiz','CMVP3006','933000217','plozano@petcare.com','Activo','2025-03-15',6),
+('Diego','Herrera Soto','CMVP3007','933000218','dherrera@petcare.com','Activo','2025-03-16',7),
+('Camila','Suarez Diaz','CMVP3008','933000219','csuarez@petcare.com','Activo','2025-03-17',8),
+('Brenda','Ponce Ramos','CMVP3009','933000220','bponce@petcare.com','Activo','2025-03-18',9),
+('Oscar','Flores Vega','CMVP3010','933000221','oflores@petcare.com','Activo','2025-03-19',10),
+('Luciano','Mendoza Gil','CMVP3011','933000222','lmendoza@petcare.com','Activo','2025-03-20',11);
+
+-- 10. ESPECIALIDAD
+INSERT INTO ESPECIALIDAD (nombre, descripcion) VALUES 
+('Cardiología', 'Enfermedades del corazón'),
+('Dermatología', 'Problemas de piel y alergias'),
+('Fisiatría', 'Rehabilitación física y terapias de movilidad'),
+('Oftalmología', 'Afecciones oculares y cirugía de ojos'),
+('Odontología', 'Salud dental y limpiezas especializadas'),
+('Neurología', 'Trastornos del sistema nervioso'),
+('Oncología', 'Tratamiento de tumores'),
+('Nutrición', 'Dietas especializadas'),
+('Etologia', 'Comportamiento animal'),
+('Cirugía General', 'Procedimientos quirúrgicos básicos y avanzados');
+
+-- 11. VETERINARIO_ESPECIALIDAD
+INSERT INTO VETERINARIO_ESPECIALIDAD (id_veterinario, id_especialidad, fecha_certificacion) VALUES 
+(1,2,'2021-06-01'),
+(2,1,'2022-08-15'),
+(3,3,'2023-11-20'),
+(4,4,'2020-09-10'),
+(5,6,'2022-12-05'),
+(6,5,'2021-04-22'),
+(7,7,'2020-05-15'),
+(8,8,'2021-11-20'),
+(9,9,'2022-01-10'),
+(10,10,'2021-03-12'),
+(11,10,'2022-07-18'),
+(12,3,'2020-05-09'),
+(13,1,'2021-04-10'),
+(14,2,'2022-02-14'),
+(15,3,'2023-01-25'),
+(16,4,'2020-11-11'),
+(17,5,'2021-09-09'),
+(18,6,'2022-10-10'),
+(19,7,'2021-08-08'),
+(20,8,'2023-03-03'),
+(21,9,'2022-12-12'),
+(22,10,'2021-05-05');
+
+-- 12. CITA
+INSERT INTO CITA (fecha_hora, motivo, estado, id_mascota, id_personal) VALUES 
+('2025-08-15 09:00', 'Control de alergia', 'Completada', 1, 1),
+('2025-03-10 10:30', 'Chequeo cardiaco', 'Pendiente', 2, 2),
+('2025-05-12 11:00', 'Terapia de rehabilitación', 'Completada', 3, 3),
+('2025-09-05 08:30', 'Vacunación anual', 'Programada', 4, 4),
+('2025-04-18 12:15', 'Limpieza dental', 'Completada', 5, 5),
+('2025-06-22 15:45', 'Cirugía rodilla', 'Programada', 6, 6),
+('2025-11-01 09:00', 'Evaluacion oncologica', 'Programada', 7, 7), ('2025-11-02 10:00', 'Cambio de dieta', 'Programada', 8, 8), 
+('2025-11-03 11:00', 'Agresividad', 'Programada', 9, 9),
+('2025-11-05 09:00', 'Control general','Programada',10,1),
+('2025-11-06 10:00', 'Vacunación','Programada',11,2),
+('2025-11-07 11:00', 'Desparasitación','Programada',12,3),
+('2025-11-08 12:00', 'Chequeo nutricional','Pendiente',1,4),
+('2025-11-09 13:00', 'Revisión dental','Pendiente',2,5),
+('2025-11-10 14:00', 'Evaluación neurologica','Programada',3,6);
+
+-- 13. CONSULTA
+INSERT INTO CONSULTA (fecha_hora, observaciones, id_veterinario, id_mascota) VALUES 
+('2025-08-15 09:15', 'Presenta prurito en orejas', 1, 1),
+('2025-03-10 10:45', 'Ritmo cardiaco estable', 2, 2),
+('2025-05-12 11:30', 'Muestra debilidad en tren posterior', 3, 3),
+('2025-09-05 08:50', 'Próxima dosis en 2026.', 4,4),
+('2025-04-18 12:30', 'Se detecta sarro moderado.', 5, 5),
+('2025-06-22 16:00', 'Evaluación prequirúrgica completa.', 6, 6),
+('2025-11-01 09:15', 'Masa palpable en abdomen', 7, 7), 
+('2025-11-02 10:15', 'Sobrepeso evidente', 8, 8), 
+('2025-11-03 11:15', 'Muestra ansiedad por separacion', 9, 9),
+('2025-11-05 09:30', 'Control sin novedades',12,10),
+('2025-11-06 10:30', 'Vacuna aplicada correctamente',13,11),
+('2025-11-07 11:30', 'Desparasitación completada',14,12),
+('2025-11-08 12:30', 'Ligero sobrepeso',15,13),
+('2025-11-09 13:30', 'Sarro leve',16,14),
+('2025-11-10 14:30', 'Convulsión aislada',17,15),
+('2025-03-01 09:20','Vacuna aplicada sin reacción',10,10),
+('2025-04-01 10:20','Vacuna aplicada correctamente',11,11),
+('2025-05-01 11:20','Paciente estable',12,12),
+('2025-06-01 09:50','Refuerzo aplicado',13,13),
+('2025-06-02 10:50','Sin reacciones adversas',14,14),
+('2025-06-03 11:50','Vacuna aplicada correctamente',15,15),
+('2025-06-04 12:20','Paciente en buen estado',16,16),
+('2025-06-05 09:20','Vacuna aplicada',17,17),
+('2025-06-06 10:20','Refuerzo felino correcto',18,18),
+('2025-06-07 11:20','Sin hallazgos',19,19),
+('2025-06-08 12:20','Vacuna aplicada correctamente',20,20),
+('2025-06-09 13:20','Sin reacción',21,21),
+('2025-06-10 14:20','Vacuna aplicada correctamente',22,22),
+('2025-06-11 09:20','Refuerzo aplicado',1,23),
+('2025-06-12 10:20','Vacuna aplicada correctamente',2,24),
+('2025-07-01 09:20','Sobrepeso leve',3,10),
+('2025-07-05 10:20','Dermatitis leve en abdomen',4,14),
+('2025-07-10 11:20','Sarro moderado',5,18),
+('2025-07-15 12:20','Soplo leve detectado',6,21);
+
+-- 14. DIAGNOSTICO
+INSERT INTO DIAGNOSTICO (descripcion, fecha, gravedad, id_consulta) VALUES 
+('Dermatitis alérgica', '2025-08-15', 'Baja', 1),
+('Sano con observación', '2025-03-10', 'Baja', 2),
+('Displasia de cadera leve', '2025-05-12', 'Media', 3),
+('Saludable, sin novedades', '2025-09-05', 'Baja', 4),
+('Sarro dental moderado', '2025-04-18', 'Baja', 5),
+('Rotura de ligamento cruzado', '2025-06-22', 'Alta', 6),
+('Posible lipoma', '2025-11-01', 'Media', 7), 
+('Obesidad grado I', '2025-11-02', 'Baja', 8), 
+('Trastorno de ansiedad', '2025-11-03', 'Baja', 9),
+('Paciente sano','2025-03-01','Baja',16),
+('Paciente sano','2025-04-01','Baja',17),
+('Sin hallazgos','2025-05-01','Baja',18),
+('Vacunación preventiva','2025-06-01','Baja',19),
+('Paciente sano','2025-06-02','Baja',20),
+('Paciente sano','2025-06-03','Baja',21),
+('Sin novedades','2025-06-04','Baja',22),
+('Paciente sano','2025-06-05','Baja',23),
+('Paciente sano','2025-06-06','Baja',24),
+('Paciente sano','2025-06-07','Baja',25),
+('Paciente sano','2025-06-08','Baja',26),
+('Paciente sano','2025-06-09','Baja',27),
+('Paciente sano','2025-06-10','Baja',28),
+('Vacunación preventiva','2025-06-11','Baja',29),
+('Paciente sano','2025-06-12','Baja',30),
+('Sobrepeso leve','2025-07-01','Media',31),
+('Dermatitis leve','2025-07-05','Baja',32),
+('Sarro dental','2025-07-10','Media',33),
+('Soplo cardiaco leve','2025-07-15','Media',34);
+
+-- 15. EXAMEN
+INSERT INTO EXAMEN (tipo, resultado, fecha_hora, id_consulta) VALUES 
+('Raspado cutáneo', 'Negativo a ácaros', '2025-08-15 10:00', 1),
+('Ecografía cardiaca', 'Sin anomalías', '2025-03-10 11:30', 2),
+('Evaluación Postural', 'Dificultad al levantarse', '2025-05-12 12:00', 3),
+('Hemograma completo', 'Valores dentro de rangos normales', '2025-09-05 09:30', 4),
+('Radiografía dental', 'Sarro moderado en molares', '2025-04-18 13:00', 5),
+('Radiografía de rodilla', 'Rotura de ligamento cruzado confirmada', '2025-06-22 16:30', 6),
+('Biopsia', 'Pendiente', '2025-11-01 12:00', 7),
+('Panel Tiroideo', 'Normal', '2025-11-02 13:00', 8),
+('Test de comportamiento', 'Ansiedad confirmada', '2025-11-03 14:00', 9),
+('Perfil lipidico', 'Colesterol levemente elevado', '2025-07-01 09:40', 31),
+('Electrocardiograma', 'Soplo leve confirmado', '2025-07-15 12:40', 34);
+
+-- 16. VACUNA
+INSERT INTO VACUNA (nombre, descripcion, frecuencia) VALUES 
+('Triple Felina', 'Rinotraqueítis, Calicivirus', 'Anual'),
+('Antirrábica', 'Prevención de rabia', 'Anual'),
+('KC', 'Tos de las perreras', 'Semestral'),
+('Quíntuple Canina', 'Moquillo, Hepatitis, Parvovirus, Parainfluenza y Leptospira', 'Anual'),
+('Giardia', 'Prevención de Giardiasis', 'Semestral'),
+('Leucemia Felina', 'Refuerzo FeLV', 'Anual'), 
+('Distemper', 'Prevencion Moquillo', 'Anual'), 
+('Bordetella', 'Tos de las perreras', 'Semestral'),
+('Parvovirus', 'Prevención Parvovirosis', 'Anual'),
+('Influenza Canina', 'Prevención Influenza', 'Anual'),
+('Calicivirus Felino', 'Refuerzo respiratorio', 'Anual'),
+('Leptospira', 'Prevención Leptospirosis', 'Semestral'),
+('Panleucopenia', 'Prevención viral felina', 'Anual');
+
+-- 17. MASCOTA_VACUNA
+INSERT INTO MASCOTA_VACUNA (id_mascota, id_vacuna, fecha_aplicacion, proxima_dosis, id_consulta) VALUES 
+(1, 1, '2025-08-15', '2026-08-15', 1),
+(2, 2, '2025-03-10', '2026-03-10', 2),
+(3, 3, '2025-05-12', '2025-11-12', 3),
+(4, 4, '2025-09-05', '2026-09-05', 4),
+(10,4,'2025-03-01','2026-03-01',16),
+(11,1,'2025-04-01','2026-04-01',17),
+(12,4,'2025-05-01','2026-05-01',18),
+(13,3,'2025-06-01','2025-12-01',19),
+(14,1,'2025-06-02','2026-06-02',20),
+(15,2,'2025-06-03','2026-06-03',21),
+(16,12,'2025-06-04','2025-12-04',22),
+(17,2,'2025-06-05','2026-06-05',23),
+(18,11,'2025-06-06','2026-06-06',24),
+(19,4,'2025-06-07','2026-06-07',25),
+(20,1,'2025-06-08','2026-06-08',26),
+(21,10,'2025-06-09','2026-06-09',27),
+(22,4,'2025-06-10','2026-06-10',28),
+(23,9,'2025-06-11','2026-06-11',29),
+(24,1,'2025-06-12','2026-06-12',30);
+
+-- 18. HISTORIAL_CLINICO
+INSERT INTO HISTORIAL_CLINICO (fecha_registro, id_mascota) VALUES 
+('2025-07-13', 1),
+('2025-02-10', 2),
+('2025-04-10', 3),
+('2025-03-20', 4),
+('2025-11-10', 5),
+('2024-05-20', 6),
+('2025-01-15', 7), 
+('2025-01-20', 8), 
+('2025-02-01', 9),
+('2025-03-01', 10),
+('2025-04-01', 11),
+('2025-05-01', 12),
+('2025-06-01', 13),
+('2025-06-02', 14),
+('2025-06-03', 15),
+('2025-06-04', 16),
+('2025-06-05', 17),
+('2025-06-06', 18),
+('2025-06-07', 19),
+('2025-06-08', 20),
+('2025-06-09', 21),
+('2025-06-10', 22),
+('2025-06-11', 23),
+('2025-06-12', 24);
+
+-- 19. HOSPITALIZACION
+INSERT INTO HOSPITALIZACION (fecha_ingreso, motivo, id_mascota, id_area_clinica) VALUES 
+('2025-03-15', 'Reposo preventivo', 2, 2),
+('2025-05-12', 'Monitoreo post-terapia', 3, 3),
+('2025-09-10', 'Control post-vacunación', 4, 5),
+('2025-04-18', 'Recuperación post-limpieza dental', 5, 5),
+('2025-06-25', 'Post-operatorio cirugía de rodilla', 6, 5),
+('2025-11-01', 'Observacion biopsia', 7, 7),
+('2025-11-10', 'Deshidratacion', 8, 8),
+('2025-11-15', 'Post-operatorio', 9, 5),
+('2025-07-16', 'Monitoreo cardiaco preventivo', 21, 2);
+
+-- 20. CIRUGIA
+INSERT INTO CIRUGIA (tipo, fecha_hora, estado, id_area_clinica, id_mascota, id_veterinario) VALUES 
+('Biopsia cutánea', '2025-04-02 09:30', 'Pendiente', 2, 2, 2),
+('Terapia Láser', '2025-05-12 12:30', 'Realizada', 3, 3, 3),
+('Limpieza dental profunda', '2025-04-20 08:00', 'Programada', 4, 5, 5),
+('Cirugía de ligamento cruzado', '2025-06-23 10:00', 'Programada', 4, 6, 6),
+('Cirugía de displasia de cadera', '2025-05-13 09:00', 'Pendiente', 4, 3, 3),
+('Castracion', '2025-11-05 08:00', 'Programada', 4, 7, 7),
+('Esterilizacion', '2025-11-12 09:00', 'Pendiente', 4, 8, 8),
+('Extraccion de Tumor', '2025-11-20 10:00', 'Programada', 4, 9, 9),
+('Correccion cardiaca leve', '2025-07-20 09:00', 'Pendiente', 2, 21, 6);
+
+-- 21. MEDICAMENTO
+INSERT INTO MEDICAMENTO (nombre, descripcion, stock) VALUES 
+('Corticoides', 'Antiinflamatorio', 200),
+('Apoquel', 'Antialergico', 50),
+('Glucosamina', 'Suplemento para articulaciones', 120),
+('Meloxicam', 'Analgesico y antiinflamatorio', 150),
+('Omeprazol', 'Protector gastrico', 180),
+('Tramadol', 'Analgesico opioide', 90),
+('Prednisona', 'Inmunosupresor', 300),
+('Hill s Metabolic', 'Alimento medicado', 40),
+('Fluoxetina', 'Ansiolitico', 60),
+('Amoxicilina', 'Antibiotico de amplio espectro', 250);
+
+-- 22. MOVIMIENTO_INVENTARIO
+INSERT INTO MOVIMIENTO_INVENTARIO (tipo_movimiento, cantidad, fecha, motivo, id_veterinario, id_medicamento) VALUES 
+('Entrada', 100, '2025-01-01', 'Abastecimiento inicial', 1, 1),
+('Salida', 5, '2025-08-15', 'Uso en consulta Michi', 1, 2),
+('Salida', 10, '2025-05-12', 'Tratamiento Toby', 3, 3),
+('Salida', 10, '2025-05-12', 'Uso en consulta Nala (displasia)', 3, 3),
+('Entrada', 50, '2025-02-10', 'Reabastecimiento', 2, 4),
+('Salida', 8, '2025-04-18', 'Uso en consulta Rocky (limpieza dental)', 5, 5),
+('Entrada', 500, '2025-10-01', 'Compra mayorista', 7, 7),
+('Salida', 1, '2025-11-02', 'Venta bolsa 2kg', 8, 8),
+('Salida', 30, '2025-11-03', 'Tratamiento Rex', 7, 7),
+('Salida', 15, '2025-07-15', 'Tratamiento cardiaco preventivo', 6, 10);
+
+-- 23. RECETA
+INSERT INTO RECETA (fecha, id_veterinario) VALUES 
+('2025-08-15', 1),
+('2025-03-10', 2),
+('2025-05-12', 3),
+('2025-09-05', 4),
+('2025-04-18', 5),
+('2025-06-22', 6),
+('2025-11-01', 7),
+('2025-11-02', 8),
+('2025-11-03', 9),
+('2025-07-15', 6);
+
+-- 24. RECETA_MEDICAMENTO
+INSERT INTO RECETA_MEDICAMENTO (id_receta, id_medicamento, dosis, frecuencia, duracion) VALUES 
+(1, 1, '1/2 tableta', 'Cada 24h', '5 dias'),
+(2, 2, '1 tableta', 'Cada 12h', '10 dias'),
+(3, 3, '1 tableta', 'Cada 24h', '30 dias'),
+(4, 5, '1 ml', 'Cada 24 horas', '7 dias'),
+(5, 6, '1/2 tableta', 'Cada 12 horas', '5 dias'),
+(6, 4, '1 tableta', 'Cada 8 horas', '15 dias'),
+(7, 7, '5 mg', 'Cada 12h', '7 dias'),
+(8, 8, '100 g', 'Cada 8h', 'Indefinido'),
+(9, 9, '10 mg', 'Cada 24h', '30 dias'),
+(10, 10, '250 mg', 'Cada 12h', '10 dias');
+
 ```
+
+## 4.4 Consultas
+
+### 4.4.1 Consultas para la base de datos relacional
+
+*Consultas:*
+
+**Historial de citas con datos completos**
+
+**Total de citas por veterinario**
+
+
+**Veterinarios por sede**
+
+**Responsable:** Rose Vergaray
+
+Esta consulta permite visualizar la distribución de los veterinarios en cada sede de la clínica veterinaria, mostrando información como el nombre de la sede, su dirección y los datos de contacto de cada profesional asignado. Además, incluye el cálculo del total de veterinarios por sede mediante una función de conteo, lo que facilita el análisis de la disponibilidad de personal y la organización administrativa dentro del sistema.
+
+```sql
+
+USE PETCARE_DB;
+GO
+
+SELECT 
+    s.id_sede,
+    s.nombre AS sede,
+    s.direccion,
+    v.id_veterinario,
+    v.nombres + ' ' + v.apellidos AS veterinario,
+    v.telefono,
+    v.email,
+    COUNT(v.id_veterinario) OVER(PARTITION BY s.id_sede) AS total_veterinarios_en_sede
+FROM SEDE s
+LEFT JOIN VETERINARIO v 
+    ON v.id_sede = s.id_sede
+ORDER BY s.nombre, veterinario;
+GO
+
+```
+![Consulta veterinarios por sede](images/veterinariosporsede.png)
+
+**Especialidades por veterinario**
+
+**Responsable:** Rose Vergaray
+
+Esta consulta tiene como objetivo identificar las especialidades médicas asociadas a cada veterinario. Muestra el nombre del veterinario, la sede donde labora y cada una de sus especialidades, permitiendo conocer las áreas de atención disponibles y optimizar la asignación de citas según el tipo de servicio requerido.
+
+```sql
+
+USE PETCARE_DB;
+GO
+
+SELECT 
+    v.id_veterinario,
+    v.nombres + ' ' + v.apellidos AS veterinario,
+    s.nombre AS sede,
+    e.nombre AS especialidad
+FROM VETERINARIO v
+INNER JOIN SEDE s 
+    ON s.id_sede = v.id_sede
+INNER JOIN VETERINARIO_ESPECIALIDAD ve 
+    ON ve.id_veterinario = v.id_veterinario
+INNER JOIN ESPECIALIDAD e 
+    ON e.id_especialidad = ve.id_especialidad
+ORDER BY veterinario, especialidad;
+GO
+
+```
+![Consulta especialidades por veterinario](images/especialidadesporveterinario.png)
+
+**Dueños con más de una mascota**
+
+**Responsable:** Rose Vergaray
+
+Esta consulta permite identificar a los dueños que tienen registradas dos o más mascotas en el sistema, agrupando la información y aplicando un filtro mediante la cláusula HAVING. Su objetivo es facilitar la gestión administrativa de propietarios con múltiples mascotas dentro de la clínica.
+
+```sql
+
+USE PETCARE_DB;
+GO
+
+SELECT 
+    d.id_dueno,
+    d.nombres + ' ' + d.apellidos AS dueno,
+    d.telefono,
+    d.email,
+    COUNT(m.id_mascota) AS total_mascotas
+FROM DUENO d
+INNER JOIN MASCOTA m 
+    ON m.id_dueno = d.id_dueno
+GROUP BY 
+    d.id_dueno,
+    d.nombres,
+    d.apellidos,
+    d.telefono,
+    d.email
+HAVING COUNT(m.id_mascota) > 1
+ORDER BY total_mascotas DESC;
+GO
+
+```
+![Consulta dueños con más de una mascota](images/dueñosconmásmascotas.png)
+
+
+
+*Procedimientos:*
+
+**Historial clínico de una mascota por parámetro**
+
+*Funciones:*
+
+**Atenciones por veterinario**
+
+**Responsable:** Rose Vergaray
+
+Esta función con retorno de tabla tiene como finalidad mostrar las atenciones realizadas por un veterinario específico, incluyendo su nombre, la sede donde labora, la mascota atendida y la fecha de cada consulta registrada. Su objetivo es facilitar el seguimiento de las actividades médicas realizadas por el personal veterinario, contribuyendo al control operativo y a la gestión interna dentro del sistema de la clínica.
+
+```sql
+
+USE PETCARE_DB;
+GO
+
+CREATE OR ALTER FUNCTION fn_detalle_atenciones_veterinario
+(
+    @id_veterinario INT
+)
+RETURNS TABLE
+AS
+RETURN
+(
+    SELECT 
+        v.id_veterinario,
+        v.nombres + ' ' + v.apellidos AS veterinario,
+        s.nombre AS sede,
+        m.nombre AS mascota,
+        c.fecha_hora
+    FROM CONSULTA c
+    INNER JOIN VETERINARIO v
+        ON v.id_veterinario = c.id_veterinario
+    INNER JOIN SEDE s
+        ON s.id_sede = v.id_sede
+    INNER JOIN MASCOTA m
+        ON m.id_mascota = c.id_mascota
+    WHERE v.id_veterinario = @id_veterinario
+);
+GO
+--- Ejemplo de uso:
+SELECT * 
+FROM dbo.fn_detalle_atenciones_veterinario(12);
+
+```
+![Funcion atencion por veterinario](images/atencionporveterinario.png)
+
+
 
 <div style="page-break-after: always"></div>
 
