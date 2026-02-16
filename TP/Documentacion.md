@@ -2020,6 +2020,84 @@ GO
 ```
 ![Consulta dueños con más de una mascota](images/dueñosconmásmascotas.png)
 
+**Mascotas con más consultas en el último año**
+
+**Respondable:** Judith Quispe
+
+Se identifican pacientes frecuentes para evaluar su estado de salud y posibles problemas crónicos.
+
+```sql
+USE PETCARE_DB;
+GO
+
+SELECT TOP 10
+    m.id_mascota,
+    m.nombre AS mascota,
+    d.nombres + ' ' + d.apellidos AS dueno,
+    COUNT(c.id_consulta) AS total_consultas,
+    MAX(c.fecha_hora) AS ultima_consulta
+FROM MASCOTA m
+INNER JOIN DUENO d ON m.id_dueno = d.id_dueno
+INNER JOIN CONSULTA c ON m.id_mascota = c.id_mascota
+WHERE c.fecha_hora >= DATEADD(year, -1, GETDATE())
+GROUP BY m.id_mascota, m.nombre, d.nombres, d.apellidos
+ORDER BY total_consultas DESC;
+GO
+
+```
+![Mascotas con más consultas en le último año](images/MascotasMásConsultasÚltimoAño.jpeg)
+
+**Medicamentos más recetados con total de prescripciones**
+
+**Respondable:** Judith Quispe
+
+Busca controlar la demanda de medicamentos para planificar compras y evaluar patrones de tratamiento.
+
+```sql
+USE PETCARE_DB;
+GO
+SELECT
+    me.nombre AS medicamento,
+    me.descripcion,
+    COUNT(rm.id_receta) AS veces_recetado,
+    SUM(CAST(LEFT(rm.dosis, PATINDEX('%[^0-9]%', rm.dosis + ' ') - 1) AS INT)) AS unidades_aprox
+FROM RECETA_MEDICAMENTO rm
+INNER JOIN MEDICAMENTO me ON rm.id_medicamento = me.id_medicamento
+GROUP BY me.id_medicamento, me.nombre, me.descripcion
+ORDER BY veces_recetado DESC;
+GO
+
+```
+![Medicamentos más recetados con total de prescripciones](images/Medicamentosmásrecetadoscontotaldeprescripciones.jpeg)
+
+**Ocupación de áreas clínicas**
+
+**Respondable:** Judith Quispe
+
+Busca gestionar la capacidad de las áreas clínicas y conocer la ocupación actual.
+
+```sql
+USE PETCARE_DB;
+GO
+SELECT
+    a.nombre AS area_clinica,
+    s.nombre AS sede,
+    a.capacidad,
+    COUNT(h.id_hospitalizacion) AS pacientes_actuales,
+    a.capacidad - COUNT(h.id_hospitalizacion) AS plazas_disponibles,
+    STRING_AGG(m.nombre, ', ') AS mascotas_internadas
+FROM AREA_CLINICA a
+INNER JOIN SEDE s ON a.id_sede = s.id_sede
+LEFT JOIN HOSPITALIZACION h ON a.id_area_clinica = h.id_area_clinica
+    AND h.fecha_salida IS NULL  -- hospitalizaciones activas
+LEFT JOIN MASCOTA m ON h.id_mascota = m.id_mascota
+GROUP BY a.id_area_clinica, a.nombre, a.capacidad, s.nombre
+ORDER BY pacientes_actuales DESC;
+GO
+
+```
+![Ocupación de áreas clínicas](images/Ocupacióndeáreasclínicas.jpeg)
+
 
 
 *Procedimientos:*
@@ -2071,6 +2149,60 @@ FROM dbo.fn_detalle_atenciones_veterinario(12);
 ![Funcion atencion por veterinario](images/atencionporveterinario.png)
 
 
+
+*Procedimientos:*
+
+**Generar recordatorios de vacunas próximas**
+
+**Responsable:** Judith Quispe
+
+Busca automatizar la generación de recordatorios para dueños de mascotas cuyas vacunas están por vencer en los próximos días. Este procedimiento puede ser ejecutado diariamente por un job para enviar alertas.
+
+```sql
+
+USE PETCARE_DB;
+GO
+
+DROP PROCEDURE IF EXISTS sp_generator_recordatorios_vacunas;
+GO
+
+CREATE PROCEDURE sp_generator_recordatorios_vacunas
+    @dias_anticipacion INT = 15
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+
+    SELECT
+        m.id_mascota,
+        m.nombre AS mascota,
+        d.nombres + ' ' + d.apellidos AS dueno,
+        d.telefono,
+        d.email,
+        v.nombre AS vacuna,
+        mv.proxima_dosis,
+        DATEDIFF(day, GETDATE(), mv.proxima_dosis) AS dias_restantes,
+        CASE
+            WHEN DATEDIFF(day, GETDATE(), mv.proxima_dosis) <= 0 THEN 'VENCIDA'
+            WHEN DATEDIFF(day, GETDATE(), mv.proxima_dosis) <= 3 THEN 'URGENTE'
+            WHEN DATEDIFF(day, GETDATE(), mv.proxima_dosis) <= 7 THEN 'PRÓXIMA'
+            ELSE 'PENDIENTE'
+        END AS prioridad
+    FROM MASCOTA_VACUNA mv
+    INNER JOIN MASCOTA m ON mv.id_mascota = m.id_mascota
+    INNER JOIN DUENO d ON m.id_dueno = d.id_dueno
+    INNER JOIN VACUNA v ON mv.id_vacuna = v.id_vacuna
+    WHERE mv.proxima_dosis BETWEEN GETDATE() AND DATEADD(day, @dias_anticipacion, GETDATE())
+       OR mv.proxima_dosis < GETDATE()
+    ORDER BY mv.proxima_dosis;
+END;
+GO
+
+EXEC sp_generator_recordatorios_vacunas;  -- 15 días por defecto
+GO
+
+```
+![Generar recordatorios de vacunas próximas](images/Generarrecordatoriosdevacunaspróximas.jpeg)
 
 <div style="page-break-after: always"></div>
 
