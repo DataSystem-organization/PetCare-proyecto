@@ -150,6 +150,9 @@ Febrero, 2026
   - **TP1:**
     - Realización de corrección de errores en requisitos y creación de no funcionales.
     - Creación de diagrama .erd de entidad-relación lógica y código sql.
+  - **TB2:**
+    - Realizacion de la carga de datos
+    - Desarrollo de consulta
 
 - **Tintayo Pujaico, Adriano Martín**
   - **TB1:**
@@ -175,6 +178,8 @@ Febrero, 2026
   - Se reconocieron problemas acerca de eficiencia y precisión en los registros historiales, lo cual perjudica la atención de la clínica.
 - **TP1:**
   - En esta etapa el equipo aplicó fundamentos de modelado de datos al identificar entidades y atributos. Asimismo, se utilizaron principios del enfoque relacional para construir el diagrama entidad-relación lógico y posteriormente el modelo físico, vinculando el diseño conceptual con la implementación.
+- **TB2:**
+  - Durante la implementación de la base de datos apliqué creacion de base de datos y tablas y ejecute consultas con JOIN y agregacion para obtener informacion util al sistema.
 
 ---
 
@@ -202,6 +207,9 @@ Febrero, 2026
   - **TP1:**
     - Superé desafíos técnicos de organización en Visual Studio liderando en la clarificación de esos problemas, además de que desarrollé un diagrama DER.
 
+  - **TB2:**
+    - Logre desarrollar consultas a problemas cotidianos en respecto a nuestro sistema como contacto de emergencia, total de citas e historial de datos.
+
 - **Tintayo Pujaico, Adriano Martín**
   - **TB1:**
     - Definición de los tipos de segmentos objetivos para la realización del proyecto.
@@ -224,6 +232,8 @@ Febrero, 2026
 - **TP1:**
   - Se fortaleció mi capacidad para modelar datos de manera lógica y colaborativa, aplicando conocimientos previos y aprendiendo nuevas herramientas que, junto al compromiso constante del equipo, nos permitieron estructurar una base de datos alineada con los requisitos del proyecto.
   - Mi participación en el proyecto afirmó mi aprendizaje en el modelado de diagrama lógico, adaptar mis conocimientos y una solución de organización que permitió al grupo poder hacerlo bien con el apoyo de todos al querer aportar con algo en el trabajo. Esto concluye por exitoso que no solo preside código sino que la disposición constante del grupo a aprender cosas nuevas.
+- **TB2:**
+  - Para completar la implementación tuve que aprender a resolver problemas de ejecución con conexion a SQLEXPRESS, esto permitio a reconocer la importancia del aprendizaje continuo para adaptarme a herramientas por la verificacion de resultados.
 
 
 <div style="page-break-after: always"></div>
@@ -1917,6 +1927,62 @@ INSERT INTO RECETA_MEDICAMENTO (id_receta, id_medicamento, dosis, frecuencia, du
 (10, 10, '250 mg', 'Cada 12h', '10 dias');
 
 ```
+**Evidencia de carga de datos de la base de datos relacional**
+
+Evidencia1: Veterinaria
+
+```sql
+
+USE PETCARE_DB;
+GO
+SELECT COUNT(*) AS total FROM VETERINARIA;
+SELECT * FROM VETERINARIA ORDER BY id_veterinaria;
+GO
+```
+
+![Veterinaria](images/Veterinaria.png)
+
+Evidencia2: Sede 
+
+```sql
+
+USE PETCARE_DB;
+GO
+
+SELECT COUNT(*) AS total FROM SEDE;
+SELECT * FROM SEDE ORDER BY id_sede;
+GO
+```
+
+![Sede](images/Sede.png)
+
+Evidencia3: Dueno
+
+```sql
+
+USE PETCARE_DB;
+GO
+
+SELECT COUNT(*) AS total FROM DUENO;
+SELECT * FROM DUENO ORDER BY id_dueno;
+GO
+```
+
+![Dueno](images/Dueno.png)
+
+Evidencia4: Mascota
+
+```sql
+
+USE PETCARE_DB;
+GO
+
+SELECT COUNT(*) AS total FROM MASCOTA;
+SELECT * FROM MASCOTA ORDER BY id_mascota;
+GO
+```
+
+![Mascota](images/Mascota.png)
 
 ## 4.4 Consultas
 
@@ -1926,8 +1992,88 @@ INSERT INTO RECETA_MEDICAMENTO (id_receta, id_medicamento, dosis, frecuencia, du
 
 **Historial de citas con datos completos**
 
+**Responsable:** Jennifer Riveros
+
+Esta consulta muestra el historial de citas incluyendo mascota, dueño, veterinario y sede donde atiende. Sirve para auditoría y seguimiento operativo.
+
+```sql
+
+USE PETCARE_DB;
+GO
+
+SELECT
+    c.id_cita,
+    c.fecha AS fecha_cita,
+    c.estado,
+    c.motivo,
+    m.nombre AS mascota,
+    m.especie,
+    m.raza,
+    (d.nombres + ' ' + d.apellidos) AS dueno,
+    (v.nombres + ' ' + v.apellidos) AS veterinario,
+    con.id_consulta,
+    con.fecha AS fecha_consulta,
+    s.nombre AS servicio,
+    con.observaciones
+FROM CITA c
+JOIN MASCOTA m ON c.id_mascota = m.id_mascota
+JOIN DUENO d ON m.id_dueno = d.id_dueno
+JOIN VETERINARIO v ON c.id_veterinario = v.id_veterinario
+LEFT JOIN CONSULTA con ON con.id_cita = c.id_cita
+LEFT JOIN SERVICIO s ON con.id_servicio = s.id_servicio
+ORDER BY c.fecha DESC;
+```
+![Historial de citas con datos completos](images/HistorialdeCita.png)
+
 **Total de citas por veterinario**
 
+**Responsable:** Jennifer Riveros
+
+Esta consulta permite identificar qué servicios se realizan más y estimar ingresos sumando el costo del servicio por cada consulta registrada. Ayuda a analizar demanda y rendimiento.
+
+```sql
+
+USE PETCARE_DB;
+GO
+
+SELECT
+  v.id_veterinario,
+  v.nombres + ' ' + v.apellidos AS veterinario,
+  COUNT(*) AS total_citas
+FROM CITA c
+JOIN VETERINARIO v ON v.id_veterinario = c.id_veterinario
+GROUP BY v.id_veterinario, v.nombres, v.apellidos
+ORDER BY total_citas DESC;
+GO
+
+```
+![Total de citas por veterinario](images/TotaldeCita.png)
+
+**Mascotas con contacto de emergencia del dueño**
+
+**Responsable:** Jennifer Riveros
+
+Esta consulta lista cada mascota con su dueño y el contacto de emergencia asociado al dueño. Es útil para atención rápida ante incidentes cuando el dueño no está disponible.
+
+```sql
+USE PETCARE_DB;
+GO
+
+SELECT
+    m.nombre AS mascota,
+    d.nombres + ' ' + d.apellidos AS dueno,
+    ce.nombre AS contacto_emergencia,
+    ce.telefono AS telefono_emergencia,
+    ce.parentesco
+FROM MASCOTA m
+INNER JOIN DUENO d
+    ON d.id_dueno = m.id_dueno
+LEFT JOIN CONTACTO_EMERGENCIA ce
+    ON ce.id_dueno = d.id_dueno
+ORDER BY dueno, mascota;
+GO
+```
+![Mascotas con contacto de emergencia del dueño](images/Mascotacontacto.png)
 
 **Veterinarios por sede**
 
