@@ -90,6 +90,8 @@ Febrero, 2026
 
   - [3.3.1 Diagrama entidad-relación lógico](#331-diagrama-entidad-relación-lógico)
 
+  - [3.3.2 Justificación del modelo entidad-relación lógico](#332-justificación-del-modelo-entidad-relación-lógico)
+
 [CAPÍTULO IV: IMPLEMENTACIÓN DE LA BASE DE DATOS](#capítulo-iv-implementación-de-la-base-de-datos)
 
 - [4.1 Sistema de gestión de base de datos](#41-sistema-de-gestión-de-base-de-datos)
@@ -98,7 +100,7 @@ Febrero, 2026
 
 - [4.2 Diagrama de datos](#42-diagrama-de-datos)
 
-  - [4.2.1 Diagrama entidad-relación físico](#421-diagrama-entidad-relación-físico)
+  - [4.2.1 Diagrama entidad-relación físico](#421-diagrama-entidadrelación-físico)
 
 - [4.3 Scripts de la base de datos](#43-scripts-de-la-base-de-datos)
 
@@ -1188,7 +1190,25 @@ erDiagram
 	MEDICAMENTO }o--o{ RECETA : en
 	MEDICAMENTO ||--o{ MOVIMIENTO_INVENTARIO : tiene_movimiento_de
 	MOVIMIENTO_INVENTARIO }||--|| MEDICAMENTO : de
+
 ```
+
+### 3.3.2 Justificación del modelo entidad-relación lógico
+
+El modelo entidad–relación lógico fue construido a partir del análisis del dominio de la veterinaria, identificando los objetos principales del sistema y las relaciones que existen entre ellos. Se seleccionaron como entidades independientes aquellas estructuras que poseen identidad propia y atributos que dependen funcionalmente de su clave primaria, asegurando la integridad y coherencia del modelo.
+
+Por ejemplo, la entidad Mascota se identifica mediante id_mascota y posee atributos como nombre, especie, raza, sexo, fecha de nacimiento, peso y fecha de registro. Asimismo, cada mascota se vincula a un Dueño mediante la clave foránea id_dueno, reflejando la relación de uno a muchos (1:N) entre Dueño y Mascota: un dueño puede tener varias mascotas, pero cada mascota pertenece a un solo dueño. Esta decisión evita redundancia de información personal del dueño en cada registro de mascota y mantiene la integridad de los datos.
+
+La entidad Consulta representa un evento clínico independiente y contiene las claves foráneas id_cita y id_veterinario. Esto permite relacionar cada consulta con la Cita correspondiente, y por extensión con la mascota, y con el veterinario que la atendió, estableciendo relaciones 1:N sin necesidad de entidades intermedias. De esta forma, una mascota puede tener múltiples consultas y un veterinario puede atender a muchas consultas, garantizando un registro detallado de los eventos clínicos.
+
+Otras entidades como Diagnóstico, Examen, Receta y Cirugía se modelaron de forma independiente porque representan resultados o procedimientos derivados de una consulta. Cada una posee atributos propios y puede repetirse varias veces dentro del contexto de una misma consulta, evitando redundancia y permitiendo un seguimiento completo de la historia clínica.
+
+En casos de relaciones muchos a muchos (N:M), como Mascota–Vacuna o Receta–Medicamento, se crearon entidades asociativas (Mascota_vacuna y Receta_medicamento) que contienen las claves foráneas de las entidades relacionadas. Esto permite almacenar atributos adicionales dependientes de la combinación de claves y transforma adecuadamente la relación N:M al modelo relacional.
+
+La entidad Historial Clínico se definió como un agregado lógico de consultas, diagnósticos, exámenes, recetas, cirugías y hospitalizaciones asociados a una mascota. No se modeló como entidad autónoma con atributos propios, ya que su información puede derivarse mediante consultas al sistema, evitando duplicación de datos y simplificando el diseño.
+
+El resto de entidades, como Veterinario, Personal_no_veterinario, Sede, Área_clínica, Servicio y Veterinaria, fueron modeladas con sus atributos y relaciones correspondientes para reflejar correctamente la estructura organizacional y operativa de la clínica, asegurando que cada evento, servicio o procedimiento quede correctamente registrado y vinculado a su contexto.
+
 <div style="page-break-after: always"></div>
 
 # CAPÍTULO IV: IMPLEMENTACIÓN DE LA BASE DE DATOS
@@ -1367,7 +1387,7 @@ CREATE TABLE CITA (
     FOREIGN KEY (id_mascota) REFERENCES MASCOTA(id_mascota),
   CONSTRAINT FK_CITA_PERSONAL
     FOREIGN KEY (id_personal) REFERENCES PERSONAL_NO_VETERINARIO(id_personal)
-);![alt text](image.png)
+);
 
 CREATE TABLE CONSULTA (
   id_consulta INT IDENTITY(1,1) PRIMARY KEY,
