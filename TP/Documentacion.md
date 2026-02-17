@@ -310,6 +310,8 @@ Afecta de manera directa al personal de la veterinaria: veterinarios, asistentes
 - ***¿Por qué y cómo?***  
 Esto se debe a la falta de un sistema integrado de base de datos que unifique y conecte los datos de mascotas, dueños, citas, tratamientos y promociones. Actualmente, la información se gestiona en formatos aislados y no estructurados, lo que dificulta su consulta, modificación y análisis. Como resultado, se producen fallos en las operaciones, se limita la capacidad de tomar decisiones basadas en datos y se reduce la calidad del servicio al cliente y la mascota.
 
+<div style="page-break-after: always"></div>
+
 ### 1.2.2 Propuesta de valor
 
 A continuación, presentaremos un Lean UX Canvas para la realización de esta sección.
@@ -1561,7 +1563,9 @@ CREATE TABLE RECETA_MEDICAMENTO (
   CONSTRAINT FK_RM_MEDICAMENTO
     FOREIGN KEY (id_medicamento) REFERENCES MEDICAMENTO(id_medicamento)
 );
+```
 
+```sql
 -- DATOS DE PRUEBA
 -- 1. VETERINARIA (Matriz)
 INSERT INTO VETERINARIA (nombre, ruc, direccion, telefono, email) VALUES 
@@ -2024,7 +2028,7 @@ SELECT * FROM VETERINARIA ORDER BY id_veterinaria;
 GO
 ```
 
-![Veterinaria](images/Veterinaria.png)
+![Veterinaria](images/Veterinaria.png)*Figura 13. Evidencia carga de datos Veterinaria*
 
 Evidencia2: Sede
 
@@ -2036,7 +2040,7 @@ SELECT * FROM SEDE ORDER BY id_sede;
 GO
 ```
 
-![Sede](images/Sede.png)
+![Sede](images/Sede.png)*Figura 14. Evidencia carga de datos Sede*
 
 Evidencia3: Dueno
 
@@ -2048,7 +2052,7 @@ SELECT * FROM DUENO ORDER BY id_dueno;
 GO
 ```
 
-![Dueno](images/Dueno.png)
+![Dueno](images/Dueno.png)*Figura 15. Evidencia carga de datos Dueno*
 
 Evidencia4: Mascota
 
@@ -2060,7 +2064,7 @@ SELECT * FROM MASCOTA ORDER BY id_mascota;
 GO
 ```
 
-![Mascota](images/Mascota.png)
+![Mascota](images/Mascota.png)*Figura 16. Evidencia carga de datos Mascota*
 
 <div style="page-break-after: always"></div>
 
@@ -2103,7 +2107,7 @@ ORDER BY c.fecha_hora DESC;
 GO
 ```
 
-![Historial de citas con datos completos](images/HistorialdeCita.png)
+![Historial de citas con datos completos](images/HistorialdeCita.png)*Figura 17. Resultado historial de citas de veterinario*
 
 <div style="page-break-after: always"></div>
 
@@ -2114,7 +2118,6 @@ GO
 Esta consulta permite identificar qué servicios se realizan más y estimar ingresos sumando el costo del servicio por cada consulta registrada. Ayuda a analizar demanda y rendimiento.
 
 ```sql
-
 USE PETCARE_DB;
 GO
 
@@ -2127,10 +2130,9 @@ JOIN VETERINARIO v ON v.id_veterinario = c.id_veterinario
 GROUP BY v.id_veterinario, v.nombres, v.apellidos
 ORDER BY total_citas DESC;
 GO
-
 ```
 
-![Total de citas por veterinario](images/TotaldeCita.png)
+![Total de citas por veterinario](images/TotaldeCita.png)*Figura 18. Resultado total de citas por veterinario*
 
 <div style="page-break-after: always"></div>
 
@@ -2141,7 +2143,6 @@ GO
 Esta consulta lista cada mascota con su dueño y el contacto de emergencia asociado al dueño, permitiendo además visualizar la cantidad total de contactos asociados a cada dueño. Es útil para atención rápida ante incidentes cuando el dueño no está disponible.
 
 ```sql
-
 USE PETCARE_DB;
 GO
 
@@ -2159,10 +2160,9 @@ LEFT JOIN CONTACTO_EMERGENCIA ce
     ON ce.id_mascota = m.id_mascota
 ORDER BY dueno;
 GO
-
 ```
 
-![Mascotas con contacto de emergencia del dueño](images/Mascotacontacto.png)
+![Mascotas con contacto de emergencia del dueño](images/Mascotacontacto.png)*Figura 19.*
 
 <div style="page-break-after: always"></div>
 
@@ -2173,7 +2173,6 @@ GO
 Esta consulta permite visualizar la distribución de los veterinarios en cada sede de la clínica veterinaria, mostrando información como el nombre de la sede, su dirección y los datos de contacto de cada profesional asignado. Además, incluye el cálculo del total de veterinarios por sede mediante una función de conteo, lo que facilita el análisis de la disponibilidad de personal y la organización administrativa dentro del sistema.
 
 ```sql
-
 USE PETCARE_DB;
 GO
 
@@ -2191,10 +2190,9 @@ LEFT JOIN VETERINARIO v
     ON v.id_sede = s.id_sede
 ORDER BY s.nombre, veterinario;
 GO
-
 ```
 
-![Consulta veterinarios por sede](images/veterinariosporsede.png)
+![Consulta veterinarios por sede](images/veterinariosporsede.png)*Figura 20. Resultado veternarios por sede*
 
 <div style="page-break-after: always"></div>
 
@@ -2205,7 +2203,6 @@ GO
 Esta consulta tiene como objetivo identificar las especialidades médicas asociadas a cada veterinario. Muestra el nombre del veterinario, la sede donde labora y cada una de sus especialidades, permitiendo conocer las áreas de atención disponibles y optimizar la asignación de citas según el tipo de servicio requerido.
 
 ```sql
-
 USE PETCARE_DB;
 GO
 
@@ -2223,10 +2220,9 @@ INNER JOIN ESPECIALIDAD e
     ON e.id_especialidad = ve.id_especialidad
 ORDER BY veterinario, especialidad;
 GO
-
 ```
 
-![Consulta especialidades por veterinario](images/especialidadesporveterinario.png)
+![Consulta especialidades por veterinario](images/especialidadesporveterinario.png)*Figura 21. Resultado especialidades por veterinario*
 
 <div style="page-break-after: always"></div>
 
@@ -2237,7 +2233,6 @@ GO
 Esta consulta permite identificar a los dueños que tienen registradas dos o más mascotas en el sistema, agrupando la información y aplicando un filtro mediante la cláusula HAVING. Su objetivo es facilitar la gestión administrativa de propietarios con múltiples mascotas dentro de la clínica.
 
 ```sql
-
 USE PETCARE_DB;
 GO
 
@@ -2259,10 +2254,9 @@ GROUP BY
 HAVING COUNT(m.id_mascota) > 1
 ORDER BY total_mascotas DESC;
 GO
-
 ```
 
-![Consulta dueños con más de una mascota](images/dueñosconmásmascotas.png)
+![Consulta dueños con más de una mascota](images/dueñosconmásmascotas.png)*Figura 22. Resultado dueños con más de una mascota*
 
 <div style="page-break-after: always"></div>
 
@@ -2289,10 +2283,9 @@ WHERE c.fecha_hora >= DATEADD(year, -1, GETDATE())
 GROUP BY m.id_mascota, m.nombre, d.nombres, d.apellidos
 ORDER BY total_consultas DESC;
 GO
-
 ```
 
-![Mascotas con más consultas en le último año](images/MascotasMásConsultasÚltimoAño.jpeg)
+![Mascotas con más consultas en el último año](images/MascotasMásConsultasÚltimoAño.jpeg)*Figura 23. Resultado mascotas con más consultas en el último año*
 
 <div style="page-break-after: always"></div>
 
@@ -2303,7 +2296,6 @@ GO
 Busca controlar la demanda de medicamentos para planificar compras y evaluar patrones de tratamiento.
 
 ```sql
-
 USE PETCARE_DB;
 GO
 SELECT
@@ -2316,10 +2308,9 @@ INNER JOIN MEDICAMENTO me ON rm.id_medicamento = me.id_medicamento
 GROUP BY me.id_medicamento, me.nombre, me.descripcion
 ORDER BY veces_recetado DESC;
 GO
-
 ```
 
-![Medicamentos más recetados con total de prescripciones](images/Medicamentosmásrecetadoscontotaldeprescripciones.jpeg)
+![Medicamentos más recetados con total de prescripciones](images/Medicamentosmásrecetadoscontotaldeprescripciones.jpeg)*Figura 24. Resultado medicamentos más recetados*
 
 <div style="page-break-after: always"></div>
 
@@ -2330,9 +2321,9 @@ GO
 Busca gestionar la capacidad de las áreas clínicas y conocer la ocupación actual.
 
 ```sql
-
 USE PETCARE_DB;
 GO
+
 SELECT
     a.nombre AS area_clinica,
     s.nombre AS sede,
@@ -2348,10 +2339,9 @@ LEFT JOIN MASCOTA m ON h.id_mascota = m.id_mascota
 GROUP BY a.id_area_clinica, a.nombre, a.capacidad, s.nombre
 ORDER BY pacientes_actuales DESC;
 GO
-
 ```
 
-![Ocupación de áreas clínicas](images/Ocupacióndeáreasclínicas.png)
+![Ocupación de áreas clínicas](images/Ocupacióndeáreasclínicas.png)*Figura 25. Resultado ocupación de áreas clínicas*
 
 <div style="page-break-after: always"></div>
 
@@ -2362,9 +2352,9 @@ GO
 Esta consulta es vital para la seguridad. Muestra el nombre de la mascota, su dueño y a quién llamar en caso de emergencia si el dueño no contesta.
 
 ```sql
-
 USE PETCARE_DB;
 GO
+
 SELECT
     M.nombre AS Mascota,
     D.nombres AS Dueno,
@@ -2375,10 +2365,9 @@ FROM MASCOTA M
 INNER JOIN DUENO D ON M.id_dueno = D.id_dueno
 INNER JOIN CONTACTO_EMERGENCIA CE ON M.id_mascota = CE.id_mascota;
 GO
-
 ```
 
-![Listado de Mascotas y sus Contactos de Emergencia](images/ListadoMascotas_ContactosEmergencia.png)
+![Listado de Mascotas y sus Contactos de Emergencia](images/ListadoMascotas_ContactosEmergencia.png)*Figura 26. Resultado listado de mascotas y sus contacto de emergencia*
 
 <div style="page-break-after: always"></div>
 
@@ -2389,9 +2378,9 @@ GO
 Esta consulta ayuda a saber qué sede tiene más movimiento. Une las consultas con los veterinarios y sus sedes asignadas.
 
 ```sql
-
 USE PETCARE_DB;
 GO
+
 SELECT
     S.nombre AS Nombre_Sede,
     COUNT(C.id_consulta) AS Total_Consultas
@@ -2401,10 +2390,9 @@ INNER JOIN SEDE S ON V.id_sede = S.id_sede
 GROUP BY S.nombre
 ORDER BY Total_Consultas DESC;
 GO
-
 ```
 
-![Sedes con más Consultas Realizadas](images/SedeConsultas.png)
+![Sedes con más Consultas Realizadas](images/SedeConsultas.png)*Figura 27. Resultado sedes con más consultas realizadas*
 
 <div style="page-break-after: always"></div>
 
@@ -2415,19 +2403,18 @@ GO
 Permite ver cuánto dinero se ha generado por cada tipo de servicio (Vacunación, Cirugía, etc.) registrado en las sedes.
 
 ```sql
-
 USE PETCARE_DB;
 GO
+
 SELECT
     nombre AS Tipo_Servicio,
     SUM(costo) AS Ingresos_Totales
 FROM SERVICIO
 GROUP BY nombre;
 GO
-
 ```
 
-![Resumen de Ingresos por tipo de Servicio](images/ResumenIngresos.png)
+![Resumen de Ingresos por tipo de Servicio](images/ResumenIngresos.png)*Figura 28. Resultado resumen de ingresos por servicio*
 
 <div style="page-break-after: always"></div>
 
@@ -2459,10 +2446,9 @@ LEFT JOIN PERSONAL_NO_VETERINARIO p ON c.id_personal = p.id_personal
 LEFT JOIN SEDE s ON v.id_sede = s.id_sede
 ORDER BY c.fecha_hora DESC;
 GO
-
 ```
 
-![Consulta historial personal estetica](images/historialcitaspersonalestetica.png)
+![Consulta historial personal estetica](images/historialcitaspersonalestetica.png)*Figura 29. Resultado historial de citas de personal de estética*
 
 <div style="page-break-after: always"></div>
 
@@ -2473,7 +2459,6 @@ GO
 Permite identificar qué servicios estéticos tienen mayor demanda y ayuda a planificar recursos, promociones o contratación de personal adicional.
 
 ```sql
-
 USE PETCARE_DB;
 GO
 
@@ -2488,10 +2473,9 @@ INNER JOIN SEDE s ON v.id_sede = s.id_sede
 GROUP BY v.id_veterinario, v.nombres, v.apellidos, s.nombre
 ORDER BY total_consultas DESC;
 GO
-
 ```
 
-![Consulta servicios estetica](images/serviciosestetica.png)
+![Consulta servicios estetica](images/serviciosestetica.png)*Figura 30. Resultado servicios de estética más solicitados*
 
 <div style="page-break-after: always"></div>
 
@@ -2502,7 +2486,6 @@ GO
 Identifica a los dueños que más utilizan servicios estéticos, útil para programas de fidelización o descuentos especiales.
 
 ```sql
-
 USE PETCARE_DB;
 GO
 
@@ -2519,10 +2502,9 @@ INNER JOIN SEDE s ON a.id_sede = s.id_sede
 WHERE h.fecha_salida IS NULL
 ORDER BY s.nombre, h.fecha_ingreso;
 GO
-
 ```
 
-![Consulta clientes frecuentes estetica](images/clientesfrecuentesestetica.png)
+![Consulta clientes frecuentes estetica](images/clientesfrecuentesestetica.png)*Figura 31. Resultado clientes frecuentes en servicios de estética*
 
 <div style="page-break-after: always"></div>
 
@@ -2535,7 +2517,6 @@ GO
 Este procedimiento te servirá para que un veterinario vea qué mascotas tiene que atender en un día específico.
 
 ```sql
-
 USE PETCARE_DB;
 GO
 
@@ -2565,10 +2546,9 @@ GO
 
 EXEC usp_agenda_veterinario_dia @id_vet = 1, @fecha_busqueda = '2025-08-15';
 GO
-
 ```
 
-![Consultar Citas programadas por veterinario](images/CitasProgramadas_Veterinario.png)
+![Consultar Citas programadas por veterinario](images/CitasProgramadas_Veterinario.png)*Figura 32. Resultado citas programadas por veterinario*
 
 <div style="page-break-after: always"></div>
 
@@ -2579,10 +2559,8 @@ GO
 Busca automatizar la generación de recordatorios para dueños de mascotas cuyas vacunas están por vencer en los próximos días. Este procedimiento puede ser ejecutado diariamente por un job para enviar alertas.
 
 ```sql
-
 USE PETCARE_DB;
 GO
-
 DROP PROCEDURE IF EXISTS sp_generator_recordatorios_vacunas;
 GO
 
@@ -2591,7 +2569,6 @@ CREATE PROCEDURE sp_generator_recordatorios_vacunas
 AS
 BEGIN
     SET NOCOUNT ON;
-
 
     SELECT
         m.id_mascota,
@@ -2620,9 +2597,11 @@ GO
 
 EXEC sp_generator_recordatorios_vacunas;
 GO
-
 ```
-![Generar recordatorios de vacunas próximas](images/Generarrecordatoriosdevacunaspróximas.png)
+
+![Generar recordatorios de vacunas próximas](images/Generarrecordatoriosdevacunaspróximas.png)*Figura 33. Resultado recordatorios de vacunas próximas*
+
+<div style="page-break-after: always"></div>
 
 *Funciones:*
 
@@ -2633,7 +2612,6 @@ GO
 Esta función con retorno de tabla tiene como finalidad mostrar las atenciones realizadas por un veterinario específico, incluyendo su nombre, la sede donde labora, la mascota atendida y la fecha de cada consulta registrada. Su objetivo es facilitar el seguimiento de las actividades médicas realizadas por el personal veterinario, contribuyendo al control operativo y a la gestión interna dentro del sistema de la clínica.
 
 ```sql
-
 USE PETCARE_DB;
 GO
 
@@ -2664,9 +2642,9 @@ GO
 --- Ejemplo de uso:
 SELECT * 
 FROM dbo.fn_detalle_atenciones_veterinario(12);
-
 ```
-![Funcion atencion por veterinario](images/atencionporveterinario.png)
+
+![Funcion atencion por veterinario](images/atencionporveterinario.png)*Figura 34. Resultado atenciones por veterinario*
 
 **Atenciones de estética por personal**
 
@@ -2700,7 +2678,8 @@ GO
 
 SELECT * FROM dbo.fn_historial_clinico_mascota(1);
 ```
-![Funcion atenciones estetica por personal](images/atencionesesteticaporpersonal.png)
+
+![Funcion atenciones estetica por personal](images/atencionesesteticaporpersonal.png)*Figura 35. Resultado atenciones de estética por personal*
 
 <div style="page-break-after: always"></div>
 
