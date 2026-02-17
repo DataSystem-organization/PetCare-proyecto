@@ -2269,13 +2269,118 @@ GO
 ```
 ![Ocupación de áreas clínicas](images/Ocupacióndeáreasclínicas.jpeg)
 
+**Listado de Mascotas y sus Contactos de Emergencia**
 
+**Responsable:** Adriano Tintayo
+
+Esta consulta es vital para la seguridad. Muestra el nombre de la mascota, su dueño y a quién llamar en caso de emergencia si el dueño no contesta.
+
+```sql
+USE PETCARE_DB;
+GO
+SELECT
+    M.nombre AS Mascota,
+    D.nombres AS Dueno,
+    CE.nombre AS Contacto_Emergencia,
+    CE.telefono AS Telefono_Emergencia,
+    CE.relacion AS Parentesco
+FROM MASCOTA M
+INNER JOIN DUENO D ON M.id_dueno = D.id_dueno
+INNER JOIN CONTACTO_EMERGENCIA CE ON M.id_mascota = CE.id_mascota;
+GO
+
+```
+![Listado de Mascotas y sus Contactos de Emergencia](images/ListadoMascotas_ContactosEmergencia.png)
+
+**Sedes con más Consultas Realizadas**
+
+**Responsable:** Adriano Tintayo
+
+Esta consulta ayuda a saber qué sede tiene más movimiento. Une las consultas con los veterinarios y sus sedes asignadas.
+
+```sql
+USE PETCARE_DB;
+GO
+SELECT
+    S.nombre AS Nombre_Sede,
+    COUNT(C.id_consulta) AS Total_Consultas
+FROM CONSULTA C
+INNER JOIN VETERINARIO V ON C.id_veterinario = V.id_veterinario
+INNER JOIN SEDE S ON V.id_sede = S.id_sede
+GROUP BY S.nombre
+ORDER BY Total_Consultas DESC;
+GO
+
+```
+![Sedes con más Consultas Realizadas](images/SedeConsultas.png)
+
+**Resumen de Ingresos por tipo de Servicio**
+
+**Responsable:** Adriano Tintayo
+
+Permite ver cuánto dinero se ha generado por cada tipo de servicio (Vacunación, Cirugía, etc.) registrado en las sedes.
+
+```sql
+USE PETCARE_DB;
+GO
+SELECT
+    nombre AS Tipo_Servicio,
+    SUM(costo) AS Ingresos_Totales
+FROM SERVICIO
+GROUP BY nombre;
+GO
+
+```
+![Resumen de Ingresos por tipo de Servicio](images/ResumenIngresos.png)
 
 *Procedimientos:*
 
 **Historial clínico de una mascota por parámetro**
 
 **Responsable:**
+
+**Consultar Citas programadas por veterinario**
+
+**Responsable:** Adriano Tintayo
+
+Este procedimiento te servirá para que un veterinario vea qué mascotas tiene que atender en un día específico.
+
+```sql
+
+USE PETCARE_DB;
+GO
+
+CREATE OR ALTER PROCEDURE usp_agenda_veterinario_dia
+    @id_vet INT,
+    @fecha_busqueda DATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+
+    SELECT
+        C.fecha_hora AS Fecha_Hora,
+        M.nombre AS Nombre_Mascota,
+        M.especie AS Especie,
+        D.nombres AS Nombre_Dueno,
+        D.apellidos AS Apellido_Dueno,
+        C.motivo AS Motivo_Cita,
+        C.estado AS Estado_Cita
+    FROM CITA C
+    INNER JOIN MASCOTA M ON C.id_mascota = M.id_mascota
+    INNER JOIN DUENO D ON M.id_dueno = D.id_dueno
+    WHERE C.id_personal = @id_vet
+      AND CAST(C.fecha_hora AS DATE) = @fecha_busqueda
+    ORDER BY C.fecha_hora ASC;
+END;
+GO
+
+
+EXEC usp_agenda_veterinario_dia @id_vet = 1, @fecha_busqueda = '2025-08-15';
+GO
+
+```
+![Consultar Citas programadas por veterinario](images/CitasProgramadas_Veterinario.png)
 
 **Generar recordatorios de vacunas próximas**
 
