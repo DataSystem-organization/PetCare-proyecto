@@ -166,6 +166,8 @@ Febrero, 2026
     - Elaboración de 3 User Stories.
   - **TP1:**
     - Realización de la evaluación y elección del sistema de gestión de base de datos relacional sobre el proyecto.
+  - **TB2:**
+    - Elaboración de tres consultas y un procedimiento para la base de datos relacional.
 
 - **Vergaray Calderon, Rose Almendra**
   - **TB1:**
@@ -174,6 +176,9 @@ Febrero, 2026
   - **TP1:**
     - Participó en la identificación y definición de entidades del dominio del problema.
     - Definió los atributos de cada entidad.
+  - **TB2:**
+    - Implementó scripts SQL para crear tablas y cargó datos de prueba para validar la estructura de la base de datos.
+    - Desarrolló 3 consultas y una función con propósito claro para extraer información útil del sistema.
 
 ### Conclusiones
 
@@ -185,6 +190,7 @@ Febrero, 2026
   - En esta etapa el equipo aplicó fundamentos de modelado de datos al identificar entidades y atributos. Asimismo, se utilizaron principios del enfoque relacional para construir el diagrama entidad-relación lógico y posteriormente el modelo físico, vinculando el diseño conceptual con la implementación.
 - **TB2:**
   - Durante la implementación de la base de datos apliqué creacion de base de datos y tablas y ejecute consultas con JOIN y agregacion para obtener informacion util al sistema.
+  - El equipo aplicó de manera práctica los conocimientos de bases de datos al crear tablas, establecer relaciones y restricciones, cargar datos de prueba y desarrollar consultas SQL que permiten obtener información útil del sistema.
 
 ---
 
@@ -213,7 +219,6 @@ Febrero, 2026
     - Aplicar feedback y ciclo de mejora mediante los requisitos.
   - **TP1:**
     - Superé desafíos técnicos de organización en Visual Studio liderando en la clarificación de esos problemas, además de que desarrollé un diagrama DER.
-
   - **TB2:**
     - Logre desarrollar consultas a problemas cotidianos en respecto a nuestro sistema como contacto de emergencia, total de citas e historial de datos.
 
@@ -222,6 +227,8 @@ Febrero, 2026
     - Definición de los tipos de segmentos objetivos para la realización del proyecto.
   - **TP1:**
     - Evaluación y elección del sistema de gestión de base de datos relacional sobre el proyecto.
+  - **TB2:**
+    - Logré la mplementación de consultas que responden a la problemática y un procedimiento para la consulta de citas por veterinario.
 
 - **Vergaray Calderon, Rose Almendra**
   - **TB1:**
@@ -229,6 +236,9 @@ Febrero, 2026
   - **TP1:**
     - Reconoció la necesidad de fortalecer sus conocimientos en modelado de datos, especialmente en la correcta definición de entidades y atributos.
     - Identificó el diseño de bases de datos como área de crecimiento profesional.
+  - **TB2:**
+    - Reconoció que crear y probar consultas SQL requiere práctica para organizar datos correctamente.
+    - Identificó como área de crecimiento profesional mejorar la eficiencia en la manipulación de datos con SQL.
 
 ### Conclusiones
 
@@ -241,7 +251,7 @@ Febrero, 2026
   - Mi participación en el proyecto afirmó mi aprendizaje en el modelado de diagrama lógico, adaptar mis conocimientos y una solución de organización que permitió al grupo poder hacerlo bien con el apoyo de todos al querer aportar con algo en el trabajo. Esto concluye por exitoso que no solo preside código sino que la disposición constante del grupo a aprender cosas nuevas.
 - **TB2:**
   - Para completar la implementación tuve que aprender a resolver problemas de ejecución con conexion a SQLEXPRESS, esto permitio a reconocer la importancia del aprendizaje continuo para adaptarme a herramientas por la verificacion de resultados.
-
+  - Al implementar la base de datos y construir consultas, el equipo identificó la importancia de practicar constantemente SQL y la gestión de datos. Se reconoció que mejorar la organización de la información y la eficiencia de las consultas es un aprendizaje continuo, fundamental para fortalecer habilidades en bases de datos y desarrollo de sistemas.
 
 <div style="page-break-after: always"></div>
 
