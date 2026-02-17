@@ -1568,25 +1568,25 @@ INSERT INTO DUENO (nombres, apellidos, tipo_documento, numero_documento, telefon
 INSERT INTO MASCOTA (nombre, especie, raza, sexo, fecha_nacimiento, peso, fecha_registro, id_dueno) VALUES 
 ('Michi', 'Gato', 'Persa', 'F', '2024-05-20', 4.2, '2025-07-13', 1),
 ('Fortin', 'Perro', 'Pastor Aleman', 'M', '2023-06-15', 25.5, '2025-02-10', 2),
-('Toby', 'Perro', 'Poodle', 'M', '2022-08-05', 6.5, '2025-04-10', 3),
+('Toby', 'Perro', 'Poodle', 'M', '2022-08-05', 6.5, '2025-04-10', 2),
 ('Simba', 'Gato', 'Siames', 'M', '2024-08-05', 3.8, '2025-03-20', 4),
 ('Rocky', 'Perro', 'Bulldog Frances', 'M', '2023-09-12', 12.5, '2025-11-10', 5),
 ('Nala', 'Perro', 'Golden Retriever', 'F', '2022-03-18', 30.2, '2024-05-20', 6),
 ('Rex', 'Perro', 'Pastor Aleman', 'M', '2021-05-10', 28.0, '2025-01-15', 7),
-('Luna', 'Gato', 'Angora', 'F', '2022-11-20', 3.5, '2025-01-20', 8),
+('Luna', 'Gato', 'Angora', 'F', '2022-11-20', 3.5, '2025-01-20', 1),
 ('Coco', 'Perro', 'Beagle', 'M', '2023-03-12', 15.2, '2025-02-01', 9),
 ('Max', 'Perro', 'Labrador', 'M', '2021-07-01', 27.0, '2025-03-01', 10),
 ('Kiara', 'Gato', 'Maine Coon', 'F', '2023-01-10', 5.1, '2025-04-01', 11),
 ('Bruno', 'Perro', 'Boxer', 'M', '2020-09-09', 29.0, '2025-05-01', 12),
 ('Loki','Perro','Husky','M','2022-02-02',22.4,'2025-06-01',1),
 ('Mila','Gato','Siames','F','2023-03-03',3.9,'2025-06-02',1),
-('Thor','Perro','Doberman','M','2021-01-15',32.0,'2025-06-03',2),
-('Kira','Perro','Pitbull','F','2022-05-10',18.5,'2025-06-04',3),
+('Thor','Perro','Doberman','M','2021-01-15',32.0,'2025-06-03',3),
+('Kira','Perro','Husky','F','2022-05-10',18.5,'2025-06-04',6),
 ('Zeus','Perro','Rottweiler','M','2020-09-09',40.0,'2025-06-05',4),
 ('Cleo','Gato','Bengala','F','2023-04-18',4.5,'2025-06-06',5),
 ('Bobby','Perro','Cocker','M','2022-12-12',14.0,'2025-06-07',6),
 ('Mora','Gato','Criollo','F','2024-01-01',3.2,'2025-06-08',7),
-('Dante','Perro','Labrador','M','2021-11-11',29.0,'2025-06-09',8),
+('Kori','Perro','Jack Russell','M','2022-10-06',9.5,'2025-06-09',8),
 ('Nina','Perro','Shih Tzu','F','2023-07-07',7.2,'2025-06-10',9),
 ('Rocco','Perro','Boxer','M','2022-10-10',26.0,'2025-06-11',10),
 ('Luna II','Gato','Angora','F','2023-08-08',3.7,'2025-06-12',11);
@@ -1646,7 +1646,17 @@ INSERT INTO PERSONAL_NO_VETERINARIO (nombre, apellidos, rol, telefono, email, fe
 ('Marta', 'Soto Diaz', 'Limpieza', '922000109', 'msoto@petcare.com', '2025-02-05', 8),
 ('Sofia', 'Vaca Perez', 'Contadora', '922000110', 'svaca@petcare.com', '2025-02-10', 9),
 ('Luis', 'Torres Vega', 'Recepcionista', '922000111', 'ltorres@petcare.com', '2025-03-10', 10),
-('Ana', 'Flores Ruiz', 'Cajera', '922000112', 'aflores@petcare.com', '2025-03-12', 11);
+('Ana', 'Flores Ruiz', 'Cajera', '922000112', 'aflores@petcare.com', '2025-03-12', 11),
+('Ana', 'Lopez Diaz', 'Esteticista', '922000120', 'alopez@petcare.com', '2026-02-10', 1),
+('Luis', 'Torres Salazar', 'Esteticista', '922000121', 'ltorres2@petcare.com', '2026-02-10', 2),
+('Sofia', 'Morales Vega', 'Esteticista', '922000122', 'smorales@petcare.com', '2026-02-10', 3),
+('Diego', 'Sanchez Rojas', 'Esteticista', '922000123', 'dsanchez@petcare.com', '2026-02-10', 4),
+('Patricia', 'Lozano Ruiz', 'Esteticista', '922000124', 'plozano2@petcare.com', '2026-02-10', 6),
+('Brenda', 'Ponce Ramos', 'Esteticista', '922000125', 'bponce2@petcare.com', '2026-02-10', 7),
+('Camila', 'Suarez Diaz', 'Esteticista', '922000126', 'csuarez2@petcare.com', '2026-02-10', 8),
+('Oscar', 'Flores Vega', 'Esteticista', '922000127', 'oflores2@petcare.com', '2026-02-10', 9),
+('Ivan', 'Gutierrez Silva', 'Esteticista', '922000128', 'igutierrez2@petcare.com', '2026-02-10', 10),
+('Natalia', 'Vega Torres', 'Esteticista', '922000129', 'nvega2@petcare.com', '2026-02-10', 11);
 
 -- 9. VETERINARIO
 INSERT INTO VETERINARIO (nombres, apellidos, colegiatura, telefono, email, estado, fecha_registro, id_sede) VALUES 
@@ -1952,6 +1962,7 @@ INSERT INTO RECETA_MEDICAMENTO (id_receta, id_medicamento, dosis, frecuencia, du
 (10, 10, '250 mg', 'Cada 12h', '10 dias');
 
 ```
+
 **Evidencia de carga de datos de la base de datos relacional**
 
 Evidencia1: Veterinaria
@@ -2269,7 +2280,7 @@ GO
 ```
 ![Ocupación de áreas clínicas](images/Ocupacióndeáreasclínicas.jpeg)
 
-**Listado de Mascotas y sus Contactos de Emergencia**
+**Listado de mascotas y sus contactos de emergencia**
 
 **Responsable:** Adriano Tintayo
 
@@ -2290,9 +2301,9 @@ INNER JOIN CONTACTO_EMERGENCIA CE ON M.id_mascota = CE.id_mascota;
 GO
 
 ```
-![Listado de Mascotas y sus Contactos de Emergencia](images/ListadoMascotas_ContactosEmergencia.png)
+![listado de mascotas y su contacto de emergencia](images/ListadoMascotas_ContactosEmergencia.png)
 
-**Sedes con más Consultas Realizadas**
+**Sedes con más consultas realizadas**
 
 **Responsable:** Adriano Tintayo
 
@@ -2314,7 +2325,7 @@ GO
 ```
 ![Sedes con más Consultas Realizadas](images/SedeConsultas.png)
 
-**Resumen de Ingresos por tipo de Servicio**
+**Resumen de ingresos por tipo de servicio**
 
 **Responsable:** Adriano Tintayo
 
@@ -2339,7 +2350,7 @@ GO
 
 **Responsable:**
 
-**Consultar Citas programadas por veterinario**
+**Consultar citas programadas por veterinario**
 
 **Responsable:** Adriano Tintayo
 
