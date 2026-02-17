@@ -314,7 +314,7 @@ Esto se debe a la falta de un sistema integrado de base de datos que unifique y 
 
 A continuación, presentaremos un Lean UX Canvas para la realización de esta sección.
 
-![Lean UX Canvas](images/LeanUXCanvas.png)<br>*Figura 6. Lean UX Canvas*
+![Lean UX Canvas](images/LeanUXCanvas.png)*Figura 6. Lean UX Canvas*
 
 El Lean UX Canvas de DataSystem para Pet Care resume que el problema principal es la falta de centralización y consistencia en el historial clínico de las mascotas y los datos de sus dueños, lo que genera registros duplicados o incompletos y dificulta que el veterinario acceda rápido a información con contexto durante una consulta. Como usuarios se consideran únicamente el veterinario (quien registra y consulta la información médica) y el dueño de la mascota (beneficiario de una atención más ágil y confiable). Los resultados esperados del negocio son mejorar la continuidad y calidad de la atención, reducir errores de registro y habilitar fidelización mediante la identificación de dueños frecuentes y descuentos. La solución propuesta consiste en diseñar una base de datos híbrida (relacional para datos estructurados como dueños, mascotas, consultas y vacunas; y NoSQL para notas clínicas flexibles).
 
@@ -386,7 +386,9 @@ Según un estudio de Kantar, casi el 50% de hogares peruanos cuenta con al menos
 | Inicio y duración | 00:00 - 10:05 |
 | Enlace | [Entrevista#1](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c201_upc_edu_pe/IQC6IzB_vTO6SrUgnXXmLQ4HAeTPB1Yi0RFPsskqM_6gEDM?e=EAjD1d) |
 | Resumen | Dra. Marisol nos comenta que principalmente utiliza registros físicos y algunos archivos Excel, los seguimientos de los historiales se hacen manualmente lo cual no es preciso ni eficiente, además contando con problemas tales como: duplicidad de registros de una misma mascota, datos incompletos e información desactualizada. |
-| Foto | ![Entrevista1](images/entrevista1.png)<br>*Figura 7. Entrevista 1* |
+| Foto | ![Entrevista1](images/entrevista1.png)*Figura 7. Entrevista 1* |
+
+<div style="page-break-after: always"></div>
 
 **Tabla 5**
 *Registro de la entrevista 2 - Segmento objetivo 1*
@@ -400,7 +402,9 @@ Según un estudio de Kantar, casi el 50% de hogares peruanos cuenta con al menos
 | Inicio y duración | 00:00 - 2:00 |
 | Enlace | [Entrevista#2](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241c998_upc_edu_pe/IQBSltkhD0s3QKuu9i94arxaAdYkz2QASR5Beub957yt0Ck?e=Q8B2fl) |
 | Resumen | Dr. Irwin utiliza un sistema Vetpraxis, menciona que tiene un problema de inventario por que a veces llevar la cuenta exacta porque a veces se desactualiza en el sistema, porque a veces lo venden por varias cantidades de pastillas. |
-| Foto | ![Entrevista2](images/entrevista2.png)<br>*Figura 8. Entrevista 2* |
+| Foto | ![Entrevista2](images/entrevista2.png)*Figura 8. Entrevista 2* |
+
+<div style="page-break-after: always"></div>
 
 **Tabla 6**
 *Registro de la entrevista 3 - Segmento objetivo 2*
@@ -414,7 +418,9 @@ Según un estudio de Kantar, casi el 50% de hogares peruanos cuenta con al menos
 | Inicio y duración | 00:00 - 10:02 |
 | Enlace | [Entrevista#3](https://youtu.be/IFqXw6di1-M?si=rLDN6Omv5FypVZ13) |
 | Resumen | Diego es estudiante universitario y dueño de un perro de 3 años. Lleva a su mascota al veterinario cada dos meses para baños y control de vacunas y salud. No ha cambiado de veterinaria con su mascota actual, aunque sí lo hizo antes por motivos de distancia. Señala que, en general, el historial clínico de su mascota está registrado, pero en una ocasión le repitieron una pregunta sobre una vacuna ya aplicada, lo que le generó incomodidad y fastidio. Considera muy importante contar con un registro ordenado y completo del historial clínico. Le gustaría poder consultar los chequeos y vacunas pendientes mediante una página web o recibir recordatorios por parte de la veterinaria. |
-| Foto | ![Entrevista3](images/entrevista3.png)<br>*Figura 9. Entrevista 3* |
+| Foto | ![Entrevista3](images/entrevista3.png)*Figura 9. Entrevista 3* |
+
+<div style="page-break-after: always"></div>
 
 **Tabla 7**
 *Registro de la entrevista 4 - Segmento objetivo 2*
@@ -428,7 +434,9 @@ Según un estudio de Kantar, casi el 50% de hogares peruanos cuenta con al menos
 | Inicio y duración | 00:00 - 4:12 |
 | Enlace | [Entrevista#4](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20211d455_upc_edu_pe/IQBifPq69VPpQbeH7F0fSJB2AWNYwCTIaq5_O-xnoljN57Y?e=NEAsGa&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) |
 | Resumen | Katia nos comenta que lleva a su mascota a la veterinaria entre 2 a 4 veces al año para controles, vacunas y emergencias. Cambio de clínica por horarios, urgencias o porque la habitual estaba cerrada, y en esos casos siempre tenía que repetir la información de su mascota, algo que se complica cuando lleva a más de una y puede generar confusión o errores. Por eso, considera fundamental tener la historia clínica bien organizada y accesible, ya que ahorra tiempo, da tranquilidad y mejora la atención. Le gustaría poder consultar en línea diagnósticos, vacunas y tratamientos, y recibir recordatorios de próximas citas. |
-| Foto | ![Entrevista4](images/entrevista4.png)<br>*Figura 10. Entrevista 4* |
+| Foto | ![Entrevista4](images/entrevista4.png)*Figura 10. Entrevista 4* |
+
+<div style="page-break-after: always"></div>
 
 ### 2.1.3 Análisis de entrevistas
 
@@ -925,7 +933,7 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 
 ### 3.3.1 Diagrama entidad-relación lógico
 
-![Diagrama entidad-relacion logico 1](images/diagrama1.png)<br>*Figura 11. Diagrama entidad-relación lógico*
+![Diagrama entidad-relacion logico 1](images/diagrama1.png)*Figura 11. Diagrama entidad-relación lógico*
 
 ```sql
 erDiagram
@@ -1168,7 +1176,6 @@ erDiagram
 	MEDICAMENTO }o--o{ RECETA : en
 	MEDICAMENTO ||--o{ MOVIMIENTO_INVENTARIO : tiene_movimiento_de
 	MOVIMIENTO_INVENTARIO }||--|| MEDICAMENTO : de
-
 ```
 
 ### 3.3.2 Justificación del modelo entidad-relación lógico
@@ -1268,18 +1275,15 @@ Finalmente, su **escalabilidad** asegura que a medida que Pet Care tenga nuevas 
 
 ### 4.2.1 Diagrama entidad–relación físico
 
-![Diagrama entidad-relación físico](images/Diagramaentidadfisica.png)<br>*Figura 12. Diagrama entidad-relación físico*
+![Diagrama entidad-relación físico](images/Diagramaentidadfisica.png)*Figura 12. Diagrama entidad-relación físico*
 
 ## 4.3 Scripts de la base de datos
 
 ### 4.3.1 Scripts de creación y carga de datos de la base de datos relacional
 
 ```sql
--- ============================================
 -- Script de creación y carga de datos
 -- Motor: SQL Server
--- ============================================
-
 CREATE DATABASE PETCARE_DB;
 GO
 
@@ -1558,10 +1562,7 @@ CREATE TABLE RECETA_MEDICAMENTO (
     FOREIGN KEY (id_medicamento) REFERENCES MEDICAMENTO(id_medicamento)
 );
 
--- =========================
 -- DATOS DE PRUEBA
--- =========================
-
 -- 1. VETERINARIA (Matriz)
 INSERT INTO VETERINARIA (nombre, ruc, direccion, telefono, email) VALUES 
 ('PetCare Corporación S.A.C', '20601234567', 'Av. Javier Prado 1500, San Isidro', '014223344', 'corporativo@petcare.com');
@@ -2009,7 +2010,6 @@ INSERT INTO RECETA_MEDICAMENTO (id_receta, id_medicamento, dosis, frecuencia, du
 (8, 8, '100 g', 'Cada 8h', 'Indefinido'),
 (9, 9, '10 mg', 'Cada 24h', '30 dias'),
 (10, 10, '250 mg', 'Cada 12h', '10 dias');
-
 ```
 
 **Evidencia de carga de datos de la base de datos relacional**
@@ -2017,7 +2017,6 @@ INSERT INTO RECETA_MEDICAMENTO (id_receta, id_medicamento, dosis, frecuencia, du
 Evidencia1: Veterinaria
 
 ```sql
-
 USE PETCARE_DB;
 GO
 SELECT COUNT(*) AS total FROM VETERINARIA;
@@ -2027,13 +2026,11 @@ GO
 
 ![Veterinaria](images/Veterinaria.png)
 
-Evidencia2: Sede 
+Evidencia2: Sede
 
 ```sql
-
 USE PETCARE_DB;
 GO
-
 SELECT COUNT(*) AS total FROM SEDE;
 SELECT * FROM SEDE ORDER BY id_sede;
 GO
@@ -2044,10 +2041,8 @@ GO
 Evidencia3: Dueno
 
 ```sql
-
 USE PETCARE_DB;
 GO
-
 SELECT COUNT(*) AS total FROM DUENO;
 SELECT * FROM DUENO ORDER BY id_dueno;
 GO
@@ -2058,10 +2053,8 @@ GO
 Evidencia4: Mascota
 
 ```sql
-
 USE PETCARE_DB;
 GO
-
 SELECT COUNT(*) AS total FROM MASCOTA;
 SELECT * FROM MASCOTA ORDER BY id_mascota;
 GO
@@ -2084,7 +2077,6 @@ GO
 Esta consulta muestra el historial de citas incluyendo mascota, dueño, veterinario y sede donde atiende. Sirve para auditoría y seguimiento operativo.
 
 ```sql
-
 USE PETCARE_DB;
 GO
 
@@ -2109,7 +2101,6 @@ JOIN VETERINARIO v   ON v.id_veterinario = c.id_veterinario
 JOIN SEDE s          ON s.id_sede = v.id_sede
 ORDER BY c.fecha_hora DESC;
 GO
-
 ```
 
 ![Historial de citas con datos completos](images/HistorialdeCita.png)
@@ -2480,10 +2471,12 @@ GO
 **Responsable:** Cielo Mitma
 
 Permite identificar qué servicios estéticos tienen mayor demanda y ayuda a planificar recursos, promociones o contratación de personal adicional.
+
+```sql
+
 USE PETCARE_DB;
 GO
 
-```sql
 SELECT
     v.id_veterinario,
     v.nombres + ' ' + v.apellidos AS veterinario,
@@ -2553,7 +2546,6 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
-
     SELECT
         C.fecha_hora AS Fecha_Hora,
         M.nombre AS Nombre_Mascota,
@@ -2570,7 +2562,6 @@ BEGIN
     ORDER BY C.fecha_hora ASC;
 END;
 GO
-
 
 EXEC usp_agenda_veterinario_dia @id_vet = 1, @fecha_busqueda = '2025-08-15';
 GO
