@@ -2381,10 +2381,6 @@ GO
 
 *Procedimientos:*
 
-**Historial clínico de una mascota por parámetro**
-
-**Responsable:**
-
 **Consultar citas programadas por veterinario**
 
 **Responsable:** Adriano Tintayo
