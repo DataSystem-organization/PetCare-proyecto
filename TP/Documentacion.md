@@ -112,6 +112,8 @@ Febrero, 2026
 
   - [4.4.1 Consultas para la datos de la base de datos relacional](#441-consultas-para-la-base-de-datos-relacional)
 
+[CONCLUSIONES](#conclusiones-2)
+
 [BIBLIOGRAFÍA](#bibliografía)
 
 [ANEXOS](#anexos)
@@ -2423,6 +2425,8 @@ GO
 ```
 ![Resumen de Ingresos por tipo de Servicio](images/ResumenIngresos.png)
 
+
+
 *Procedimientos:*
 
 **Consultar citas programadas por veterinario**
@@ -2565,7 +2569,15 @@ FROM dbo.fn_detalle_atenciones_veterinario(12);
 ![Funcion atencion por veterinario](images/atencionporveterinario.png)
 
 
+
 <div style="page-break-after: always"></div>
+
+# CONCLUSIONES
+
+- La implementación del sistema permitió centralizar la información de mascotas, dueños, citas, consultas y servicios de estética, reduciendo la redundancia de datos y mejorando la organización operativa de la clínica.
+- La implementación de una base de datos relacional (SQL Server) garantizó la integridad referencial entre entidades, asegurando consistencia y confiabilidad en el manejo de la información.
+- La digitalización de los procesos administrativos y médicos optimiza los tiempos de atención, disminuye errores manuales y mejora la experiencia tanto del cliente como del personal de la clínica.
+- El sistema desarrollado demuestra cómo una correcta estructuración de base de datos y consultas SQL puede fortalecer la gestión interna, el control operativo y la calidad del servicio en una clínica veterinaria.
 
 # BIBLIOGRAFÍA
 

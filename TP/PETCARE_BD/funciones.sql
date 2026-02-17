@@ -50,5 +50,5 @@ RETURN
     WHERE m.id_mascota = @id_mascota
 );
 GO
-
+--- Ejemplo de uso:
 SELECT * FROM dbo.fn_historial_clinico_mascota(1);
