@@ -139,6 +139,9 @@ Febrero, 2026
   - **TP1:**
     - Colaboró en la identificación y descripción de entidades.
     - Participó en la definición de atributos asociados a cada entidad.
+  - **TB2:**
+    -Genero consultas de los clientes según situación aleatoria que ocurra.
+    -Realizó una función que cubrió un determinado aspecto según los datos evaluados. 
 
 - **Quispe Flores, Judith Xiomara**
   - **TB1:**
@@ -208,6 +211,8 @@ Febrero, 2026
     - Apliqué lo aprendido en otro curso para el desarrollo de los user stories y en que se basa la descripción de la startup.
   - **TP1:**
     - Reconoció la importancia de profundizar en el modelado conceptual de bases de datos.
+  - **TB2:**
+  - Inducción a profundizar el tema en programación según funciones y datos que se va incorporando al sistema mediante consultas. 
 
 - **Quispe Flores, Judith Xiomara**
   - **TB1:**
@@ -2425,7 +2430,85 @@ GO
 ```
 ![Resumen de Ingresos por tipo de Servicio](images/ResumenIngresos.png)
 
+**Historial de citas con datos completos de personal de estética**
 
+**Responsable:** Cielo Mitma
+
+Permite visualizar las citas de servicios de estética (baño, corte, grooming, etc.), mostrando mascota, dueño, personal encargado y sede. Es útil para control operativo y evaluación de desempeño del área estética.
+
+```sql
+USE PETCARE_DB;
+GO
+
+SELECT
+    c.id_cita,
+    c.fecha_hora,
+    c.motivo,
+    c.estado,
+    m.nombre AS mascota,
+    d.nombres + ' ' + d.apellidos AS dueno,
+    v.nombres + ' ' + v.apellidos AS veterinario,
+    p.nombre + ' ' + p.apellidos AS personal_asignado,
+    s.nombre AS sede
+FROM CITA c
+INNER JOIN MASCOTA m ON c.id_mascota = m.id_mascota
+INNER JOIN DUENO d ON m.id_dueno = d.id_dueno
+LEFT JOIN VETERINARIO v ON c.id_veterinario = v.id_veterinario
+LEFT JOIN PERSONAL_NO_VETERINARIO p ON c.id_personal = p.id_personal
+LEFT JOIN SEDE s ON v.id_sede = s.id_sede
+ORDER BY c.fecha_hora DESC;
+GO
+```
+![Consulta historial personal estetica](images/historialcitaspersonalestetica.png)
+
+**Servicios de estética más solicitados**
+
+**Responsable:** Cielo Mitma
+
+Permite identificar qué servicios estéticos tienen mayor demanda y ayuda a planificar recursos, promociones o contratación de personal adicional.
+USE PETCARE_DB;
+GO
+
+```sql
+SELECT
+    v.id_veterinario,
+    v.nombres + ' ' + v.apellidos AS veterinario,
+    s.nombre AS sede,
+    COUNT(c.id_consulta) AS total_consultas
+FROM CONSULTA c
+INNER JOIN VETERINARIO v ON c.id_veterinario = v.id_veterinario
+INNER JOIN SEDE s ON v.id_sede = s.id_sede
+GROUP BY v.id_veterinario, v.nombres, v.apellidos, s.nombre
+ORDER BY total_consultas DESC;
+GO
+```
+![Consulta servicios estetica](images/serviciosestetica.png)
+
+**Clientes frecuentes en servicios de estética**
+
+**Responsable:** Cielo Mitma
+
+Identifica a los dueños que más utilizan servicios estéticos, útil para programas de fidelización o descuentos especiales.
+
+```sql
+USE PETCARE_DB;
+GO
+
+SELECT
+    s.nombre AS sede,
+    a.nombre AS area_clinica,
+    m.nombre AS mascota,
+    h.fecha_ingreso,
+    h.motivo
+FROM HOSPITALIZACION h
+INNER JOIN MASCOTA m ON h.id_mascota = m.id_mascota
+INNER JOIN AREA_CLINICA a ON h.id_area_clinica = a.id_area_clinica
+INNER JOIN SEDE s ON a.id_sede = s.id_sede
+WHERE h.fecha_salida IS NULL
+ORDER BY s.nombre, h.fecha_ingreso;
+GO
+```
+![Consulta clientes frecuentes estetica](images/clientesfrecuentesestetica.png)
 
 *Procedimientos:*
 
@@ -2568,7 +2651,39 @@ FROM dbo.fn_detalle_atenciones_veterinario(12);
 ```
 ![Funcion atencion por veterinario](images/atencionporveterinario.png)
 
+**Atenciones de estética por personal**
 
+**Responsable:** Cielo Mitma
+
+Esta función con retorno de tabla permite visualizar las atenciones realizadas por un miembro del personal de estética, mostrando su nombre, la sede donde labora, la mascota atendida, el dueño y la fecha del servicio. Facilita el control del rendimiento del área estética y el seguimiento de servicios brindados.
+
+```sql
+CREATE OR ALTER FUNCTION fn_historial_clinico_mascota
+(
+    @id_mascota INT
+)
+RETURNS TABLE
+AS
+RETURN
+(
+    SELECT
+        m.id_mascota,
+        m.nombre AS mascota,
+        v.nombres + ' ' + v.apellidos AS veterinario,
+        s.nombre AS sede,
+        c.fecha_hora,
+        c.observaciones
+    FROM CONSULTA c
+    INNER JOIN MASCOTA m ON c.id_mascota = m.id_mascota
+    INNER JOIN VETERINARIO v ON c.id_veterinario = v.id_veterinario
+    INNER JOIN SEDE s ON v.id_sede = s.id_sede
+    WHERE m.id_mascota = @id_mascota
+);
+GO
+
+SELECT * FROM dbo.fn_historial_clinico_mascota(1);
+```
+![Funcion atenciones estetica por personal](images/atencionesesteticaporpersonal.png)
 
 <div style="page-break-after: always"></div>
 
