@@ -2705,3 +2705,4 @@ Ballarin, C. (2019). *Casi la mitad de hogares peruanos tienen una mascota*. Kan
 - Carpeta de archivos: [Google Drive](https://drive.google.com/drive/folders/1ysx7GtMfmhUFN9xITfBEGoUvXDckLpa5?usp=sharing)
 - Link de video del TP1: [Microsoft Stream](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241d159_upc_edu_pe/IQAxszfRY13hTYbBz2s3MiheATb0fIbwlpVDa8kWcb60vAI?e=RQgzfJ&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 [Youtube](https://youtu.be/G5ZFKfJF7Us)
+- Linl de video del TB2: [Youtube](https://youtu.be/6Auo5WNIjDM)
