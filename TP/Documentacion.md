@@ -1382,17 +1382,23 @@ CREATE TABLE VETERINARIO_ESPECIALIDAD (
 );
 
 CREATE TABLE CITA (
-  id_cita INT IDENTITY(1,1) PRIMARY KEY,
-  fecha_hora DATETIME NOT NULL,
-  motivo VARCHAR(200) NULL,
-  estado VARCHAR(30) NULL,
-  id_mascota INT NOT NULL,
-  id_personal INT NULL,
-  CONSTRAINT FK_CITA_MASCOTA
-    FOREIGN KEY (id_mascota) REFERENCES MASCOTA(id_mascota),
-  CONSTRAINT FK_CITA_PERSONAL
-    FOREIGN KEY (id_personal) REFERENCES PERSONAL_NO_VETERINARIO(id_personal)
+    id_cita INT IDENTITY(1,1) PRIMARY KEY,
+    fecha_hora DATETIME NOT NULL,
+    motivo VARCHAR(200),
+    estado VARCHAR(30),
+    id_mascota INT NOT NULL,
+    id_personal INT,
+    CONSTRAINT FK_CITA_MASCOTA FOREIGN KEY (id_mascota) REFERENCES MASCOTA(id_mascota),
+    CONSTRAINT FK_CITA_PERSONAL FOREIGN KEY (id_personal) REFERENCES PERSONAL_NO_VETERINARIO(id_personal)
 );
+ALTER TABLE CITA
+ADD id_veterinario INT NULL;
+GO
+
+ALTER TABLE CITA
+ADD CONSTRAINT FK_CITA_VETERINARIO FOREIGN KEY (id_veterinario)
+REFERENCES VETERINARIO(id_veterinario);
+GO
 
 CREATE TABLE CONSULTA (
   id_consulta INT IDENTITY(1,1) PRIMARY KEY,
@@ -1723,102 +1729,131 @@ INSERT INTO VETERINARIO_ESPECIALIDAD (id_veterinario, id_especialidad, fecha_cer
 
 -- 12. CITA
 INSERT INTO CITA (fecha_hora, motivo, estado, id_mascota, id_personal) VALUES 
+-- Citas con Esteticistas
+INSERT INTO CITA (fecha_hora, motivo, estado, id_mascota, id_personal) VALUES
+('2025-11-05 09:00', 'Baño medicado', 'Completada', 8, 16),
+('2025-11-07 11:00', 'Corte de raza', 'Completada', 22, 19),
+('2025-12-17 09:00', 'Limpieza de oídos', 'Completada', 5, 5),
+('2025-12-22 11:00', 'Desmotado', 'Programada', 3, 13),
+('2026-02-18 09:00', 'Baño hipoalergénico', 'Programada', 21, 13),
+('2026-02-19 09:00', 'Desparasitación', 'Programada', 12, 5),
+('2026-02-21 10:00', 'Stripping', 'Programada', 21, 13),
+('2026-02-21 11:00', 'Baño premium', 'Programada', 3, 13),
+('2026-02-28 12:00', 'Deslanado', 'Programada', 6, 16),
+('2026-03-03 09:00', 'Baño estándar', 'Programada', 13, 18),
+('2026-02-20 10:00', 'Corte de uñas', 'Programada', 14, 19),
+('2026-02-20 11:00', 'Corte de uñas', 'Programada', 15, 14),
+('2026-02-20 12:00', 'Deslanado', 'Programada', 16, 16);
+-- Citas con Veterinarios
+INSERT INTO CITA (fecha_hora, motivo, estado, id_mascota, id_veterinario) VALUES
 ('2025-08-15 09:00', 'Control de alergia', 'Completada', 1, 1),
-('2025-03-10 10:30', 'Chequeo cardiaco', 'Pendiente', 2, 2),
+('2025-03-10 10:30', 'Chequeo cardiaco', 'Completada', 2, 2),
 ('2025-05-12 11:00', 'Terapia de rehabilitación', 'Completada', 3, 3),
-('2025-09-05 08:30', 'Vacunación anual', 'Programada', 4, 4),
-('2025-04-18 12:15', 'Limpieza dental', 'Completada', 5, 5),
-('2025-06-22 15:45', 'Cirugía rodilla', 'Programada', 6, 6),
-('2025-11-01 09:00', 'Evaluacion oncologica', 'Programada', 7, 7), ('2025-11-02 10:00', 'Cambio de dieta', 'Programada', 8, 8), 
-('2025-11-03 11:00', 'Agresividad', 'Programada', 9, 9),
-('2025-11-05 09:00', 'Control general','Programada',10,1),
-('2025-11-06 10:00', 'Vacunación','Programada',11,2),
-('2025-11-07 11:00', 'Desparasitación','Programada',12,3),
-('2025-11-08 12:00', 'Chequeo nutricional','Pendiente',1,4),
-('2025-11-09 13:00', 'Revisión dental','Pendiente',2,5),
-('2025-11-10 14:00', 'Evaluación neurologica','Programada',3,6);
+('2025-09-05 08:30', 'Vacunación anual', 'Completada', 4, 4),
+('2025-04-18 12:15', 'Limpieza dental', 'Completada', 5, 6),
+('2025-06-22 15:45', 'Cirugía rodilla', 'Completada', 6, 10),
+('2025-11-01 09:00', 'Evaluacion oncologica', 'Completada', 7, 7),
+('2025-11-02 10:00', 'Cambio de dieta', 'Completada', 8, 9),
+('2025-11-03 11:00', 'Agresividad', 'Completada', 9, 10),
+('2025-11-05 09:00', 'Control general', 'Completada', 10, 11),
+('2025-12-01 09:00', 'Vacunación anual', 'Completada', 11, 12),
+('2025-12-05 10:30', 'Chequeo nutricional', 'Completada', 12, 13),
+('2025-12-10 11:00', 'Control de peso', 'Completada', 13, 14),
+('2025-12-15 08:30', 'Limpieza dental', 'Completada', 14, 15),
+('2025-12-20 12:15', 'Evaluación dermatológica', 'Completada', 15, 16),
+('2025-12-25 15:45', 'Chequeo cardiaco', 'Completada', 16, 17),
+('2026-01-05 09:00', 'Vacunación felina', 'Completada', 17, 18),
+('2026-01-10 10:00', 'Control de etología', 'Completada', 18, 19),
+('2026-01-15 11:00', 'Revisión general', 'Completada', 19, 20),
+('2026-01-20 09:00', 'Desparasitación', 'Completada', 20, 21),
+('2026-01-25 10:30', 'Chequeo general', 'Completada', 21, 22),
+('2026-02-01 11:00', 'Vacuna refuerzo', 'Completada', 22, 1),
+('2026-02-05 08:30', 'Control de peso', 'Completada', 1, 2),
+('2026-02-10 12:15', 'Chequeo nutricional', 'Completada', 2, 3),
+('2026-02-12 15:45', 'Vacunación anual', 'Completada', 3, 4),
+('2026-02-14 09:00', 'Revisión general', 'Completada', 4, 5),
+('2026-02-15 10:30', 'Control dermatológico', 'Completada', 5, 6),
+('2026-02-18 09:00', 'Chequeo general', 'Programada', 1, 1),
+('2026-02-19 10:00', 'Vacuna anual', 'Programada', 2, 2),
+('2026-02-20 11:00', 'Control de etología', 'Programada', 3, 3),
+('2026-02-21 12:00', 'Limpieza dental', 'Programada', 4, 4),
+('2026-02-22 09:00', 'Evaluación cardiaca', 'Programada', 5, 5),
+('2026-02-23 10:00', 'Revisión general', 'Programada', 6, 6),
+('2026-02-24 11:00', 'Desparasitación', 'Programada', 7, 7),
+('2026-02-25 12:00', 'Vacuna refuerzo', 'Programada', 8, 8),
+('2026-02-26 09:00', 'Chequeo nutricional', 'Programada', 9, 9),
+('2026-02-27 10:00', 'Evaluación neurológica', 'Programada', 10, 10);
 
 -- 13. CONSULTA
-INSERT INTO CONSULTA (fecha_hora, observaciones, id_veterinario, id_mascota) VALUES 
-('2025-08-15 09:15', 'Presenta prurito en orejas', 1, 1),
-('2025-03-10 10:45', 'Ritmo cardiaco estable', 2, 2),
-('2025-05-12 11:30', 'Muestra debilidad en tren posterior', 3, 3),
-('2025-09-05 08:50', 'Próxima dosis en 2026.', 4,4),
-('2025-04-18 12:30', 'Se detecta sarro moderado.', 5, 5),
-('2025-06-22 16:00', 'Evaluación prequirúrgica completa.', 6, 6),
-('2025-11-01 09:15', 'Masa palpable en abdomen', 7, 7), 
-('2025-11-02 10:15', 'Sobrepeso evidente', 8, 8), 
-('2025-11-03 11:15', 'Muestra ansiedad por separacion', 9, 9),
-('2025-11-05 09:30', 'Control sin novedades',12,10),
-('2025-11-06 10:30', 'Vacuna aplicada correctamente',13,11),
-('2025-11-07 11:30', 'Desparasitación completada',14,12),
-('2025-11-08 12:30', 'Ligero sobrepeso',15,13),
-('2025-11-09 13:30', 'Sarro leve',16,14),
-('2025-11-10 14:30', 'Convulsión aislada',17,15),
-('2025-03-01 09:20','Vacuna aplicada sin reacción',10,10),
-('2025-04-01 10:20','Vacuna aplicada correctamente',11,11),
-('2025-05-01 11:20','Paciente estable',12,12),
-('2025-06-01 09:50','Refuerzo aplicado',13,13),
-('2025-06-02 10:50','Sin reacciones adversas',14,14),
-('2025-06-03 11:50','Vacuna aplicada correctamente',15,15),
-('2025-06-04 12:20','Paciente en buen estado',16,16),
-('2025-06-05 09:20','Vacuna aplicada',17,17),
-('2025-06-06 10:20','Refuerzo felino correcto',18,18),
-('2025-06-07 11:20','Sin hallazgos',19,19),
-('2025-06-08 12:20','Vacuna aplicada correctamente',20,20),
-('2025-06-09 13:20','Sin reacción',21,21),
-('2025-06-10 14:20','Vacuna aplicada correctamente',22,22),
-('2025-06-11 09:20','Refuerzo aplicado',1,23),
-('2025-06-12 10:20','Vacuna aplicada correctamente',2,24),
-('2025-07-01 09:20','Sobrepeso leve',3,10),
-('2025-07-05 10:20','Dermatitis leve en abdomen',4,14),
-('2025-07-10 11:20','Sarro moderado',5,18),
-('2025-07-15 12:20','Soplo leve detectado',6,21);
+INSERT INTO CONSULTA (fecha_hora, observaciones, id_veterinario, id_mascota) VALUES
+('2025-08-15 09:15', 'Presenta prurito en orejas, se aplica tratamiento tópico', 1, 1),
+('2025-03-10 10:45', 'Ritmo cardiaco estable, seguimiento recomendado', 2, 2),
+('2025-05-12 11:30', 'Debilidad en tren posterior, fisioterapia indicada', 3, 3),
+('2025-09-05 08:50', 'Vacuna aplicada correctamente, buen estado general', 4, 4),
+('2025-04-18 12:30', 'Sarro moderado detectado, limpieza dental realizada', 6, 5),
+('2025-06-22 16:00', 'Evaluación prequirúrgica completada', 10, 6),
+('2025-11-01 09:15', 'Masa palpable en abdomen, estudios adicionales recomendados', 7, 7),
+('2025-11-02 10:15', 'Sobrepeso leve, dieta indicada', 9, 8),
+('2025-11-03 11:15', 'Ansiedad por separación confirmada', 10, 9),
+('2025-11-05 09:30', 'Control general sin novedades', 11, 10),
+('2025-12-01 09:15', 'Vacuna aplicada correctamente, sin reacción', 12, 11),
+('2025-12-05 10:45', 'Chequeo nutricional, dieta balanceada', 13, 12),
+('2025-12-10 11:15', 'Control de peso adecuado', 14, 13),
+('2025-12-15 08:50', 'Limpieza dental realizada, sin sarro significativo', 15, 14),
+('2025-12-20 12:30', 'Dermatitis leve, tratamiento tópico indicado', 16, 15),
+('2025-12-25 15:50', 'Chequeo cardiaco estable', 17, 16),
+('2026-01-05 09:15', 'Vacuna felina aplicada, sin reacción', 18, 17),
+('2026-01-10 10:15', 'Etología revisada, comportamiento estable', 19, 18),
+('2026-01-15 11:15', 'Revisión general, signos vitales normales', 20, 19),
+('2026-01-20 09:10', 'Desparasitación completada', 21, 20),
+('2026-01-25 10:45', 'Chequeo general sin novedades', 22, 21),
+('2026-02-01 11:15', 'Vacuna refuerzo aplicada correctamente', 1, 22),
+('2026-02-05 08:50', 'Control de peso y nutrición', 2, 1),
+('2026-02-10 12:30', 'Chequeo nutricional, dieta balanceada', 3, 2),
+('2026-02-12 15:50', 'Vacunación anual aplicada correctamente', 4, 3),
+('2026-02-14 09:15', 'Revisión general, signos vitales normales', 5, 4),
+('2026-02-15 10:45', 'Control dermatológico, tratamiento aplicado', 6, 5);
 
 -- 14. DIAGNOSTICO
 INSERT INTO DIAGNOSTICO (descripcion, fecha, gravedad, id_consulta) VALUES 
 ('Dermatitis alérgica', '2025-08-15', 'Baja', 1),
 ('Sano con observación', '2025-03-10', 'Baja', 2),
 ('Displasia de cadera leve', '2025-05-12', 'Media', 3),
-('Saludable, sin novedades', '2025-09-05', 'Baja', 4),
+('Sano, vacunas al día', '2025-09-05', 'Baja', 4),
 ('Sarro dental moderado', '2025-04-18', 'Baja', 5),
 ('Rotura de ligamento cruzado', '2025-06-22', 'Alta', 6),
-('Posible lipoma', '2025-11-01', 'Media', 7), 
-('Obesidad grado I', '2025-11-02', 'Baja', 8), 
+('Posible lipoma', '2025-11-01', 'Media', 7),
+('Obesidad grado I', '2025-11-02', 'Baja', 8),
 ('Trastorno de ansiedad', '2025-11-03', 'Baja', 9),
-('Paciente sano','2025-03-01','Baja',16),
-('Paciente sano','2025-04-01','Baja',17),
-('Sin hallazgos','2025-05-01','Baja',18),
-('Vacunación preventiva','2025-06-01','Baja',19),
-('Paciente sano','2025-06-02','Baja',20),
-('Paciente sano','2025-06-03','Baja',21),
-('Sin novedades','2025-06-04','Baja',22),
-('Paciente sano','2025-06-05','Baja',23),
-('Paciente sano','2025-06-06','Baja',24),
-('Paciente sano','2025-06-07','Baja',25),
-('Paciente sano','2025-06-08','Baja',26),
-('Paciente sano','2025-06-09','Baja',27),
-('Paciente sano','2025-06-10','Baja',28),
-('Vacunación preventiva','2025-06-11','Baja',29),
-('Paciente sano','2025-06-12','Baja',30),
-('Sobrepeso leve','2025-07-01','Media',31),
-('Dermatitis leve','2025-07-05','Baja',32),
-('Sarro dental','2025-07-10','Media',33),
-('Soplo cardiaco leve','2025-07-15','Media',34);
+('Paciente sano', '2025-11-05', 'Baja', 10),
+('Vacunación preventiva', '2025-12-01', 'Baja', 11),
+('Sobrepeso leve', '2025-12-05', 'Media', 12),
+('Control de peso adecuado', '2025-12-10', 'Baja', 13),
+('Sarro dental leve', '2025-12-15', 'Baja', 14),
+('Dermatitis leve', '2025-12-20', 'Baja', 15),
+('Chequeo cardiaco estable', '2025-12-25', 'Baja', 16),
+('Vacuna felina aplicada', '2026-01-05', 'Baja', 17),
+('Etología estable', '2026-01-10', 'Baja', 18),
+('Revisión general', '2026-01-15', 'Baja', 19),
+('Desparasitación completa', '2026-01-20', 'Baja', 20),
+('Chequeo general', '2026-01-25', 'Baja', 21),
+('Vacuna refuerzo aplicada', '2026-02-01', 'Baja', 22),
+('Control de peso', '2026-02-05', 'Baja', 23),
+('Chequeo nutricional', '2026-02-10', 'Baja', 24),
+('Vacunación anual', '2026-02-12', 'Baja', 25),
+('Revisión general', '2026-02-14', 'Baja', 26),
+('Control dermatológico', '2026-02-15', 'Baja', 27);
 
 -- 15. EXAMEN
 INSERT INTO EXAMEN (tipo, resultado, fecha_hora, id_consulta) VALUES 
 ('Raspado cutáneo', 'Negativo a ácaros', '2025-08-15 10:00', 1),
 ('Ecografía cardiaca', 'Sin anomalías', '2025-03-10 11:30', 2),
-('Evaluación Postural', 'Dificultad al levantarse', '2025-05-12 12:00', 3),
-('Hemograma completo', 'Valores dentro de rangos normales', '2025-09-05 09:30', 4),
-('Radiografía dental', 'Sarro moderado en molares', '2025-04-18 13:00', 5),
-('Radiografía de rodilla', 'Rotura de ligamento cruzado confirmada', '2025-06-22 16:30', 6),
-('Biopsia', 'Pendiente', '2025-11-01 12:00', 7),
-('Panel Tiroideo', 'Normal', '2025-11-02 13:00', 8),
+('Evaluación Postural', 'Dificultad leve al levantarse', '2025-05-12 12:00', 3),
+('Hemograma completo', 'Valores normales', '2025-09-05 09:30', 4),
+('Radiografía dental', 'Sarro moderado', '2025-04-18 13:00', 5),
+('Radiografía rodilla', 'Ligamento cruzado roto confirmado', '2025-06-22 16:30', 6),
 ('Test de comportamiento', 'Ansiedad confirmada', '2025-11-03 14:00', 9),
-('Perfil lipidico', 'Colesterol levemente elevado', '2025-07-01 09:40', 31),
-('Electrocardiograma', 'Soplo leve confirmado', '2025-07-15 12:40', 34);
+('Perfil lipídico', 'Valores normales', '2025-12-05 11:00', 12);
 
 -- 16. VACUNA
 INSERT INTO VACUNA (nombre, descripcion, frecuencia) VALUES 
@@ -1838,25 +1873,14 @@ INSERT INTO VACUNA (nombre, descripcion, frecuencia) VALUES
 
 -- 17. MASCOTA_VACUNA
 INSERT INTO MASCOTA_VACUNA (id_mascota, id_vacuna, fecha_aplicacion, proxima_dosis, id_consulta) VALUES 
+INSERT INTO MASCOTA_VACUNA (id_mascota, id_vacuna, fecha_aplicacion, proxima_dosis, id_consulta) VALUES
 (1, 1, '2025-08-15', '2026-08-15', 1),
-(2, 2, '2025-03-10', '2026-03-10', 2),
-(3, 3, '2025-05-12', '2025-11-12', 3),
-(4, 4, '2025-09-05', '2026-09-05', 4),
-(10,4,'2025-03-01','2026-03-01',16),
-(11,1,'2025-04-01','2026-04-01',17),
-(12,4,'2025-05-01','2026-05-01',18),
-(13,3,'2025-06-01','2025-12-01',19),
-(14,1,'2025-06-02','2026-06-02',20),
-(15,2,'2025-06-03','2026-06-03',21),
-(16,12,'2025-06-04','2025-12-04',22),
-(17,2,'2025-06-05','2026-06-05',23),
-(18,11,'2025-06-06','2026-06-06',24),
-(19,4,'2025-06-07','2026-06-07',25),
-(20,1,'2025-06-08','2026-06-08',26),
-(21,10,'2025-06-09','2026-06-09',27),
-(22,4,'2025-06-10','2026-06-10',28),
-(23,9,'2025-06-11','2026-06-11',29),
-(24,1,'2025-06-12','2026-06-12',30);
+(2, 4, '2025-03-10', '2026-03-10', 2),
+(4, 1, '2025-09-05', '2026-09-05', 4),
+(11, 1, '2025-12-01', '2026-12-01', 12),
+(17, 4, '2026-01-05', '2027-01-05', 17),
+(22, 4, '2026-02-01', '2027-02-01', 22),
+(3, 3, '2026-02-12', '2026-08-12', 24);
 
 -- 18. HISTORIAL_CLINICO
 INSERT INTO HISTORIAL_CLINICO (fecha_registro, id_mascota) VALUES 
@@ -2045,19 +2069,19 @@ SELECT
     m.nombre AS mascota,
     m.especie,
     m.raza,
-    (d.nombres + ' ' + d.apellidos) AS dueno,
-    (v.nombres + ' ' + v.apellidos) AS veterinario,
+    d.nombres + ' ' + d.apellidos AS dueno,
+    v.nombres + ' ' + v.apellidos AS veterinario,
     con.id_consulta,
     con.fecha AS fecha_consulta,
     s.nombre AS servicio,
     con.observaciones
 FROM CITA c
-JOIN MASCOTA m ON c.id_mascota = m.id_mascota
-JOIN DUENO d ON m.id_dueno = d.id_dueno
-JOIN VETERINARIO v ON c.id_veterinario = v.id_veterinario
-LEFT JOIN CONSULTA con ON con.id_cita = c.id_cita
-LEFT JOIN SERVICIO s ON con.id_servicio = s.id_servicio
-ORDER BY c.fecha DESC;
+JOIN MASCOTA m       ON m.id_mascota = c.id_mascota
+JOIN DUENO d         ON d.id_dueno = m.id_dueno
+JOIN VETERINARIO v   ON v.id_veterinario = c.id_veterinario
+JOIN SEDE s          ON s.id_sede = v.id_sede
+ORDER BY c.fecha_hora DESC;
+GO
 ```
 ![Historial de citas con datos completos](images/HistorialdeCita.png)
 
@@ -2301,7 +2325,7 @@ INNER JOIN CONTACTO_EMERGENCIA CE ON M.id_mascota = CE.id_mascota;
 GO
 
 ```
-![listado de mascotas y su contacto de emergencia](images/ListadoMascotas_ContactosEmergencia.png)
+![Listado de Mascotas y sus Contactos de Emergencia](images/ListadoMascotas_ContactosEmergencia.png)
 
 **Sedes con más consultas realizadas**
 
