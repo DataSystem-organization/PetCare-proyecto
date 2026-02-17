@@ -143,6 +143,9 @@ Febrero, 2026
     - Realice 3 User Stories.
   - **TP1:**
     - Realizó el diagrama entidad-relación lógico y su código SQL.
+  - **TB2:**
+    - Agregue información en la base de datos.
+    - Desarrolle 3 consultas y un procedimiento.
 
 - **Riveros Vera, Jennifer Yamilet**
   - **TB1:**
@@ -201,6 +204,8 @@ Febrero, 2026
     - Conocimiento adquirido de otros cursos, como el uso de User Stories y la herramienta 5W y 2H.
   - **TP1:**
     - A través del diseño e implementación del diagrama entidad-relación para el sistema, reconocí necesidad de aprender nuevas técnicas de modelación de datos y herramientas con ERD Editor.
+  - **TB2:**
+    - Logré implementar consultas que responden a necesidades reales y también desarrollé un procedimiento almacenado que genera recordatorios automáticos de vacunas próximas a vencer.
 
 - **Riveros Vera, Jennifer Yamilet**
   - **TB1:**
