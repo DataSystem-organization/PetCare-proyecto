@@ -285,11 +285,11 @@ Somos DataSystem, un equipo conformado por estudiantes de la Universidad Peruana
 
 | Integrantes | Descripción |
 | :--- | :--- |
-| ![Cielo](images/fotos/mitma.png)<br>*Figura 1. Foto de la estudiante Mitma* | Mi nombre es Cielo Anahí Mitma Ayala (u202420007), estudiante de Ciencias de la Computación en la UPC. Cuento con certificaciones en Python y ordenamiento de datos, Scrum, además de conocimientos en HTML, CSS y JavaScript básicos, manejo de ordenamiento avanzado de datos, programación en C++ en consola y un nivel de inglés intermedio. Poseo una base sólida en lógica y matemáticas, lo que me permite destacar en la resolución de problemas informáticos. Me caracterizo por mi creatividad en la creación de proyectos tecnológicos y de negocio, cualidades que me permitirán un gran desarrollo frente a los desafíos que se presenten. |
-| ![Judith](images/fotos/quispe.png)<br>*Figura 2. Foto de la estudiante Quispe* | Mi nombre es Judith Xiomara Quispe Flores (U202424896), estudiante de Ingeniería de Sistemas de Información en la UPC. Como futura profesional, cuento con una base sólida en pensamiento lógico, análisis matemático y fundamentos de programación, complementada con habilidades de comunicación y trabajo en equipo. Mi formación abarca también el manejo de datos y la gestión de proyectos tecnológicos, siempre orientados a optimizar procesos y apoyar la toma de decisiones. Me caracterizo por mi capacidad de adaptación, creatividad para resolver problemas y un compromiso ético en la búsqueda de soluciones innovadoras. |
-| ![Jennifer](images/fotos/riveros.png)<br>*Figura 3. Foto de la estudiante Riveros* | Mi nombre es Jennifer Yamilet Riveros Vera (u20241c998). Estoy cursando la carrera de Ingeniería de Software en la UPC con interés en ser una futura desarrolladora backend. Estoy certificada en la Universidad de California San Diego, desarrollando fundamentos en Java, y también tengo conocimientos en inglés intermedio y en Excel, lo que me permite tener una perspectiva integral y preparada para los próximos proyectos que vengan. |
-| ![Adriano](images/fotos/tintayo.png)<br>*Figura 4. Foto del estudiante Tintayo*  | Mi nombre es Adriano Martín Isaías Tintayo Pujaico (u20241c201). Soy estudiante de la carrera de Ingeniería de Sistemas de Información en la Universidad Peruana de Ciencias Aplicadas (UPC). Cuento con conocimientos básicos en C++ y Python. Como estudiante universitario poseo la capacidad de resolución de problemas, pensamiento crítico y orientación a resultados, además de una rápida adaptación a nuevas tecnologías. |
-| ![Rose](images/fotos/vergaray.png)<br>*Figura 5. Foto de la estudiante Vergaray*  | Mi nombre es Rose Almendra Vergaray Calderon (u20241d159). Soy estudiante de la carrera de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC). Cuento con conocimientos básicos en Python, HTML, Java, y programación en C++ nivel intermedio, lo que me ha ayudado a desarrollar un enfoque orientado a la innovación y a la optimización de procesos mediante el uso de nuevas tecnologías. Me motiva estar en constante aprendizaje, explorar nuevas herramientas y enfrentar proyectos que pongan a prueba mis habilidades. |
+| ![Cielo](images/fotos/mitma.png)*Figura 1. Foto de la estudiante Mitma* | Mi nombre es Cielo Anahí Mitma Ayala (u202420007), estudiante de Ciencias de la Computación en la UPC. Cuento con certificaciones en Python y ordenamiento de datos, Scrum, además de conocimientos en HTML, CSS y JavaScript básicos, manejo de ordenamiento avanzado de datos, programación en C++ en consola y un nivel de inglés intermedio. Poseo una base sólida en lógica y matemáticas, lo que me permite destacar en la resolución de problemas informáticos. Me caracterizo por mi creatividad en la creación de proyectos tecnológicos y de negocio, cualidades que me permitirán un gran desarrollo frente a los desafíos que se presenten. |
+| ![Judith](images/fotos/quispe.png)*Figura 2. Foto de la estudiante Quispe* | Mi nombre es Judith Xiomara Quispe Flores (U202424896), estudiante de Ingeniería de Sistemas de Información en la UPC. Como futura profesional, cuento con una base sólida en pensamiento lógico, análisis matemático y fundamentos de programación, complementada con habilidades de comunicación y trabajo en equipo. Mi formación abarca también el manejo de datos y la gestión de proyectos tecnológicos, siempre orientados a optimizar procesos y apoyar la toma de decisiones. Me caracterizo por mi capacidad de adaptación, creatividad para resolver problemas y un compromiso ético en la búsqueda de soluciones innovadoras. |
+| ![Jennifer](images/fotos/riveros.png)*Figura 3. Foto de la estudiante Riveros* | Mi nombre es Jennifer Yamilet Riveros Vera (u20241c998). Estoy cursando la carrera de Ingeniería de Software en la UPC con interés en ser una futura desarrolladora backend. Estoy certificada en la Universidad de California San Diego, desarrollando fundamentos en Java, y también tengo conocimientos en inglés intermedio y en Excel, lo que me permite tener una perspectiva integral y preparada para los próximos proyectos que vengan. |
+| ![Adriano](images/fotos/tintayo.png)*Figura 4. Foto del estudiante Tintayo*  | Mi nombre es Adriano Martín Isaías Tintayo Pujaico (u20241c201). Soy estudiante de la carrera de Ingeniería de Sistemas de Información en la Universidad Peruana de Ciencias Aplicadas (UPC). Cuento con conocimientos básicos en C++ y Python. Como estudiante universitario poseo la capacidad de resolución de problemas, pensamiento crítico y orientación a resultados, además de una rápida adaptación a nuevas tecnologías. |
+| ![Rose](images/fotos/vergaray.png)*Figura 5. Foto de la estudiante Vergaray*  | Mi nombre es Rose Almendra Vergaray Calderon (u20241d159). Soy estudiante de la carrera de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC). Cuento con conocimientos básicos en Python, HTML, Java, y programación en C++ nivel intermedio, lo que me ha ayudado a desarrollar un enfoque orientado a la innovación y a la optimización de procesos mediante el uso de nuevas tecnologías. Me motiva estar en constante aprendizaje, explorar nuevas herramientas y enfrentar proyectos que pongan a prueba mis habilidades. |
 
 ## 1.2 Solution Profile
 
@@ -1247,8 +1247,11 @@ Por tanto, todas las relaciones del modelo cumplen con la Tercera Forma Normal.
 
 Para la selección del **Sistema de Gestión de Base de Datos (SGBD)** para **Pet Care**, se han evaluado las tres opciones más destacadas bajo los criterios de **compatibilidad**, **rendimiento** y **escalabilidad**.
 
+**Tabla 38**
+*Evaluación y elección del sistema de gestión de base de datos relacional*
+
 | Criterio | MySQL | PostgreSQL | SQL Server |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | **Compatibilidad** | Alta con tecnologías web, pero con limitaciones en la integración con ecosistemas empresariales cerrados. | Excelente con sistemas Linux y herramientas de análisis de datos complejas. | Integración nativa con el ecosistema Microsoft (.NET). Ideal para reportes administrativos y gestión de Windows. |
 | **Rendimiento** | Optimizado para operaciones de lectura de datos simples. Su rendimiento decae con exigencias complejas. | Alto rendimiento en procesos de escritura y lectura concurrentes de gran complejidad. | Gestiona eficientemente cargas de trabajo transaccionales pesadas y reportes en tiempo real. |
 | **Escalabilidad** | Escalabilidad horizontal aceptable, pero compleja de gestionar en entornos de misión crítica. | Alta escalabilidad vertical y horizontal mediante particionamiento avanzado. | Permite un crecimiento fluido desde versiones Express, soportando terabytes de datos sin pérdida de eficiencia. |
@@ -2066,6 +2069,8 @@ GO
 
 ![Mascota](images/Mascota.png)
 
+<div style="page-break-after: always"></div>
+
 ## 4.4 Consultas
 
 ### 4.4.1 Consultas para la base de datos relacional
@@ -2104,8 +2109,12 @@ JOIN VETERINARIO v   ON v.id_veterinario = c.id_veterinario
 JOIN SEDE s          ON s.id_sede = v.id_sede
 ORDER BY c.fecha_hora DESC;
 GO
+
 ```
+
 ![Historial de citas con datos completos](images/HistorialdeCita.png)
+
+<div style="page-break-after: always"></div>
 
 **Total de citas por veterinario**
 
@@ -2129,7 +2138,10 @@ ORDER BY total_citas DESC;
 GO
 
 ```
+
 ![Total de citas por veterinario](images/TotaldeCita.png)
+
+<div style="page-break-after: always"></div>
 
 **Mascotas con contacto de emergencia del dueño**
 
@@ -2138,6 +2150,7 @@ GO
 Esta consulta lista cada mascota con su dueño y el contacto de emergencia asociado al dueño, permitiendo además visualizar la cantidad total de contactos asociados a cada dueño. Es útil para atención rápida ante incidentes cuando el dueño no está disponible.
 
 ```sql
+
 USE PETCARE_DB;
 GO
 
@@ -2155,8 +2168,12 @@ LEFT JOIN CONTACTO_EMERGENCIA ce
     ON ce.id_mascota = m.id_mascota
 ORDER BY dueno;
 GO
+
 ```
+
 ![Mascotas con contacto de emergencia del dueño](images/Mascotacontacto.png)
+
+<div style="page-break-after: always"></div>
 
 **Veterinarios por sede**
 
@@ -2185,7 +2202,10 @@ ORDER BY s.nombre, veterinario;
 GO
 
 ```
+
 ![Consulta veterinarios por sede](images/veterinariosporsede.png)
+
+<div style="page-break-after: always"></div>
 
 **Especialidades por veterinario**
 
@@ -2214,7 +2234,10 @@ ORDER BY veterinario, especialidad;
 GO
 
 ```
+
 ![Consulta especialidades por veterinario](images/especialidadesporveterinario.png)
+
+<div style="page-break-after: always"></div>
 
 **Dueños con más de una mascota**
 
@@ -2247,7 +2270,10 @@ ORDER BY total_mascotas DESC;
 GO
 
 ```
+
 ![Consulta dueños con más de una mascota](images/dueñosconmásmascotas.png)
+
+<div style="page-break-after: always"></div>
 
 **Mascotas con más consultas en el último año**
 
@@ -2274,7 +2300,10 @@ ORDER BY total_consultas DESC;
 GO
 
 ```
+
 ![Mascotas con más consultas en le último año](images/MascotasMásConsultasÚltimoAño.jpeg)
+
+<div style="page-break-after: always"></div>
 
 **Medicamentos más recetados con total de prescripciones**
 
@@ -2283,6 +2312,7 @@ GO
 Busca controlar la demanda de medicamentos para planificar compras y evaluar patrones de tratamiento.
 
 ```sql
+
 USE PETCARE_DB;
 GO
 SELECT
@@ -2297,7 +2327,10 @@ ORDER BY veces_recetado DESC;
 GO
 
 ```
+
 ![Medicamentos más recetados con total de prescripciones](images/Medicamentosmásrecetadoscontotaldeprescripciones.jpeg)
+
+<div style="page-break-after: always"></div>
 
 **Ocupación de áreas clínicas**
 
@@ -2306,6 +2339,7 @@ GO
 Busca gestionar la capacidad de las áreas clínicas y conocer la ocupación actual.
 
 ```sql
+
 USE PETCARE_DB;
 GO
 SELECT
@@ -2325,7 +2359,10 @@ ORDER BY pacientes_actuales DESC;
 GO
 
 ```
+
 ![Ocupación de áreas clínicas](images/Ocupacióndeáreasclínicas.png)
+
+<div style="page-break-after: always"></div>
 
 **Listado de mascotas y sus contactos de emergencia**
 
@@ -2334,6 +2371,7 @@ GO
 Esta consulta es vital para la seguridad. Muestra el nombre de la mascota, su dueño y a quién llamar en caso de emergencia si el dueño no contesta.
 
 ```sql
+
 USE PETCARE_DB;
 GO
 SELECT
@@ -2348,7 +2386,10 @@ INNER JOIN CONTACTO_EMERGENCIA CE ON M.id_mascota = CE.id_mascota;
 GO
 
 ```
+
 ![Listado de Mascotas y sus Contactos de Emergencia](images/ListadoMascotas_ContactosEmergencia.png)
+
+<div style="page-break-after: always"></div>
 
 **Sedes con más consultas realizadas**
 
@@ -2357,6 +2398,7 @@ GO
 Esta consulta ayuda a saber qué sede tiene más movimiento. Une las consultas con los veterinarios y sus sedes asignadas.
 
 ```sql
+
 USE PETCARE_DB;
 GO
 SELECT
@@ -2370,7 +2412,10 @@ ORDER BY Total_Consultas DESC;
 GO
 
 ```
+
 ![Sedes con más Consultas Realizadas](images/SedeConsultas.png)
+
+<div style="page-break-after: always"></div>
 
 **Resumen de ingresos por tipo de servicio**
 
@@ -2379,6 +2424,7 @@ GO
 Permite ver cuánto dinero se ha generado por cada tipo de servicio (Vacunación, Cirugía, etc.) registrado en las sedes.
 
 ```sql
+
 USE PETCARE_DB;
 GO
 SELECT
@@ -2389,7 +2435,10 @@ GROUP BY nombre;
 GO
 
 ```
+
 ![Resumen de Ingresos por tipo de Servicio](images/ResumenIngresos.png)
+
+<div style="page-break-after: always"></div>
 
 **Historial de citas con datos completos de personal de estética**
 
@@ -2419,8 +2468,12 @@ LEFT JOIN PERSONAL_NO_VETERINARIO p ON c.id_personal = p.id_personal
 LEFT JOIN SEDE s ON v.id_sede = s.id_sede
 ORDER BY c.fecha_hora DESC;
 GO
+
 ```
+
 ![Consulta historial personal estetica](images/historialcitaspersonalestetica.png)
+
+<div style="page-break-after: always"></div>
 
 **Servicios de estética más solicitados**
 
@@ -2442,8 +2495,12 @@ INNER JOIN SEDE s ON v.id_sede = s.id_sede
 GROUP BY v.id_veterinario, v.nombres, v.apellidos, s.nombre
 ORDER BY total_consultas DESC;
 GO
+
 ```
+
 ![Consulta servicios estetica](images/serviciosestetica.png)
+
+<div style="page-break-after: always"></div>
 
 **Clientes frecuentes en servicios de estética**
 
@@ -2452,6 +2509,7 @@ GO
 Identifica a los dueños que más utilizan servicios estéticos, útil para programas de fidelización o descuentos especiales.
 
 ```sql
+
 USE PETCARE_DB;
 GO
 
@@ -2468,8 +2526,12 @@ INNER JOIN SEDE s ON a.id_sede = s.id_sede
 WHERE h.fecha_salida IS NULL
 ORDER BY s.nombre, h.fecha_ingreso;
 GO
+
 ```
+
 ![Consulta clientes frecuentes estetica](images/clientesfrecuentesestetica.png)
+
+<div style="page-break-after: always"></div>
 
 *Procedimientos:*
 
@@ -2514,7 +2576,10 @@ EXEC usp_agenda_veterinario_dia @id_vet = 1, @fecha_busqueda = '2025-08-15';
 GO
 
 ```
+
 ![Consultar Citas programadas por veterinario](images/CitasProgramadas_Veterinario.png)
+
+<div style="page-break-after: always"></div>
 
 **Generar recordatorios de vacunas próximas**
 
