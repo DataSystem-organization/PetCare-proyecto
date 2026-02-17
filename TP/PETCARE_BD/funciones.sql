@@ -26,3 +26,29 @@ GO
 --- Ejemplo de uso:
 SELECT * 
 FROM dbo.fn_detalle_atenciones_veterinario(10);
+
+---Atenciones de estética por personal
+CREATE OR ALTER FUNCTION fn_historial_clinico_mascota
+(
+    @id_mascota INT
+)
+RETURNS TABLE
+AS
+RETURN
+(
+    SELECT
+        m.id_mascota,
+        m.nombre AS mascota,
+        v.nombres + ' ' + v.apellidos AS veterinario,
+        s.nombre AS sede,
+        c.fecha_hora,
+        c.observaciones
+    FROM CONSULTA c
+    INNER JOIN MASCOTA m ON c.id_mascota = m.id_mascota
+    INNER JOIN VETERINARIO v ON c.id_veterinario = v.id_veterinario
+    INNER JOIN SEDE s ON v.id_sede = s.id_sede
+    WHERE m.id_mascota = @id_mascota
+);
+GO
+
+SELECT * FROM dbo.fn_historial_clinico_mascota(1);

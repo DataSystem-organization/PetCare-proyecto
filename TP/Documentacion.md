@@ -92,6 +92,8 @@ Febrero, 2026
 
   - [3.3.2 Justificación del modelo entidad-relación lógico](#332-justificación-del-modelo-entidad-relación-lógico)
 
+  - [3.3.3 Normalización del modelo relacional](#333-normalización-del-modelo-relacional)
+
 [CAPÍTULO IV: IMPLEMENTACIÓN DE LA BASE DE DATOS](#capítulo-iv-implementación-de-la-base-de-datos)
 
 - [4.1 Sistema de gestión de base de datos](#41-sistema-de-gestión-de-base-de-datos)
@@ -1223,6 +1225,48 @@ En casos de relaciones muchos a muchos (N:M), como Mascota–Vacuna o Receta–M
 La entidad Historial Clínico se definió como un agregado lógico de consultas, diagnósticos, exámenes, recetas, cirugías y hospitalizaciones asociados a una mascota. No se modeló como entidad autónoma con atributos propios, ya que su información puede derivarse mediante consultas al sistema, evitando duplicación de datos y simplificando el diseño.
 
 El resto de entidades, como Veterinario, Personal_no_veterinario, Sede, Área_clínica, Servicio y Veterinaria, fueron modeladas con sus atributos y relaciones correspondientes para reflejar correctamente la estructura organizacional y operativa de la clínica, asegurando que cada evento, servicio o procedimiento quede correctamente registrado y vinculado a su contexto.
+
+### 3.3.3 Normalización del modelo relacional
+
+*Primera Forma Normal (1FN):*
+
+Una relación se encuentra en Primera Forma Normal cuando todos sus atributos contienen valores atómicos, no existen grupos repetitivos y cada registro es identificable mediante una clave primaria.
+
+En el modelo propuesto, todas las relaciones presentan atributos atómicos:
+
+- En la relación Mascota, los atributos nombre, especie, raza y sexo contienen valores simples.
+- En la relación Consulta, los atributos fecha_hora, motivo y observaciones no contienen estructuras compuestas ni listas.
+- En la relación asociativa Receta_Medicamento, cada registro representa una única combinación entre receta y medicamento.
+
+Asimismo, cada relación posee una clave primaria claramente definida (ya sea simple o compuesta en el caso de relaciones asociativas). Por tanto, todas las tablas cumplen con la Primera Forma Normal.
+
+*Segunda Forma Normal (2FN):*
+
+Una relación se encuentra en Segunda Forma Normal cuando está en 1FN y no existen dependencias parciales respecto a una clave primaria compuesta.
+
+En las relaciones con clave primaria simple (Mascota, Dueño, Veterinario, Consulta, Diagnóstico, Examen, Receta, Medicamento), todos los atributos dependen completamente de su respectiva clave primaria. No existen dependencias parciales debido a que la clave es de un solo atributo.
+
+En las relaciones asociativas con clave primaria compuesta, como:
+
+- Mascota_Vacuna (id_mascota, id_vacuna)
+- Receta_Medicamento (id_receta, id_medicamento)
+- Veterinario_Especialidad (id_veterinario, id_especialidad)
+
+los atributos adicionales (por ejemplo, dosis, frecuencia, fecha_aplicacion) dependen de la combinación completa de ambas claves y no de una parte de ella. Esto garantiza la ausencia de dependencias parciales.
+En consecuencia, todas las relaciones cumplen con la Segunda Forma Normal.
+
+*Tercera Forma Normal (3FN):*
+
+Una relación se encuentra en Tercera Forma Normal cuando está en 2FN y no existen dependencias transitivas entre atributos no clave.
+
+En el modelo propuesto, los atributos no clave dependen únicamente de la clave primaria y no entre sí:
+
+- En la relación Mascota, los atributos nombre, especie, raza y sexo dependen exclusivamente de id_mascota.
+- En la relación Dueño, los atributos nombre, DNI, teléfono y dirección dependen únicamente de id_dueño.
+- En la relación Consulta, los atributos fecha_hora, motivo y observaciones dependen exclusivamente de id_consulta.
+
+No se identifican casos en los que un atributo no clave determine a otro atributo no clave dentro de la misma relación. Además, los datos de entidades relacionadas no se encuentran duplicados, sino representados mediante claves foráneas, eliminando así posibles dependencias transitivas.
+Por tanto, todas las relaciones del modelo cumplen con la Tercera Forma Normal.
 
 <div style="page-break-after: always"></div>
 

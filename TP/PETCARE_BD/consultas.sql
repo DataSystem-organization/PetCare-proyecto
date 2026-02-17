@@ -172,4 +172,59 @@ SELECT
 FROM SERVICIO
 GROUP BY nombre;
 
----
+--- Historial de citas con datos completos de personal de estética
+USE PETCARE_DB;
+GO
+
+SELECT
+    c.id_cita,
+    c.fecha_hora,
+    c.motivo,
+    c.estado,
+    m.nombre AS mascota,
+    d.nombres + ' ' + d.apellidos AS dueno,
+    v.nombres + ' ' + v.apellidos AS veterinario,
+    p.nombre + ' ' + p.apellidos AS personal_asignado,
+    s.nombre AS sede
+FROM CITA c
+INNER JOIN MASCOTA m ON c.id_mascota = m.id_mascota
+INNER JOIN DUENO d ON m.id_dueno = d.id_dueno
+LEFT JOIN VETERINARIO v ON c.id_veterinario = v.id_veterinario
+LEFT JOIN PERSONAL_NO_VETERINARIO p ON c.id_personal = p.id_personal
+LEFT JOIN SEDE s ON v.id_sede = s.id_sede
+ORDER BY c.fecha_hora DESC;
+GO
+
+---Servicios de estética más solicitados
+USE PETCARE_DB;
+GO
+
+SELECT
+    v.id_veterinario,
+    v.nombres + ' ' + v.apellidos AS veterinario,
+    s.nombre AS sede,
+    COUNT(c.id_consulta) AS total_consultas
+FROM CONSULTA c
+INNER JOIN VETERINARIO v ON c.id_veterinario = v.id_veterinario
+INNER JOIN SEDE s ON v.id_sede = s.id_sede
+GROUP BY v.id_veterinario, v.nombres, v.apellidos, s.nombre
+ORDER BY total_consultas DESC;
+GO
+
+---Clientes frecuentes en servicios de estética
+USE PETCARE_DB;
+GO
+
+SELECT
+    s.nombre AS sede,
+    a.nombre AS area_clinica,
+    m.nombre AS mascota,
+    h.fecha_ingreso,
+    h.motivo
+FROM HOSPITALIZACION h
+INNER JOIN MASCOTA m ON h.id_mascota = m.id_mascota
+INNER JOIN AREA_CLINICA a ON h.id_area_clinica = a.id_area_clinica
+INNER JOIN SEDE s ON a.id_sede = s.id_sede
+WHERE h.fecha_salida IS NULL
+ORDER BY s.nombre, h.fecha_ingreso;
+GO
