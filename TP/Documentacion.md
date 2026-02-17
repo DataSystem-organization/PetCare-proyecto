@@ -2123,7 +2123,7 @@ GO
 
 **Responsable:** Jennifer Riveros
 
-Esta consulta lista cada mascota con su dueño y el contacto de emergencia asociado al dueño. Es útil para atención rápida ante incidentes cuando el dueño no está disponible.
+Esta consulta lista cada mascota con su dueño y el contacto de emergencia asociado al dueño, permitiendo además visualizar la cantidad total de contactos asociados a cada dueño. Es útil para atención rápida ante incidentes cuando el dueño no está disponible.
 
 ```sql
 USE PETCARE_DB;
@@ -2134,13 +2134,14 @@ SELECT
     d.nombres + ' ' + d.apellidos AS dueno,
     ce.nombre AS contacto_emergencia,
     ce.telefono AS telefono_emergencia,
-    ce.parentesco
+    ce.relacion AS parentesco,
+    COUNT(ce.id_mascota) OVER (PARTITION BY d.id_dueno) AS total_contactos_del_dueno
 FROM MASCOTA m
 INNER JOIN DUENO d
     ON d.id_dueno = m.id_dueno
 LEFT JOIN CONTACTO_EMERGENCIA ce
-    ON ce.id_dueno = d.id_dueno
-ORDER BY dueno, mascota;
+    ON ce.id_mascota = m.id_mascota
+ORDER BY dueno;
 GO
 ```
 ![Mascotas con contacto de emergencia del dueño](images/Mascotacontacto.png)
@@ -2312,7 +2313,7 @@ ORDER BY pacientes_actuales DESC;
 GO
 
 ```
-![Ocupación de áreas clínicas](images/Ocupacióndeáreasclínicas.jpeg)
+![Ocupación de áreas clínicas](images/Ocupacióndeáreasclínicas.png)
 
 **Listado de mascotas y sus contactos de emergencia**
 
@@ -2414,7 +2415,7 @@ BEGIN
     FROM CITA C
     INNER JOIN MASCOTA M ON C.id_mascota = M.id_mascota
     INNER JOIN DUENO D ON M.id_dueno = D.id_dueno
-    WHERE C.id_personal = @id_vet
+    WHERE C.id_veterinario = @id_vet
       AND CAST(C.fecha_hora AS DATE) = @fecha_busqueda
     ORDER BY C.fecha_hora ASC;
 END;
@@ -2442,7 +2443,7 @@ DROP PROCEDURE IF EXISTS sp_generator_recordatorios_vacunas;
 GO
 
 CREATE PROCEDURE sp_generator_recordatorios_vacunas
-    @dias_anticipacion INT = 15
+    @dias_anticipacion INT = 365
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -2473,11 +2474,11 @@ BEGIN
 END;
 GO
 
-EXEC sp_generator_recordatorios_vacunas;  -- 15 días por defecto
+EXEC sp_generator_recordatorios_vacunas;
 GO
 
 ```
-![Generar recordatorios de vacunas próximas](images/Generarrecordatoriosdevacunaspróximas.jpeg)
+![Generar recordatorios de vacunas próximas](images/Generarrecordatoriosdevacunaspróximas.png)
 
 *Funciones:*
 
