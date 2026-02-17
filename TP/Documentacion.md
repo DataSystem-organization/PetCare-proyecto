@@ -107,17 +107,25 @@ Febrero, 2026
 
   - [4.1.1 Evaluación y elección del sistema de gestión de base de datos relacional](#411-evaluación-y-elección-del-sistema-de-gestión-de-base-de-datos-relacional)
 
+  - [4.1.2 Evaluación y elección del sistema de gestión de la base de datos no relacional](#412-evaluacion-y-elección-del-sistema-de-gestión-de-la-base-de-datos-no-relacional)
+
 - [4.2 Diagrama de datos](#42-diagrama-de-datos)
 
   - [4.2.1 Diagrama entidad-relación físico](#421-diagrama-entidadrelación-físico)
+
+  - [4.2.1 Diagrama de documentos](#422-diagrama-de-documentos)
 
 - [4.3 Scripts de la base de datos](#43-scripts-de-la-base-de-datos)
 
   - [4.3.1 Scripts de creación y carga de datos de la base de datos relacional](#431-scripts-de-creación-y-carga-de-datos-de-la-base-de-datos-relacional)
 
+  - [4.3.2 Scripts de creación y carga de datos de la base de datos no relacional](#432-scripts-de-creación-y-carga-de-datos-de-la-base-de-datos-no-relacional)
+
 - [4.4 Consultas](#44-consultas)
 
-  - [4.4.1 Consultas para la datos de la base de datos relacional](#441-consultas-para-la-base-de-datos-relacional)
+  - [4.4.1 Consultas para la base de datos relacional](#441-consultas-para-la-base-de-datos-relacional)
+
+  - [4.4.2 Consultas para la base de datos no relacional](#442-consultas-para-la-base-de-datos-no-relacional)
 
 [CONCLUSIONES](#conclusiones-2)
 
@@ -291,6 +299,8 @@ Somos DataSystem, un equipo conformado por estudiantes de la Universidad Peruana
 | ![Adriano](images/fotos/tintayo.png)*Figura 4. Foto del estudiante Tintayo*  | Mi nombre es Adriano Martín Isaías Tintayo Pujaico (u20241c201). Soy estudiante de la carrera de Ingeniería de Sistemas de Información en la Universidad Peruana de Ciencias Aplicadas (UPC). Cuento con conocimientos básicos en C++ y Python. Como estudiante universitario poseo la capacidad de resolución de problemas, pensamiento crítico y orientación a resultados, además de una rápida adaptación a nuevas tecnologías. |
 | ![Rose](images/fotos/vergaray.png)*Figura 5. Foto de la estudiante Vergaray*  | Mi nombre es Rose Almendra Vergaray Calderon (u20241d159). Soy estudiante de la carrera de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC). Cuento con conocimientos básicos en Python, HTML, Java, y programación en C++ nivel intermedio, lo que me ha ayudado a desarrollar un enfoque orientado a la innovación y a la optimización de procesos mediante el uso de nuevas tecnologías. Me motiva estar en constante aprendizaje, explorar nuevas herramientas y enfrentar proyectos que pongan a prueba mis habilidades. |
 
+<div style="page-break-after: always"></div>
+
 ## 1.2 Solution Profile
 
 ### 1.2.1 Antecedentes y problemática
@@ -309,8 +319,6 @@ Afecta de manera directa al personal de la veterinaria: veterinarios, asistentes
 
 - ***¿Por qué y cómo?***  
 Esto se debe a la falta de un sistema integrado de base de datos que unifique y conecte los datos de mascotas, dueños, citas, tratamientos y promociones. Actualmente, la información se gestiona en formatos aislados y no estructurados, lo que dificulta su consulta, modificación y análisis. Como resultado, se producen fallos en las operaciones, se limita la capacidad de tomar decisiones basadas en datos y se reduce la calidad del servicio al cliente y la mascota.
-
-<div style="page-break-after: always"></div>
 
 ### 1.2.2 Propuesta de valor
 
@@ -527,6 +535,8 @@ Desde la experiencia del usuario:
 
 - El 100% considera muy importante que el veterinario tenga acceso inmediato al historial clínico.
 - El 100% opinan que una plataforma digital facilitaría tener un control sobre la salud de sus mascotas.
+
+<div style="page-break-after: always"></div>
 
 ## 2.2 Requisitos
 
@@ -1273,11 +1283,21 @@ En términos de **rendimiento**, SQL Server garantiza que las búsquedas y el pr
 
 Finalmente, su **escalabilidad** asegura que a medida que Pet Care tenga nuevas oficinas, la base de datos podrá migrar a versiones más potentes o a la nube sin reescribir la estructura lógica, protegiendo la inversión en tecnología de la startup.
 
+### 4.1.2 Evaluacion y elección del sistema de gestión de la base de datos no relacional
+
+<div style="page-break-after: always"></div>
+
 ## 4.2 Diagrama de datos
 
 ### 4.2.1 Diagrama entidad–relación físico
 
 ![Diagrama entidad-relación físico](images/Diagramaentidadfisica.png)*Figura 12. Diagrama entidad-relación físico*
+
+<div style="page-break-after: always"></div>
+
+### 4.2.2 Diagrama de documentos
+
+<div style="page-break-after: always"></div>
 
 ## 4.3 Scripts de la base de datos
 
@@ -2066,6 +2086,8 @@ GO
 
 ![Mascota](images/Mascota.png)*Figura 16. Evidencia carga de datos Mascota*
 
+### 4.3.2 Scripts de creación y carga de datos de la base de datos no relacional
+
 <div style="page-break-after: always"></div>
 
 ## 4.4 Consultas
@@ -2646,6 +2668,8 @@ FROM dbo.fn_detalle_atenciones_veterinario(12);
 
 ![Funcion atencion por veterinario](images/atencionporveterinario.png)*Figura 34. Resultado atenciones por veterinario*
 
+<div style="page-break-after: always"></div>
+
 **Atenciones de estética por personal**
 
 **Responsable:** Cielo Mitma
@@ -2680,6 +2704,10 @@ SELECT * FROM dbo.fn_historial_clinico_mascota(1);
 ```
 
 ![Funcion atenciones estetica por personal](images/atencionesesteticaporpersonal.png)*Figura 35. Resultado atenciones de estética por personal*
+
+<div style="page-break-after: always"></div>
+
+### 4.4.2 Consultas para la base de datos no relacional
 
 <div style="page-break-after: always"></div>
 
