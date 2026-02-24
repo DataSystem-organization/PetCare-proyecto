@@ -76,7 +76,7 @@ Febrero, 2026
 - [2.2 Requisitos](#22-requisitos)
 
   - [2.2.1 Funcionales](#221-funcionales)
- 
+
   - [2.2.2 No funcionales](#222-no-funcionales)
 
 [CAPÍTULO III: DISEÑO DE BASE DE DATOS](#capítulo-iii-diseño-de-base-de-datos)
@@ -97,9 +97,9 @@ Febrero, 2026
 
   - [3.4.1 Colecciones](#341-colecciones)
 
-  - [3.4.2 Validación del esquema](#342-validación-del-esquema)
+  - [3.4.2 Patrones de modelo de datos](#342-patrones-de-modelo-de-datos)
 
-  - [3.4.3 Patrones de modelo de datos](#343-patrones-de-modelo-de-datos)
+  - [3.4.3 Validación del esquema](#343-validación-del-esquema)
 
 [CAPÍTULO IV: IMPLEMENTACIÓN DE LA BASE DE DATOS](#capítulo-iv-implementación-de-la-base-de-datos)
 
@@ -1252,9 +1252,9 @@ Por tanto, todas las relaciones del modelo cumplen con la Tercera Forma Normal.
 
 ### 3.4.1 Colecciones
 
-### 3.4.2 Validación del esquema
+### 3.4.2 Patrones de modelo de datos
 
-### 3.4.3 Patrones de modelo de datos
+### 3.4.3 Validación del esquema
 
 <div style="page-break-after: always"></div>
 
@@ -2184,7 +2184,7 @@ ORDER BY dueno;
 GO
 ```
 
-![Mascotas con contacto de emergencia del dueño](images/Mascotacontacto.png)*Figura 19.*
+![Mascotas con contacto de emergencia del dueño](images/Mascotacontacto.png)*Figura 19. Resultado mascotas con contacto de emergencia por dueño*
 
 <div style="page-break-after: always"></div>
 
