@@ -1252,6 +1252,18 @@ Por tanto, todas las relaciones del modelo cumplen con la Tercera Forma Normal.
 
 ### 3.4.1 Colecciones
 
+Entidad: CONSULTA
+
+En el modelo relacional, la tabla Consulta tiene columnas fijas, pero en la práctica, una consulta es una entidad dinámica. Dependiendo del motivo (chequeo de rutina, emergencia o especialidad), los datos recolectados varían regularmente.
+
+Al ser tratada como documento, la entidad puede almacenar diferentes campos según el contexto dado, por ejemplo, en una consulta dermatológica se registrarán tipos de lesiones a la piel, mientras que en una cardiológica se registrarán frecuencias cardiacas. Esta flexibilidad permite que la entidad cambie y crezca con nuevos tipos de diagnósticos o exámenes sin necesidad de modificar la estructura general de la base de datos.
+
+Entidad: MASCOTA
+
+La entidad Mascota ya tiene datos base, su historial de salud y características particulares la convierten en una entidad dinámica.
+
+Al ser tratada como documento, la entidad puede requerir albergar información muy distinta, por ejemplo, una lista de alergias, reacciones a medicamentos, o rasgos físicos particulares propios de cada mascota. Se  puede integrar toda la información relevante en un solo objeto, facilitando una lectura más eficiente y completa del perfil del paciente.
+
 ### 3.4.2 Patrones de modelo de datos
 
 ### 3.4.3 Validación del esquema
@@ -2367,29 +2379,29 @@ GO
 
 <div style="page-break-after: always"></div>
 
-**Listado de mascotas y sus contactos de emergencia**
+**Reporte de Consultas y Observaciones**
 
 **Responsable:** Adriano Tintayo
 
-Esta consulta es vital para la seguridad. Muestra el nombre de la mascota, su dueño y a quién llamar en caso de emergencia si el dueño no contesta.
+Esta consulta permite obtener el historial de observaciones médicas de las mascotas. Es fundamental para que el veterinario pueda revisar rápidamente el progreso de un paciente, consultando las notas de visitas anteriores basándose en el nombre del animal.
 
 ```sql
 USE PETCARE_DB;
 GO
 
-SELECT
-    M.nombre AS Mascota,
-    D.nombres AS Dueno,
-    CE.nombre AS Contacto_Emergencia,
-    CE.telefono AS Telefono_Emergencia,
-    CE.relacion AS Parentesco
+SELECT 
+    M.nombre AS Mascota, 
+    M.especie, 
+    C.fecha_hora AS Fecha_Atencion, 
+    C.observaciones
 FROM MASCOTA M
-INNER JOIN DUENO D ON M.id_dueno = D.id_dueno
-INNER JOIN CONTACTO_EMERGENCIA CE ON M.id_mascota = CE.id_mascota;
+JOIN CONSULTA C ON M.id_mascota = C.id_mascota
+WHERE M.nombre IN ('Luna', 'Max', 'Dante')
+ORDER BY C.fecha_hora DESC;
 GO
 ```
 
-![Listado de Mascotas y sus Contactos de Emergencia](images/ListadoMascotas_ContactosEmergencia.png)*Figura 26. Resultado listado de mascotas y sus contacto de emergencia*
+![Reporte de Consultas y Observaciones](images/Reporte_%20Consultas_Observaciones.png)*Figura 26. Resultado reporte de consultas y observaciones*
 
 <div style="page-break-after: always"></div>
 
