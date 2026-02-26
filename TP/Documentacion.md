@@ -1266,6 +1266,56 @@ Al ser tratada como documento, la entidad puede requerir albergar información m
 
 ### 3.4.2 Patrones de modelo de datos
 
+Para el diseño de las colecciones se han empleado los siguientes patrones de diseño:
+
+---
+
+#### <u>Embedded Document Pattern (Patrón de Documento Embebido)</u>
+
+**Aplicación:**
+- Colección **MASCOTA** (campos: `alergias`, `reacciones_medicamentos`, `rasgos_particulares`, `observaciones_clinicas`).
+- Colección **CONSULTA** (campos: `diagnosticos`, `examenes`, `tratamientos_receta`, `signos_vitales`, `observaciones`).
+
+En **MASCOTA**, la información clínica particular de cada paciente (alergias, reacciones y rasgos) se consulta normalmente junto al perfil de la mascota. Por ello, se modela como subdocumentos y arreglos embebidos dentro del documento principal para obtener una lectura completa en una sola operación.
+
+En **CONSULTA**, los diagnósticos, exámenes y tratamientos forman parte del contenido de la consulta y no tienen sentido fuera del contexto de esa atención. Embebarlos permite mantener la consulta completa y reduce múltiples lecturas o *joins*.
+
+---
+
+#### <u>Subset Pattern (Patrón de Subconjunto)</u>
+
+**Aplicación:**
+- Colección **MASCOTA** (campos: `estado_actual` y `ultima_consulta_resumen`).
+- Colección **CONSULTA** (campos: `mascota_snapshot` y/o `veterinario_snapshot`).
+
+Para optimizar la lectura de pantallas comunes (listar mascotas o mostrar ficha rápida), se guarda un resumen pequeño de información relevante en el mismo documento.
+
+En **MASCOTA**, se almacena un subconjunto como estado actual (última consulta, alertas o controles sugeridos), evitando recalcularlo recorriendo todas las consultas cada vez.
+
+En **CONSULTA**, se puede guardar un *snapshot* mínimo (nombre de mascota o nombre del veterinario) además del **id**, para listar consultas rápidamente sin depender de cruces constantes con SQL Server.
+
+---
+
+#### <u>Attribute Pattern (Patrón de Atributos)</u>
+
+**Aplicación:**
+- Colección **CONSULTA** (campo: `detalle` o `metadata_clinica`).
+
+Debido a que una consulta es dinámica y los datos varían según el motivo/especialidad (rutina, emergencia, dermatología, cardiología, etc.), se utiliza un campo tipo atributos donde se registran claves variables según el contexto clínico.
+
+Esto permite que nuevos exámenes, mediciones o hallazgos se incorporen sin modificar la estructura global de la base de datos ni generar columnas vacías innecesarias.
+
+---
+
+#### <u>Reference Pattern (Patrón de Referencia Estándar)</u>
+
+**Aplicación:**
+- Relación entre **CONSULTA** y **MASCOTA** (campo: `mascota_id` en **CONSULTA**).
+
+Para evitar que el documento **MASCOTA** crezca indefinidamente con todo su historial, el historial se gestiona mediante la colección **CONSULTA**, donde cada consulta referencia a la mascota a través de `mascota_id`.
+
+Este patrón mantiene documentos livianos, permite paginar consultas por fecha/especialidad y mejora la escalabilidad a medida que se registran más atenciones.
+
 ### 3.4.3 Validación del esquema
 
 <div style="page-break-after: always"></div>
