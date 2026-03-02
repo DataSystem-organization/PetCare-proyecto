@@ -1347,6 +1347,19 @@ Finalmente, su **escalabilidad** asegura que a medida que Pet Care tenga nuevas 
 
 ### 4.1.2 Evaluacion y elección del sistema de gestión de la base de datos no relacional
 
+Para la sección de gestión de base de datos que completará la solución de Pet Care, se evaluaron las tres opciones más representativas del mercado bajo los criterios de **compatibilidad**, **rendimiento** y **escalabilidad**. El objetivo es elegir una base de datos que pueda manejar de manera eficiente los datos semiestructurados y flexibles, como las observaciones clínicas detalladas, que no se ajustan perfectamente al esquema rígido de una base de datos relacional.
+
+**Tabla 39**
+*Evaluación y elección del sistema de gestión de base de datos no relacional*
+
+| Criterio | MongoDB | Cassandra | Redis |
+| --- | --- | --- | --- |
+| **Compatibilidad** | Almacena datos en BSON (JSON), permitiendo la integración directa con aplicaciones web y estructuras dinámicas de información clínica. | Modelo de columnas, ideal para consultas predefinidas pero poco flexible para cambios. | Estructura clave valor, excelente para datos simples pero compleja para manejar información jerárquica. |
+| **Rendimiento** | Alto rendimiento en lecturas/escrituras con indexación flexible que acelera búsquedas en historiales clínicos y observaciones. | Optimizado para escrituras masivas y rápidas, aunque las lecturas complejas pueden ser más lentas.| Extremadamente rápido en memoria, ideal para caché, pero limitado para almacenamiento persistente. | 
+| **Escalabilidad** | Escalabilidad horizontal nativa mediante sharding automático. Permite crecimiento progresivo sin afectar la disponibilidad del servicio. | Escalabilidad lineal casi perfecta, diseñada desde su origen para entornos distribuidos a gran escala. | Escalabilidad principalmente vertical. Distribuir la información entre servidores es complejo y costoso de implementar. |
+
+Luego del análisis, se determinó que **MongoDB** es la solución óptima para el proyecto Pet Care principalmente por su compatibilidad, ya que su formato BSON (JSON binario) permite una integración directa con el desarrollo de la aplicación y una representación natural de los datos semiestructurados presentes en los historiales clínicos. En cuanto a rendimiento, ofrece alta velocidad en lecturas y escrituras con formas flexibles de organizar y buscar información, lo que garantiza respuestas rápidas al consultar información clínica detallada. Finalmente, su capacidad de crecer horizontalmente distribuyendo los datos entre varios servidores asegura que la base de datos pueda crecer progresivamente a medida que la clínica expanda sus operaciones y aumente el volumen de datos, distribuyendo automáticamente la carga sin afectar la disponibilidad del servicio, protegiendo así la inversión a futuro.
+
 <div style="page-break-after: always"></div>
 
 ## 4.2 Diagrama de datos
