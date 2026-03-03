@@ -37,7 +37,7 @@ Febrero, 2026
 | TB1 | 26/01/26 | - Mitma Ayala, Cielo Anahí<br>- Quispe Flores, Judith Xiomara<br>- Riveros Vera, Jennifer Yamilet<br>- Tintayo Pujaico, Adriano Martín<br>- Vergaray Calderon, Rose Almendra | CAPÍTULO I: Introducción<br>1.1 Startup Profile<br>1.1.1 Descripción del startup<br>1.1.2 Perfiles de integrantes del equipo<br>1.2 Solution Profile<br>1.2.1 Antecedentes y Problemática<br>1.2.2 Propuesta de Valor<br>1.3 Segmento Objetivo<br><br>CAPÍTULO II: Requeriments<br>2.1 Entrevistas<br>2.1.1 Diseño de entrevistas<br>2.1.2 Registro de entrevistas<br>2.1.3 Análisis de entrevistas<br>2.2 Requisitos |
 | TP | 04/02/26 |  Mitma Ayala, Cielo Anahí<br>- Quispe Flores, Judith Xiomara<br>- Riveros Vera, Jennifer Yamilet<br>- Tintayo Pujaico, Adriano Martín<br>- Vergaray Calderon, Rose Almendra | CAPÍTULO III: Diseño de base de datos<br>3.1 Entidades<br>3.2 Atributos<br>3.3 Enfoque relacional<br>3.3.1 Diagrama entidad-relación lógico<br><br>CAPÍTULO IV: Implementación de base de datos<br>4.1 Sistema de gestión de base de datos<br>4.1.1 Evaluación y elección del sistema de gestión de base de datos relacional<br>4.2 Diagramas de datos<br>4.2.1 Diagrama entidad-relación físico |
 | TB2 | 17/02/26 | Mitma Ayala, Cielo Anahí<br>- Quispe Flores, Judith Xiomara<br>- Riveros Vera, Jennifer Yamilet<br>- Tintayo Pujaico, Adriano Martín<br>- Vergaray Calderon, Rose Almendra | CAPÍTULO IV: Implementación de base de datos<br>4.3 Scripts de la base de datos<br>4.3.1 Scripts de creación y carga de datos de la base de datos relacional<br>4.4 Consultas<br>4.4.1 Consultas para la datos de la base de datos relacional |
-| TF | 04/03/26 | Mitma Ayala, Cielo Anahí<br>- Quispe Flores, Judith Xiomara<br>- Riveros Vera, Jennifer Yamilet<br>- Tintayo Pujaico, Adriano Martín<br>- Vergaray Calderon, Rose Almendra | |
+| TF | | | |
 
 <div style="page-break-after: always"></div>
 
@@ -1252,17 +1252,17 @@ Por tanto, todas las relaciones del modelo cumplen con la Tercera Forma Normal.
 
 ### 3.4.1 Colecciones
 
-**Colección: CONSULTA**
+colección: CONSULTA
 
-La colección Consulta representa cada atención médica realizada a una mascota y se modela como documento debido a su naturaleza dinámica. Dependiendo del motivo (chequeo de rutina, emergencia o especialidad), los datos recolectados varían regularmente.
+En el modelo relacional, la tabla Consulta tiene columnas fijas, pero en la práctica, una consulta es una entidad dinámica. Dependiendo del motivo (chequeo de rutina, emergencia o especialidad), los datos recolectados varían regularmente.
 
-Al ser tratada como documento, la colección puede almacenar diferentes campos según el contexto dado, por ejemplo, en una consulta dermatológica se registrarán tipos de lesiones a la piel, mientras que en una cardiológica se registrarán frecuencias cardiacas. Esta flexibilidad permite que el documento cambie y crezca con nuevos tipos de diagnósticos o exámenes sin necesidad de modificar la estructura general de la base de datos.
+Al ser tratada como documento, la entidad puede almacenar diferentes campos según el contexto dado, por ejemplo, en una consulta dermatológica se registrarán tipos de lesiones a la piel, mientras que en una cardiológica se registrarán frecuencias cardiacas. Esta flexibilidad permite que la entidad cambie y crezca con nuevos tipos de diagnósticos o exámenes sin necesidad de modificar la estructura general de la base de datos.
 
-**Colección: MASCOTA**
+colección: MASCOTA
 
-La colección Mascota almacena los datos base del paciente con información clínica particular que puede variar entre individuos.
+La entidad Mascota ya tiene datos base, su historial de salud y características particulares la convierten en una entidad dinámica.
 
-Al ser tratada como documento, puede requerir albergar información muy distinta, por ejemplo, una lista de alergias, reacciones a medicamentos, o rasgos físicos particulares propios de cada mascota. Se  puede integrar toda la información relevante en un solo objeto, facilitando una lectura más eficiente y completa del perfil del paciente.
+Al ser tratada como documento, la entidad puede requerir albergar información muy distinta, por ejemplo, una lista de alergias, reacciones a medicamentos, o rasgos físicos particulares propios de cada mascota. Se  puede integrar toda la información relevante en un solo objeto, facilitando una lectura más eficiente y completa del perfil del paciente.
 
 ### 3.4.2 Patrones de modelo de datos
 
@@ -1272,33 +1272,33 @@ Para el diseño de las colecciones se han empleado los siguientes patrones de di
 
 #### <u>Embedded Document Pattern (Patrón de Documento Embebido)</u>
 
-**Aplicación:**<br>
-- Colección **MASCOTA** (campos: `alergias`, `reacciones_medicamentos`, `rasgos_particulares`, `observaciones_clinicas`).<br>
+**Aplicación:**
+- Colección **MASCOTA** (campos: `alergias`, `reacciones_medicamentos`, `rasgos_particulares`, `observaciones_clinicas`).
 - Colección **CONSULTA** (campos: `diagnosticos`, `examenes`, `tratamientos_receta`, `signos_vitales`, `observaciones`).
 
-En la colección **MASCOTA**, la información clínica particular de cada paciente (alergias, reacciones y rasgos) se consulta normalmente junto al perfil de la mascota. Por ello, se modela como subdocumentos y arreglos embebidos dentro del documento principal para obtener una lectura completa en una sola operación.
+En **MASCOTA**, la información clínica particular de cada paciente (alergias, reacciones y rasgos) se consulta normalmente junto al perfil de la mascota. Por ello, se modela como subdocumentos y arreglos embebidos dentro del documento principal para obtener una lectura completa en una sola operación.
 
-En la colección **CONSULTA**, los diagnósticos, exámenes y tratamientos forman parte del contenido de la consulta y no tienen sentido fuera del contexto de esa atención. Embebidos permiten mantener la consulta completa y reduce múltiples lecturas o procesos de agregación como $lookup.
+En **CONSULTA**, los diagnósticos, exámenes y tratamientos forman parte del contenido de la consulta y no tienen sentido fuera del contexto de esa atención. Embebarlos permite mantener la consulta completa y reduce múltiples lecturas o *joins*.
 
 ---
 
 #### <u>Subset Pattern (Patrón de Subconjunto)</u>
 
-**Aplicación:**<br>
-- Colección **MASCOTA** (campos: `estado_actual` y `ultima_consulta_resumen`).<br>
+**Aplicación:**
+- Colección **MASCOTA** (campos: `estado_actual` y `ultima_consulta_resumen`).
 - Colección **CONSULTA** (campos: `mascota_snapshot` y/o `veterinario_snapshot`).
 
 Para optimizar la lectura de pantallas comunes (listar mascotas o mostrar ficha rápida), se guarda un resumen pequeño de información relevante en el mismo documento.
 
-En la colección **MASCOTA**, se almacena un subconjunto como estado actual (última consulta, alertas o controles sugeridos), evitando recalcularlo recorriendo todas las consultas cada vez.
+En **MASCOTA**, se almacena un subconjunto como estado actual (última consulta, alertas o controles sugeridos), evitando recalcularlo recorriendo todas las consultas cada vez.
 
-En la colección **CONSULTA**, se puede guardar un *snapshot* mínimo (nombre de mascota o nombre del veterinario) además del **id**, para listar consultas rápidamente sin depender de consultas adicionales a otras colecciones.
+En **CONSULTA**, se puede guardar un *snapshot* mínimo (nombre de mascota o nombre del veterinario) además del **id**, para listar consultas rápidamente sin depender de cruces constantes con SQL Server.
 
 ---
 
 #### <u>Attribute Pattern (Patrón de Atributos)</u>
 
-**Aplicación:**<br>
+**Aplicación:**
 - Colección **CONSULTA** (campo: `detalle` o `metadata_clinica`).
 
 Debido a que una consulta es dinámica y los datos varían según el motivo/especialidad (rutina, emergencia, dermatología, cardiología, etc.), se utiliza un campo tipo atributos donde se registran claves variables según el contexto clínico.
@@ -1309,7 +1309,7 @@ Esto permite que nuevos exámenes, mediciones o hallazgos se incorporen sin modi
 
 #### <u>Reference Pattern (Patrón de Referencia Estándar)</u>
 
-**Aplicación:**<br>
+**Aplicación:**
 - Relación entre **CONSULTA** y **MASCOTA** (campo: `mascota_id` en **CONSULTA**).
 
 Para evitar que el documento **MASCOTA** crezca indefinidamente con todo su historial, el historial se gestiona mediante la colección **CONSULTA**, donde cada consulta referencia a la mascota a través de `mascota_id`.
@@ -1318,6 +1318,173 @@ Este patrón mantiene documentos livianos, permite paginar consultas por fecha/e
 
 ### 3.4.3 Validación del esquema
 
+- Schema para **CONSULTA**
+La colección Consulta representa un documento dinámico cuyo contenido varía según el motivo y la especialidad de la atención.
+
+```json 
+{
+  "$jsonSchema": {
+    "bsonType": "object",
+    "required": ["mascota_id", "veterinario_id", "fecha_consulta", "motivo"],
+    "properties": 
+
+      "mascota_id": {
+        "bsonType": "objectId",
+        "description": "Referencia a la mascota atendida"
+      },
+
+      "veterinario_id": {
+        "bsonType": "objectId",
+        "description": "Referencia al veterinario responsable"
+      },
+
+      "fecha_consulta": {
+        "bsonType": "date",
+        "description": "Fecha y hora de la consulta"
+      },
+
+      "motivo": {
+        "bsonType": "string",
+        "description": "Razón principal de la consulta (rutina, emergencia, especialidad)"
+      },
+
+      "diagnosticos": {
+        "bsonType": "array",
+        "items": { "bsonType": "string" },
+        "description": "Lista de diagnósticos realizados"
+      },
+
+      "examenes": {
+        "bsonType": "array",
+        "items": { "bsonType": "object" },
+        "description": "Resultados de exámenes clínicos"
+      },
+
+      "tratamientos_receta": {
+        "bsonType": "array",
+        "items": { "bsonType": "object" },
+        "description": "Medicamentos o tratamientos prescritos"
+      },
+
+      "signos_vitales": {
+        "bsonType": "object",
+        "description": "Valores de presión, frecuencia cardiaca, temperatura, etc."
+      },
+
+      "observaciones": {
+        "bsonType": "string",
+        "description": "Notas adicionales del veterinario"
+      },
+
+      "metadata_clinica": {
+        "bsonType": "object",
+        "description": "Campo flexible para atributos dinámicos según especialidad"
+      },
+
+      "mascota_snapshot": {
+        "bsonType": "object",
+	"required": ["nombre", "especie"],
+        "properties": {
+          "nombre": {
+            "bsonType": "string",
+            "description": "Nombre de la mascota"
+          },
+          "especie": {
+            "bsonType": "string",
+            "description": "Especie de la mascota"
+          }
+        },
+        "description": "Subconjunto con nombre y especie de la mascota"
+      },
+
+      "veterinario_snapshot": {
+        "bsonType": "object",
+	"required": ["nombre", "especialidad"],
+        "properties": {
+          "nombre": {
+            "bsonType": "string",
+            "description": "Nombre del veterinario"
+          },
+          "especialidad": {
+            "bsonType": "string",
+            "description": "Especialidad médica del veterinario"
+          }
+        },
+        "description": "Subconjunto con nombre y especialidad del veterinario"
+      }
+    }
+  }
+}
+```
+- Schema para **MASCOTA**
+La colección Mascota almacena la información base del paciente veterinario junto con datos clínicos particulares.
+
+```json
+{
+  "$jsonSchema": {
+    "bsonType": "object",
+    "required": ["nombre", "especie", "fecha_nacimiento", "propietario_id"],
+    "properties": {
+
+      "nombre": {
+        "bsonType": "string",
+        "description": "Nombre de la mascota"
+      },
+
+      "especie": {
+        "bsonType": "string",
+        "enum": ["PERRO", "GATO", "AVE", "ROEDOR", "OTRO"],
+        "description": "Tipo de mascota"
+      },
+
+      "fecha_nacimiento": {
+        "bsonType": "date",
+        "description": "Fecha de nacimiento de la mascota"
+      },
+
+      "propietario_id": {
+        "bsonType": "objectId",
+        "description": "Referencia al dueño de la mascota"
+      },
+
+      "alergias": {
+        "bsonType": "array",
+        "items": { "bsonType": "string" },
+        "description": "Lista de alergias conocidas"
+      },
+
+      "reacciones_medicamentos": {
+        "bsonType": "array",
+        "items": { "bsonType": "string" },
+        "description": "Reacciones adversas a medicamentos"
+      },
+
+      "rasgos_particulares": {
+        "bsonType": "array",
+        "items": { "bsonType": "string" },
+        "description": "Características físicas únicas"
+      },
+
+      "observaciones_clinicas": {
+        "bsonType": "string",
+        "description": "Notas médicas relevantes"
+      },
+
+      "estado_actual": {
+        "bsonType": "object",
+        "description": "Resumen del estado de salud actual"
+      },
+
+      "ultima_consulta_resumen": {
+        "bsonType": "object",
+        "description": "Subconjunto con fecha y motivo de la última consulta"
+      }
+    }
+  }
+}
+
+
+```
 <div style="page-break-after: always"></div>
 
 # CAPÍTULO IV: IMPLEMENTACIÓN DE LA BASE DE DATOS
@@ -1346,19 +1513,6 @@ En términos de **rendimiento**, SQL Server garantiza que las búsquedas y el pr
 Finalmente, su **escalabilidad** asegura que a medida que Pet Care tenga nuevas oficinas, la base de datos podrá migrar a versiones más potentes o a la nube sin reescribir la estructura lógica, protegiendo la inversión en tecnología de la startup.
 
 ### 4.1.2 Evaluacion y elección del sistema de gestión de la base de datos no relacional
-
-Para la sección de gestión de base de datos que completará la solución de Pet Care, se evaluaron las tres opciones más representativas del mercado bajo los criterios de **compatibilidad**, **rendimiento** y **escalabilidad**. El objetivo es elegir una base de datos que pueda manejar de manera eficiente los datos semiestructurados y flexibles, como las observaciones clínicas detalladas, que no se ajustan perfectamente al esquema rígido de una base de datos relacional.
-
-**Tabla 39**
-*Evaluación y elección del sistema de gestión de base de datos no relacional*
-
-| Criterio | MongoDB | Cassandra | Redis |
-| --- | --- | --- | --- |
-| **Compatibilidad** | Almacena datos en BSON (JSON), permitiendo la integración directa con aplicaciones web y estructuras dinámicas de información clínica. | Modelo de columnas, ideal para consultas predefinidas pero poco flexible para cambios. | Estructura clave valor, excelente para datos simples pero compleja para manejar información jerárquica. |
-| **Rendimiento** | Alto rendimiento en lecturas/escrituras con indexación flexible que acelera búsquedas en historiales clínicos y observaciones. | Optimizado para escrituras masivas y rápidas, aunque las lecturas complejas pueden ser más lentas.| Extremadamente rápido en memoria, ideal para caché, pero limitado para almacenamiento persistente. | 
-| **Escalabilidad** | Escalabilidad horizontal nativa mediante sharding automático. Permite crecimiento progresivo sin afectar la disponibilidad del servicio. | Escalabilidad lineal casi perfecta, diseñada desde su origen para entornos distribuidos a gran escala. | Escalabilidad principalmente vertical. Distribuir la información entre servidores es complejo y costoso de implementar. |
-
-Luego del análisis, se determinó que **MongoDB** es la solución óptima para el proyecto Pet Care principalmente por su compatibilidad, ya que su formato BSON (JSON binario) permite una integración directa con el desarrollo de la aplicación y una representación natural de los datos semiestructurados presentes en los historiales clínicos. En cuanto a rendimiento, ofrece alta velocidad en lecturas y escrituras con formas flexibles de organizar y buscar información, lo que garantiza respuestas rápidas al consultar información clínica detallada. Finalmente, su capacidad de crecer horizontalmente distribuyendo los datos entre varios servidores asegura que la base de datos pueda crecer progresivamente a medida que la clínica expanda sus operaciones y aumente el volumen de datos, distribuyendo automáticamente la carga sin afectar la disponibilidad del servicio, protegiendo así la inversión a futuro.
 
 <div style="page-break-after: always"></div>
 
