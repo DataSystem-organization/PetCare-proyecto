@@ -3301,6 +3301,74 @@ SELECT * FROM dbo.fn_historial_clinico_mascota(1);
 
 ### 4.4.2 Consultas para la base de datos no relacional
 
+**Listado completo de mascotas registradas**
+
+**Responsable:** Rose Vergaray
+
+Proporciona un listado completo de todas las mascotas, mostrando información clínica relevante como alergias, reacciones a medicamentos, rasgos particulares, observaciones y estado de salud actual. Se utiliza $project para seleccionar los campos importantes y aplicar transformaciones, mientras que $dateToString convierte las fechas en un formato legible con hora. El $sort organiza los resultados alfabéticamente por nombre de mascota.
+
+```javascript
+db.MASCOTA.aggregate([
+{
+$project: {
+nombre: 1,
+especie: 1,
+fecha_nacimiento: {
+$dateToString: { format: "%Y-%m-%d %H:%M:%S", date: "$fecha_nacimiento", timezone: "America/Lima" }
+},
+alergias: 1,
+reacciones_medicamentos: 1,
+rasgos_particulares: 1,
+observaciones_clinicas: 1,
+estado_actual: 1,
+ultima_consulta_resumen: {
+fecha: {
+$dateToString: { format: "%Y-%m-%d %H:%M:%S", date: "$ultima_consulta_resumen.fecha", timezone: "America/Lima" }
+},
+motivo: "$ultima_consulta_resumen.motivo"
+}
+}
+},
+{ $sort: { nombre: 1 } }
+])
+```
+
+![Listado completo de mascotas](images/listadoMascotas.png)*Figura 37. Resultado listado completo de mascotas registradas*
+
+<div style="page-break-after: always"></div>
+
+**Consultas realizadas en un mes específico**
+
+**Responsable:** Rose Vergaray
+
+Filtra las consultas realizadas para analizar la actividad clínica del mes. Se usa $match con los operadores $gte y $lte para definir el rango de fechas exacto. $project permite seleccionar los campos relevantes, y $dateToString transforma fecha_consulta en un formato legible con hora. $sort organiza los resultados cronológicamente, permitiendo analizar la secuencia de consultas de manera clara y contextualizada con el seguimiento clínico de cada mascota.
+
+```javascript
+db.CONSULTA.aggregate([
+{
+$match: {
+// Filtra consultas en el rango de fechas: ej. febrero 2026
+fecha_consulta: {
+$gte: ISODate("2026-02-01T00:00:00Z"),
+$lte: ISODate("2026-02-28T23:59:59Z")
+}
+}
+},
+{
+$project: {
+mascota: "$mascota_snapshot.nombre",
+fecha: {
+$dateToString: { format: "%Y-%m-%d %H:%M:%S", date: "$fecha_consulta", timezone: "America/Lima" }
+},
+motivo: 1
+}
+},
+{ $sort: { fecha: 1 } }
+])
+```
+
+![Consultas realizadas en un mes](images/consultasMes.png)*Figura 38. Resultado consultas realizadas en un mes específico*
+
 <div style="page-break-after: always"></div>
 
 # CONCLUSIONES
