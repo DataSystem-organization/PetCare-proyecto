@@ -1321,7 +1321,7 @@ Este patrón mantiene documentos livianos, permite paginar consultas por fecha/e
 - Schema para **CONSULTA**
 La colección Consulta representa un documento dinámico cuyo contenido varía según el motivo y la especialidad de la atención.
 
-```json 
+```json
 {
   "$jsonSchema": {
     "bsonType": "object",
@@ -1415,7 +1415,9 @@ La colección Consulta representa un documento dinámico cuyo contenido varía s
     }
   }
 }
+
 ```
+
 - Schema para **MASCOTA**
 La colección Mascota almacena la información base del paciente veterinario junto con datos clínicos particulares.
 
@@ -1483,8 +1485,8 @@ La colección Mascota almacena la información base del paciente veterinario jun
   }
 }
 
-
 ```
+
 <div style="page-break-after: always"></div>
 
 # CAPÍTULO IV: IMPLEMENTACIÓN DE LA BASE DE DATOS
@@ -1525,6 +1527,8 @@ Finalmente, su **escalabilidad** asegura que a medida que Pet Care tenga nuevas 
 <div style="page-break-after: always"></div>
 
 ### 4.2.2 Diagrama de documentos
+
+![Diagrama de documentos](images/diagramaDocumentos.png)*Figura 13. Diagrama de documentos*
 
 <div style="page-break-after: always"></div>
 
