@@ -2281,7 +2281,7 @@ SELECT * FROM VETERINARIA ORDER BY id_veterinaria;
 GO
 ```
 
-![Veterinaria](images/Veterinaria.png)*Figura 13. Evidencia carga de datos Veterinaria*
+![Veterinaria](images/Veterinaria.png)*Figura 14. Evidencia carga de datos Veterinaria*
 
 Evidencia2: Sede
 
@@ -2293,7 +2293,7 @@ SELECT * FROM SEDE ORDER BY id_sede;
 GO
 ```
 
-![Sede](images/Sede.png)*Figura 14. Evidencia carga de datos Sede*
+![Sede](images/Sede.png)*Figura 15. Evidencia carga de datos Sede*
 
 Evidencia3: Dueno
 
@@ -2305,7 +2305,7 @@ SELECT * FROM DUENO ORDER BY id_dueno;
 GO
 ```
 
-![Dueno](images/Dueno.png)*Figura 15. Evidencia carga de datos Dueno*
+![Dueno](images/Dueno.png)*Figura 16. Evidencia carga de datos Dueno*
 
 Evidencia4: Mascota
 
@@ -2317,9 +2317,368 @@ SELECT * FROM MASCOTA ORDER BY id_mascota;
 GO
 ```
 
-![Mascota](images/Mascota.png)*Figura 16. Evidencia carga de datos Mascota*
+![Mascota](images/Mascota.png)*Figura 17. Evidencia carga de datos Mascota*
 
 ### 4.3.2 Scripts de creación y carga de datos de la base de datos no relacional
+
+```javascript
+// ============================
+// CREACIÓN DE BASE DE DATOS
+// ============================
+use PETCARE_DB_NoSQL;
+
+// =========================
+// CREAR COLECCIÓN MASCOTA
+// =========================
+db.createCollection("MASCOTA", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["nombre", "especie", "fecha_nacimiento", "propietario_id"],
+      properties: {
+
+        nombre: {
+          bsonType: "string",
+          description: "Nombre de la mascota"
+        },
+
+        especie: {
+          bsonType: "string",
+          enum: ["PERRO", "GATO", "AVE", "ROEDOR", "OTRO"],
+          description: "Tipo de mascota"
+        },
+
+        fecha_nacimiento: {
+          bsonType: "date",
+          description: "Fecha de nacimiento de la mascota"
+        },
+
+        propietario_id: {
+          bsonType: "objectId",
+          description: "Referencia al dueño de la mascota"
+        },
+
+        alergias: {
+          bsonType: "array",
+          items: { bsonType: "string" },
+          description: "Lista de alergias conocidas"
+        },
+
+        reacciones_medicamentos: {
+          bsonType: "array",
+          items: { bsonType: "string" },
+          description: "Reacciones adversas a medicamentos"
+        },
+
+        rasgos_particulares: {
+          bsonType: "array",
+          items: { bsonType: "string" },
+          description: "Características físicas únicas"
+        },
+
+        observaciones_clinicas: {
+          bsonType: "string",
+          description: "Notas médicas relevantes"
+        },
+
+        estado_actual: {
+          bsonType: "object",
+          description: "Resumen del estado de salud actual"
+        },
+
+        ultima_consulta_resumen: {
+          bsonType: "object",
+          description: "Subconjunto con fecha y motivo de la última consulta"
+        }
+
+      }
+    }
+  },
+  validationLevel: "strict",
+  validationAction: "error"
+});
+
+// =========================
+// CREAR COLECCIÓN CONSULTA
+// =========================
+db.createCollection("CONSULTA", {
+  validator: {
+  $jsonSchema: {
+    bsonType: "object",
+    required: ["mascota_id", "veterinario_id", "fecha_consulta", "motivo"],
+    properties: {
+
+      mascota_id: {
+        bsonType: "objectId",
+        description: "Referencia a la mascota atendida"
+      },
+
+      veterinario_id: {
+        bsonType: "objectId",
+        description: "Referencia al veterinario responsable"
+      },
+
+      fecha_consulta: {
+        bsonType: "date",
+        description: "Fecha y hora de la consulta"
+      },
+
+      motivo: {
+        bsonType: "string",
+        description: "Razón principal de la consulta"
+      },
+
+      diagnosticos: {
+        bsonType: "array",
+        items: { bsonType: "string" },
+        description: "Lista de diagnósticos realizados"
+      },
+
+      examenes: {
+        bsonType: "array",
+        items: { bsonType: "object" },
+        description: "Resultados de exámenes clínicos"
+      },
+
+      tratamientos_receta: {
+        bsonType: "array",
+        items: { bsonType: "object" },
+        description: "Medicamentos o tratamientos prescritos"
+      },
+
+      signos_vitales: {
+        bsonType: "object",
+        description: "Valores clínicos como temperatura y frecuencia cardiaca"
+      },
+
+      observaciones: {
+        bsonType: "string",
+        description: "Notas adicionales del veterinario"
+      },
+
+      metadata_clinica: {
+        bsonType: "object",
+        description: "Campo flexible para atributos dinámicos según especialidad"
+      },
+
+      mascota_snapshot: {
+        bsonType: "object",
+        required: ["nombre", "especie"],
+        properties: {
+          nombre: {
+            bsonType: "string",
+            description: "Nombre de la mascota"
+          },
+          especie: {
+            bsonType: "string",
+            description: "Especie de la mascota"
+          }
+        },
+        description: "Subconjunto con nombre y especie de la mascota"
+      },
+
+      veterinario_snapshot: {
+        bsonType: "object",
+        required: ["nombre", "especialidad"],
+        properties: {
+          nombre: {
+            bsonType: "string",
+            description: "Nombre del veterinario"
+          },
+          especialidad: {
+            bsonType: "string",
+            description: "Especialidad médica del veterinario"
+          }
+        },
+        description: "Subconjunto con nombre y especialidad del veterinario"
+      }
+
+    }
+  }
+},
+ validationLevel: "strict",
+ validationAction: "error"
+});
+
+// ============================
+// INSERTAR DATOS - MASCOTA
+// ============================
+
+db.MASCOTA.insertMany([
+{
+_id: ObjectId("65f000000000000000000001"),
+nombre: "Luna",
+especie: "PERRO",
+fecha_nacimiento: ISODate("2021-05-10"),
+propietario_id: ObjectId("66f000000000000000000001"),
+alergias: ["Polen"],
+reacciones_medicamentos: ["Penicilina"],
+rasgos_particulares: ["Mancha blanca en el pecho"],
+observaciones_clinicas: "Paciente sensible al frío",
+estado_actual: { alerta: "Control anual pendiente", peso: 12 },
+ultima_consulta_resumen: { fecha: ISODate("2026-02-10"), motivo: "Chequeo general" }
+},
+{
+_id: ObjectId("65f000000000000000000002"),
+nombre: "Milo",
+especie: "GATO",
+fecha_nacimiento: ISODate("2020-08-15"),
+propietario_id: ObjectId("66f000000000000000000002"),
+alergias: [],
+reacciones_medicamentos: [],
+rasgos_particulares: ["Ojos azules"],
+observaciones_clinicas: "Sin antecedentes graves",
+estado_actual: { alerta: "Vacunación pendiente", peso: 5 },
+ultima_consulta_resumen: { fecha: ISODate("2026-01-20"), motivo: "Vacunación" }
+},
+{
+_id: ObjectId("65f000000000000000000003"),
+nombre: "Kiwi",
+especie: "AVE",
+fecha_nacimiento: ISODate("2022-03-01"),
+propietario_id: ObjectId("66f000000000000000000003"),
+alergias: ["Polvo de jaula"],
+reacciones_medicamentos: [],
+rasgos_particulares: ["Plumas verdes intensas"],
+observaciones_clinicas: "Ave activa",
+estado_actual: { alerta: "Control nutricional", peso: 0.25 },
+ultima_consulta_resumen: { fecha: ISODate("2026-02-01"), motivo: "Chequeo general" }
+},
+{
+_id: ObjectId("65f000000000000000000004"),
+nombre: "Ratatouille",
+especie: "ROEDOR",
+fecha_nacimiento: ISODate("2022-05-05"),
+propietario_id: ObjectId("66f000000000000000000004"),
+alergias: [],
+reacciones_medicamentos: [],
+rasgos_particulares: ["Cola larga y peluda"],
+observaciones_clinicas: "Muy activo y curioso",
+estado_actual: { alerta: "Control general", peso: 0.6 },
+ultima_consulta_resumen: { fecha: ISODate("2026-01-20"), motivo: "Chequeo general" }
+},
+{
+_id: ObjectId("65f000000000000000000005"),
+nombre: "Bola de Nieve",
+especie: "GATO",
+fecha_nacimiento: ISODate("2020-12-12"),
+propietario_id: ObjectId("66f000000000000000000005"),
+alergias: ["Pescado"],
+reacciones_medicamentos: ["Antiinflamatorios"],
+rasgos_particulares: ["Pelaje completamente blanco"],
+observaciones_clinicas: "Algo perezoso",
+estado_actual: { alerta: "Control digestivo", peso: 5.2 },
+ultima_consulta_resumen: { fecha: ISODate("2026-01-25"), motivo: "Problemas digestivos" }
+}
+]);
+
+// ============================
+// INSERTAR DATOS - CONSULTA
+// ============================
+
+db.CONSULTA.insertMany([
+{
+mascota_id: ObjectId("65f000000000000000000001"),
+veterinario_id: ObjectId("77f000000000000000000001"),
+fecha_consulta: ISODate("2026-02-10T10:00:00Z"),
+motivo: "Dermatología",
+diagnosticos: ["Dermatitis leve"],
+signos_vitales: { temperatura: 38.5, frecuencia_cardiaca: 90 },
+mascota_snapshot: { nombre: "Luna", especie: "PERRO" },
+veterinario_snapshot: { nombre: "Dra. Marisol", especialidad: "Dermatología" }
+},
+{
+mascota_id: ObjectId("65f000000000000000000001"),
+veterinario_id: ObjectId("77f000000000000000000002"),
+fecha_consulta: ISODate("2026-03-01T09:00:00Z"),
+motivo: "Chequeo general",
+diagnosticos: ["Paciente estable"],
+signos_vitales: { temperatura: 38.2, frecuencia_cardiaca: 88 },
+mascota_snapshot: { nombre: "Luna", especie: "PERRO" },
+veterinario_snapshot: { nombre: "Dr. Carlos", especialidad: "General" }
+},
+{
+mascota_id: ObjectId("65f000000000000000000002"),
+veterinario_id: ObjectId("77f000000000000000000002"),
+fecha_consulta: ISODate("2026-01-20T11:00:00Z"),
+motivo: "Vacunación",
+diagnosticos: ["Vacuna aplicada correctamente"],
+signos_vitales: { temperatura: 38.0, frecuencia_cardiaca: 85 },
+mascota_snapshot: { nombre: "Milo", especie: "GATO" },
+veterinario_snapshot: { nombre: "Dr. Carlos", especialidad: "General" }
+},
+{
+mascota_id: ObjectId("65f000000000000000000002"),
+veterinario_id: ObjectId("77f000000000000000000003"),
+fecha_consulta: ISODate("2026-04-10T15:00:00Z"),
+motivo: "Cardiología",
+diagnosticos: ["Soplo leve"],
+signos_vitales: { temperatura: 39.5, frecuencia_cardiaca: 120 },
+mascota_snapshot: { nombre: "Milo", especie: "GATO" },
+veterinario_snapshot: { nombre: "Dra. Elena", especialidad: "Cardiología" }
+},
+{
+mascota_id: ObjectId("65f000000000000000000003"),
+veterinario_id: ObjectId("77f000000000000000000002"),
+fecha_consulta: ISODate("2026-02-01T08:00:00Z"),
+motivo: "Chequeo general",
+diagnosticos: ["Buen estado general"],
+signos_vitales: { temperatura: 40.1, frecuencia_cardiaca: 150 },
+mascota_snapshot: { nombre: "Kiwi", especie: "AVE" },
+veterinario_snapshot: { nombre: "Dr. Carlos", especialidad: "General" }
+},
+{
+mascota_id: ObjectId("65f000000000000000000003"),
+veterinario_id: ObjectId("77f000000000000000000004"),
+fecha_consulta: ISODate("2026-05-01T10:00:00Z"),
+motivo: "Nutrición",
+diagnosticos: ["Dieta ajustada"],
+signos_vitales: { temperatura: 39.0, frecuencia_cardiaca: 140 },
+mascota_snapshot: { nombre: "Kiwi", especie: "AVE" },
+veterinario_snapshot: { nombre: "Dr. Luis", especialidad: "Nutrición" }
+},
+{
+mascota_id: ObjectId("65f000000000000000000004"),
+veterinario_id: ObjectId("77f000000000000000000003"),
+fecha_consulta: ISODate("2026-06-15T14:00:00Z"),
+motivo: "Chequeo general",
+diagnosticos: ["Salud estable"],
+signos_vitales: { temperatura: 38.7, frecuencia_cardiaca: 110 },
+mascota_snapshot: { nombre: "Ratatouille", especie: "ROEDOR" },
+veterinario_snapshot: { nombre: "Dra. Elena", especialidad: "Cardiología" }
+},
+{
+mascota_id: ObjectId("65f000000000000000000005"),
+veterinario_id: ObjectId("77f000000000000000000001"),
+fecha_consulta: ISODate("2026-07-10T12:00:00Z"),
+motivo: "Dermatología",
+diagnosticos: ["Alergia alimentaria"],
+signos_vitales: { temperatura: 39.2, frecuencia_cardiaca: 100 },
+mascota_snapshot: { nombre: "Bola de Nieve", especie: "GATO" },
+veterinario_snapshot: { nombre: "Dra. Marisol", especialidad: "Dermatología" }
+},
+{
+mascota_id: ObjectId("65f000000000000000000001"),
+veterinario_id: ObjectId("77f000000000000000000002"),
+fecha_consulta: ISODate("2026-08-20T10:00:00Z"),
+motivo: "Emergencia",
+diagnosticos: ["Intoxicación leve"],
+signos_vitales: { temperatura: 40.0, frecuencia_cardiaca: 140 },
+mascota_snapshot: { nombre: "Luna", especie: "PERRO" },
+veterinario_snapshot: { nombre: "Dr. Carlos", especialidad: "General" }
+},
+{
+mascota_id: ObjectId("65f000000000000000000003"),
+veterinario_id: ObjectId("77f000000000000000000004"),
+fecha_consulta: ISODate("2026-09-01T09:00:00Z"),
+motivo: "Control nutricional",
+diagnosticos: ["Peso adecuado"],
+signos_vitales: { temperatura: 39.3, frecuencia_cardiaca: 145 },
+mascota_snapshot: { nombre: "Kiwi", especie: "AVE" },
+veterinario_snapshot: { nombre: "Dr. Luis", especialidad: "Nutrición" }
+}
+]);
+```
 
 <div style="page-break-after: always"></div>
 
@@ -2362,7 +2721,7 @@ ORDER BY c.fecha_hora DESC;
 GO
 ```
 
-![Historial de citas con datos completos](images/HistorialdeCita.png)*Figura 17. Resultado historial de citas de veterinario*
+![Historial de citas con datos completos](images/HistorialdeCita.png)*Figura 18. Resultado historial de citas de veterinario*
 
 <div style="page-break-after: always"></div>
 
@@ -2387,7 +2746,7 @@ ORDER BY total_citas DESC;
 GO
 ```
 
-![Total de citas por veterinario](images/TotaldeCita.png)*Figura 18. Resultado total de citas por veterinario*
+![Total de citas por veterinario](images/TotaldeCita.png)*Figura 19. Resultado total de citas por veterinario*
 
 <div style="page-break-after: always"></div>
 
@@ -2417,7 +2776,7 @@ ORDER BY dueno;
 GO
 ```
 
-![Mascotas con contacto de emergencia del dueño](images/Mascotacontacto.png)*Figura 19. Resultado mascotas con contacto de emergencia por dueño*
+![Mascotas con contacto de emergencia del dueño](images/Mascotacontacto.png)*Figura 20. Resultado mascotas con contacto de emergencia por dueño*
 
 <div style="page-break-after: always"></div>
 
@@ -2447,7 +2806,7 @@ ORDER BY s.nombre, veterinario;
 GO
 ```
 
-![Consulta veterinarios por sede](images/veterinariosporsede.png)*Figura 20. Resultado veternarios por sede*
+![Consulta veterinarios por sede](images/veterinariosporsede.png)*Figura 21. Resultado veternarios por sede*
 
 <div style="page-break-after: always"></div>
 
@@ -2477,7 +2836,7 @@ ORDER BY veterinario, especialidad;
 GO
 ```
 
-![Consulta especialidades por veterinario](images/especialidadesporveterinario.png)*Figura 21. Resultado especialidades por veterinario*
+![Consulta especialidades por veterinario](images/especialidadesporveterinario.png)*Figura 22. Resultado especialidades por veterinario*
 
 <div style="page-break-after: always"></div>
 
@@ -2511,7 +2870,7 @@ ORDER BY total_mascotas DESC;
 GO
 ```
 
-![Consulta dueños con más de una mascota](images/dueñosconmásmascotas.png)*Figura 22. Resultado dueños con más de una mascota*
+![Consulta dueños con más de una mascota](images/dueñosconmásmascotas.png)*Figura 23. Resultado dueños con más de una mascota*
 
 <div style="page-break-after: always"></div>
 
@@ -2540,7 +2899,7 @@ ORDER BY total_consultas DESC;
 GO
 ```
 
-![Mascotas con más consultas en el último año](images/MascotasMásConsultasÚltimoAño.jpeg)*Figura 23. Resultado mascotas con más consultas en el último año*
+![Mascotas con más consultas en el último año](images/MascotasMásConsultasÚltimoAño.jpeg)*Figura 24. Resultado mascotas con más consultas en el último año*
 
 <div style="page-break-after: always"></div>
 
@@ -2565,7 +2924,7 @@ ORDER BY veces_recetado DESC;
 GO
 ```
 
-![Medicamentos más recetados con total de prescripciones](images/Medicamentosmásrecetadoscontotaldeprescripciones.jpeg)*Figura 24. Resultado medicamentos más recetados*
+![Medicamentos más recetados con total de prescripciones](images/Medicamentosmásrecetadoscontotaldeprescripciones.jpeg)*Figura 25. Resultado medicamentos más recetados*
 
 <div style="page-break-after: always"></div>
 
@@ -2596,7 +2955,7 @@ ORDER BY pacientes_actuales DESC;
 GO
 ```
 
-![Ocupación de áreas clínicas](images/Ocupacióndeáreasclínicas.png)*Figura 25. Resultado ocupación de áreas clínicas*
+![Ocupación de áreas clínicas](images/Ocupacióndeáreasclínicas.png)*Figura 26. Resultado ocupación de áreas clínicas*
 
 <div style="page-break-after: always"></div>
 
@@ -2622,7 +2981,7 @@ ORDER BY C.fecha_hora DESC;
 GO
 ```
 
-![Reporte de Consultas y Observaciones](images/Reporte_%20Consultas_Observaciones.png)*Figura 26. Resultado reporte de consultas y observaciones*
+![Reporte de Consultas y Observaciones](images/Reporte_%20Consultas_Observaciones.png)*Figura 27. Resultado reporte de consultas y observaciones*
 
 <div style="page-break-after: always"></div>
 
@@ -2647,7 +3006,7 @@ ORDER BY Total_Consultas DESC;
 GO
 ```
 
-![Sedes con más Consultas Realizadas](images/SedeConsultas.png)*Figura 27. Resultado sedes con más consultas realizadas*
+![Sedes con más Consultas Realizadas](images/SedeConsultas.png)*Figura 28. Resultado sedes con más consultas realizadas*
 
 <div style="page-break-after: always"></div>
 
@@ -2669,7 +3028,7 @@ GROUP BY nombre;
 GO
 ```
 
-![Resumen de Ingresos por tipo de Servicio](images/ResumenIngresos.png)*Figura 28. Resultado resumen de ingresos por servicio*
+![Resumen de Ingresos por tipo de Servicio](images/ResumenIngresos.png)*Figura 29. Resultado resumen de ingresos por servicio*
 
 <div style="page-break-after: always"></div>
 
@@ -2703,7 +3062,7 @@ ORDER BY c.fecha_hora DESC;
 GO
 ```
 
-![Consulta historial personal estetica](images/historialcitaspersonalestetica.png)*Figura 29. Resultado historial de citas de personal de estética*
+![Consulta historial personal estetica](images/historialcitaspersonalestetica.png)*Figura 30. Resultado historial de citas de personal de estética*
 
 <div style="page-break-after: always"></div>
 
@@ -2730,7 +3089,7 @@ ORDER BY total_consultas DESC;
 GO
 ```
 
-![Consulta servicios estetica](images/serviciosestetica.png)*Figura 30. Resultado servicios de estética más solicitados*
+![Consulta servicios estetica](images/serviciosestetica.png)*Figura 31. Resultado servicios de estética más solicitados*
 
 <div style="page-break-after: always"></div>
 
@@ -2759,7 +3118,7 @@ ORDER BY s.nombre, h.fecha_ingreso;
 GO
 ```
 
-![Consulta clientes frecuentes estetica](images/clientesfrecuentesestetica.png)*Figura 31. Resultado clientes frecuentes en servicios de estética*
+![Consulta clientes frecuentes estetica](images/clientesfrecuentesestetica.png)*Figura 32. Resultado clientes frecuentes en servicios de estética*
 
 <div style="page-break-after: always"></div>
 
@@ -2803,7 +3162,7 @@ EXEC usp_agenda_veterinario_dia @id_vet = 1, @fecha_busqueda = '2025-08-15';
 GO
 ```
 
-![Consultar Citas programadas por veterinario](images/CitasProgramadas_Veterinario.png)*Figura 32. Resultado citas programadas por veterinario*
+![Consultar Citas programadas por veterinario](images/CitasProgramadas_Veterinario.png)*Figura 33. Resultado citas programadas por veterinario*
 
 <div style="page-break-after: always"></div>
 
@@ -2854,7 +3213,7 @@ EXEC sp_generator_recordatorios_vacunas;
 GO
 ```
 
-![Generar recordatorios de vacunas próximas](images/Generarrecordatoriosdevacunaspróximas.png)*Figura 33. Resultado recordatorios de vacunas próximas*
+![Generar recordatorios de vacunas próximas](images/Generarrecordatoriosdevacunaspróximas.png)*Figura 34. Resultado recordatorios de vacunas próximas*
 
 <div style="page-break-after: always"></div>
 
@@ -2899,7 +3258,7 @@ SELECT *
 FROM dbo.fn_detalle_atenciones_veterinario(12);
 ```
 
-![Funcion atencion por veterinario](images/atencionporveterinario.png)*Figura 34. Resultado atenciones por veterinario*
+![Funcion atencion por veterinario](images/atencionporveterinario.png)*Figura 35. Resultado atenciones por veterinario*
 
 <div style="page-break-after: always"></div>
 
@@ -2936,7 +3295,7 @@ GO
 SELECT * FROM dbo.fn_historial_clinico_mascota(1);
 ```
 
-![Funcion atenciones estetica por personal](images/atencionesesteticaporpersonal.png)*Figura 35. Resultado atenciones de estética por personal*
+![Funcion atenciones estetica por personal](images/atencionesesteticaporpersonal.png)*Figura 36. Resultado atenciones de estética por personal*
 
 <div style="page-break-after: always"></div>
 
