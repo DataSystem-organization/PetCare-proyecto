@@ -37,7 +37,7 @@ Febrero, 2026
 | TB1 | 26/01/26 | - Mitma Ayala, Cielo Anahí<br>- Quispe Flores, Judith Xiomara<br>- Riveros Vera, Jennifer Yamilet<br>- Tintayo Pujaico, Adriano Martín<br>- Vergaray Calderon, Rose Almendra | CAPÍTULO I: Introducción<br>1.1 Startup Profile<br>1.1.1 Descripción del startup<br>1.1.2 Perfiles de integrantes del equipo<br>1.2 Solution Profile<br>1.2.1 Antecedentes y Problemática<br>1.2.2 Propuesta de Valor<br>1.3 Segmento Objetivo<br><br>CAPÍTULO II: Requeriments<br>2.1 Entrevistas<br>2.1.1 Diseño de entrevistas<br>2.1.2 Registro de entrevistas<br>2.1.3 Análisis de entrevistas<br>2.2 Requisitos |
 | TP | 04/02/26 |  Mitma Ayala, Cielo Anahí<br>- Quispe Flores, Judith Xiomara<br>- Riveros Vera, Jennifer Yamilet<br>- Tintayo Pujaico, Adriano Martín<br>- Vergaray Calderon, Rose Almendra | CAPÍTULO III: Diseño de base de datos<br>3.1 Entidades<br>3.2 Atributos<br>3.3 Enfoque relacional<br>3.3.1 Diagrama entidad-relación lógico<br><br>CAPÍTULO IV: Implementación de base de datos<br>4.1 Sistema de gestión de base de datos<br>4.1.1 Evaluación y elección del sistema de gestión de base de datos relacional<br>4.2 Diagramas de datos<br>4.2.1 Diagrama entidad-relación físico |
 | TB2 | 17/02/26 | Mitma Ayala, Cielo Anahí<br>- Quispe Flores, Judith Xiomara<br>- Riveros Vera, Jennifer Yamilet<br>- Tintayo Pujaico, Adriano Martín<br>- Vergaray Calderon, Rose Almendra | CAPÍTULO IV: Implementación de base de datos<br>4.3 Scripts de la base de datos<br>4.3.1 Scripts de creación y carga de datos de la base de datos relacional<br>4.4 Consultas<br>4.4.1 Consultas para la datos de la base de datos relacional |
-| TF | | | |
+| TF | 04/03/26 | Mitma Ayala, Cielo Anahí<br>- Quispe Flores, Judith Xiomara<br>- Riveros Vera, Jennifer Yamilet<br>- Tintayo Pujaico, Adriano Martín<br>- Vergaray Calderon, Rose Almendra | CAPÍTULO III: Diseño de base de datos<br>3.4 Enfoque no relacional<br>3.4.1 Colecciones<br>3.4.2 Patrones de modelado de datos<br>3.4.3 Validación de esquema<br><br>CAPÍTULO IV: Implementación de base de datos<br>4.1 Sistema de gestión de base de datos<br>4.1.2 Evaluación y elección del sistema de gestión de base de datos no relacional<br>4.2 Diagramas de datos<br>4.2.2 Diagrama de documentos<br>4.3 Scripts de la base de datos<br>4.3.2 Scripts de creación y carga de datos de la base de datos no relacional<br>4.4 Consultas<br>4.4.2 Consultas para la datos de la base de datos no relacional |
 
 <div style="page-break-after: always"></div>
 
@@ -128,6 +128,8 @@ Febrero, 2026
   - [4.4.2 Consultas para la base de datos no relacional](#442-consultas-para-la-base-de-datos-no-relacional)
 
 [CONCLUSIONES](#conclusiones-2)
+
+[RECOMENDACIONES](#recomendaciones)
 
 [BIBLIOGRAFÍA](#bibliografía)
 
@@ -3373,10 +3375,7 @@ motivo: 1
 
 # CONCLUSIONES
 
-- La implementación del sistema permitió centralizar la información de mascotas, dueños, citas, consultas y servicios de estética, reduciendo la redundancia de datos y mejorando la organización operativa de la clínica.
-- La implementación de una base de datos relacional (SQL Server) garantizó la integridad referencial entre entidades, asegurando consistencia y confiabilidad en el manejo de la información.
-- La digitalización de los procesos administrativos y médicos optimiza los tiempos de atención, disminuye errores manuales y mejora la experiencia tanto del cliente como del personal de la clínica.
-- El sistema desarrollado demuestra cómo una correcta estructuración de base de datos y consultas SQL puede fortalecer la gestión interna, el control operativo y la calidad del servicio en una clínica veterinaria.
+# RECOMENDACIONES
 
 # BIBLIOGRAFÍA
 
