@@ -167,6 +167,9 @@ Febrero, 2026
   - **TB2:**
     - Agregue información en la base de datos.
     - Desarrolle 3 consultas y un procedimiento.
+  - **TF:**
+    - Realizo la evaluación y elección del sistema de gestión de base de datos no relacional.
+    - Agrego 2 consultas para la base de datos no relacional.
 
 - **Riveros Vera, Jennifer Yamilet**
   - **TB1:**
@@ -235,6 +238,8 @@ Febrero, 2026
     - A través del diseño e implementación del diagrama entidad-relación para el sistema, reconocí necesidad de aprender nuevas técnicas de modelación de datos y herramientas con ERD Editor.
   - **TB2:**
     - Logré implementar consultas que responden a necesidades reales y también desarrollé un procedimiento almacenado que genera recordatorios automáticos de vacunas próximas a vencer.
+  - **TF:**
+    - En la base de datos no relacional, desarrollé consultas para clasificar animales por tipo y enumerar a los veterinarios con mayor número de consultas, lo que facilita el análisis de la demanda y la evaluación de la carga de trabajo. También utilicé JSON Schema para asegurar la validez de los datos y empleé documentos integrados para mejorar el rendimiento.
 
 - **Riveros Vera, Jennifer Yamilet**
   - **TB1:**
