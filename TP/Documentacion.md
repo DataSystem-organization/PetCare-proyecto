@@ -3373,6 +3373,86 @@ motivo: 1
 
 <div style="page-break-after: always"></div>
 
+**Mascotas agrupados por especie con su cantidad y última consulta registrada**
+
+**Responsable:** Judith Quispe
+
+Se obtiene un resumen por especie que permite visualizar cuántas mascotas hay de cada tipo y cuándo fue la última vez que alguna de ellas fue atendida. Útil para análisis de demanda y planificación de recursos.
+
+```javascript
+db.MASCOTA.aggregate([
+  {
+    $lookup: {
+      from: "CONSULTA",
+      localField: "_id",
+      foreignField: "mascota_id",
+      as: "consultas"
+    }
+  },
+  {
+    $group: {
+      _id: "$especie",
+      total_mascotas: { $sum: 1 },
+      ultima_consulta_general: {
+        $max: {
+          $max: "$consultas.fecha_consulta"
+        }
+      }
+    }
+  },
+  {
+    $project: {
+      especie: "$_id",
+      total_mascotas: 1,
+      ultima_consulta_general: 1,
+      _id: 0
+    }
+  },
+  { $sort: { total_mascotas: -1 } }
+])
+```
+
+![Especie con su cantidad y última consulta registrada](images/cantidadMascota.png)*Figura 39. Resultado especie con su cantidad y última consulta registrada*
+
+<div style="page-break-after: always"></div>
+
+**Veterinarios con mayor cantidad de consultas atendidas**
+
+**Responsable:** Judith Quispe
+
+Se identifican a los veterinarios con más actividad clínica para evaluar carga laboral, rendimiento o preferencia de los clientes.
+
+```javascript
+db.CONSULTA.aggregate([
+  {
+    $group: {
+      _id: {
+        veterinario_nombre: "$veterinario_snapshot.nombre",
+        especialidad: "$veterinario_snapshot.especialidad"
+      },
+      total_consultas: { $sum: 1 },
+      ultima_consulta: { $max: "$fecha_consulta" },
+      mascotas_atendidas: { $addToSet: "$mascota_id" }
+    }
+  },
+  {
+    $project: {
+      veterinario: "$_id.veterinario_nombre",
+      especialidad: "$_id.especialidad",
+      total_consultas: 1,
+      ultima_consulta: 1,
+      mascotas_distintas: { $size: "$mascotas_atendidas" },
+      _id: 0
+    }
+  },
+  { $sort: { total_consultas: -1 } }
+])
+```
+
+![Veterinarios con mayor cantidad de consultas atendidas](images/mayorcantidadConsulta.png)*Figura 40. Resultado veterinarios con mayor cantidad de consultas atendidas*
+
+<div style="page-break-after: always"></div>
+
 # CONCLUSIONES
 
 # RECOMENDACIONES
