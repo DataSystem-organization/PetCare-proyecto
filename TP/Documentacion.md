@@ -3456,6 +3456,72 @@ db.CONSULTA.aggregate([
 
 ![Veterinarios con mayor cantidad de consultas atendidas](images/mayorcantidadConsulta.png)*Figura 40. Resultado veterinarios con mayor cantidad de consultas atendidas*
 
+**Mascotas registradas según estado de salud**
+
+**Responsable:** Jennifer Riveros
+
+Esta consulta permite analizar el estado de salud actual de las mascotas registradas en la clínica veterinaria.
+Se utiliza para agrupar los documentos según el campo estado actual, permitiendo contar cuántas mascotas se encuentran en cada condición médica y organiza los campos de salida para una mejor visualización y $sort ordena los resultados de mayor a menor cantidad, facilitando identificar los estados de salud más frecuentes.
+
+
+```javascript
+db.MASCOTA.aggregate([
+{
+$group: {
+_id: "$estado_actual",
+total_mascotas: { $sum: 1 }
+}
+},
+{
+$project: {
+estado_salud: "$_id",
+total_mascotas: 1,
+_id: 0
+}
+},
+{
+$sort: { total_mascotas: -1 }
+}
+])
+
+```
+
+![Mascotas registradas según estado de salud](images/Mascotasregistradas.png)*Figura 41. Resultado de Mascotas registradas según estado de salud*
+
+<div style="page-break-after: always"></div>
+
+**Consultas agrupadas por motivo**
+
+**Responsable:** Jennifer Riveros
+
+Esta consulta permite analizar los motivos más frecuentes de consulta en la clínica veterinaria.
+Se utiliza para agrupar los registros según el motivo de atención y calcular el número total de consultas asociadas a cada motivo y organiza los resultados de forma descendente para identificar los problemas de salud más comunes atendidos en la clínica.
+
+
+```javascript
+db.CONSULTA.aggregate([
+{
+$group: {
+_id: "$motivo",
+total_consultas: { $sum: 1 }
+}
+},
+{
+$project: {
+motivo: "$_id",
+total_consultas: 1,
+_id: 0
+}
+},
+{
+$sort: { total_consultas: -1 }
+}
+])
+
+```
+
+![Consultas agrupadas por motivo](images/Consultas_por_motivo.png)*Figura 42. Resultado de Consultas agrupadas por motivo*
+
 <div style="page-break-after: always"></div>
 
 # CONCLUSIONES
