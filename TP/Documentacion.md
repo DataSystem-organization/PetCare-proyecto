@@ -3458,6 +3458,65 @@ db.CONSULTA.aggregate([
 
 <div style="page-break-after: always"></div>
 
+**Mascotas registradas según estado de salud**
+
+**Responsable:** Jennifer Riveros
+
+Esta consulta permite analizar el estado de salud actual de las mascotas registradas en la clínica veterinaria.  
+Se utiliza para agrupar los documentos según el campo estado actual, permitiendo contar cuántas mascotas se encuentran en cada condición médica. Además, se reorganizan los campos de salida para una mejor visualización y se utiliza para ordenar los resultados de mayor a menor cantidad, facilitando identificar los estados de salud más frecuentes.
+
+```javascript
+db.MASCOTA.aggregate([
+  {
+    $group: {
+      _id: "$estado_actual",
+      total_mascotas: { $sum: 1 }
+    }
+  },
+  {
+    $project: {
+      estado_salud: "$_id",
+      total_mascotas: 1,
+      _id: 0
+    }
+  },
+  {
+    $sort: { total_mascotas: -1 }
+  }
+])
+```
+
+![Mascotas registradas según estado de salud](images/Mascotam.png)*Figura 41. Resultado de Mascotas registradas según estado de salud*
+<div style="page-break-after: always"></div>
+**Consultas agrupadas por motivo**
+
+**Responsable:** Jennifer Riveros
+
+Esta consulta permite analizar los motivos más frecuentes de consulta en la clínica veterinaria.  
+Se utiliza para agrupar los registros según el motivo y calcular el número total de consultas asociadas a cada motivo. Posteriormente, los resultados se ordenan de forma descendente , lo que permite identificar los problemas de salud más comunes atendidos en la clínica.
+
+```javascript
+db.CONSULTA.aggregate([
+  {
+    $group: {
+      _id: "$motivo",
+      total_consultas: { $sum: 1 }
+    }
+  },
+  {
+    $project: {
+      motivo: "$_id",
+      total_consultas: 1,
+      _id: 0
+    }
+  },
+  {
+    $sort: { total_consultas: -1 }
+  }
+])
+```
+![Consultas agrupadas por motivo](images/consultaj.png)*Figura 42. Resultado de Consultas agrupadas por motivo*
+<div style="page-break-after: always"></div>
 # CONCLUSIONES
 
 # RECOMENDACIONES
