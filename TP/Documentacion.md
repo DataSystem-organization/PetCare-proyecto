@@ -3527,14 +3527,14 @@ $sort: { total_consultas: -1 }
 
 # CONCLUSIONES
 
-A partir del desarrollo e implementación de la base de datos para la clínica veterinaria, se plantean las siguientes recomendaciones para mejorar el sistema y su utilización futura.
-Ampliar el número de consultas analíticas dentro de la base de datos, permitiendo generar reportes más detallados sobre la información clínica. Esto permitiría identificar tendencias en enfermedades, frecuencia de consultas y patrones en el estado de salud de las mascotas, facilitando la toma de decisiones por parte del personal veterinario.
-
-Implementar mecanismos de control y validación de datos al momento de registrar información en la base de datos, con el fin de asegurar la integridad y consistencia de los datos almacenados. Esto contribuiría a evitar errores en el registro de información clínica y mejorar la calidad de los análisis realizados.
-
-Continuar optimizando la estructura del modelo de datos, incorporando nuevas entidades o atributos según las necesidades futuras de la clínica. De esta manera, el sistema podrá adaptarse a nuevos requerimientos y mejorar la gestión de la información veterinaria.
-
 # RECOMENDACIONES
+
+A partir del desarrollo e implementación de la base de datos para la clínica veterinaria, se plantean las siguientes recomendaciones para mejorar el sistema y su utilización futura.
+- Ampliar el número de consultas analíticas dentro de la base de datos, permitiendo generar reportes más detallados sobre la información clínica. Esto permitiría identificar tendencias en enfermedades, frecuencia de consultas y patrones en el estado de salud de las mascotas, facilitando la toma de decisiones por parte del personal veterinario.
+
+- Implementar mecanismos de control y validación de datos al momento de registrar información en la base de datos, con el fin de asegurar la integridad y consistencia de los datos almacenados. Esto contribuiría a evitar errores en el registro de información clínica y mejorar la calidad de los análisis realizados.
+
+- Continuar optimizando la estructura del modelo de datos, incorporando nuevas entidades o atributos según las necesidades futuras de la clínica. De esta manera, el sistema podrá adaptarse a nuevos requerimientos y mejorar la gestión de la información veterinaria.
 
 # BIBLIOGRAFÍA
 
