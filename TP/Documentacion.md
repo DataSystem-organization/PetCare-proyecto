@@ -3456,13 +3456,14 @@ db.CONSULTA.aggregate([
 
 ![Veterinarios con mayor cantidad de consultas atendidas](images/mayorcantidadConsulta.png)*Figura 40. Resultado veterinarios con mayor cantidad de consultas atendidas*
 
+<div style="page-break-after: always"></div>
+
 **Mascotas registradas según estado de salud**
 
 **Responsable:** Jennifer Riveros
 
 Esta consulta permite analizar el estado de salud actual de las mascotas registradas en la clínica veterinaria.
 Se utiliza para agrupar los documentos según el campo estado actual, permitiendo contar cuántas mascotas se encuentran en cada condición médica y organiza los campos de salida para una mejor visualización y $sort ordena los resultados de mayor a menor cantidad, facilitando identificar los estados de salud más frecuentes.
-
 
 ```javascript
 db.MASCOTA.aggregate([
@@ -3497,7 +3498,6 @@ $sort: { total_mascotas: -1 }
 Esta consulta permite analizar los motivos más frecuentes de consulta en la clínica veterinaria.
 Se utiliza para agrupar los registros según el motivo de atención y calcular el número total de consultas asociadas a cada motivo y organiza los resultados de forma descendente para identificar los problemas de salud más comunes atendidos en la clínica.
 
-
 ```javascript
 db.CONSULTA.aggregate([
 {
@@ -3529,7 +3529,6 @@ $sort: { total_consultas: -1 }
 **Responsable:** Adriano Tintayo
 
 Permite obtener un listado de las mascotas que tienen riesgos (alergias o reacciones a medicamentos), mostrando su peso actual y el motivo de su última visita. Esta consulta es útil para que el veterinario sepa qué cuidados especiales tener antes de una intervención.
-
 
 ```javascript
 db.MASCOTA.aggregate([
@@ -3572,7 +3571,6 @@ db.MASCOTA.aggregate([
 
 Esta consulta filtra las consultas donde se registraron signos vitales fuera de los rangos normales, agrupa los resultados por el motivo de la visita y muestra los diagnósticos asociados. Es una consulta de control médico preventivo.
 
-
 ```javascript
 db.CONSULTA.aggregate([
   {
@@ -3606,6 +3604,8 @@ db.CONSULTA.aggregate([
 
 <div style="page-break-after: always"></div>
 
+**
+
 # CONCLUSIONES
 
 - La implementación del sistema permitió centralizar la información de la clínica, reduciendo la redundancia de datos y mejorando la organización operativa, tanto en el esquema relacional como en el no relacional.
@@ -3618,10 +3618,10 @@ db.CONSULTA.aggregate([
 
 - El sistema desarrollado demuestra cómo una correcta estructuración de bases de datos relacionales y no relacionales, junto con consultas bien diseñadas (.find() y .aggregate() en MongoDB, SQL en SQL Server), fortalece la gestión interna, el control operativo y la calidad del servicio en una clínica veterinaria.
 
-
 # RECOMENDACIONES
 
-A partir del desarrollo e implementación de la base de datos para la clínica veterinaria, se plantean las siguientes recomendaciones para mejorar el sistema y su utilización futura.
+- A partir del desarrollo e implementación de la base de datos para la clínica veterinaria, se plantean las siguientes recomendaciones para mejorar el sistema y su utilización futura.
+
 - Ampliar el número de consultas analíticas dentro de la base de datos, permitiendo generar reportes más detallados sobre la información clínica. Esto permitiría identificar tendencias en enfermedades, frecuencia de consultas y patrones en el estado de salud de las mascotas, facilitando la toma de decisiones por parte del personal veterinario.
 
 - Implementar mecanismos de control y validación de datos al momento de registrar información en la base de datos, con el fin de asegurar la integridad y consistencia de los datos almacenados. Esto contribuiría a evitar errores en el registro de información clínica y mejorar la calidad de los análisis realizados.
@@ -3635,6 +3635,7 @@ Gadgerss. (2025, 15 de mayo). *Las tres principales brechas tecnológicas que fr
 Ballarin, C. (2019). *Casi la mitad de hogares peruanos tienen una mascota*. Kantar. https://www.kantar.com/latin-america/inspiracion/consumo-masivo/hogares-con-mascotas
 
 # ANEXOS
+
 - Repositorio en GitHub: [PetCare-proyecto](https://github.com/DataSystem-organization/PetCare-proyecto/tree/main)
 - Carpeta de archivos: [Google Drive](https://drive.google.com/drive/folders/1ysx7GtMfmhUFN9xITfBEGoUvXDckLpa5?usp=sharing)
 - Link de video del TP1: [Microsoft Stream](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241d159_upc_edu_pe/IQAxszfRY13hTYbBz2s3MiheATb0fIbwlpVDa8kWcb60vAI?e=RQgzfJ&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
