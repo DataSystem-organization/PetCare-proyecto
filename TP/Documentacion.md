@@ -142,144 +142,10 @@ Febrero, 2026
 **Tabla 2**
 *Student outcome del equipo*
 
-## Criterio específico
-**Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de ingeniería de software.**
-
-### Acciones realizadas
-
-- **Mitma Ayala, Cielo Anahí**
-  - **TB1:**
-    - Proyección del equipo frente al proyecto de dominio de datos a gran escala.
-  - **TP1:**
-    - Colaboró en la identificación y descripción de entidades.
-    - Participó en la definición de atributos asociados a cada entidad.
-  - **TB2:**
-    -Genero consultas de los clientes según situación aleatoria que ocurra.
-    -Realizó una función que cubrió un determinado aspecto según los datos evaluados. 
-
-- **Quispe Flores, Judith Xiomara**
-  - **TB1:**
-    - Desarrollo de la herramienta de gestión 5W y 2H.
-    - Realice una entrevista al dueño de una mascota.
-    - Realice 3 User Stories.
-  - **TP1:**
-    - Realizó el diagrama entidad-relación lógico y su código SQL.
-  - **TB2:**
-    - Agregue información en la base de datos.
-    - Desarrolle 3 consultas y un procedimiento.
-  - **TF:**
-    - Realizo la evaluación y elección del sistema de gestión de base de datos no relacional.
-    - Agrego 2 consultas para la base de datos no relacional.
-
-- **Riveros Vera, Jennifer Yamilet**
-  - **TB1:**
-    - Desarrollo de Lean UX Canvas para evidenciar la propuesta de valor centrada al usuario.
-    - Realización de una entrevista sobre el registro historial veterinario.
-    - Realización de 3 User Stories.
-  - **TP1:**
-    - Realización de corrección de errores en requisitos y creación de no funcionales.
-    - Creación de diagrama .erd de entidad-relación lógica y código sql.
-  - **TB2:**
-    - Realizacion de la carga de datos
-    - Desarrollo de consulta
-
-- **Tintayo Pujaico, Adriano Martín**
-  - **TB1:**
-    - Delimitación y descripción de los segmentos objetivos.
-    - Realización de una entrevista a dueño de clínica veterinaria.
-    - Elaboración de 3 User Stories.
-  - **TP1:**
-    - Realización de la evaluación y elección del sistema de gestión de base de datos relacional sobre el proyecto.
-  - **TB2:**
-    - Elaboración de tres consultas y un procedimiento para la base de datos relacional.
-
-- **Vergaray Calderon, Rose Almendra**
-  - **TB1:**
-    - Elaboración del diseño de entrevistas.
-    - Redacción del análisis de entrevistas.
-  - **TP1:**
-    - Participó en la identificación y definición de entidades del dominio del problema.
-    - Definió los atributos de cada entidad.
-  - **TB2:**
-    - Implementó scripts SQL para crear tablas y cargó datos de prueba para validar la estructura de la base de datos.
-    - Desarrolló 3 consultas y una función con propósito claro para extraer información útil del sistema.
-
-### Conclusiones
-
-- **TB1:**
-  - Se identificó el problema mediante entrevistas sobre la desactualización de inventario por ventas y la necesidad de seguimiento preventivo.
-  - Se evidenciaron problemas sobre el manejo de la información en algunas veterinarias, como la gestión eficiente de múltiples mascotas.
-  - Se reconocieron problemas acerca de eficiencia y precisión en los registros historiales, lo cual perjudica la atención de la clínica.
-- **TP1:**
-  - En esta etapa el equipo aplicó fundamentos de modelado de datos al identificar entidades y atributos. Asimismo, se utilizaron principios del enfoque relacional para construir el diagrama entidad-relación lógico y posteriormente el modelo físico, vinculando el diseño conceptual con la implementación.
-- **TB2:**
-  - Durante la implementación de la base de datos apliqué creacion de base de datos y tablas y ejecute consultas con JOIN y agregacion para obtener informacion util al sistema.
-  - El equipo aplicó de manera práctica los conocimientos de bases de datos al crear tablas, establecer relaciones y restricciones, cargar datos de prueba y desarrollar consultas SQL que permiten obtener información útil del sistema.
-
----
-
-## Criterio específico
-**Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de ingeniería de software.**
-
-### Acciones realizadas
-
-- **Mitma Ayala, Cielo Anahí**
-  - **TB1:**
-    - Apliqué lo aprendido en otro curso para el desarrollo de los user stories y en que se basa la descripción de la startup.
-  - **TP1:**
-    - Reconoció la importancia de profundizar en el modelado conceptual de bases de datos.
-  - **TB2:**
-  - Inducción a profundizar el tema en programación según funciones y datos que se va incorporando al sistema mediante consultas. 
-
-- **Quispe Flores, Judith Xiomara**
-  - **TB1:**
-    - Conocimiento adquirido de otros cursos, como el uso de User Stories y la herramienta 5W y 2H.
-  - **TP1:**
-    - A través del diseño e implementación del diagrama entidad-relación para el sistema, reconocí necesidad de aprender nuevas técnicas de modelación de datos y herramientas con ERD Editor.
-  - **TB2:**
-    - Logré implementar consultas que responden a necesidades reales y también desarrollé un procedimiento almacenado que genera recordatorios automáticos de vacunas próximas a vencer.
-  - **TF:**
-    - En la base de datos no relacional, desarrollé consultas para clasificar animales por tipo y enumerar a los veterinarios con mayor número de consultas, lo que facilita el análisis de la demanda y la evaluación de la carga de trabajo. También utilicé JSON Schema para asegurar la validez de los datos y empleé documentos integrados para mejorar el rendimiento.
-
-- **Riveros Vera, Jennifer Yamilet**
-  - **TB1:**
-    - Se hizo revisión a la redacción de las User Stories y saber sus necesidades mediante entrevista.
-    - Aplicar feedback y ciclo de mejora mediante los requisitos.
-  - **TP1:**
-    - Superé desafíos técnicos de organización en Visual Studio liderando en la clarificación de esos problemas, además de que desarrollé un diagrama DER.
-  - **TB2:**
-    - Logre desarrollar consultas a problemas cotidianos en respecto a nuestro sistema como contacto de emergencia, total de citas e historial de datos.
-
-- **Tintayo Pujaico, Adriano Martín**
-  - **TB1:**
-    - Definición de los tipos de segmentos objetivos para la realización del proyecto.
-  - **TP1:**
-    - Evaluación y elección del sistema de gestión de base de datos relacional sobre el proyecto.
-  - **TB2:**
-    - Logré la mplementación de consultas que responden a la problemática y un procedimiento para la consulta de citas por veterinario.
-
-- **Vergaray Calderon, Rose Almendra**
-  - **TB1:**
-    - Integración de los hallazgos de entrevistas en análisis.
-  - **TP1:**
-    - Reconoció la necesidad de fortalecer sus conocimientos en modelado de datos, especialmente en la correcta definición de entidades y atributos.
-    - Identificó el diseño de bases de datos como área de crecimiento profesional.
-  - **TB2:**
-    - Reconoció que crear y probar consultas SQL requiere práctica para organizar datos correctamente.
-    - Identificó como área de crecimiento profesional mejorar la eficiencia en la manipulación de datos con SQL.
-
-### Conclusiones
-
-- **TB1:**
-  - En la entrevista se demostró que validar con los usuarios reduce trabajo y que el trabajo requiere aprendizaje continuo por casos reales que no se resuelven fácilmente con supuestos, como en la entrevista con el Dr. Irwin con el problema del inventario por unidades y el control preventivo.
-  - La entrevista evidencia dificultades en el manejo de la información veterinaria. Esto refuerza la importancia del aprendizaje continuo en ingeniería de software, ya que solo a través de la evolución continua de los requisitos y el dominio del usuario podremos crear una solución completa que resuelva estos problemas de forma eficaz y confiable.
-  - La entrevista demostró la importancia de buscar casos reales de los cuales recopilar información y conseguir puntos más precisos para nuestro proyecto, como en la entrevista con la Dra. Marisol demuestra los problemas al momento de manejar historiales y guardar información.
-- **TP1:**
-  - Se fortaleció mi capacidad para modelar datos de manera lógica y colaborativa, aplicando conocimientos previos y aprendiendo nuevas herramientas que, junto al compromiso constante del equipo, nos permitieron estructurar una base de datos alineada con los requisitos del proyecto.
-  - Mi participación en el proyecto afirmó mi aprendizaje en el modelado de diagrama lógico, adaptar mis conocimientos y una solución de organización que permitió al grupo poder hacerlo bien con el apoyo de todos al querer aportar con algo en el trabajo. Esto concluye por exitoso que no solo preside código sino que la disposición constante del grupo a aprender cosas nuevas.
-- **TB2:**
-  - Para completar la implementación tuve que aprender a resolver problemas de ejecución con conexion a SQLEXPRESS, esto permitio a reconocer la importancia del aprendizaje continuo para adaptarme a herramientas por la verificacion de resultados.
-  - Al implementar la base de datos y construir consultas, el equipo identificó la importancia de practicar constantemente SQL y la gestión de datos. Se reconoció que mejorar la organización de la información y la eficiencia de las consultas es un aprendizaje continuo, fundamental para fortalecer habilidades en bases de datos y desarrollo de sistemas.
+| Criterio específico | Acciones realizadas | Conclusiones |
+| :--- | :--- | :--- |
+| **Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de ingeniería de software.** | Mitma Ayala, Cielo Anahí<br> *TB1:*<br>- Proyección del equipo frente al proyecto de dominio de datos a gran escala.<br>*TP1:*<br>- Colaboró en la identificación y descripción de entidades.<br>- Participó en la definición de atributos asociados a cada entidad.<br>*TB2:*<br>- Generó consultas de los clientes según situación aleatoria en la que ocurra.<br>- Realizó una función que cubrió un determinado aspecto según los datos evaluados.<br>*TF1:*<br>- Realizó el desarrollo de validación de esquema en formato JSON, estructurando adecuadamente las colecciones generadas.<br>- Elaboró dos consultas en MongoDB para la base de datos no relacional. <br><br>Quispe Flores, Judith Xiomara<br> *TB1:*<br>- Desarrollo de la herramienta de gestión 5W y 2H.<br>- Realicé una entrevista al dueño de una mascota.<br>-Realice 3 User Stories.<br>*TP1:*<br>- Realizó el diagrama entidad-relación lógico y su código SQL.<br>*TB2:*<br>- Agregué información en la base de datos.<br>- Desarrollé 3 consultas y un procedimiento.<br>*TF1:*<br>- Realizó la evaluación y elección del sistema de gestión de base de datos no relacional.<br>- Agregó 2 consultas para la base de datos no relacional. <br><br>Riveros Vera, Jennifer Yamilet<br> *TB1:*<br>- Desarrollo de Lean UX Canvas para evidenciar la propuesta de valor centrada al usuario.<br>- Realización de una entrevista sobre el registro historial veterinario.<br>- Realización de 3 User Stories.<br>*TP1:*<br>- Realización de corrección de errores en requisitos y creación de no funcionales.<br>- Creación de diagrama .erd de entidad-relación físico y código sql.<br>*TB2:*<br>- Realización de la carga de datos.<br>- Desarrollo de consulta.<br>*TF1:*<br>- Realización de patrones de modelado de datos en base de datos NoSQL.<br>- Desarrollo de consultas en la base de datos no relacional. <br><br>Tintayo Pujaico, Adriano Martín<br> *TB1:*<br>- Delimitación y descripción de los segmentos objetivos.<br>- Realización de una entrevista a dueño de clínica veterinaria.<br>- Elaboración de 3 User Stories.<br>*TP1:*<br>- Realización de la evaluación y elección del sistema de gestión de base de datos relacional.<br>*TB2:*<br>-  Elaboración de tres consultas y un procedimiento para la base de datos relacional.<br>*TF1:*<br>- Definición de las colecciones Mascota y Consulta para la base de datos no relacional.<br>- Elaboración de dos consultas para la base de datos no relacional.<br><br>Vergaray Calderon, Rose Almendra<br> *TB1:*<br>- Elaboración del diseño de entrevistas.<br>- Redacción del análisis de entrevistas.<br>*TP1:*<br>- Participó en la identificación y definición de entidades del dominio del problema.<br>- Definió los atributos de cada entidad.<br>*TB2:*<br>- Implementó scripts SQL para crear tablas y cargó datos de prueba para validar la estructura de la base de datos.<br>- Desarrolló 3 consultas y una función con propósito claro para extraer información útil del sistema.<br>*TF1:*<br>- Diseñó el diagrama de documentos utilizando Hackolade.<br>- Desarrolló scripts de creación y carga de datos de la base de datos no relacional.<br>- Implementó consultas en MongoDB utilizando operadores del framework de agregación. | *TB1:*<br>- En esta etapa el equipo definió el contexto del proyecto mediante la elaboración del perfil del startup, la identificación de la problemática y el levantamiento de requerimientos a través de entrevistas. Esta etapa permitió fortalecer las habilidades de análisis de requerimientos y de investigación.<br><br>*TP1:*<br>- En esta etapa el equipo aplicó fundamentos de modelado de datos al identificar entidades y atributos. Asimismo, se utilizaron principios del enfoque relacional para construir el diagrama entidad–relación lógico y posteriormente el modelo físico, vinculando el diseño conceptual con la implementación. <br><br>*TB2:*<br>- El equipo aplicó de manera práctica los conocimientos de bases de datos al crear tablas, establecer relaciones y restricciones, cargar datos de prueba y desarrollar consultas SQL que permiten obtener información útil del sistema. <br><br>*TF:*<br>- El equipo investigó y aplicó nuevas tecnologías relacionadas con bases de datos NoSQL, particularmente MongoDB. La implementación de colecciones, validaciones de esquema, scripts de creación y consultas permitió aplicar conceptos teóricos en un contexto práctico. Esto fortaleció la capacidad del equipo para adquirir y aplicar nuevos conocimientos tecnológicos. |
+| **Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de tecnologías de ingeniería de software.** | Mitma Ayala, Cielo Anahí<br> *TB1:*<br>- Apliqué lo aprendido en otro curso para el desarrollo de los user stories y en que se basa la descripción de la startup<br>*TP1:*<br>- Reconoció la importancia de profundizar en el modelado conceptual de bases de datos.<br>*TB2:*<br>- Inducción a profundizar el tema en programación según funciones y datos que se va incorporando al sistema mediante consultas.<br>*TF1:*<br>- Reconoció la importancia de continuar profundizando en el uso de validaciones de esquemas y estructuras de datos en bases de datos NoSQL. <br><br>Quispe Flores, Judith Xiomara<br> *TB1:*<br>- Conocimiento adquirido de otros cursos, como el uso de User Stories y la herramienta 5W y 2H.*TP1:*<br>- A través del diseño e implementación del diagrama entidad-relación para el sistema, reconocí la necesidad de aprender nuevas técnicas de modelación de datos y herramientas con ERD Editor.<br>*TB2:*<br>- Logré implementar consultas que responden a necesidades reales y también desarrollé un procedimiento almacenado que genera recordatorios automáticos de vacunas próximas a vencer.<br>*TF1:*<br>- En la base de datos no relacional, desarrollé consultas para clasificar animales por tipo y enumerar a los veterinarios con mayor número de consultas, lo que facilita el análisis de la demanda y la evaluación de la carga de trabajo. También utilicé JSON Schema para asegurar la validez de los datos y empleé documentos integrados para mejorar el rendimiento. <br><br>Riveros Vera, Jennifer Yamilet<br> *TB1:*<br>- Se hizo revisión a la redacción de las User Stories y saber sus necesidades mediante entrevista.<br>- Aplicar feedback y ciclo de mejora mediante los requisitos.<br>*TP1:*<br>- Superé desafíos técnicos de organización en el visual studio liderando en la clarificación de esos problemas, además de que desarrolle un diagrama DER.<br>*TB2:*<br>- Logré desarrollar consultas a problemas cotidianos en respecto a nuestro sistema como contacto de emergencia, total de citas e historial de datos.<br>*TF1:*<br>- Identifiqué la importancia de seguir aprendiendo sobre patrones de modelado de datos en bases de datos NoSQL. <br><br>Tintayo Pujaico, Adriano Martín<br> *TB1:*<br>- Definición de los tipos de segmentos objetivos para la realización del proyecto.<br>*TP1:*<br>- Evaluación y elección del sistema de gestión de base de datos relacional sobre el proyecto.<br>*TB2:*<br>- Logré la implementación de consultas que responden a la problemática y un procedimiento para la consulta de citas por veterinario.<br>*TF1:*<br>- Logré la implementación de consultas para la base de datos NoSQL que responden a la problemática.<br><br>Vergaray Calderon, Rose Almendra<br> *TB1:*<br>- Integración de los hallazgos de entrevistas en análisis.<br>*TP1:*<br>- Reconoció la necesidad de fortalecer sus conocimientos en modelado de datos, especialmente en la correcta definición de entidades y atributos.<br>- Identificó el diseño de bases de datos como área de crecimiento profesional.<br>*TB2:*<br>- Reconoció que crear y probar consultas SQL requiere práctica para organizar datos correctamente.<br>- Identificó como área de crecimiento profesional mejorar la eficiencia en la manipulación de datos con SQL.<br>*TF1:*<br>- Reconoce la importancia de continuar fortaleciendo conocimientos en modelado de datos NoSQL, herramientas de visualización de estructuras de datos y desarrollo de consultas avanzadas en MongoDB. | *TB1:*<br>- El desarrollo de esta etapa evidenció la importancia del aprendizaje continuo para comprender adecuadamente el contexto del problema y las necesidades de los usuarios. La investigación del dominio, el análisis del segmento objetivo y la identificación de oportunidades de mejora permitieron al equipo reconocer áreas de crecimiento profesional relacionadas con el análisis de sistemas, investigación de usuarios y desarrollo de soluciones tecnológicas orientadas a resolver problemas reales.<br><br>*TP1:*<br>- El desarrollo del diseño de la base de datos permitió reconocer la necesidad de continuar fortaleciendo conocimientos en modelado de datos, arquitectura de información y diseño de sistemas de almacenamiento. Esta etapa motivó al equipo a profundizar en el estudio de tecnologías de bases de datos y metodologías de diseño que contribuyan a mejorar la calidad y eficiencia de futuras soluciones de software. <br><br>*TB2:*<br>- Al implementar la base de datos y construir consultas, el equipo identificó la importancia de practicar constantemente SQL y la gestión de datos. Se reconoció que mejorar la organización de la información y la eficiencia de las consultas es un aprendizaje continuo, fundamental para fortalecer habilidades en bases de datos y desarrollo de sistemas. <br><br>*TF:*<br>- La incorporación de tecnologías NoSQL permitió al equipo reconocer la importancia de mantenerse actualizado frente a las nuevas tendencias en sistemas de almacenamiento y procesamiento de datos. Este proceso reforzó la necesidad del aprendizaje permanente para adaptarse a distintos enfoques tecnológicos y seleccionar las herramientas más adecuadas según los requerimientos de cada proyecto. |
 
 <div style="page-break-after: always"></div>
 
@@ -3604,7 +3470,60 @@ db.CONSULTA.aggregate([
 
 <div style="page-break-after: always"></div>
 
-**
+**Mascotas con más de una consulta registrada**
+
+**Responsable:** Cielo Mitma
+
+Permite identificar qué mascotas han tenido más de una atención médica. Se utiliza $group para agrupar por mascota_id y contar el total de consultas. Luego $match filtra aquellas con más de una consulta. Finalmente, $sort organiza los resultados de mayor a menor cantidad de atenciones.
+
+```javascript
+db.CONSULTA.aggregate([
+{
+$group: {
+_id: "$mascota_id",
+total_consultas: { $sum: 1 },
+nombre: { $first: "$mascota_snapshot.nombre" },
+especie: { $first: "$mascota_snapshot.especie" }
+}
+},
+{
+$match: {
+total_consultas: { $gt: 1 }
+}
+},
+{
+$sort: { total_consultas: -1 }
+}
+])
+```
+
+![Mascotas con más de una consulta registrada](images/MásConsultasRegistradas.png)*Figura 45. Resultado de mascotas con más de una consulta registrada*
+
+<div style="page-break-after: always"></div>
+
+**Total de consultas por las especialidades de los veterinarios**
+
+**Responsable:** Cielo Mitma
+
+Muestra la cantidad total de consultas realizadas por cada especialidad médica. Se emplea $group para agrupar por veterinario_snapshot.especialidad y contar las atenciones. Luego $sort ordena los resultados de mayor a menor demanda.
+
+```javascript
+db.CONSULTA.aggregate([
+{
+$group: {
+_id: "$veterinario_snapshot.especialidad",
+total_consultas: { $sum: 1 }
+}
+},
+{
+$sort: { total_consultas: -1 }
+}
+])
+```
+
+![Total de consultas por las especialidades de los veterinarios](images/EspecialidadesVeterinarios.png)*Figura 46. Resultado de total de consultas por especialidad veterinaria*
+
+<div style="page-break-after: always"></div>
 
 # CONCLUSIONES
 
@@ -3640,4 +3559,5 @@ Ballarin, C. (2019). *Casi la mitad de hogares peruanos tienen una mascota*. Kan
 - Carpeta de archivos: [Google Drive](https://drive.google.com/drive/folders/1ysx7GtMfmhUFN9xITfBEGoUvXDckLpa5?usp=sharing)
 - Link de video del TP1: [Microsoft Stream](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241d159_upc_edu_pe/IQAxszfRY13hTYbBz2s3MiheATb0fIbwlpVDa8kWcb60vAI?e=RQgzfJ&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 [Youtube](https://youtu.be/G5ZFKfJF7Us)
-- Linl de video del TB2: [Youtube](https://youtu.be/6Auo5WNIjDM)
+- Link de video del TB2: [Youtube](https://youtu.be/6Auo5WNIjDM)
+- Link del video del TF: [Youtube](https://youtu.be/kkUxcR6PiqQ)
