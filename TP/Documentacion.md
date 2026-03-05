@@ -193,6 +193,8 @@ Afecta de manera directa al personal de la veterinaria: veterinarios, asistentes
 - ***¿Por qué y cómo?***  
 Esto se debe a la falta de un sistema integrado de base de datos que unifique y conecte los datos de mascotas, dueños, citas, tratamientos y promociones. Actualmente, la información se gestiona en formatos aislados y no estructurados, lo que dificulta su consulta, modificación y análisis. Como resultado, se producen fallos en las operaciones, se limita la capacidad de tomar decisiones basadas en datos y se reduce la calidad del servicio al cliente y la mascota.
 
+<div style="page-break-after: always"></div>
+
 ### 1.2.2 Propuesta de valor
 
 A continuación, presentaremos un Lean UX Canvas para la realización de esta sección.
@@ -200,6 +202,8 @@ A continuación, presentaremos un Lean UX Canvas para la realización de esta se
 ![Lean UX Canvas](images/LeanUXCanvas.png)*Figura 6. Lean UX Canvas*
 
 El Lean UX Canvas de DataSystem para Pet Care resume que el problema principal es la falta de centralización y consistencia en el historial clínico de las mascotas y los datos de sus dueños, lo que genera registros duplicados o incompletos y dificulta que el veterinario acceda rápido a información con contexto durante una consulta. Como usuarios se consideran únicamente el veterinario (quien registra y consulta la información médica) y el dueño de la mascota (beneficiario de una atención más ágil y confiable). Los resultados esperados del negocio son mejorar la continuidad y calidad de la atención, reducir errores de registro y habilitar fidelización mediante la identificación de dueños frecuentes y descuentos. La solución propuesta consiste en diseñar una base de datos híbrida (relacional para datos estructurados como dueños, mascotas, consultas y vacunas; y NoSQL para notas clínicas flexibles).
+
+<div style="page-break-after: always"></div>
 
 ## 1.3 Segmentos objetivo
 
@@ -430,6 +434,8 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 | US06 | Como dueño de mascota, **quiero** poder recibir recomendaciones preventivas personalizadas según la edad y el historial de mi mascota, **para** anticiparse a posibles problemas de salud. | Dado que el dueño dispone de poco tiempo para investigar sobre los cuidados necesarios de su mascota,<br><br>Cuando consulte el perfil médico de su mascota,<br><br>Entonces el sistema mostrará una lista de alimentación recomendada, rutinas de cuidado y controles preventivos sugeridos. | Prioridad: Could |
 | US07 | Como dueño de mascota, **quiero** poder compartir temporalmente el historial clínico de mi mascota con otra persona de confianza, **para** que pueda atenderla en caso de emergencia cuando yo no esté disponible. | Dado que el dueño no siempre podrá llevar personalmente a su mascota a consulta médica,<br><br>Cuando seleccione la opción “cambio temporal de tutor”,<br><br>Entonces el sistema permitirá compartir el historial clínico y generará una constancia digital del tutor autorizado. | Prioridad: Could |
 
+<div style="page-break-after: always"></div>
+
 **Tabla 9**
 *Historias de usuario del módulo de notificaciones y alertas*
 
@@ -446,6 +452,8 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 | User Story ID | Descripción | Criterios de aceptación | Prioridad |
 | --- | --- | --- | --- |
 | US12 | Como dueño de veterinaria, **quiero** tener organizada la información de los clientes y la frecuencia de las visitas a la clínica, **para** mejorar la organización de los servicios veterinarios. | Dado que se está registrando a un cliente nuevo.<br><br>Cuando el usuario intenta guardar el perfil sin un número telefónico válido.<br><br>Entonces el sistema debe mostrar un mensaje de error y no permitir el guardado hasta que la información sea correcta. | Prioridad: Should |
+
+<div style="page-break-after: always"></div>
 
 ### 2.2.2 No Funcionales
 
@@ -586,6 +594,8 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 | | fecha_registro | datetime | Fecha de registro del veterinario en el sistema |
 | FK | id_sede | int | Sede donde trabaja el veterinario |
 
+<div style="page-break-after: always"></div>
+
 **Tabla 18**
 *Atributos de la entidad Personal_no_veterinario*
 
@@ -615,6 +625,8 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 | | estado | varchar | Indica si el estado actual de la empresa |
 | | fecha_registro | datetime | Fecha de registro de la empresa en el sistema |
 
+<div style="page-break-after: always"></div>
+
 **Tabla 20**
 *Atributos de la entidad Sede*
 
@@ -638,6 +650,8 @@ A base de las entrevistas a dueños de mascotas y dueños de clínicas veterinar
 | | descripcion | varchar | Detalle de uso o función del área |
 | | capacidad | int | Capacidad máxima de mascotas que puede atender simultáneamente |
 | FK | id_sede | int | Sede a la que pertenece el área clínica |
+
+<div style="page-break-after: always"></div>
 
 **Tabla 22**
 *Atributos de la entidad Especialidad*
@@ -1063,6 +1077,8 @@ erDiagram
 	MOVIMIENTO_INVENTARIO }||--|| MEDICAMENTO : de
 ```
 
+<div style="page-break-after: always"></div>
+
 ### 3.3.2 Justificación del modelo entidad-relación lógico
 
 El modelo entidad–relación lógico fue construido a partir del análisis del dominio de la veterinaria, identificando los objetos principales del sistema y las relaciones que existen entre ellos. Se seleccionaron como entidades independientes aquellas estructuras que poseen identidad propia y atributos que dependen funcionalmente de su clave primaria, asegurando la integridad y coherencia del modelo.
@@ -1078,6 +1094,8 @@ En casos de relaciones muchos a muchos (N:M), como Mascota–Vacuna o Receta–M
 La entidad Historial Clínico se definió como un agregado lógico de consultas, diagnósticos, exámenes, recetas, cirugías y hospitalizaciones asociados a una mascota. No se modeló como entidad autónoma con atributos propios, ya que su información puede derivarse mediante consultas al sistema, evitando duplicación de datos y simplificando el diseño.
 
 El resto de entidades, como Veterinario, Personal_no_veterinario, Sede, Área_clínica, Servicio y Veterinaria, fueron modeladas con sus atributos y relaciones correspondientes para reflejar correctamente la estructura organizacional y operativa de la clínica, asegurando que cada evento, servicio o procedimiento quede correctamente registrado y vinculado a su contexto.
+
+<div style="page-break-after: always"></div>
 
 ### 3.3.3 Normalización del modelo relacional
 
@@ -1121,27 +1139,29 @@ En el modelo propuesto, los atributos no clave dependen únicamente de la clave 
 No se identifican casos en los que un atributo no clave determine a otro atributo no clave dentro de la misma relación. Además, los datos de entidades relacionadas no se encuentran duplicados, sino representados mediante claves foráneas, eliminando así posibles dependencias transitivas.
 Por tanto, todas las relaciones del modelo cumplen con la Tercera Forma Normal.
 
+<div style="page-break-after: always"></div>
+
 ## 3.4 Enfoque no relacional
 
 ### 3.4.1 Colecciones
 
-colección: CONSULTA
+#### <u>Colección: CONSULTA</u>
 
-En el modelo relacional, la tabla Consulta tiene columnas fijas, pero en la práctica, una consulta es una entidad dinámica. Dependiendo del motivo (chequeo de rutina, emergencia o especialidad), los datos recolectados varían regularmente.
+La colección Consulta representa cada atención médica realizada a una mascota y se modela como documento debido a su naturaleza dinámica. Dependiendo del motivo (chequeo de rutina, emergencia o especialidad), los datos recolectados varían regularmente.
 
-Al ser tratada como documento, la entidad puede almacenar diferentes campos según el contexto dado, por ejemplo, en una consulta dermatológica se registrarán tipos de lesiones a la piel, mientras que en una cardiológica se registrarán frecuencias cardiacas. Esta flexibilidad permite que la entidad cambie y crezca con nuevos tipos de diagnósticos o exámenes sin necesidad de modificar la estructura general de la base de datos.
+Al ser tratada como documento, la colección puede almacenar diferentes campos según el contexto dado, por ejemplo, en una consulta dermatológica se registrarán tipos de lesiones a la piel, mientras que en una cardiológica se registrarán frecuencias cardiacas. Esta flexibilidad permite que el documento cambie y crezca con nuevos tipos de diagnósticos o exámenes sin necesidad de modificar la estructura general de la base de datos.
 
-colección: MASCOTA
+#### <u>Colección: MASCOTA</u>
 
-La entidad Mascota ya tiene datos base, su historial de salud y características particulares la convierten en una entidad dinámica.
+La colección Mascota almacena los datos base del paciente con información clínica particular que puede variar entre individuos.
 
-Al ser tratada como documento, la entidad puede requerir albergar información muy distinta, por ejemplo, una lista de alergias, reacciones a medicamentos, o rasgos físicos particulares propios de cada mascota. Se  puede integrar toda la información relevante en un solo objeto, facilitando una lectura más eficiente y completa del perfil del paciente.
+Al ser tratada como documento, puede requerir albergar información muy distinta, por ejemplo, una lista de alergias, reacciones a medicamentos, o rasgos físicos particulares propios de cada mascota. Se puede integrar toda la información relevante en un solo objeto, facilitando una lectura más eficiente y completa del perfil del paciente.
+
+<div style="page-break-after: always"></div>
 
 ### 3.4.2 Patrones de modelo de datos
 
 Para el diseño de las colecciones se han empleado los siguientes patrones de diseño:
-
----
 
 #### <u>Embedded Document Pattern (Patrón de Documento Embebido)</u>
 
@@ -1149,11 +1169,9 @@ Para el diseño de las colecciones se han empleado los siguientes patrones de di
 - Colección **MASCOTA** (campos: `alergias`, `reacciones_medicamentos`, `rasgos_particulares`, `observaciones_clinicas`).
 - Colección **CONSULTA** (campos: `diagnosticos`, `examenes`, `tratamientos_receta`, `signos_vitales`, `observaciones`).
 
-En **MASCOTA**, la información clínica particular de cada paciente (alergias, reacciones y rasgos) se consulta normalmente junto al perfil de la mascota. Por ello, se modela como subdocumentos y arreglos embebidos dentro del documento principal para obtener una lectura completa en una sola operación.
+En la colección **MASCOTA**, la información clínica particular de cada paciente (alergias, reacciones y rasgos) se consulta normalmente junto al perfil de la mascota. Por ello, se modela como subdocumentos y arreglos embebidos dentro del documento principal para obtener una lectura completa en una sola operación.
 
-En **CONSULTA**, los diagnósticos, exámenes y tratamientos forman parte del contenido de la consulta y no tienen sentido fuera del contexto de esa atención. Embebarlos permite mantener la consulta completa y reduce múltiples lecturas o *joins*.
-
----
+En la colección **CONSULTA**, los diagnósticos, exámenes y tratamientos forman parte del contenido de la consulta y no tienen sentido fuera del contexto de esa atención. Embebidos permiten mantener la consulta completa y reduce múltiples lecturas o procesos de agregación como `$lookup`.
 
 #### <u>Subset Pattern (Patrón de Subconjunto)</u>
 
@@ -1163,22 +1181,20 @@ En **CONSULTA**, los diagnósticos, exámenes y tratamientos forman parte del co
 
 Para optimizar la lectura de pantallas comunes (listar mascotas o mostrar ficha rápida), se guarda un resumen pequeño de información relevante en el mismo documento.
 
-En **MASCOTA**, se almacena un subconjunto como estado actual (última consulta, alertas o controles sugeridos), evitando recalcularlo recorriendo todas las consultas cada vez.
+En la colección **MASCOTA**, se almacena un subconjunto como estado_actual (última consulta, alertas o controles sugeridos), evitando recalcularlo recorriendo todas las consultas cada vez.
 
-En **CONSULTA**, se puede guardar un *snapshot* mínimo (nombre de mascota o nombre del veterinario) además del **id**, para listar consultas rápidamente sin depender de cruces constantes con SQL Server.
+En la colección **CONSULTA**, se puede guardar un *snapshot* mínimo (nombre de mascota o nombre del veterinario) además del *id*, para listar consultas rápidamente sin depender de consultas adicionales a otras colecciones.
 
----
+<div style="page-break-after: always"></div>
 
 #### <u>Attribute Pattern (Patrón de Atributos)</u>
 
 **Aplicación:**
 - Colección **CONSULTA** (campo: `detalle` o `metadata_clinica`).
 
-Debido a que una consulta es dinámica y los datos varían según el motivo/especialidad (rutina, emergencia, dermatología, cardiología, etc.), se utiliza un campo tipo atributos donde se registran claves variables según el contexto clínico.
+DDebido a que una consulta es dinámica y los datos varían según el motivo/especialidad (rutina, emergencia, dermatología, cardiología, etc.), se utiliza un campo tipo atributos donde se registran claves variables según el contexto clínico.
 
 Esto permite que nuevos exámenes, mediciones o hallazgos se incorporen sin modificar la estructura global de la base de datos ni generar columnas vacías innecesarias.
-
----
 
 #### <u>Reference Pattern (Patrón de Referencia Estándar)</u>
 
@@ -1288,8 +1304,8 @@ La colección Consulta representa un documento dinámico cuyo contenido varía s
     }
   }
 }
-
 ```
+<div style="page-break-after: always"></div>
 
 - Schema para **MASCOTA**
 La colección Mascota almacena la información base del paciente veterinario junto con datos clínicos particulares.
@@ -1357,7 +1373,6 @@ La colección Mascota almacena la información base del paciente veterinario jun
     }
   }
 }
-
 ```
 
 <div style="page-break-after: always"></div>
@@ -1389,6 +1404,19 @@ Finalmente, su **escalabilidad** asegura que a medida que Pet Care tenga nuevas 
 
 ### 4.1.2 Evaluacion y elección del sistema de gestión de la base de datos no relacional
 
+Para la sección de gestión de base de datos que completará la solución de Pet Care, se evaluaron las tres opciones más representativas del mercado bajo los criterios de compatibilidad, rendimiento y escalabilidad. El objetivo es elegir una base de datos que pueda manejar de manera eficiente los datos semiestructurados y flexibles, como las observaciones clínicas detalladas, que no se ajustan perfectamente al esquema rígido de una base de datos relacional.
+
+**Tabla 39**
+*Evaluación y elección del sistema de gestión de base de datos no relacional*
+
+| Criterio | MongoDB | Cassandra | Redis |
+| --- | --- | --- | --- |
+| **Compatibilidad** | Almacena datos en BSON (JSON), permitiendo la integración directa con aplicaciones web y estructuras dinámicas de información clínica. | Modelo de columnas, ideal para consultas predefinidas pero poco flexible para cambios. | Estructura clave valor, excelente para datos simples pero compleja para manejar información jerárquica. |
+| **Rendimiento** | Alto rendimiento en lecturas/escrituras con indexación flexible que acelera búsquedas en historiales clínicos y observaciones. | Optimizado para escrituras masivas y rápidas, aunque las lecturas complejas pueden ser más lentas. | Extremadamente rápido en memoria, ideal para caché, pero limitado para almacenamiento persistente. |
+| **Escalabilidad** | Escalabilidad horizontal nativa mediante sharding automático. Permite crecimiento progresivo sin afectar la disponibilidad del servicio. | AEscalabilidad lineal casi perfecta, diseñada desde su origen para entornos distribuidos a gran escala. | Escalabilidad principalmente vertical. Distribuir la información entre servidores es complejo y costoso de implementar. |
+
+Luego del análisis, se determinó que **MongoDB** es la solución óptima para el proyecto Pet Care principalmente por su compatibilidad, ya que su formato BSON (JSON binario) permite una integración directa con el desarrollo de la aplicación y una representación natural de los datos semiestructurados presentes en los historiales clínicos. En cuanto a rendimiento, ofrece alta velocidad en lecturas y escrituras con formas flexibles de organizar y buscar información, lo que garantiza respuestas rápidas al consultar información clínica detallada. Finalmente, su capacidad de crecer horizontalmente distribuyendo los datos entre varios servidores asegura que la base de datos pueda crecer progresivamente a medida que la clínica expanda sus operaciones y aumente el volumen de datos, distribuyendo automáticamente la carga sin afectar la disponibilidad del servicio, protegiendo así la inversión a futuro.
+
 <div style="page-break-after: always"></div>
 
 ## 4.2 Diagrama de datos
@@ -1402,8 +1430,6 @@ Finalmente, su **escalabilidad** asegura que a medida que Pet Care tenga nuevas 
 ### 4.2.2 Diagrama de documentos
 
 ![Diagrama de documentos](images/diagramaDocumentos.png)*Figura 13. Diagrama de documentos*
-
-<div style="page-break-after: always"></div>
 
 ## 4.3 Scripts de la base de datos
 
@@ -1689,9 +1715,7 @@ CREATE TABLE RECETA_MEDICAMENTO (
   CONSTRAINT FK_RM_MEDICAMENTO
     FOREIGN KEY (id_medicamento) REFERENCES MEDICAMENTO(id_medicamento)
 );
-```
 
-```sql
 -- DATOS DE PRUEBA
 -- 1. VETERINARIA (Matriz)
 INSERT INTO VETERINARIA (nombre, ruc, direccion, telefono, email) VALUES 
@@ -3178,7 +3202,7 @@ SELECT * FROM dbo.fn_historial_clinico_mascota(1);
 
 **Responsable:** Rose Vergaray
 
-Proporciona un listado completo de todas las mascotas, mostrando información clínica relevante como alergias, reacciones a medicamentos, rasgos particulares, observaciones y estado de salud actual. Se utiliza $project para seleccionar los campos importantes y aplicar transformaciones, mientras que $dateToString convierte las fechas en un formato legible con hora. El $sort organiza los resultados alfabéticamente por nombre de mascota.
+Proporciona un listado completo de todas las mascotas, mostrando información clínica relevante como alergias, reacciones a medicamentos, rasgos particulares, observaciones y estado de salud actual. Se utiliza `$project` para seleccionar los campos importantes y aplicar transformaciones, mientras que `$dateToString` convierte las fechas en un formato legible con hora. El `$sort` organiza los resultados alfabéticamente por nombre de mascota.
 
 ```javascript
 db.MASCOTA.aggregate([
@@ -3214,7 +3238,7 @@ motivo: "$ultima_consulta_resumen.motivo"
 
 **Responsable:** Rose Vergaray
 
-Filtra las consultas realizadas para analizar la actividad clínica del mes. Se usa $match con los operadores $gte y $lte para definir el rango de fechas exacto. $project permite seleccionar los campos relevantes, y $dateToString transforma fecha_consulta en un formato legible con hora. $sort organiza los resultados cronológicamente, permitiendo analizar la secuencia de consultas de manera clara y contextualizada con el seguimiento clínico de cada mascota.
+Filtra las consultas realizadas para analizar la actividad clínica del mes. Se usa `$match` con los operadores `$gte` y `$lte` para definir el rango de fechas exacto. `$project` permite seleccionar los campos relevantes, y `$dateToString` transforma fecha_consulta en un formato legible con hora. `$sort` organiza los resultados cronológicamente, permitiendo analizar la secuencia de consultas de manera clara y contextualizada con el seguimiento clínico de cada mascota.
 
 ```javascript
 db.CONSULTA.aggregate([
@@ -3329,7 +3353,7 @@ db.CONSULTA.aggregate([
 **Responsable:** Jennifer Riveros
 
 Esta consulta permite analizar el estado de salud actual de las mascotas registradas en la clínica veterinaria.
-Se utiliza para agrupar los documentos según el campo estado actual, permitiendo contar cuántas mascotas se encuentran en cada condición médica y organiza los campos de salida para una mejor visualización y $sort ordena los resultados de mayor a menor cantidad, facilitando identificar los estados de salud más frecuentes.
+Se utiliza para agrupar los documentos según el campo estado actual, permitiendo contar cuántas mascotas se encuentran en cada condición médica y organiza los campos de salida para una mejor visualización y `$sort` ordena los resultados de mayor a menor cantidad, facilitando identificar los estados de salud más frecuentes.
 
 ```javascript
 db.MASCOTA.aggregate([
@@ -3350,7 +3374,6 @@ _id: 0
 $sort: { total_mascotas: -1 }
 }
 ])
-
 ```
 
 ![Mascotas registradas según estado de salud](images/Mascotasregistradas.png)*Figura 41. Resultado de Mascotas registradas según estado de salud*
@@ -3383,7 +3406,6 @@ _id: 0
 $sort: { total_consultas: -1 }
 }
 ])
-
 ```
 
 ![Consultas agrupadas por motivo](images/Consultas_por_motivo.png)*Figura 42. Resultado de Consultas agrupadas por motivo*
@@ -3424,7 +3446,6 @@ db.MASCOTA.aggregate([
     $sort: { especie: 1, nombre_paciente: 1 }
   }
 ])
-
 ```
 
 ![Reporte de mascotas con sensibilidad médica y alertas activas](images/Reporte_Mascotas_Sensibilida_Alerta.png)*Figura 43. Resultado de Reporte de mascotas*
@@ -3463,7 +3484,6 @@ db.CONSULTA.aggregate([
     $sort: { total_alertas: -1 }
   }
 ])
-
 ```
 
 ![Análisis de consultas con alertas por signos vitales críticos en pacientes](images/Analisis_Consulta_Alerta.png)*Figura 44. Resultado de Análisis de consultas con alertas por signos vitales*
@@ -3474,7 +3494,7 @@ db.CONSULTA.aggregate([
 
 **Responsable:** Cielo Mitma
 
-Permite identificar qué mascotas han tenido más de una atención médica. Se utiliza $group para agrupar por mascota_id y contar el total de consultas. Luego $match filtra aquellas con más de una consulta. Finalmente, $sort organiza los resultados de mayor a menor cantidad de atenciones.
+Permite identificar qué mascotas han tenido más de una atención médica. Se utiliza `$group` para agrupar por mascota_id y contar el total de consultas. Luego `$match` filtra aquellas con más de una consulta. Finalmente, `$sort` organiza los resultados de mayor a menor cantidad de atenciones.
 
 ```javascript
 db.CONSULTA.aggregate([
@@ -3505,7 +3525,7 @@ $sort: { total_consultas: -1 }
 
 **Responsable:** Cielo Mitma
 
-Muestra la cantidad total de consultas realizadas por cada especialidad médica. Se emplea $group para agrupar por veterinario_snapshot.especialidad y contar las atenciones. Luego $sort ordena los resultados de mayor a menor demanda.
+Muestra la cantidad total de consultas realizadas por cada especialidad médica. Se emplea `$group` para agrupar por veterinario_snapshot.especialidad y contar las atenciones. Luego `$sort` ordena los resultados de mayor a menor demanda.
 
 ```javascript
 db.CONSULTA.aggregate([
