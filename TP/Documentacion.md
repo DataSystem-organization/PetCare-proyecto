@@ -3524,8 +3524,100 @@ $sort: { total_consultas: -1 }
 
 <div style="page-break-after: always"></div>
 
+**Reporte de mascotas con sensibilidad médica y alertas activas**
+
+**Responsable:** Adriano Tintayo
+
+Permite obtener un listado de las mascotas que tienen riesgos (alergias o reacciones a medicamentos), mostrando su peso actual y el motivo de su última visita. Esta consulta es útil para que el veterinario sepa qué cuidados especiales tener antes de una intervención.
+
+
+```javascript
+db.MASCOTA.aggregate([
+  {
+    $match: {
+      $or: [
+        { "alergias": { $exists: true, $ne: [] } },
+        { "reacciones_medicamentos": { $exists: true, $ne: [] } }
+      ]
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      nombre_paciente: "$nombre",
+      especie: 1,
+      riesgos_medicos: {
+        alergias: "$alergias",
+        reacciones: "$reacciones_medicamentos"
+      },
+      alerta_actual: "$estado_actual.alerta",
+      peso_registrado: "$estado_actual.peso",
+      ultima_visita_por: "$ultima_consulta_resumen.motivo"
+    }
+  },
+  {
+    $sort: { especie: 1, nombre_paciente: 1 }
+  }
+])
+
+```
+
+![Reporte de mascotas con sensibilidad médica y alertas activas](images/Reporte_Mascotas_Sensibilida_Alerta.png)*Figura 43. Resultado de Reporte de mascotas*
+
+<div style="page-break-after: always"></div>
+
+**Análisis de consultas con alertas por signos vitales críticos en pacientes**
+
+**Responsable:** Adriano Tintayo
+
+Esta consulta filtra las consultas donde se registraron signos vitales fuera de los rangos normales, agrupa los resultados por el motivo de la visita y muestra los diagnósticos asociados. Es una consulta de control médico preventivo.
+
+
+```javascript
+db.CONSULTA.aggregate([
+  {
+    $match: {
+      "signos_vitales.temperatura": { $gt: 39.5 }
+    }
+  },
+  {
+    $group: {
+      _id: "$motivo",
+      cantidad_casos_fiebre: { $sum: 1 },
+      diagnosticos_observados: { $push: "$diagnosticos" }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      motivo_consulta: "$_id",
+      total_alertas: "$cantidad_casos_fiebre",
+      lista_diagnosticos: "$diagnosticos_observados"
+    }
+  },
+  {
+    $sort: { total_alertas: -1 }
+  }
+])
+
+```
+
+![Análisis de consultas con alertas por signos vitales críticos en pacientes](images/Analisis_Consulta_Alerta.png)*Figura 44. Resultado de Análisis de consultas con alertas por signos vitales*
+
+<div style="page-break-after: always"></div>
 
 # CONCLUSIONES
+
+- La implementación del sistema permitió centralizar la información de la clínica, reduciendo la redundancia de datos y mejorando la organización operativa, tanto en el esquema relacional como en el no relacional.
+
+- La digitalización de los procesos administrativos y médicos optimiza los tiempos de atención, disminuye errores manuales y mejora la experiencia tanto del cliente como del personal de la clínica.
+
+- La implementación de una base de datos relacional (SQL Server) garantiza la integridad referencial entre entidades, asegurando consistencia y confiabilidad en el manejo de la información.
+
+- La base de datos NoSQL (MongoDB) permite un manejo flexible de documentos, con la posibilidad de almacenar información clínica compleja y variable, sin necesidad de normalización estricta. Esto facilita la consulta rápida de información y la adaptación a cambios en los datos.
+
+- El sistema desarrollado demuestra cómo una correcta estructuración de bases de datos relacionales y no relacionales, junto con consultas bien diseñadas (.find() y .aggregate() en MongoDB, SQL en SQL Server), fortalece la gestión interna, el control operativo y la calidad del servicio en una clínica veterinaria.
+
 
 # RECOMENDACIONES
 
