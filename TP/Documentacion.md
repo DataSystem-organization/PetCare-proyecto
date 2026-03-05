@@ -1402,6 +1402,8 @@ En términos de **rendimiento**, SQL Server garantiza que las búsquedas y el pr
 
 Finalmente, su **escalabilidad** asegura que a medida que Pet Care tenga nuevas oficinas, la base de datos podrá migrar a versiones más potentes o a la nube sin reescribir la estructura lógica, protegiendo la inversión en tecnología de la startup.
 
+<div style="page-break-after: always"></div>
+
 ### 4.1.2 Evaluacion y elección del sistema de gestión de la base de datos no relacional
 
 Para la sección de gestión de base de datos que completará la solución de Pet Care, se evaluaron las tres opciones más representativas del mercado bajo los criterios de compatibilidad, rendimiento y escalabilidad. El objetivo es elegir una base de datos que pueda manejar de manera eficiente los datos semiestructurados y flexibles, como las observaciones clínicas detalladas, que no se ajustan perfectamente al esquema rígido de una base de datos relacional.
